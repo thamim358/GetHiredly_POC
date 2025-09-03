@@ -1,13 +1,12 @@
 '''
-Author:     Sai Vignesh Golla
-LinkedIn:   https://www.linkedin.com/in/saivigneshgolla/
+Author:     Thamim ansari
+LinkedIn:   https://www.linkedin.com/in/thamim358/
 
-Copyright (C) 2024 Sai Vignesh Golla
+Copyright (C) 2024 Thamim ansari
 
-License:    GNU Affero General Public License
-            https://www.gnu.org/licenses/agpl-3.0.en.html
+
             
-GitHub:     https://github.com/GodsScion/Auto_job_applier_linkedIn
+
 
 version:    24.12.29.12.30
 '''
@@ -18,6 +17,9 @@ import os
 import csv
 import re
 import pyautogui
+import pandas as pd
+from openpyxl import load_workbook
+import time
 
 # Set CSV field size limit to prevent field size errors
 csv.field_size_limit(1000000)  # Set to 1MB instead of default 131KB
@@ -157,16 +159,18 @@ def login_LN() -> None:
 def get_applied_job_ids() -> set:
     '''
     Function to get a `set` of applied job's Job IDs
-    * Returns a set of Job IDs from existing applied jobs history csv file
+    * Returns a set of Job IDs from existing applied jobs history Excel file
     '''
     job_ids = set()
     try:
-        with open(file_name, 'r', encoding='utf-8') as file:
-            reader = csv.reader(file)
-            for row in reader:
-                job_ids.add(row[0])
-    except FileNotFoundError:
-        print_lg(f"The CSV file '{file_name}' does not exist.")
+        if os.path.exists(file_name):
+            df = pd.read_excel(file_name)
+            if 'Job ID' in df.columns:
+                job_ids = set(df['Job ID'].astype(str))
+        else:
+            print_lg(f"The Excel file '{file_name}' does not exist.")
+    except Exception as e:
+        print_lg(f"Error reading Excel file '{file_name}': {e}")
     return job_ids
 
 
@@ -789,15 +793,36 @@ def follow_company(modal: WebDriver = driver) -> None:
 #< Failed attempts logging
 def failed_job(job_id: str, job_link: str, resume: str, date_listed, error: str, exception: Exception, application_link: str, screenshot_name: str) -> None:
     '''
-    Function to update failed jobs list in excel
+    Function to update failed jobs list in Excel
     '''
     try:
-        with open(failed_file_name, 'a', newline='', encoding='utf-8') as file:
-            fieldnames = ['Job ID', 'Job Link', 'Resume Tried', 'Date listed', 'Date Tried', 'Assumed Reason', 'Stack Trace', 'External Job link', 'Screenshot Name']
-            writer = csv.DictWriter(file, fieldnames=fieldnames)
-            if file.tell() == 0: writer.writeheader()
-            writer.writerow({'Job ID':truncate_for_csv(job_id), 'Job Link':truncate_for_csv(job_link), 'Resume Tried':truncate_for_csv(resume), 'Date listed':truncate_for_csv(date_listed), 'Date Tried':datetime.now(), 'Assumed Reason':truncate_for_csv(error), 'Stack Trace':truncate_for_csv(exception), 'External Job link':truncate_for_csv(application_link), 'Screenshot Name':truncate_for_csv(screenshot_name)})
-            file.close()
+        # Prepare data for Excel
+        data = {
+            'Job ID': truncate_for_csv(job_id),
+            'Job Link': truncate_for_csv(job_link),
+            'Resume Tried': truncate_for_csv(resume),
+            'Date listed': truncate_for_csv(date_listed),
+            'Date Tried': datetime.now(),
+            'Assumed Reason': truncate_for_csv(error),
+            'Stack Trace': truncate_for_csv(exception),
+            'External Job link': truncate_for_csv(application_link),
+            'Screenshot Name': truncate_for_csv(screenshot_name)
+        }
+        
+        # Check if file exists
+        if os.path.exists(failed_file_name):
+            # Load existing Excel file
+            df_existing = pd.read_excel(failed_file_name)
+            # Create new row DataFrame
+            df_new = pd.DataFrame([data])
+            # Concatenate and save
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+            df_combined.to_excel(failed_file_name, index=False)
+        else:
+            # Create new Excel file
+            df = pd.DataFrame([data])
+            df.to_excel(failed_file_name, index=False)
+            
     except Exception as e:
         print_lg("Failed to update failed jobs list!", e)
         pyautogui.alert("Failed to update the excel of failed jobs!\nProbably because of 1 of the following reasons:\n1. The file is currently open or in use by another program\n2. Permission denied to write to the file\n3. Failed to find the file", "Failed Logging")
@@ -818,24 +843,102 @@ def screenshot(driver: WebDriver, job_id: str, failedAt: str) -> str:
 
 
 
+def extract_hr_email(hr_link: str) -> str:
+    '''
+    Function to extract HR email from LinkedIn profile
+    '''
+    try:
+        if hr_link and hr_link != 'Unknown' and 'linkedin.com' in hr_link:
+            # Switch to a new tab to check HR profile
+            original_tab = driver.current_window_handle
+            driver.execute_script("window.open('');")
+            driver.switch_to.window(driver.window_handles[-1])
+            
+            driver.get(hr_link)
+            time.sleep(2)
+            
+            # Look for contact info section
+            try:
+                contact_info_button = driver.find_element(By.XPATH, "//a[contains(@href, '/in/') and contains(@href, '/overlay/contact-info/')]")
+                contact_info_button.click()
+                time.sleep(2)
+                
+                # Look for email in contact info
+                email_elements = driver.find_elements(By.XPATH, "//a[contains(@href, 'mailto:')]")
+                if email_elements:
+                    email = email_elements[0].get_attribute('href').replace('mailto:', '')
+                    driver.close()
+                    driver.switch_to.window(original_tab)
+                    return email
+            except:
+                pass
+            
+            # Close the tab and return to original
+            driver.close()
+            driver.switch_to.window(original_tab)
+            return 'Not Available'
+        else:
+            return 'Unknown'
+    except Exception as e:
+        print_lg(f"Error extracting HR email: {e}")
+        try:
+            driver.close()
+            driver.switch_to.window(original_tab)
+        except:
+            pass
+        return 'Error'
+
+
 def submitted_jobs(job_id: str, title: str, company: str, work_location: str, work_style: str, description: str, experience_required: int | Literal['Unknown', 'Error in extraction'], 
                    skills: list[str] | Literal['In Development'], hr_name: str | Literal['Unknown'], hr_link: str | Literal['Unknown'], resume: str, 
                    reposted: bool, date_listed: datetime | Literal['Unknown'], date_applied:  datetime | Literal['Pending'], job_link: str, application_link: str, 
                    questions_list: set | None, connect_request: Literal['In Development']) -> None:
     '''
-    Function to create or update the Applied jobs CSV file, once the application is submitted successfully
+    Function to create or update the Applied jobs Excel file, once the application is submitted successfully
     '''
     try:
-        with open(file_name, mode='a', newline='', encoding='utf-8') as csv_file:
-            fieldnames = ['Job ID', 'Title', 'Company', 'Work Location', 'Work Style', 'About Job', 'Experience required', 'Skills required', 'HR Name', 'HR Link', 'Resume', 'Re-posted', 'Date Posted', 'Date Applied', 'Job Link', 'External Job link', 'Questions Found', 'Connect Request']
-            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            if csv_file.tell() == 0: writer.writeheader()
-            writer.writerow({'Job ID':truncate_for_csv(job_id), 'Title':truncate_for_csv(title), 'Company':truncate_for_csv(company), 'Work Location':truncate_for_csv(work_location), 'Work Style':truncate_for_csv(work_style), 
-                            'About Job':truncate_for_csv(description), 'Experience required': truncate_for_csv(experience_required), 'Skills required':truncate_for_csv(skills), 
-                                'HR Name':truncate_for_csv(hr_name), 'HR Link':truncate_for_csv(hr_link), 'Resume':truncate_for_csv(resume), 'Re-posted':truncate_for_csv(reposted), 
-                                'Date Posted':truncate_for_csv(date_listed), 'Date Applied':truncate_for_csv(date_applied), 'Job Link':truncate_for_csv(job_link), 
-                                'External Job link':truncate_for_csv(application_link), 'Questions Found':truncate_for_csv(questions_list), 'Connect Request':truncate_for_csv(connect_request)})
-        csv_file.close()
+        # Extract HR email
+        hr_email = extract_hr_email(hr_link)
+        
+        # Prepare data for Excel
+        data = {
+            'Job ID': truncate_for_csv(job_id),
+            'Title': truncate_for_csv(title),
+            'Company': truncate_for_csv(company),
+            'Work Location': truncate_for_csv(work_location),
+            'Work Style': truncate_for_csv(work_style),
+            'About Job': truncate_for_csv(description),
+            'Experience required': truncate_for_csv(experience_required),
+            'Skills required': truncate_for_csv(skills),
+            'HR Name': truncate_for_csv(hr_name),
+            'HR Link': truncate_for_csv(hr_link),
+            'HR Email': hr_email,
+            'Resume': truncate_for_csv(resume),
+            'Re-posted': truncate_for_csv(reposted),
+            'Date Posted': truncate_for_csv(date_listed),
+            'Date Applied': truncate_for_csv(date_applied),
+            'Job Link': truncate_for_csv(job_link),
+            'External Job link': truncate_for_csv(application_link),
+            'Questions Found': truncate_for_csv(questions_list),
+            'Connect Request': truncate_for_csv(connect_request)
+        }
+        
+        # Check if file exists
+        if os.path.exists(file_name):
+            # Load existing Excel file
+            df_existing = pd.read_excel(file_name)
+            # Create new row DataFrame
+            df_new = pd.DataFrame([data])
+            # Concatenate and save
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+            df_combined.to_excel(file_name, index=False)
+        else:
+            # Create new Excel file
+            df = pd.DataFrame([data])
+            df.to_excel(file_name, index=False)
+            
+        print_lg(f"Successfully saved job application to Excel: {title} at {company}")
+        
     except Exception as e:
         print_lg("Failed to update submitted jobs list!", e)
         pyautogui.alert("Failed to update the excel of applied jobs!\nProbably because of 1 of the following reasons:\n1. The file is currently open or in use by another program\n2. Permission denied to write to the file\n3. Failed to find the file", "Failed Logging")
@@ -1134,9 +1237,22 @@ def main() -> None:
             useNewResume = False
         
         # Login to LinkedIn
+        print_lg("Attempting to navigate to LinkedIn login page...")
         tabs_count = len(driver.window_handles)
-        driver.get("https://www.linkedin.com/login")
-        if not is_logged_in_LN(): login_LN()
+        print_lg(f"Current number of browser tabs: {tabs_count}")
+        
+        try:
+            driver.get("https://www.linkedin.com/login")
+            print_lg("Successfully navigated to LinkedIn login page!")
+        except Exception as e:
+            print_lg(f"Failed to navigate to LinkedIn: {e}")
+            raise e
+            
+        if not is_logged_in_LN(): 
+            print_lg("Not logged in to LinkedIn, attempting login...")
+            login_LN()
+        else:
+            print_lg("Already logged in to LinkedIn!")
         
         linkedIn_tab = driver.current_window_handle
 
@@ -1214,7 +1330,7 @@ def main() -> None:
             "Obstacles are those frightful things you see when you take your eyes off your goal. - Henry Ford",
             "The only limit to our realization of tomorrow will be our doubts of today. - Franklin D. Roosevelt"
             ])
-        msg = f"\n{quote}\n\n\nBest regards,\nSai Vignesh Golla\nhttps://www.linkedin.com/in/saivigneshgolla/\n\n"
+        msg = f"\n{quote}\n\n\nBest regards,\nThamim ansari\nhttps://www.linkedin.com/in/thamim358/\n\n"
         pyautogui.alert(msg, "Exiting..")
         print_lg(msg,"Closing the browser...")
         if tabs_count >= 10:

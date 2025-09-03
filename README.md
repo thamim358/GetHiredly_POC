@@ -163,7 +163,7 @@ Once your code is tested, your changes will be merged to the `main` branch in ne
   2. Examples for proper attestation:
   New feature example
   ```python
-  ##> ------ Sai Vignesh Golla : godsscion - Feature ------
+  ##> ------ Thamim ansari : godsscion - Feature ------
   def alert_box(title: str, message: str) -> None:
     '''
     Shows an alert box with the given `title` and `message`.
@@ -182,7 +182,7 @@ Once your code is tested, your changes will be merged to the `main` branch in ne
     '''
     from pyautogui import alert
 
-  ##> ------ Sai Vignesh Golla : saivigneshgolla@outlook.com - Bug fix ------
+  ##> ------ Thamim ansari : saivigneshgolla@outlook.com - Bug fix ------
     return alert(message, title)
   ##<
   ```
@@ -272,7 +272,7 @@ By doing so, you can empower others in their job hunt, just as you've been empow
 As an independent developer, I pour my heart and soul into creating tools like this, driven by the genuine desire to make a positive impact. Your support, whether through donations or simply spreading the word, means the world to me and helps keep this project alive and thriving.
 
 You can connect and reach me out at:
-- LinkedIn  :  https://www.linkedin.com/in/saivigneshgolla/
+- LinkedIn  :  https://www.linkedin.com/in/thamim358/
 - Email     :  saivigneshgolla@outlook.com
 
 <br>
@@ -280,7 +280,7 @@ You can connect and reach me out at:
 Thank you for being part of this journey, and remember that together, we can make a real difference in the lives of job seekers worldwide.
 
 With heartfelt appreciation, <br>
-**Sai Vignesh Golla**
+**Thamim ansari**
 
 <br>
 <br>
@@ -378,7 +378,7 @@ Please consider the following:
 
 ## ⚖️ License
 
-Copyright (C) 2024 Sai Vignesh Golla  <saivigneshgolla@outlook.com>
+Copyright (C) 2024 Thamim ansari  <saivigneshgolla@outlook.com>
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -396,7 +396,7 @@ See [AGPLv3 LICENSE](LICENSE) for more info.
 <br>
 
 ## 🐧 Socials
-- **LinkedIn** : https://www.linkedin.com/in/saivigneshgolla/
+- **LinkedIn** : https://www.linkedin.com/in/thamim358/
 - **Email**    : saivigneshgolla@outlook.com
 - **X/Twitter**: https://x.com/gods_scion
 - **Discord**  : godsscion

@@ -1,13 +1,12 @@
 '''
-Author:     Sai Vignesh Golla
-LinkedIn:   https://www.linkedin.com/in/saivigneshgolla/
+Author:     Thamim ansari
+LinkedIn:   https://www.linkedin.com/in/thamim358/
 
-Copyright (C) 2024 Sai Vignesh Golla
+Copyright (C) 2024 Thamim ansari
 
-License:    GNU Affero General Public License
-            https://www.gnu.org/licenses/agpl-3.0.en.html
+
             
-GitHub:     https://github.com/GodsScion/Auto_job_applier_linkedIn
+
 
 version:    24.12.29.12.30
 '''
@@ -18,7 +17,7 @@ version:    24.12.29.12.30
 # >>>>>>>>>>> LinkedIn Settings <<<<<<<<<<<
 
 # Keep the External Application tabs open?
-close_tabs = False                  # True or False, Note: True or False are case-sensitive
+close_tabs = True                  # True or False, Note: True or False are case-sensitive
 '''
 Note: RECOMMENDED TO LEAVE IT AS `True`, if you set it `False`, be sure to CLOSE ALL TABS BEFORE CLOSING THE BROWSER!!!
 '''
@@ -34,7 +33,7 @@ follow_companies = False            # True or False, Note: True or False are cas
 # connect_request_message = ""       # Leave Empty to send connection request without personalized invitation (recommended to leave it empty, since you only get 10 per month without LinkedIn Premium*)
 
 # Do you want the program to run continuously until you stop it? (Beta)
-run_non_stop = False                # True or False, Note: True or False are case-sensitive
+run_non_stop = True                # True or False, Note: True or False are case-sensitive
 '''
 Note: Will be treated as False if `run_in_background = True`
 '''
@@ -58,24 +57,24 @@ generated_resume_path = "all resumes/" # (In Development)
 # >>>>>>>>>>> Global Settings <<<<<<<<<<<
 
 # Directory and name of the files where history of applied jobs is saved (Sentence after the last "/" will be considered as the file name).
-file_name = "all excels/all_applied_applications_history.csv"
-failed_file_name = "all excels/all_failed_applications_history.csv"
+file_name = "all excels/all_applied_applications_history.xlsx"
+failed_file_name = "all excels/all_failed_applications_history.xlsx"
 logs_folder_path = "logs/"
 
 # Set the maximum amount of time allowed to wait between each click in secs
-click_gap = 0                       # Enter max allowed secs to wait approximately. (Only Non Negative Integers Eg: 0,1,2,3,....)
+click_gap = 1                       # Enter max allowed secs to wait approximately. (Only Non Negative Integers Eg: 0,1,2,3,....)
 
 # If you want to see Chrome running then set run_in_background as False (May reduce performance). 
 run_in_background = False           # True or False, Note: True or False are case-sensitive ,   If True, this will make pause_at_failed_question, pause_before_submit and run_in_background as False
 
 # If you want to disable extensions then set disable_extensions as True (Better for performance)
-disable_extensions = False          # True or False, Note: True or False are case-sensitive
+disable_extensions = True          # True or False, Note: True or False are case-sensitive
 
 # Run in safe mode. Set this true if chrome is taking too long to open or if you have multiple profiles in browser. This will open chrome in guest profile!
-safe_mode = True                   # True or False, Note: True or False are case-sensitive
+safe_mode = False                   # True or False, Note: True or False are case-sensitive
 
 # Do you want scrolling to be smooth or instantaneous? (Can reduce performance if True)
-smooth_scroll = False               # True or False, Note: True or False are case-sensitive
+smooth_scroll = True               # True or False, Note: True or False are case-sensitive
 
 # If enabled (True), the program would keep your screen active and prevent PC from sleeping. Instead you could disable this feature (set it to false) and adjust your PC sleep settings to Never Sleep or a preferred time. 
 keep_screen_awake = True            # True or False, Note: True or False are case-sensitive (Note: Will temporarily deactivate when any application dialog boxes are present (Eg: Pause before submit, Help needed for a question..))
@@ -112,6 +111,6 @@ As an independent developer, I pour my heart and soul into creating tools like t
 Your support, whether through donations big or small or simply spreading the word, means the world to me and helps keep this project alive and thriving.
 
 Gratefully yours 🙏🏻,
-Sai Vignesh Golla
+Thamim ansari
 '''
 ############################################################################################################
