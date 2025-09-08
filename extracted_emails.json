@@ -1,5 +1,10 @@
 {
   "emails": [],
   "total_count": 0,
-  "last_updated": "2025-09-08 13:06:44"
+  "emails_sent": 0,
+  "emails_failed": 0,
+  "posts_processed": 13,
+  "success_rate": 0,
+  "last_updated": "2025-09-08 15:30:45",
+  "timestamp": "2025-09-08T15:30:45.324260"
 }

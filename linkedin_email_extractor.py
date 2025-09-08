@@ -84,6 +84,7 @@ try:
     from selenium.webdriver.support import expected_conditions as EC
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.chrome.service import Service
     from selenium.common.exceptions import NoSuchElementException, TimeoutException
 except ImportError:
     print("Error: Selenium is not installed. Please install it using: pip install selenium")
@@ -104,6 +105,9 @@ class LinkedInEmailExtractor:
         self.driver = None
         self.wait = None
         
+        # Load job configuration from dashboard if available
+        self.load_job_configuration()
+        
         # Use configuration from email_config.py or fallback values
         self.SMTP_SERVER = SMTP_SERVER if 'SMTP_SERVER' in globals() else "smtp.gmail.com"
         self.SMTP_PORT = SMTP_PORT if 'SMTP_PORT' in globals() else 587
@@ -111,7 +115,7 @@ class LinkedInEmailExtractor:
         self.SENDER_PASSWORD = SENDER_PASSWORD if 'SENDER_PASSWORD' in globals() else "fjld gcow xequ fhgp"
         
         # Job search configuration
-        self.search_terms = SEARCH_TERMS if 'SEARCH_TERMS' in globals() else ["React Developer", "Frontend Developer"]
+        self.search_terms = SEARCH_TERMS if 'SEARCH_TERMS' in globals() else ["React js Developer", "Frontend Developer"]
         self.location = SEARCH_LOCATION if 'SEARCH_LOCATION' in globals() else "India"
         
         # Email template
@@ -147,6 +151,53 @@ class LinkedInEmailExtractor:
         # Store extracted emails to avoid duplicates
         self.extracted_emails: Set[str] = set()
         self.sent_emails: Set[str] = self.load_sent_emails()
+        
+        # Load job configuration from dashboard (must be called after setting default values)
+        self.load_job_configuration()
+
+    def load_job_configuration(self):
+        """Load job configuration from dashboard if available"""
+        try:
+            # Check for job configuration from dashboard
+            if os.path.exists('temp_job_config.json'):
+                with open('temp_job_config.json', 'r') as f:
+                    job_config = json.load(f)
+                    
+                print(f"🎯 Loading job configuration from dashboard...")
+                print(f"📝 Job Role: {job_config.get('subject', 'Unknown role')}")
+                
+                # Update instance variables with job-specific configuration
+                if 'subject' in job_config:
+                    self.SUBJECT = job_config['subject']
+                    print(f"✉️ Email Subject: {self.SUBJECT}")
+                
+                if 'email_body' in job_config:
+                    self.BODY_HTML = job_config['email_body']
+                    print(f"📄 Email Body: Updated to role-specific template")
+                
+                if 'search_terms' in job_config:
+                    self.search_terms = job_config['search_terms']
+                    print(f"🔍 Search Terms: {self.search_terms}")
+                
+                if 'resume_file' in job_config:
+                    self.ATTACHMENT_PATH = job_config['resume_file']
+                    print(f"📎 Resume File: {self.ATTACHMENT_PATH}")
+                
+                # Also update global variables for compatibility
+                global EMAIL_SUBJECT, EMAIL_BODY, SEARCH_TERMS, RESUME_FILE
+                EMAIL_SUBJECT = self.SUBJECT
+                EMAIL_BODY = self.BODY_HTML
+                SEARCH_TERMS = self.search_terms
+                RESUME_FILE = self.ATTACHMENT_PATH
+                
+                print(f"✅ Job configuration loaded successfully!")
+                
+                # Clean up the temp file
+                os.remove('temp_job_config.json')
+                
+        except Exception as e:
+            print(f"⚠️ Could not load job configuration: {e}")
+            print("📋 Using default configuration...")
 
     def load_sent_emails(self) -> Set[str]:
         """Load previously sent emails from CSV file"""
@@ -164,6 +215,26 @@ class LinkedInEmailExtractor:
     def setup_driver(self):
         """Setup Chrome WebDriver with same options as runAiBot"""
         try:
+            # Try different ChromeDriver paths
+            chromedriver_paths = [
+                "setup/chromedriver/chromedriver.exe",
+                "setup\\chromedriver\\chromedriver.exe",
+                "chromedriver.exe",
+                "./setup/chromedriver/chromedriver.exe"
+            ]
+            
+            service = None
+            for path in chromedriver_paths:
+                if os.path.exists(path):
+                    service = Service(path)
+                    print_lg(f"✅ Found ChromeDriver at: {path}")
+                    break
+            
+            if not service:
+                # Try using system PATH
+                print_lg("⚠️ ChromeDriver not found in local paths, trying system PATH...")
+                service = Service()
+            
             options = Options()
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
@@ -174,14 +245,19 @@ class LinkedInEmailExtractor:
             options.add_argument("--disable-backgrounding-occluded-windows")
             options.add_argument("--disable-renderer-backgrounding")
             
-            self.driver = webdriver.Chrome(options=options)
+            print_lg("🚀 Starting Chrome WebDriver...")
+            self.driver = webdriver.Chrome(service=service, options=options)
             self.wait = WebDriverWait(self.driver, 20)
-            print_lg("WebDriver setup completed successfully!")
+            print_lg("✅ WebDriver setup completed successfully!")
             buffer(1)
             
         except Exception as e:
-            logging.error(f"Failed to setup WebDriver: {e}")
-            print_lg(f"Failed to setup WebDriver: {e}")
+            logging.error(f"❌ Failed to setup WebDriver: {e}")
+            print_lg(f"❌ Failed to setup WebDriver: {e}")
+            print_lg("💡 Troubleshooting tips:")
+            print_lg("   1. Make sure Chrome browser is installed")
+            print_lg("   2. Check if ChromeDriver exists in setup/chromedriver/")
+            print_lg("   3. Verify ChromeDriver version matches Chrome version")
             raise e
 
     def is_logged_in_LN(self) -> bool:
@@ -280,7 +356,8 @@ class LinkedInEmailExtractor:
         try:
             # Use LinkedIn search for posts with hiring keyword
             search_url = f"https://www.linkedin.com/search/results/content/?keywords={search_term}%20hiring&origin=SWITCH_SEARCH_VERTICAL"
-            logging.info(f"Searching for posts with: {search_term}")
+            logging.info(f"🔍 Searching for posts with: '{search_term}'")
+            logging.info(f"🌐 Search URL: {search_url}")
             
             self.driver.get(search_url)
             buffer(3)
@@ -293,10 +370,10 @@ class LinkedInEmailExtractor:
                 ))
                 posts_filter_button.click()
                 buffer(2)
-                logging.info("Applied 'Posts' filter")
+                logging.info("✅ Applied 'Posts' filter")
                 
             except Exception as e:
-                logging.warning(f"Could not apply Posts filter: {e}")
+                logging.warning(f"⚠️ Could not apply Posts filter: {e}")
                 # Try alternative method to filter by posts
                 try:
                     posts_button = self.driver.find_element(By.XPATH, "//button[contains(text(), 'Posts')]")
@@ -516,6 +593,9 @@ class LinkedInEmailExtractor:
                 else:
                     consecutive_no_new_posts = 0  # Reset counter when new posts are found
                     logging.info(f"Processed {new_posts_found} new posts")
+                    
+                    # Update runtime stats for dashboard
+                    self._update_runtime_stats()
                 
                 # Scroll down to load more posts
                 logging.info("Scrolling to load more posts...")
@@ -748,16 +828,47 @@ class LinkedInEmailExtractor:
             logging.error(f"Failed to save sent email log: {e}")
 
     def save_extracted_emails(self):
-        """Save all extracted emails to JSON file"""
+        """Save all extracted emails to JSON file with detailed stats for dashboard"""
         try:
+            stats_data = {
+                'emails': list(self.extracted_emails),
+                'total_count': len(self.extracted_emails),
+                'emails_sent': self.emails_sent,
+                'emails_failed': self.emails_failed,
+                'posts_processed': self.posts_processed,
+                'success_rate': (self.emails_sent / len(self.extracted_emails) * 100) if len(self.extracted_emails) > 0 else 0,
+                'last_updated': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                'timestamp': datetime.now().isoformat()
+            }
+            
             with open('extracted_emails.json', 'w', encoding='utf-8') as f:
-                json.dump({
-                    'emails': list(self.extracted_emails),
-                    'total_count': len(self.extracted_emails),
-                    'last_updated': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                }, f, indent=2)
+                json.dump(stats_data, f, indent=2)
+                
+            # Also update stats during runtime for real-time dashboard updates
+            self._update_runtime_stats()
+            
         except Exception as e:
             logging.error(f"Failed to save extracted emails: {e}")
+
+    def _update_runtime_stats(self):
+        """Update runtime statistics file for dashboard"""
+        try:
+            runtime_stats = {
+                'email_extractor': {
+                    'emails_extracted': len(self.extracted_emails),
+                    'emails_sent': self.emails_sent,
+                    'emails_failed': self.emails_failed,
+                    'posts_processed': self.posts_processed,
+                    'status': 'running',
+                    'last_updated': datetime.now().isoformat()
+                }
+            }
+            
+            with open('dashboard_stats.json', 'w', encoding='utf-8') as f:
+                json.dump(runtime_stats, f, indent=2)
+                
+        except Exception as e:
+            logging.error(f"Failed to update runtime stats: {e}")
 
     def run(self):
         """Main execution function"""
@@ -770,10 +881,21 @@ class LinkedInEmailExtractor:
             # Login to LinkedIn
             self.login_to_linkedin()
             
+            # Display current configuration
+            logging.info(f"\n{'='*60}")
+            logging.info("CURRENT CONFIGURATION")
+            logging.info(f"{'='*60}")
+            logging.info(f"📧 Email Subject: {self.SUBJECT}")
+            logging.info(f"🔍 Search Terms: {self.search_terms}")
+            logging.info(f"📎 Resume File: {self.ATTACHMENT_PATH}")
+            logging.info(f"📍 Location: {self.location}")
+            logging.info(f"{'='*60}")
+            
             # Use the first search term for initial search
             search_term = self.search_terms[0] if self.search_terms else "React Developer"
             logging.info(f"\n{'='*60}")
-            logging.info(f"Processing search term: {search_term}")
+            logging.info(f"🎯 Processing search term: {search_term}")
+            logging.info(f"📋 Available terms: {', '.join(self.search_terms)}")
             logging.info(f"{'='*60}")
             
             if self.search_posts(search_term):
