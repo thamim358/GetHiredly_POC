@@ -4,9 +4,7 @@ LinkedIn:   https://www.linkedin.com/in/thamim358/
 
 Copyright (C) 2024 Thamim ansari
 
-
-            
-
+Enhanced for Professional Dashboard Integration
 
 version:    24.12.29.12.30
 '''
@@ -16,6 +14,7 @@ version:    24.12.29.12.30
 import os
 import csv
 import re
+import json
 import pyautogui
 import pandas as pd
 from openpyxl import load_workbook
@@ -47,6 +46,66 @@ from modules.validator import validate_config
 from modules.ai.openaiConnections import ai_create_openai_client, ai_extract_skills, ai_answer_question, ai_close_openai_client
 from modules.ai.deepseekConnections import deepseek_create_client, deepseek_extract_skills, deepseek_answer_question
 from modules.ai.geminiConnections import gemini_create_client, gemini_extract_skills, gemini_answer_question
+
+def load_professional_config():
+    """Load configuration from professional dashboard"""
+    try:
+        config_loaded = False
+        user_config = {}
+        linkedin_config = {}
+        
+        # Load user configuration
+        if os.path.exists('user_config.json'):
+            with open('user_config.json', 'r') as f:
+                user_config = json.load(f)
+                config_loaded = True
+                print("✅ User configuration loaded from professional dashboard")
+        
+        # Load LinkedIn credentials
+        if os.path.exists('linkedin_credentials.json'):
+            with open('linkedin_credentials.json', 'r') as f:
+                linkedin_config = json.load(f)
+                print("✅ LinkedIn credentials loaded")
+        
+        if config_loaded:
+            # Update global variables with user data
+            personal_info = user_config.get('personal', {})
+            
+            # Override with professional dashboard data
+            global first_name, last_name, email, phone_number, location, website
+            if 'fullName' in personal_info:
+                name_parts = personal_info['fullName'].split(' ', 1)
+                first_name = name_parts[0]
+                last_name = name_parts[1] if len(name_parts) > 1 else ''
+            
+            email = personal_info.get('email', email)
+            phone_number = personal_info.get('phone', phone_number)
+            location = personal_info.get('location', location)
+            website = personal_info.get('website', website)
+            
+            # Update LinkedIn credentials
+            global username, password
+            username = linkedin_config.get('email', username)
+            password = linkedin_config.get('password', password)
+            
+            print(f"👤 Profile: {first_name} {last_name}")
+            print(f"📧 Email: {email}")
+            print(f"📍 Location: {location}")
+            print(f"🔐 LinkedIn: {username}")
+            
+            return True
+        else:
+            print("📋 No professional configuration found, using default config")
+            return False
+            
+    except Exception as e:
+        print(f"⚠️ Error loading professional config: {e}")
+        print("📋 Using default configuration")
+        return False
+
+# Load professional configuration on startup
+print("🎯 Loading Professional Dashboard Configuration...")
+load_professional_config()
 
 from typing import Literal
 

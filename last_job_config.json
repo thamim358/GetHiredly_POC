@@ -1,0 +1,18 @@
+{
+  "subject": "Application for Web Developer \u2013 3+ Years Experience",
+  "search_terms": [
+    "Web Developer"
+  ],
+  "email_body": "Dear Hiring Manager,\n\nI am writing to express my interest in the Web Developer position at your organization. With over 3 years of hands-on experience in building responsive, user-friendly, and high-performance web applications, I am confident in my ability to contribute effectively to your development team.\n\nKey Highlights of My Expertise:\n\nProficient in HTML5, CSS3, JavaScript (ES6+), React.js, and Vue.js\n\nSkilled in Node.js, RESTful APIs, and backend integration\n\nStrong experience in responsive design, cross-browser compatibility, and mobile-first development\n\nHands-on expertise in UI/UX tools (Figma, Adobe XD, Sketch) and converting designs into pixel-perfect code\n\nKnowledge of performance optimization, SEO best practices, and accessibility standards (WCAG)\n\nI am an immediate joiner, detail-oriented, and passionate about delivering modern web solutions that improve user experience and business performance.\n\nI have attached my updated resume for your review. I would welcome the opportunity to discuss how my technical skills and creativity can add value to your team.\n\nThank you for your time and consideration. I look forward to your response.\n\nBest regards,\n[Full Name]\n[ Email] | [Phone] | [Website]",
+  "resume_file": "uploaded_resume.pdf",
+  "bot_type": "email",
+  "job_role": "custom",
+  "custom_title": "Web developer",
+  "user_info": {
+    "name": "Thamim Ansari",
+    "email": "thamimansari358@gmail.com",
+    "phone": "+918072098022",
+    "location": "Dubai",
+    "website": "https://thamim2023.web.app"
+  }
+}

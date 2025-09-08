@@ -156,14 +156,14 @@ class LinkedInEmailExtractor:
         self.load_job_configuration()
 
     def load_job_configuration(self):
-        """Load job configuration from dashboard if available"""
+        """Load comprehensive job configuration from professional dashboard"""
         try:
             # Check for job configuration from dashboard
             if os.path.exists('temp_job_config.json'):
                 with open('temp_job_config.json', 'r') as f:
                     job_config = json.load(f)
                     
-                print(f"🎯 Loading job configuration from dashboard...")
+                print(f"🎯 Loading job configuration from professional dashboard...")
                 print(f"📝 Job Role: {job_config.get('subject', 'Unknown role')}")
                 
                 # Update instance variables with job-specific configuration
@@ -180,8 +180,36 @@ class LinkedInEmailExtractor:
                     print(f"🔍 Search Terms: {self.search_terms}")
                 
                 if 'resume_file' in job_config:
-                    self.ATTACHMENT_PATH = job_config['resume_file']
-                    print(f"📎 Resume File: {self.ATTACHMENT_PATH}")
+                    # Check for uploaded resume first
+                    uploaded_resume = 'uploads/uploaded_resume.pdf'
+                    if os.path.exists(uploaded_resume):
+                        self.ATTACHMENT_PATH = uploaded_resume
+                        print(f"📎 Using uploaded resume: {uploaded_resume}")
+                    else:
+                        self.ATTACHMENT_PATH = job_config['resume_file']
+                        print(f"📎 Resume File: {self.ATTACHMENT_PATH}")
+                
+                # Load user information for personalization
+                if 'user_info' in job_config:
+                    user_info = job_config['user_info']
+                    self.user_name = user_info.get('name', 'User')
+                    self.user_email = user_info.get('email', 'user@example.com')
+                    self.user_phone = user_info.get('phone', '')
+                    self.user_location = user_info.get('location', 'Location')
+                    self.user_website = user_info.get('website', '')
+                    print(f"👤 User: {self.user_name} ({self.user_email})")
+                    print(f"📍 Location: {self.user_location}")
+                
+                # Load LinkedIn credentials if available
+                try:
+                    if os.path.exists('linkedin_credentials.json'):
+                        with open('linkedin_credentials.json', 'r') as f:
+                            linkedin_creds = json.load(f)
+                            self.linkedin_email = linkedin_creds.get('email', '')
+                            self.linkedin_password = linkedin_creds.get('password', '')
+                            print(f"🔐 LinkedIn credentials loaded for: {self.linkedin_email}")
+                except Exception as e:
+                    print(f"⚠️ Could not load LinkedIn credentials: {e}")
                 
                 # Also update global variables for compatibility
                 global EMAIL_SUBJECT, EMAIL_BODY, SEARCH_TERMS, RESUME_FILE
@@ -190,14 +218,23 @@ class LinkedInEmailExtractor:
                 SEARCH_TERMS = self.search_terms
                 RESUME_FILE = self.ATTACHMENT_PATH
                 
-                print(f"✅ Job configuration loaded successfully!")
+                print(f"✅ Professional configuration loaded successfully!")
                 
-                # Clean up the temp file
-                os.remove('temp_job_config.json')
+                # Save a copy for reference but don't delete (for debugging)
+                with open('last_job_config.json', 'w') as f:
+                    json.dump(job_config, f, indent=2)
                 
         except Exception as e:
             print(f"⚠️ Could not load job configuration: {e}")
             print("📋 Using default configuration...")
+            # Initialize user info with defaults
+            self.user_name = "User"
+            self.user_email = "user@example.com"
+            self.user_phone = ""
+            self.user_location = "India"
+            self.user_website = ""
+            self.linkedin_email = username if linkedin_credentials_available else ""
+            self.linkedin_password = password if linkedin_credentials_available else ""
 
     def load_sent_emails(self) -> Set[str]:
         """Load previously sent emails from CSV file"""

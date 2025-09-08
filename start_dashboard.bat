@@ -16,6 +16,6 @@ REM Install required packages if not already installed
 REM python -m pip install flask flask-cors pandas openpyxl --quiet
 
 REM Start the dashboard API server
-python dashboard_api.py
+python professional_dashboard_api.py
 
 pause

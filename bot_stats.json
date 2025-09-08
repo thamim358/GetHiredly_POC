@@ -1,0 +1,60 @@
+{
+  "email_extractor": {
+    "status": "running",
+    "emails_sent": 142,
+    "emails_extracted": 0,
+    "posts_processed": 13,
+    "start_time": "2025-09-08 17:57:34.824336",
+    "runtime": "0:03:18",
+    "last_activity": "2025-09-08 18:00:53.745042"
+  },
+  "aibot": {
+    "status": "stopped",
+    "applications_submitted": 0,
+    "jobs_applied": 0,
+    "jobs_external": 0,
+    "jobs_failed": 0,
+    "success_rate": 0,
+    "start_time": null,
+    "runtime": "00:00:00",
+    "last_activity": null
+  },
+  "recent_emails": [
+    {
+      "email": "suhani.arora@programming.com",
+      "status": "sent",
+      "time": "2025-09-08 17:03:25"
+    },
+    {
+      "email": "richa.avasthi@enfec.com",
+      "status": "sent",
+      "time": "2025-09-08 17:05:26"
+    },
+    {
+      "email": "parana@altimetrik.com",
+      "status": "sent",
+      "time": "2025-09-08 17:06:10"
+    },
+    {
+      "email": "sharada.ps@qualitestgroup.com",
+      "status": "sent",
+      "time": "2025-09-08 17:06:32"
+    },
+    {
+      "email": "sridhar@unisontech.my",
+      "status": "sent",
+      "time": "2025-09-08 17:11:08"
+    },
+    {
+      "email": "hr@coffeeweb.com",
+      "status": "sent",
+      "time": "2025-09-08 18:00:17"
+    }
+  ],
+  "recent_applications": [],
+  "system": {
+    "uptime": "0:11:31",
+    "version": "2.0",
+    "mode": "Professional"
+  }
+}
