@@ -141,6 +141,9 @@
                     <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
                     <div class="saved-indicator" id="dashboard-saved"></div>
                 </button>
+                <button id="history-nav" class="tab-nav tab-button flex-1 py-2 px-4 rounded-md text-sm font-medium" onclick="switchTab('history', 5)">
+                    <i class="fas fa-history mr-2"></i>History
+                </button>
             </div>
         </div>
 
@@ -314,6 +317,7 @@
                                 <option value="react">React.js Developer</option>
                                 <option value="ui">UI Developer</option>
                                 <option value="frontend">Frontend Developer</option>
+                                <option value="webdeveloper">Web Developer</option>
                                 <option value="fullstack">Full Stack Developer</option>
                                 <option value="custom">Custom (Create your own)</option>
                             </select>
@@ -540,6 +544,139 @@
                 </div>
             </div>
         </div>
+
+        <!-- History Tab -->
+        <div id="history-tab" class="tab-content">
+            <div class="max-w-7xl mx-auto">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900">Application History</h3>
+                        <div class="flex space-x-4">
+                            <button onclick="refreshHistory()" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center">
+                                <i class="fas fa-sync-alt mr-2"></i>Refresh
+                            </button>
+                            <button onclick="downloadExcel()" class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center">
+                                <i class="fas fa-download mr-2"></i>Download Excel
+                            </button>
+                            <button onclick="downloadCSV()" class="bg-gray-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors flex items-center">
+                                <i class="fas fa-file-csv mr-2"></i>Download CSV
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter Controls -->
+                    <div class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Filter by Status</label>
+                            <select id="statusFilter" class="w-full px-3 py-2 border border-gray-300 rounded-lg" onchange="filterHistory()">
+                                <option value="">All Status</option>
+                                <option value="success">Success</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Search Company</label>
+                            <input type="text" id="companySearch" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Search by company name" onkeyup="filterHistory()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
+                            <input type="date" id="dateFilter" class="w-full px-3 py-2 border border-gray-300 rounded-lg" onchange="filterHistory()">
+                        </div>
+                    </div>
+
+                    <!-- Statistics Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-600 text-sm font-medium">Total Applications</p>
+                                    <p id="totalApps" class="text-2xl font-bold text-blue-900">0</p>
+                                </div>
+                                <i class="fas fa-paper-plane text-blue-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-600 text-sm font-medium">Successful</p>
+                                    <p id="successfulApps" class="text-2xl font-bold text-green-900">0</p>
+                                </div>
+                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-red-600 text-sm font-medium">Failed</p>
+                                    <p id="failedApps" class="text-2xl font-bold text-red-900">0</p>
+                                </div>
+                                <i class="fas fa-times-circle text-red-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-600 text-sm font-medium">Success Rate</p>
+                                    <p id="historySuccessRate" class="text-2xl font-bold text-purple-900">0%</p>
+                                </div>
+                                <i class="fas fa-chart-pie text-purple-500 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Applications Table -->
+                    <div class="overflow-x-auto">
+                        <table id="historyTable" class="w-full border-collapse bg-white border border-gray-200 rounded-lg">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Date</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Company</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Position</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Email</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Status</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Source</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left text-sm font-medium text-gray-700">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody">
+                                <tr>
+                                    <td colspan="7" class="border border-gray-200 px-4 py-8 text-center text-gray-500">
+                                        <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                                        <p>Loading application history...</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-between items-center mt-6">
+                        <div class="text-sm text-gray-700">
+                            Showing <span id="showingStart">0</span> to <span id="showingEnd">0</span> of <span id="totalRecords">0</span> results
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="previousPage()" id="prevPageBtn" class="px-3 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors disabled:opacity-50" disabled>
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <button onclick="nextPage()" id="nextPageBtn" class="px-3 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors disabled:opacity-50" disabled>
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Controls -->
+                    <div class="flex justify-between mt-8">
+                        <button onclick="prevTab()" class="bg-gray-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-600 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>Previous
+                        </button>
+                        <div class="text-sm text-gray-500 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Data refreshes automatically every 30 seconds
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Notification Toast -->
@@ -579,10 +716,57 @@
                 search_terms: ["Frontend Developer", "Front End Developer", "Web Developer", "JavaScript Developer", "HTML CSS Developer", "Frontend Engineer"],
                 email_body: `<html><body><p>Dear Hiring Manager,</p><p>I hope you're doing well.</p><p>I am writing to express my interest in the <strong>Frontend Developer</strong> position. With <strong>3+ years of experience</strong> in frontend web development, I am excited about the opportunity to contribute to your development team.</p><p><strong>Key Skills & Experience:</strong></p><ul><li>Proficient in <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript (ES6+)</strong>, <strong>TypeScript</strong></li><li>Experience with <strong>React.js</strong>, <strong>Vue.js</strong>, <strong>Angular</strong>, and modern frontend frameworks</li><li>Strong knowledge of <strong>responsive design</strong>, <strong>CSS preprocessors (SASS/LESS)</strong>, and <strong>CSS frameworks (Bootstrap, Tailwind)</strong></li><li>Familiar with <strong>Webpack</strong>, <strong>Vite</strong>, <strong>Git</strong>, <strong>npm/yarn</strong>, and modern development tools</li><li>Experience in <strong>API integration</strong>, <strong>performance optimization</strong>, and <strong>cross-browser compatibility</strong></li></ul><p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my frontend development skills can contribute to your team's success.</p><p>Thank you for your time and consideration. I look forward to hearing from you.</p><p>Best regards,<br><strong>[FULL_NAME]</strong><br>[EMAIL]<br>[PHONE]<br><a href="[WEBSITE]">[WEBSITE]</a></p></body></html>`
             },
+            webdeveloper: {
+                subject: "Application for Web Developer Position – 3+ Years Experience",
+                search_terms: ["Web Developer", "Website Developer", "Frontend Developer", "JavaScript Developer", "HTML CSS Developer", "Web Engineer"],
+                email_body: `Dear Hiring Manager,
+
+I am writing to express my interest in the Web Developer position at your organization. With over 3 years of hands-on experience in building responsive, user-friendly, and high-performance web applications, I am confident in my ability to contribute effectively to your development team.
+
+Key Highlights of My Expertise:
+
+• Proficient in HTML5, CSS3, JavaScript (ES6+), React.js, and Vue.js
+• Skilled in Node.js, RESTful APIs, and backend integration
+• Strong experience in responsive design, cross-browser compatibility, and mobile-first development
+• Hands-on expertise in UI/UX tools (Figma, Adobe XD, Sketch) and converting designs into pixel-perfect code
+• Knowledge of performance optimization, SEO best practices, and accessibility standards (WCAG)
+
+I am an immediate joiner, detail-oriented, and passionate about delivering modern web solutions that improve user experience and business performance.
+
+I have attached my updated resume for your review. I would welcome the opportunity to discuss how my technical skills and creativity can add value to your team.
+
+Thank you for your time and consideration. I look forward to your response.
+
+Best regards,
+[FULL_NAME]
+[EMAIL] | [PHONE] | [WEBSITE]
+LinkedIn: [LINKEDIN]
+GitHub: [GITHUB]`
+            },
             fullstack: {
                 subject: "Application for Full Stack Developer Position – 3+ Years Experience",
                 search_terms: ["Full Stack Developer", "Fullstack Developer", "MERN Stack Developer", "MEAN Stack Developer", "Web Developer", "Software Developer"],
-                email_body: `<html><body><p>Dear Hiring Manager,</p><p>I hope you're doing well.</p><p>I am writing to express my interest in the <strong>Full Stack Developer</strong> position. With <strong>3+ years of experience</strong> in full-stack web development, I am excited about the opportunity to contribute to your development team.</p><p><strong>Key Skills & Experience:</strong></p><ul><li><strong>Frontend:</strong> React.js, Vue.js, Angular, HTML5, CSS3, JavaScript (ES6+), TypeScript</li><li><strong>Backend:</strong> Node.js, Express.js, Python, Django, Flask, RESTful APIs</li><li><strong>Databases:</strong> MongoDB, MySQL, PostgreSQL, Redis</li><li><strong>DevOps:</strong> Docker, AWS, Git, CI/CD pipelines</li><li><strong>Other:</strong> GraphQL, WebSocket, Testing frameworks, Agile methodologies</li></ul><p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my full-stack development skills can contribute to your team's success.</p><p>Thank you for your time and consideration. I look forward to hearing from you.</p><p>Best regards,<br><strong>[FULL_NAME]</strong><br>[EMAIL]<br>[PHONE]<br><a href="[WEBSITE]">[WEBSITE]</a></p></body></html>`
+                email_body: `Dear Hiring Manager,
+
+I am writing to express my interest in the Full Stack Developer position. With 3+ years of experience in full-stack web development, I am excited about the opportunity to contribute to your development team.
+
+Key Skills & Experience:
+
+• Frontend: React.js, Vue.js, Angular, HTML5, CSS3, JavaScript (ES6+), TypeScript
+• Backend: Node.js, Express.js, Python, Django, Flask, RESTful APIs
+• Databases: MongoDB, MySQL, PostgreSQL, Redis
+• DevOps: Docker, AWS, Git, CI/CD pipelines
+• Other: GraphQL, WebSocket, Testing frameworks, Agile methodologies
+
+I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my full-stack development skills can contribute to your team's success.
+
+Thank you for your time and consideration. I look forward to hearing from you.
+
+Best regards,
+[FULL_NAME]
+[EMAIL] | [PHONE] | [WEBSITE]
+LinkedIn: [LINKEDIN]
+GitHub: [GITHUB]`
             }
         };
 
@@ -609,9 +793,9 @@
 
         function nextTab() {
             if (validateCurrentTab()) {
-                if (currentTab < 4) {
+                if (currentTab < 5) {
                     currentTab++;
-                    const tabNames = ['personal', 'linkedin', 'job-config', 'dashboard'];
+                    const tabNames = ['personal', 'linkedin', 'job-config', 'dashboard', 'history'];
                     switchTabByIndex(currentTab - 1);
                     updateProgress();
                 }
@@ -621,14 +805,14 @@
         function prevTab() {
             if (currentTab > 1) {
                 currentTab--;
-                const tabNames = ['personal', 'linkedin', 'job-config', 'dashboard'];
+                const tabNames = ['personal', 'linkedin', 'job-config', 'dashboard', 'history'];
                 switchTabByIndex(currentTab - 1);
                 updateProgress();
             }
         }
 
         function switchTabByIndex(index) {
-            const tabNames = ['personal', 'linkedin', 'job-config', 'dashboard'];
+            const tabNames = ['personal', 'linkedin', 'job-config', 'dashboard', 'history'];
             const buttons = document.querySelectorAll('.tab-nav');
             
             // Hide all tabs
@@ -645,9 +829,9 @@
         }
 
         function updateProgress() {
-            const progress = (currentTab / 4) * 100;
+            const progress = (currentTab / 5) * 100;
             document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `Step ${currentTab} of 4`;
+            document.getElementById('progressText').textContent = `Step ${currentTab} of 5`;
         }
 
         // Validation
@@ -729,7 +913,10 @@
                 const config = jobRoleConfigs[jobRole];
                 document.getElementById('emailSubject').value = config.subject;
                 document.getElementById('searchTerms').value = config.search_terms.join('\n');
-                document.getElementById('emailTemplate').value = config.email_body.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ');
+                
+                // Fill email body with proper formatting and placeholders
+                const emailBody = replacePlaceholders(config.email_body);
+                document.getElementById('emailBody').value = emailBody;
                 
                 // Update preview
                 document.getElementById('previewSubject').textContent = config.subject;
@@ -747,6 +934,36 @@
                 customSection.classList.add('hidden');
                 previewPanel.classList.add('hidden');
             }
+        }
+
+        // Function to replace placeholders with user data
+        function replacePlaceholders(template) {
+            const fullName = document.getElementById('fullName')?.value || '[Your Full Name]';
+            const email = document.getElementById('email')?.value || '[Your Email]';
+            const phone = document.getElementById('phone')?.value || '[Your Phone]';
+            const linkedinProfile = document.getElementById('linkedinProfile')?.value || '[Your LinkedIn Profile]';
+            
+            // Extract website from email domain or use placeholder
+            let website = '[Your Website]';
+            if (email && email.includes('@')) {
+                const domain = email.split('@')[1];
+                website = `https://www.${domain}`;
+            }
+            
+            // Generate GitHub URL from full name
+            let github = '[Your GitHub Profile]';
+            if (fullName) {
+                const githubUsername = fullName.toLowerCase().replace(/\s+/g, '');
+                github = `https://github.com/${githubUsername}`;
+            }
+            
+            return template
+                .replace(/\[FULL_NAME\]/g, fullName)
+                .replace(/\[EMAIL\]/g, email)
+                .replace(/\[PHONE\]/g, phone)
+                .replace(/\[WEBSITE\]/g, website)
+                .replace(/\[LINKEDIN\]/g, linkedinProfile)
+                .replace(/\[GITHUB\]/g, github);
         }
 
         function selectBotType(type) {
@@ -1267,9 +1484,29 @@
                                 indicator.classList.add('show');
                             }
                         }
+                        
+                        // Refresh placeholders if personal info changed or if we're in job-config tab
+                        if (currentTab === 'personal' || currentTab === 'job-config') {
+                            refreshEmailPlaceholders();
+                        }
                     }, 2000);
                 });
             });
+        }
+
+        // Function to refresh email placeholders when user data changes
+        function refreshEmailPlaceholders() {
+            const jobRole = document.getElementById('jobRole')?.value;
+            if (jobRole && jobRoleConfigs[jobRole]) {
+                const config = jobRoleConfigs[jobRole];
+                const currentEmailBody = document.getElementById('emailBody')?.value || '';
+                
+                // Only update if the current email body contains placeholders or is the template
+                if (currentEmailBody.includes('[') || currentEmailBody === config.email_body) {
+                    const updatedEmailBody = replacePlaceholders(config.email_body);
+                    document.getElementById('emailBody').value = updatedEmailBody;
+                }
+            }
         }
 
         // Enable auto-save and check saved data on page load
@@ -1307,6 +1544,248 @@
                 console.log(`Auto-loaded progress from ${loadedCount} tab(s)`);
             }
         }
+
+        // History Tab Functions
+        let currentPage = 1;
+        let itemsPerPage = 10;
+        let allApplications = [];
+        let filteredApplications = [];
+
+        // Load and display application history
+        async function loadApplicationHistory() {
+            try {
+                const response = await fetch('/api/history');
+                if (response.ok) {
+                    const data = await response.json();
+                    allApplications = data.applications || [];
+                    filteredApplications = [...allApplications];
+                    updateHistoryStats();
+                    displayApplications();
+                } else {
+                    throw new Error('Failed to load history');
+                }
+            } catch (error) {
+                console.error('Error loading history:', error);
+                document.getElementById('historyTableBody').innerHTML = `
+                    <tr>
+                        <td colspan="7" class="border border-gray-200 px-4 py-8 text-center text-red-500">
+                            <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                            <p>Error loading application history</p>
+                            <button onclick="loadApplicationHistory()" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                Retry
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Update statistics
+        function updateHistoryStats() {
+            const total = filteredApplications.length;
+            const successful = filteredApplications.filter(app => app.status === 'success').length;
+            const failed = filteredApplications.filter(app => app.status === 'failed').length;
+            const successRate = total > 0 ? Math.round((successful / total) * 100) : 0;
+
+            document.getElementById('totalApps').textContent = total;
+            document.getElementById('successfulApps').textContent = successful;
+            document.getElementById('failedApps').textContent = failed;
+            document.getElementById('historySuccessRate').textContent = successRate + '%';
+        }
+
+        // Display applications in table
+        function displayApplications() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageApplications = filteredApplications.slice(startIndex, endIndex);
+
+            const tbody = document.getElementById('historyTableBody');
+            if (pageApplications.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="border border-gray-200 px-4 py-8 text-center text-gray-500">
+                            <i class="fas fa-inbox text-2xl mb-2"></i>
+                            <p>No applications found</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = pageApplications.map(app => `
+                <tr class="hover:bg-gray-50">
+                    <td class="border border-gray-200 px-4 py-3 text-sm">${formatDate(app.date)}</td>
+                    <td class="border border-gray-200 px-4 py-3 text-sm font-medium">${app.company || 'N/A'}</td>
+                    <td class="border border-gray-200 px-4 py-3 text-sm">${app.position || 'N/A'}</td>
+                    <td class="border border-gray-200 px-4 py-3 text-sm">${app.email || 'N/A'}</td>
+                    <td class="border border-gray-200 px-4 py-3 text-sm">
+                        <span class="px-2 py-1 rounded-full text-xs font-medium ${app.status === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                            ${app.status === 'success' ? 'Success' : 'Failed'}
+                        </span>
+                    </td>
+                    <td class="border border-gray-200 px-4 py-3 text-sm">${app.source || 'LinkedIn'}</td>
+                    <td class="border border-gray-200 px-4 py-3 text-sm">
+                        <button onclick="viewApplication('${app.id}')" class="text-blue-600 hover:text-blue-800 mr-2">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        ${app.status === 'failed' ? `<button onclick="retryApplication('${app.id}')" class="text-green-600 hover:text-green-800">
+                            <i class="fas fa-redo"></i>
+                        </button>` : ''}
+                    </td>
+                </tr>
+            `).join('');
+
+            updatePagination();
+        }
+
+        // Update pagination controls
+        function updatePagination() {
+            const totalItems = filteredApplications.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const startItem = totalItems > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0;
+            const endItem = Math.min(currentPage * itemsPerPage, totalItems);
+
+            document.getElementById('showingStart').textContent = startItem;
+            document.getElementById('showingEnd').textContent = endItem;
+            document.getElementById('totalRecords').textContent = totalItems;
+
+            document.getElementById('prevPageBtn').disabled = currentPage <= 1;
+            document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
+        }
+
+        // Filter functions
+        function filterHistory() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const companySearch = document.getElementById('companySearch').value.toLowerCase();
+            const dateFilter = document.getElementById('dateFilter').value;
+
+            filteredApplications = allApplications.filter(app => {
+                const statusMatch = !statusFilter || app.status === statusFilter;
+                const companyMatch = !companySearch || (app.company && app.company.toLowerCase().includes(companySearch));
+                const dateMatch = !dateFilter || app.date.startsWith(dateFilter);
+                return statusMatch && companyMatch && dateMatch;
+            });
+
+            currentPage = 1;
+            updateHistoryStats();
+            displayApplications();
+        }
+
+        // Pagination functions
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayApplications();
+            }
+        }
+
+        function nextPage() {
+            const totalPages = Math.ceil(filteredApplications.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayApplications();
+            }
+        }
+
+        // Refresh history
+        function refreshHistory() {
+            loadApplicationHistory();
+            showNotification('Application history refreshed!', 'success');
+        }
+
+        // Download functions
+        async function downloadExcel() {
+            try {
+                const response = await fetch('/api/export/excel', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data: filteredApplications })
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `linkedin_applications_${new Date().toISOString().split('T')[0]}.xlsx`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                    showNotification('Excel file downloaded successfully!', 'success');
+                } else {
+                    throw new Error('Failed to download Excel file');
+                }
+            } catch (error) {
+                showNotification('Error downloading Excel file: ' + error.message, 'error');
+            }
+        }
+
+        async function downloadCSV() {
+            try {
+                const response = await fetch('/api/export/csv', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data: filteredApplications })
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `linkedin_applications_${new Date().toISOString().split('T')[0]}.csv`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                    showNotification('CSV file downloaded successfully!', 'success');
+                } else {
+                    throw new Error('Failed to download CSV file');
+                }
+            } catch (error) {
+                showNotification('Error downloading CSV file: ' + error.message, 'error');
+            }
+        }
+
+        // Helper functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+        }
+
+        function viewApplication(id) {
+            const app = allApplications.find(a => a.id === id);
+            if (app) {
+                alert(`Application Details:\n\nCompany: ${app.company}\nPosition: ${app.position}\nEmail: ${app.email}\nStatus: ${app.status}\nDate: ${formatDate(app.date)}`);
+            }
+        }
+
+        function retryApplication(id) {
+            if (confirm('Are you sure you want to retry this application?')) {
+                // Implementation for retrying application
+                showNotification('Application retry functionality not yet implemented', 'info');
+            }
+        }
+
+        // Load history when tab is accessed
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-refresh history every 30 seconds
+            setInterval(() => {
+                if (document.getElementById('history-tab').classList.contains('active')) {
+                    loadApplicationHistory();
+                }
+            }, 30000);
+        });
+
+        // Load history when history tab is first accessed
+        const originalSwitchTab = switchTab;
+        switchTab = function(tabName, tabNumber) {
+            originalSwitchTab(tabName, tabNumber);
+            if (tabName === 'history') {
+                loadApplicationHistory();
+            }
+        };
     </script>
 </body>
 </html>

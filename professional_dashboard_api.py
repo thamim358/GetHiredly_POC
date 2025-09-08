@@ -13,10 +13,20 @@ import subprocess
 import threading
 import zipfile
 import tempfile
+import csv
+import io
 from datetime import datetime
-from flask import Flask, render_template, jsonify, request, send_file
+from flask import Flask, render_template, jsonify, request, send_file, Response
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+
+# Try to import pandas and openpyxl for Excel export
+try:
+    import pandas as pd
+    EXCEL_AVAILABLE = True
+except ImportError:
+    EXCEL_AVAILABLE = False
+    print("Warning: pandas not available. Excel export will be disabled.")
 
 # Configure logging
 logging.basicConfig(
@@ -684,6 +694,197 @@ def load_config():
         
     except Exception as e:
         logging.error(f"Error loading config: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/history')
+def get_application_history():
+    """Get application history from CSV files"""
+    try:
+        applications = []
+        
+        # Read from sent_emails_log.csv (the actual file with data)
+        sent_emails_file = 'sent_emails_log.csv'
+        if os.path.exists(sent_emails_file):
+            try:
+                with open(sent_emails_file, 'r', encoding='utf-8') as f:
+                    reader = csv.DictReader(f)
+                    for i, row in enumerate(reader):
+                        # Extract company from email domain
+                        email = row.get('email', '')
+                        company = ''
+                        if email:
+                            domain = email.split('@')[1] if '@' in email else ''
+                            company = domain.split('.')[0].title() if domain else 'Unknown'
+                        
+                        # Extract position from subject
+                        subject = row.get('subject', '')
+                        position = ''
+                        if 'React.js Developer' in subject:
+                            position = 'React.js Developer'
+                        elif 'UI Developer' in subject:
+                            position = 'UI Developer'
+                        elif 'Web Developer' in subject:
+                            position = 'Web Developer'
+                        elif 'Frontend Developer' in subject:
+                            position = 'Frontend Developer'
+                        elif 'Full Stack Developer' in subject:
+                            position = 'Full Stack Developer'
+                        else:
+                            position = 'Developer'
+                        
+                        applications.append({
+                            'id': f"sent_{i}",
+                            'date': row.get('date_sent', ''),
+                            'company': company,
+                            'position': position,
+                            'email': email,
+                            'status': 'success',  # Assume sent emails are successful
+                            'source': 'LinkedIn Email Extractor',
+                            'subject': subject,
+                            'location': 'N/A'
+                        })
+            except Exception as e:
+                logging.error(f"Error reading sent_emails_log.csv: {e}")
+        
+        # Also read successful applications from excel folder if exists
+        success_file = 'all excels/all_applied_applications_history.csv'
+        if os.path.exists(success_file):
+            try:
+                with open(success_file, 'r', encoding='utf-8') as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        applications.append({
+                            'id': f"success_{len(applications)}",
+                            'date': row.get('Date', ''),
+                            'company': row.get('Company', ''),
+                            'position': row.get('Position', ''),
+                            'email': row.get('Email', ''),
+                            'status': 'success',
+                            'source': 'LinkedIn AI Bot',
+                            'subject': row.get('Subject', ''),
+                            'location': row.get('Location', '')
+                        })
+            except Exception as e:
+                logging.error(f"Error reading success file: {e}")
+        
+        # Read failed applications
+        failed_file = 'all excels/all_failed_applications_history.csv'
+        if os.path.exists(failed_file):
+            try:
+                with open(failed_file, 'r', encoding='utf-8') as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        applications.append({
+                            'id': f"failed_{len(applications)}",
+                            'date': row.get('Date', ''),
+                            'company': row.get('Company', ''),
+                            'position': row.get('Position', ''),
+                            'email': row.get('Email', ''),
+                            'status': 'failed',
+                            'source': 'LinkedIn AI Bot',
+                            'error': row.get('Error', ''),
+                            'location': row.get('Location', '')
+                        })
+            except Exception as e:
+                logging.error(f"Error reading failed file: {e}")
+        
+        # Sort by date (newest first)
+        applications.sort(key=lambda x: x.get('date', ''), reverse=True)
+        
+        return jsonify({
+            'success': True, 
+            'applications': applications,
+            'total': len(applications)
+        })
+        
+    except Exception as e:
+        logging.error(f"Error getting history: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/export/excel', methods=['POST'])
+def export_excel():
+    """Export application data to Excel format"""
+    try:
+        if not EXCEL_AVAILABLE:
+            return jsonify({'success': False, 'error': 'Excel export not available. Please install pandas and openpyxl.'}), 400
+        
+        data = request.json.get('data', [])
+        
+        if not data:
+            return jsonify({'success': False, 'error': 'No data to export'}), 400
+        
+        # Create DataFrame
+        df = pd.DataFrame(data)
+        
+        # Create Excel file in memory
+        output = io.BytesIO()
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            df.to_excel(writer, sheet_name='Applications', index=False)
+            
+            # Add summary sheet
+            summary_data = {
+                'Metric': ['Total Applications', 'Successful', 'Failed', 'Success Rate'],
+                'Value': [
+                    len(data),
+                    len([app for app in data if app.get('status') == 'success']),
+                    len([app for app in data if app.get('status') == 'failed']),
+                    f"{(len([app for app in data if app.get('status') == 'success']) / len(data) * 100):.1f}%" if data else "0%"
+                ]
+            }
+            summary_df = pd.DataFrame(summary_data)
+            summary_df.to_excel(writer, sheet_name='Summary', index=False)
+        
+        output.seek(0)
+        
+        filename = f"linkedin_applications_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+        
+        return Response(
+            output.getvalue(),
+            headers={
+                'Content-Disposition': f'attachment; filename={filename}',
+                'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            }
+        )
+        
+    except Exception as e:
+        logging.error(f"Error exporting Excel: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/export/csv', methods=['POST'])
+def export_csv():
+    """Export application data to CSV format"""
+    try:
+        data = request.json.get('data', [])
+        
+        if not data:
+            return jsonify({'success': False, 'error': 'No data to export'}), 400
+        
+        # Create CSV in memory
+        output = io.StringIO()
+        
+        if data:
+            fieldnames = data[0].keys()
+            writer = csv.DictWriter(output, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(data)
+        
+        # Convert to bytes for response
+        csv_bytes = io.BytesIO()
+        csv_bytes.write(output.getvalue().encode('utf-8'))
+        csv_bytes.seek(0)
+        
+        filename = f"linkedin_applications_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        
+        return Response(
+            csv_bytes.getvalue(),
+            headers={
+                'Content-Disposition': f'attachment; filename={filename}',
+                'Content-Type': 'text/csv'
+            }
+        )
+        
+    except Exception as e:
+        logging.error(f"Error exporting CSV: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
 # Error handlers
