@@ -634,67 +634,10 @@ I am writing to express my interest in the [Job Title] position...">
                             </p>
                         </div>
 
-                        <!-- Email Sending Preferences -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                <i class="fas fa-envelope-open mr-2 text-primary"></i>Email Preferences
-                            </label>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Emails per hour</label>
-                                    <select id="emailsPerHour" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                                        <option value="10">10 emails/hour (Conservative)</option>
-                                        <option value="20" selected>20 emails/hour (Recommended)</option>
-                                        <option value="30">30 emails/hour (Aggressive)</option>
-                                        <option value="50">50 emails/hour (Maximum)</option>
-                                        <option value="100">100 emails/hour (Maximum)</option>
-                                        <option value="200">200 emails/hour (Maximum)</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Daily limit</label>
-                                    <select id="dailyLimit" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                                        <option value="50">50 emails/day</option>
-                                        <option value="100" selected>100 emails/day (Recommended)</option>
-                                        <option value="200">200 emails/day</option>
-                                        <option value="unlimited">Unlimited</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label class="flex items-center">
-                                    <input type="checkbox" id="skipWeekends" class="mr-2" checked>
-                                    <span class="text-sm text-gray-700">Skip sending emails on weekends</span>
-                                </label>
-                            </div>
-                            <div class="mt-2">
-                                <label class="flex items-center">
-                                    <input type="checkbox" id="freshCampaign" class="mr-2">
-                                    <span class="text-sm text-gray-700">Start fresh campaign (clear sent emails log)</span>
-                                </label>
-                                <p class="text-xs text-gray-500 mt-1 ml-6">
-                                    <i class="fas fa-info-circle mr-1"></i>
-                                    This will backup and clear your previous sent emails history, allowing you to send emails to all extracted addresses again.
-                                </p>
-                            </div>
-                        </div>
+
                     </div>
                     
-                    <!-- Preview Panel -->
-                    <div id="previewPanel" class="mt-8 hidden">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Preview Configuration</h4>
-                        <div class="bg-gray-50 rounded-lg p-6 space-y-4">
-                            <div>
-                                <span class="text-sm font-medium text-gray-700">Email Subject:</span>
-                                <p id="previewSubject" class="text-gray-900"></p>
-                            </div>
-                            <div>
-                                <span class="text-sm font-medium text-gray-700">Search Terms:</span>
-                                <div id="previewSearchTerms" class="flex flex-wrap gap-2 mt-1"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
+
                     <div class="flex justify-between mt-8">
                         <button onclick="saveCurrentTab()" class="bg-gray-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors flex items-center">
                             <i class="fas fa-save mr-2"></i>Save Progress
@@ -1716,11 +1659,7 @@ GitHub: [GITHUB]`
                     searchTerms: document.getElementById('searchTerms').value.trim().split('\n').filter(term => term.trim()),
                     emailTemplate: getFormattedEmailContent(),
                     botType: document.querySelector('input[name="botType"]:checked')?.value,
-                    dateFilter: document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week',
-                    emailsPerHour: document.getElementById('emailsPerHour')?.value || '20',
-                    dailyLimit: document.getElementById('dailyLimit')?.value || '100',
-                    skipWeekends: document.getElementById('skipWeekends')?.checked || false,
-                    freshCampaign: document.getElementById('freshCampaign')?.checked || false
+                    dateFilter: document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week'
                 },
                 resume: document.getElementById('resumeFile').files[0]
             };
@@ -1995,9 +1934,6 @@ GitHub: [GITHUB]`
                 data.searchTerms = document.getElementById('searchTerms')?.value || '';
                 data.botType = document.querySelector('input[name="botType"]:checked')?.value || '';
                 data.dateFilter = document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week';
-                data.emailsPerHour = document.getElementById('emailsPerHour')?.value || '20';
-                data.dailyLimit = document.getElementById('dailyLimit')?.value || '100';
-                data.skipWeekends = document.getElementById('skipWeekends')?.checked || false;
                 
                 // Save timestamp to track when data was saved
                 data.savedAt = new Date().toISOString();

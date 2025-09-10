@@ -1,10 +1,10 @@
 {
   "email_extractor": {
-    "emails_extracted": 10,
-    "emails_sent": 3,
+    "emails_extracted": 13,
+    "emails_sent": 5,
     "emails_failed": 0,
-    "posts_processed": 84,
+    "posts_processed": 114,
     "status": "running",
-    "last_updated": "2025-09-10T16:29:58.097184"
+    "last_updated": "2025-09-10T16:36:07.051644"
   }
 }

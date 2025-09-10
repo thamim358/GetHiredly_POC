@@ -15759,3 +15759,101 @@ Stacktrace:
 2025-09-10 16:30:27,345 - INFO - Successfully expanded post 90 content
 2025-09-10 16:30:27,346 - INFO - Found emails in post 90: ['pbhandari@analyticsfoxsoftwares.com']
 2025-09-10 16:30:27,347 - INFO - [RATE] Rate limiting: waiting 136.9s before sending to pbhandari@analyticsfoxsoftwares.com
+2025-09-10 16:32:44,281 - INFO - [ATTACH] Resume attached: uploads/uploaded_resume.pdf
+2025-09-10 16:32:48,346 - INFO - [SUCCESS] Email sent successfully to pbhandari@analyticsfoxsoftwares.com (4/100 today)
+2025-09-10 16:32:53,100 - INFO - Processing post 91 (ID: post_90_50...)
+2025-09-10 16:32:54,423 - INFO - Found emails in post 91: ['pbhandari@analyticsfoxsoftwares.com']
+2025-09-10 16:32:55,943 - INFO - Processing post 92 (ID: post_91_0...)
+2025-09-10 16:32:58,300 - INFO - Processing post 93 (ID: post_92_50...)
+2025-09-10 16:32:59,224 - INFO - Found emails in post 93: ['pbhandari@analyticsfoxsoftwares.com']
+2025-09-10 16:33:00,944 - INFO - Processing post 94 (ID: post_93_0...)
+2025-09-10 16:33:03,285 - INFO - Processing post 95 (ID: post_94_50...)
+2025-09-10 16:33:06,176 - INFO - Expanded content using specific see-more button
+2025-09-10 16:33:06,281 - INFO - Successfully expanded post 95 content
+2025-09-10 16:33:08,002 - INFO - Processing post 96 (ID: post_95_50...)
+2025-09-10 16:33:10,226 - INFO - Processing post 97 (ID: post_96_0...)
+2025-09-10 16:33:13,106 - INFO - Processing post 98 (ID: post_97_50...)
+2025-09-10 16:33:15,841 - INFO - Processing post 99 (ID: post_98_0...)
+2025-09-10 16:33:18,273 - INFO - Processing post 100 (ID: post_99_50...)
+2025-09-10 16:33:21,959 - INFO - Expanded content using specific see-more button
+2025-09-10 16:33:22,061 - INFO - Successfully expanded post 100 content
+2025-09-10 16:33:23,765 - INFO - Processing post 101 (ID: post_100_50...)
+2025-09-10 16:33:26,360 - INFO - Processing post 102 (ID: post_101_0...)
+2025-09-10 16:33:28,337 - INFO - Processing post 103 (ID: post_102_50...)
+2025-09-10 16:33:30,687 - INFO - Processing post 104 (ID: post_103_0...)
+2025-09-10 16:33:33,298 - INFO - Processing post 105 (ID: post_104_50...)
+2025-09-10 16:33:37,560 - INFO - Expanded content using specific see-more button
+2025-09-10 16:33:37,660 - INFO - Successfully expanded post 105 content
+2025-09-10 16:33:37,661 - INFO - Found emails in post 105: ['simantini.d@tekskills.in']
+2025-09-10 16:33:39,256 - INFO - Processing post 106 (ID: post_105_50...)
+2025-09-10 16:33:40,400 - INFO - Found emails in post 106: ['simantini.d@tekskills.in']
+2025-09-10 16:33:41,434 - INFO - Processing post 107 (ID: post_106_0...)
+2025-09-10 16:33:43,529 - INFO - Processing post 108 (ID: post_107_50...)
+2025-09-10 16:33:44,433 - INFO - Found emails in post 108: ['simantini.d@tekskills.in']
+2025-09-10 16:33:45,764 - INFO - Processing post 109 (ID: post_108_0...)
+2025-09-10 16:33:47,596 - INFO - Processing post 110 (ID: post_109_50...)
+2025-09-10 16:33:50,892 - INFO - Expanded content using specific see-more button
+2025-09-10 16:33:50,981 - INFO - Successfully expanded post 110 content
+2025-09-10 16:33:50,981 - INFO - Found emails in post 110: ['hr@mindwebtree.com']
+2025-09-10 16:33:50,981 - INFO - [RATE] Rate limiting: waiting 117.4s before sending to hr@mindwebtree.com
+2025-09-10 16:35:48,353 - INFO - [ATTACH] Resume attached: uploads/uploaded_resume.pdf
+2025-09-10 16:35:52,385 - INFO - [SUCCESS] Email sent successfully to hr@mindwebtree.com (5/100 today)
+2025-09-10 16:35:56,567 - INFO - Processing post 111 (ID: post_110_50...)
+2025-09-10 16:35:58,136 - INFO - Found emails in post 111: ['hr@mindwebtree.com']
+2025-09-10 16:35:59,749 - INFO - Processing post 112 (ID: post_111_0...)
+2025-09-10 16:36:02,143 - INFO - Processing post 113 (ID: post_112_50...)
+2025-09-10 16:36:03,066 - INFO - Found emails in post 113: ['hr@mindwebtree.com']
+2025-09-10 16:36:04,601 - INFO - Processing post 114 (ID: post_113_0...)
+2025-09-10 16:36:07,051 - INFO - Processed 30 new posts
+2025-09-10 16:36:07,052 - INFO - Scrolling to load more posts...
+2025-09-10 16:36:10,006 - INFO - New content loaded, continuing...
+2025-09-10 16:36:10,196 - INFO - Found 146 posts on current page
+2025-09-10 16:36:18,368 - INFO - Processing post 115 (ID: post_114_50...)
+2025-09-10 16:36:21,500 - INFO - Expanded content using specific see-more button
+2025-09-10 16:36:21,626 - INFO - Successfully expanded post 115 content
+2025-09-10 16:36:23,262 - INFO - Processing post 116 (ID: post_115_50...)
+2025-09-10 16:36:25,893 - INFO - Processing post 117 (ID: post_116_0...)
+2025-09-10 16:36:28,427 - INFO - Processing post 118 (ID: post_117_50...)
+2025-09-10 16:36:31,459 - INFO - Processing post 119 (ID: post_118_0...)
+2025-09-10 16:36:33,691 - INFO - Processing post 120 (ID: post_119_50...)
+2025-09-10 16:36:36,804 - INFO - Expanded content using specific see-more button
+2025-09-10 16:36:37,455 - INFO - Successfully expanded post 120 content
+2025-09-10 16:36:38,581 - INFO - Processing post 121 (ID: post_120_50...)
+2025-09-10 16:36:41,050 - INFO - Processing post 122 (ID: post_121_0...)
+2025-09-10 16:36:43,720 - INFO - Processing post 123 (ID: post_122_50...)
+2025-09-10 16:36:45,968 - INFO - Processing post 124 (ID: post_123_50...)
+2025-09-10 16:36:48,821 - INFO - Processing post 125 (ID: post_124_0...)
+2025-09-10 16:36:51,346 - INFO - Processing post 126 (ID: post_125_50...)
+2025-09-10 16:36:55,028 - INFO - Expanded content using specific see-more button
+2025-09-10 16:36:55,120 - INFO - Successfully expanded post 126 content
+2025-09-10 16:36:55,120 - INFO - Found emails in post 126: ['dimple@vizexperts.com']
+2025-09-10 16:36:55,120 - INFO - [RATE] Rate limiting: waiting 117.3s before sending to dimple@vizexperts.com
+2025-09-10 16:38:52,397 - INFO - [ATTACH] Resume attached: uploads/uploaded_resume.pdf
+2025-09-10 16:38:56,334 - INFO - [SUCCESS] Email sent successfully to dimple@vizexperts.com (6/100 today)
+2025-09-10 16:39:00,751 - INFO - Processing post 127 (ID: post_126_50...)
+2025-09-10 16:39:01,796 - INFO - Found emails in post 127: ['dimple@vizexperts.com']
+2025-09-10 16:39:03,021 - INFO - Processing post 128 (ID: post_127_0...)
+2025-09-10 16:39:07,165 - INFO - Processing post 129 (ID: post_128_50...)
+2025-09-10 16:39:08,340 - INFO - Found emails in post 129: ['dimple@vizexperts.com']
+2025-09-10 16:39:09,865 - INFO - Processing post 130 (ID: post_129_0...)
+2025-09-10 16:39:12,436 - INFO - Processing post 131 (ID: post_130_50...)
+2025-09-10 16:39:16,409 - INFO - Expanded content using specific see-more button
+2025-09-10 16:39:16,518 - INFO - Successfully expanded post 131 content
+2025-09-10 16:39:18,434 - INFO - Processing post 132 (ID: post_131_50...)
+2025-09-10 16:39:20,950 - INFO - Processing post 133 (ID: post_132_0...)
+2025-09-10 16:39:23,253 - INFO - Processing post 134 (ID: post_133_50...)
+2025-09-10 16:39:26,015 - INFO - Processing post 135 (ID: post_134_50...)
+2025-09-10 16:39:28,509 - INFO - Processing post 136 (ID: post_135_0...)
+2025-09-10 16:39:30,881 - INFO - Processing post 137 (ID: post_136_50...)
+2025-09-10 16:39:33,772 - INFO - Expanded content using specific see-more button
+2025-09-10 16:39:34,221 - INFO - Successfully expanded post 137 content
+2025-09-10 16:39:36,583 - INFO - Processing post 138 (ID: post_137_50...)
+2025-09-10 16:39:41,582 - INFO - Processing post 139 (ID: post_138_0...)
+2025-09-10 16:39:44,045 - INFO - Processing post 140 (ID: post_139_50...)
+2025-09-10 16:39:46,094 - INFO - Processing post 141 (ID: post_140_0...)
+2025-09-10 16:39:51,168 - INFO - Processing post 142 (ID: post_141_50...)
+2025-09-10 16:39:58,855 - INFO - Expanded content using specific see-more button
+2025-09-10 16:39:59,751 - INFO - Successfully expanded post 142 content
+2025-09-10 16:39:59,779 - INFO - Found emails in post 142: ['lavesh.hiringtech@gmail.com']
+2025-09-10 16:39:59,785 - INFO - [RATE] Rate limiting: waiting 116.5s before sending to lavesh.hiringtech@gmail.com
+2025-09-10 16:40:20,395 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/7a101a3522c6f2776de9cb7716898489

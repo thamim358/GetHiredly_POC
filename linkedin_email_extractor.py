@@ -122,10 +122,7 @@ class LinkedInEmailExtractor:
         self.search_terms = SEARCH_TERMS if 'SEARCH_TERMS' in globals() else ["React js Developer", "Frontend Developer"]
         self.location = SEARCH_LOCATION if 'SEARCH_LOCATION' in globals() else "India"
         
-        # Email preferences with defaults
-        self.emails_per_hour = 20
-        self.daily_limit = 100
-        self.skip_weekends = True
+        # Email preferences - unlimited sending enabled
         self.emails_sent_today = 0
         self.last_email_time = None
         self.current_date = date.today()  # Track current date for daily reset
@@ -213,22 +210,7 @@ class LinkedInEmailExtractor:
                     self.search_terms = job_config['search_terms']
                     print(f"[SEARCH] Search Terms: {self.search_terms}")
                 
-                # Load email preferences from dashboard
-                if 'emailsPerHour' in job_config:
-                    self.emails_per_hour = int(job_config['emailsPerHour'])
-                    # Calculate delay between emails based on emails per hour
-                    self.delay_between_emails = max(1, int(3600 / self.emails_per_hour))
-                    print(f"[RATE] Emails per hour: {self.emails_per_hour} (delay: {self.delay_between_emails}s)")
-                
-                if 'dailyLimit' in job_config:
-                    self.daily_limit = int(job_config['dailyLimit']) if job_config['dailyLimit'] != 'unlimited' else 999999
-                    print(f"[LIMIT] Daily limit: {self.daily_limit} emails")
-                
-                if 'skipWeekends' in job_config:
-                    self.skip_weekends = job_config['skipWeekends']
-                    print(f"[DATE] Skip weekends: {self.skip_weekends}")
-                
-                # Check if user wants to start a fresh campaign (clear sent emails)
+                # Check if user wants to start a fresh campaign (clear sent emails) - removed other email limits
                 if 'freshCampaign' in job_config and job_config['freshCampaign']:
                     self.clear_sent_emails_log()
                     print(f"🔄 Fresh campaign mode: Cleared sent emails log")
@@ -249,13 +231,24 @@ class LinkedInEmailExtractor:
                     print(f"[DATE] Date Filter: {self.date_posted} (default)")
                 
                 if 'resume_file' in job_config:
-                    # Check for uploaded resume first (priority order)
+                    # Check for uploaded resume first (priority order - newest files first)
                     resume_paths = [
                         'uploads/uploaded_resume.pdf',  # From dashboard upload
+                        'uploads/thamim_resume.pdf',   # Alternative uploaded resume
                         os.path.join('uploads', 'uploaded_resume.pdf'),  # Alternative path
+                        os.path.join('uploads', 'thamim_resume.pdf'),    # Alternative uploaded path
                         job_config.get('resume_file', ''),  # From config
                         'Thamim_Ansari_Resume.pdf'  # Default fallback
                     ]
+                    
+                    # Find the most recently modified resume in uploads folder first
+                    import glob
+                    upload_resumes = glob.glob('uploads/*.pdf')
+                    if upload_resumes:
+                        # Sort by modification time (newest first)
+                        upload_resumes.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+                        # Insert the newest upload at the beginning
+                        resume_paths.insert(0, upload_resumes[0])
                     
                     resume_found = False
                     for resume_path in resume_paths:
@@ -938,27 +931,6 @@ class LinkedInEmailExtractor:
                 logging.info(f"[EMAIL] Email already sent to {to_email}, skipping...")
                 return False
             
-            # Check weekend preference
-            if self.skip_weekends:
-                today_datetime = datetime.now()
-                if today_datetime.weekday() >= 5:  # Saturday = 5, Sunday = 6
-                    logging.info(f"[DATE] Skipping email to {to_email} - Weekend preference enabled")
-                    return False
-            
-            # Check daily limit
-            if self.emails_sent_today >= self.daily_limit:
-                logging.info(f"[LIMIT] Daily limit reached ({self.daily_limit}), skipping email to {to_email}")
-                return False
-            
-            # Check hourly rate limiting
-            if self.last_email_time:
-                time_since_last = (datetime.now() - self.last_email_time).total_seconds()
-                min_delay = 3600 / self.emails_per_hour  # seconds between emails
-                if time_since_last < min_delay:
-                    wait_time = min_delay - time_since_last
-                    logging.info(f"[RATE] Rate limiting: waiting {wait_time:.1f}s before sending to {to_email}")
-                    time.sleep(wait_time)
-                
             msg = self.create_email_message(to_email)
             
             # Create SMTP session
@@ -977,7 +949,7 @@ class LinkedInEmailExtractor:
             self.sent_emails.add(to_email.lower())
             self.last_email_time = datetime.now()
             
-            logging.info(f"[SUCCESS] Email sent successfully to {to_email} ({self.emails_sent_today}/{self.daily_limit} today)")
+            logging.info(f"[SUCCESS] Email sent successfully to {to_email} ({self.emails_sent_today} sent today)")
             
             # Save sent email to file
             self.save_sent_email(to_email)
