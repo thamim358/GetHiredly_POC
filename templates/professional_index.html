@@ -810,12 +810,28 @@ I am writing to express my interest in the [Job Title] position...">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Search Company</label>
-                            <input type="text" id="companySearch" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Search by company name" onkeyup="filterHistory()">
+                            <input type="text" id="companySearch" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Search by company name" onkeyup="filterHistory()" onkeydown="handleEnterKey(event)">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
-                            <input type="date" id="dateFilter" class="w-full px-3 py-2 border border-gray-300 rounded-lg" onchange="filterHistory()">
+                            <div class="space-y-2">
+                                <input type="date" id="historyDateFilter" class="w-full px-3 py-2 border border-gray-300 rounded-lg" onchange="filterHistory()">
+                                <div class="flex flex-wrap gap-2">
+                                    <button onclick="setDateFilter('today')" class="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200">Today</button>
+                                    <button onclick="setDateFilter('week')" class="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200">Last Week</button>
+                                    <button onclick="setDateFilter('month')" class="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200">Last Month</button>
+                                    <button onclick="setDateFilter('clear')" class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200">Clear</button>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Clear All Filters Button -->
+                    <div class="mb-4 flex justify-between items-center">
+                        <div id="filterStatus" class="text-sm text-gray-600"></div>
+                        <button onclick="clearAllFilters()" class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                            <i class="fas fa-times mr-2"></i>Clear All Filters
+                        </button>
                     </div>
 
                     <!-- Statistics Cards -->
@@ -1834,6 +1850,16 @@ GitHub: [GITHUB]`
                     : 0;
                 document.getElementById('successRate').textContent = successRate + '%';
                 
+                // Update bot status with detailed information
+                if (stats.email_extractor.status === 'running' && stats.email_extractor.detailed_status) {
+                    setBotStatus('running', 'Email Extractor');
+                    updateBotProgress(stats.email_extractor.progress || 25, stats.email_extractor.detailed_status);
+                } else if (stats.aibot.status === 'running') {
+                    setBotStatus('running', 'AI Job Applier');
+                } else if (stats.email_extractor.status === 'stopped' && stats.aibot.status === 'stopped') {
+                    setBotStatus('stopped', '');
+                }
+                
                 // Update recent activity
                 updateRecentActivity(stats.recent_emails || []);
                 
@@ -2162,6 +2188,7 @@ GitHub: [GITHUB]`
                     filteredApplications = [...allApplications];
                     updateHistoryStats();
                     displayApplications();
+                    updateFilterStatus(); // Initialize filter status display
                 } else {
                     throw new Error('Failed to load history');
                 }
@@ -2258,18 +2285,115 @@ GitHub: [GITHUB]`
         function filterHistory() {
             const statusFilter = document.getElementById('statusFilter').value;
             const companySearch = document.getElementById('companySearch').value.toLowerCase();
-            const dateFilter = document.getElementById('dateFilter').value;
+            const dateFilter = document.getElementById('historyDateFilter').value;
 
             filteredApplications = allApplications.filter(app => {
                 const statusMatch = !statusFilter || app.status === statusFilter;
                 const companyMatch = !companySearch || (app.company && app.company.toLowerCase().includes(companySearch));
-                const dateMatch = !dateFilter || app.date.startsWith(dateFilter);
+                
+                // Improved date filtering logic
+                let dateMatch = true;
+                if (dateFilter && app.date) {
+                    try {
+                        // Parse the application date (assuming format like "2025-09-10" or "10/09/2025")
+                        let appDate = new Date(app.date);
+                        let filterDate = new Date(dateFilter);
+                        
+                        // If parsing failed, try different format
+                        if (isNaN(appDate.getTime())) {
+                            // Try parsing DD/MM/YYYY format
+                            const parts = app.date.split('/');
+                            if (parts.length === 3) {
+                                appDate = new Date(parts[2], parts[1] - 1, parts[0]);
+                            }
+                        }
+                        
+                        // Compare dates (same day or after the filter date)
+                        if (!isNaN(appDate.getTime()) && !isNaN(filterDate.getTime())) {
+                            // Set time to start of day for proper comparison
+                            appDate.setHours(0, 0, 0, 0);
+                            filterDate.setHours(0, 0, 0, 0);
+                            dateMatch = appDate >= filterDate;
+                        } else {
+                            // Fallback to string comparison if date parsing fails
+                            dateMatch = app.date.includes(dateFilter) || app.date.startsWith(dateFilter);
+                        }
+                    } catch (e) {
+                        // Fallback to string comparison
+                        dateMatch = app.date.includes(dateFilter) || app.date.startsWith(dateFilter);
+                    }
+                }
+                
                 return statusMatch && companyMatch && dateMatch;
             });
 
             currentPage = 1;
             updateHistoryStats();
             displayApplications();
+            updateFilterStatus();
+        }
+
+        // Quick date filter function
+        function setDateFilter(type) {
+            const dateInput = document.getElementById('historyDateFilter');
+            const today = new Date();
+            
+            switch(type) {
+                case 'today':
+                    dateInput.value = today.toISOString().split('T')[0];
+                    break;
+                case 'week':
+                    const weekAgo = new Date(today);
+                    weekAgo.setDate(today.getDate() - 7);
+                    dateInput.value = weekAgo.toISOString().split('T')[0];
+                    break;
+                case 'month':
+                    const monthAgo = new Date(today);
+                    monthAgo.setMonth(today.getMonth() - 1);
+                    dateInput.value = monthAgo.toISOString().split('T')[0];
+                    break;
+                case 'clear':
+                    dateInput.value = '';
+                    break;
+            }
+            
+            filterHistory();
+        }
+
+        // Clear all filters function
+        function clearAllFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('companySearch').value = '';
+            document.getElementById('historyDateFilter').value = '';
+            filterHistory();
+        }
+
+        // Update filter status indicator
+        function updateFilterStatus() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const companySearch = document.getElementById('companySearch').value;
+            const dateFilter = document.getElementById('historyDateFilter').value;
+            
+            const activeFilters = [];
+            if (statusFilter) activeFilters.push(`Status: ${statusFilter}`);
+            if (companySearch) activeFilters.push(`Company: "${companySearch}"`);
+            if (dateFilter) activeFilters.push(`Date: from ${dateFilter}`);
+            
+            const filterStatusEl = document.getElementById('filterStatus');
+            if (activeFilters.length > 0) {
+                filterStatusEl.innerHTML = `<i class="fas fa-filter mr-2 text-blue-500"></i>Active filters: ${activeFilters.join(', ')} | Showing ${filteredApplications.length} of ${allApplications.length} records`;
+                filterStatusEl.className = 'text-sm text-blue-600 bg-blue-50 px-3 py-2 rounded';
+            } else {
+                filterStatusEl.innerHTML = `Showing all ${allApplications.length} records`;
+                filterStatusEl.className = 'text-sm text-gray-600';
+            }
+        }
+
+        // Handle Enter key for search inputs
+        function handleEnterKey(event) {
+            if (event.key === 'Enter') {
+                filterHistory();
+            }
         }
 
         // Pagination functions

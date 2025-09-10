@@ -373,6 +373,17 @@ class ProfessionalBotController:
                 runtime = datetime.now() - self.stats['email_extractor']['start_time']
                 self.stats['email_extractor']['runtime'] = str(runtime).split('.')[0]
             
+            # Read detailed status from extractor status file
+            if os.path.exists('extractor_status.json'):
+                try:
+                    with open('extractor_status.json', 'r') as f:
+                        status_data = json.load(f)
+                        self.stats['email_extractor']['detailed_status'] = status_data.get('status', 'Running')
+                        self.stats['email_extractor']['progress'] = status_data.get('progress', 0)
+                        self.stats['email_extractor']['last_activity'] = datetime.now()
+                except Exception as e:
+                    logging.error(f"Error reading extractor status: {e}")
+            
             # Read from sent emails log
             if os.path.exists('sent_emails_log.csv'):
                 with open('sent_emails_log.csv', 'r', encoding='utf-8', errors='ignore') as f:

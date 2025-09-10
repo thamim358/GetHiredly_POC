@@ -410,16 +410,24 @@ class LinkedInEmailExtractor:
         """Login to LinkedIn using the same method as runAiBot"""
         try:
             print_lg("Attempting to navigate to LinkedIn login page...")
+            self.update_status("Navigating to LinkedIn login...", 35)
             self.driver.get("https://www.linkedin.com/login")
             
             if not self.is_logged_in_LN():
                 print_lg("Not logged in to LinkedIn, attempting login...")
+                self.update_status("Entering credentials...", 40)
                 self.login_LN()
+                self.update_status("Verifying login...", 45)
+                if not self.is_logged_in_LN():
+                    self.update_status("Login verification failed", None)
+                    raise Exception("Login verification failed")
             else:
                 print_lg("Already logged in to LinkedIn!")
+                self.update_status("Already logged in to LinkedIn", 50)
                 
         except Exception as e:
             logging.error(f"Login failed: {e}")
+            self.update_status(f"Login failed: {str(e)}", None)
             raise e
 
     def login_LN(self) -> None:
@@ -1025,16 +1033,33 @@ class LinkedInEmailExtractor:
         except Exception as e:
             logging.error(f"Failed to update runtime stats: {e}")
 
+    def update_status(self, status_message, progress=None):
+        """Update status file for dashboard monitoring"""
+        try:
+            status_data = {
+                'status': status_message,
+                'timestamp': datetime.now().isoformat(),
+                'progress': progress
+            }
+            with open('extractor_status.json', 'w') as f:
+                json.dump(status_data, f)
+        except Exception as e:
+            logging.error(f"Failed to update status: {e}")
+
     def run(self):
         """Main execution function"""
         try:
             logging.info("Starting LinkedIn Email Extractor...")
+            self.update_status("Initializing...", 10)
             
             # Setup WebDriver
+            self.update_status("Setting up browser...", 20)
             self.setup_driver()
             
             # Login to LinkedIn
+            self.update_status("Connecting to LinkedIn...", 30)
             self.login_to_linkedin()
+            self.update_status("Successfully connected to LinkedIn", 50)
             
             # Display current configuration
             logging.info(f"\n{'='*60}")
@@ -1053,12 +1078,17 @@ class LinkedInEmailExtractor:
             logging.info(f"📋 Available terms: {', '.join(self.search_terms)}")
             logging.info(f"{'='*60}")
             
+            self.update_status(f"Searching for {search_term} jobs...", 60)
+            
             if self.search_posts(search_term):
+                self.update_status("Extracting emails from job posts...", 70)
                 # Continuously extract emails from posts without limit
                 self.extract_emails_from_posts_continuously()
+                self.update_status("Email extraction completed", 90)
             
             # Save extracted emails
             self.save_extracted_emails()
+            self.update_status("Process completed successfully", 100)
             
             # Print statistics
             logging.info(f"\n{'='*60}")

@@ -1,21 +1,16 @@
 {
-  "subject": "Application for Web Developer Position \u2013 3+ Years Experience",
+  "subject": "Application for Web Developer \u2013 3+ Years Experience",
   "search_terms": [
-    "Web Developer",
-    "Website Developer",
-    "Frontend Developer",
-    "JavaScript Developer",
-    "HTML CSS Developer",
-    "Web Engineer"
+    "Web Developer"
   ],
-  "email_body": "<html>\n                <head>\n                    <style>\n                        body { \n                            font-family: 'Poppins', Arial, sans-serif; \n                            line-height: 1.6; \n                            color: #333;\n                            margin: 0;\n                            padding: 20px;\n                        }\n                        p { margin: 12px 0; }\n                        ul { margin: 12px 0; padding-left: 25px; }\n                        li { margin: 6px 0; }\n                        strong { font-weight: 600; }\n                        a { color: #0066CC; text-decoration: none; }\n                        a:hover { text-decoration: underline; }\n                    </style>\n                </head>\n                <body>Dear Hiring Manager,\r\n\r\nI hope you're doing well.\r\n\r\nI am writing to express my interest in the Web  Developer . With 3+ years of experience in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.\r\n\r\nKey Skills &amp; Experience:\r\n\r\n\u2022 Expert in HTML5, CSS3, JavaScript (ES6+), SASS/SCSS, and Tailwind CSS\r\n\u2022 Proficient in React.js, Vue.js, and modern UI framework development\r\n\u2022 Strong experience in responsive design, cross-browser compatibility, and mobile-first development\r\n\u2022 Skilled in Figma, Adobe XD, Sketch, and converting designs to pixel-perfect code\r\n\u2022 Expertise in CSS animations, UI transitions, accessibility standards (WCAG), and performance optimization\r\n\r\nI have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an immediate joiner, detail-oriented, and passionate about creating exceptional user experiences.\r\n\r\nThank you for your time and consideration. I look forward to hearing from you.\r\n\r\nBest regards,\r\nThamim ansari\r\nthamimansari358@gmail.com\r\n+91 8072098022\r\nhttps://thamim2023.web.app\r\nhttps://www.linkedin.com/in/thamim358/<br></body>\n                </html>",
+  "email_body": "<html>\n                <head>\n                    <style>\n                        body { \n                            font-family: 'Poppins', Arial, sans-serif; \n                            line-height: 1.6; \n                            color: #333;\n                            margin: 0;\n                            padding: 20px;\n                        }\n                        p { margin: 12px 0; }\n                        ul { margin: 12px 0; padding-left: 25px; }\n                        li { margin: 6px 0; }\n                        strong { font-weight: 600; }\n                        a { color: #0066CC; text-decoration: none; }\n                        a:hover { text-decoration: underline; }\n                    </style>\n                </head>\n                <body>Dear Hiring Manager,</p><p>I hope you're doing well.</p><p>I am writing to express my interest in the Web Developer . With 3+ years of experience in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.</p><p><strong>Key Skills &amp; Experience:</strong></p><p>\u2022 Expert in HTML5, CSS3, JavaScript (ES6+), SASS/SCSS, and Tailwind CSS<br>\u2022 Proficient in React.js, Vue.js, and modern UI framework development<br>\u2022 Strong experience in responsive design, cross-browser compatibility, and mobile-first development<br>\u2022 Skilled in Figma, Adobe XD, Sketch, and converting designs to pixel-perfect code<br>\u2022 Expertise in CSS animations, UI transitions, accessibility standards (WCAG), and performance optimization</p><p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an immediate joiner, detail-oriented, and passionate about creating exceptional user experiences.</p><p>Thank you for your time and consideration. I look forward to hearing from you.</p><p>Best regards,<br>Thamim ansari<br>thamimansari358@gmail.com<br>+91 8072098022<br>https://thamim2023.web.app<br>https://www.linkedin.com/in/thamim358/</body>\n                </html>",
   "resume_file": "uploaded_resume.pdf",
   "bot_type": "email",
   "job_role": "webdeveloper",
   "custom_title": "",
   "date_filter": "past-24h",
-  "emails_per_hour": "100",
-  "daily_limit": "unlimited",
+  "emails_per_hour": "20",
+  "daily_limit": "100",
   "skip_weekends": false,
   "user_info": {
     "name": "Thamim Ansari",

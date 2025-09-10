@@ -1,12 +1,14 @@
 {
   "email_extractor": {
-    "status": "stopped",
-    "emails_sent": 197,
+    "status": "running",
+    "emails_sent": 256,
     "emails_extracted": 4,
     "posts_processed": 81,
-    "start_time": null,
-    "runtime": "0:00:52",
-    "last_activity": "2025-09-10 16:20:42.942155"
+    "start_time": "2025-09-10 18:10:43.570189",
+    "runtime": "0:03:49",
+    "last_activity": "2025-09-10 18:14:33.250330",
+    "detailed_status": "Extracting emails from job posts...",
+    "progress": 70
   },
   "aibot": {
     "status": "stopped",
@@ -19,10 +21,41 @@
     "runtime": "00:00:00",
     "last_activity": null
   },
-  "recent_emails": [],
+  "recent_emails": [
+    {
+      "email": "tulashashanker2809@gmail.com",
+      "status": "sent",
+      "time": "2025-09-10 17:42:33"
+    },
+    {
+      "email": "hr@estechnosolutions.com",
+      "status": "sent",
+      "time": "2025-09-10 17:42:56"
+    },
+    {
+      "email": "tanya.bringletech@gmail.com",
+      "status": "sent",
+      "time": "2025-09-10 17:43:18"
+    },
+    {
+      "email": "vinayakshxrma@gmail.com",
+      "status": "sent",
+      "time": "2025-09-10 17:43:59"
+    },
+    {
+      "email": "vidyasagar@itwonders.net",
+      "status": "sent",
+      "time": "2025-09-10 17:45:34"
+    },
+    {
+      "email": "diya@ifisys.com",
+      "status": "sent",
+      "time": "2025-09-10 17:47:19"
+    }
+  ],
   "recent_applications": [],
   "system": {
-    "uptime": "0:00:41",
+    "uptime": "0:04:38",
     "version": "2.0",
     "mode": "Professional"
   }
