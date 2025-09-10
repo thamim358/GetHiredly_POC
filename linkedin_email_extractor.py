@@ -13,13 +13,17 @@ Run this script independently or alongside your             search_url = f"https
 Version: 1.0.0
 '''
 
+# Set console encoding to UTF-8 to handle Unicode characters properly
 import os
+if os.name == 'nt':  # Windows
+    os.system('chcp 65001 > nul')
+
 import re
 import time
 import json
 import smtplib
 import logging
-from datetime import datetime
+from datetime import datetime, date
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -90,12 +94,12 @@ except ImportError:
     print("Error: Selenium is not installed. Please install it using: pip install selenium")
     exit(1)
 
-# Configure logging
+# Configure logging with UTF-8 encoding to handle Unicode characters
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('linkedin_email_extractor.log'),
+        logging.FileHandler('linkedin_email_extractor.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -118,13 +122,23 @@ class LinkedInEmailExtractor:
         self.search_terms = SEARCH_TERMS if 'SEARCH_TERMS' in globals() else ["React js Developer", "Frontend Developer"]
         self.location = SEARCH_LOCATION if 'SEARCH_LOCATION' in globals() else "India"
         
+        # Email preferences with defaults
+        self.emails_per_hour = 20
+        self.daily_limit = 100
+        self.skip_weekends = True
+        self.emails_sent_today = 0
+        self.last_email_time = None
+        self.current_date = date.today()  # Track current date for daily reset
+        self.allow_fresh_campaign = True  # Allow option to start fresh campaigns
+        
         # Email template
         self.SUBJECT = EMAIL_SUBJECT if 'EMAIL_SUBJECT' in globals() else "Application for React.js Developer / Frontend Developer – 3+ Years Experience"
         self.BODY_HTML = EMAIL_BODY if 'EMAIL_BODY' in globals() else """
         <html>
-        <body>
+        <body style="font-family: 'Poppins', Arial, sans-serif; line-height: 1.6; color: #333;">
             <p>Dear Hiring Manager,</p>
-            <p>I am writing to express my interest in the React.js Developer position...</p>
+            <p>I hope you're doing well.</p>
+            <p>I am writing to express my interest in the <strong>React.js Developer</strong> position...</p>
             <p>Best regards,<br>Thamim Ansari</p>
         </body>
         </html>
@@ -169,25 +183,95 @@ class LinkedInEmailExtractor:
                 # Update instance variables with job-specific configuration
                 if 'subject' in job_config:
                     self.SUBJECT = job_config['subject']
-                    print(f"✉️ Email Subject: {self.SUBJECT}")
+                    print(f"[EMAIL] Email Subject: {self.SUBJECT}")
                 
                 if 'email_body' in job_config:
-                    self.BODY_HTML = job_config['email_body']
-                    print(f"📄 Email Body: Updated to role-specific template")
+                    # Ensure proper HTML formatting with Poppins font
+                    email_body = job_config['email_body']
+                    if not email_body.startswith('<html>'):
+                        # Convert plain text to proper HTML format
+                        email_body = f"""
+                        <html>
+                        <head>
+                            <style>
+                                body {{ font-family: 'Poppins', Arial, sans-serif; line-height: 1.6; color: #333; }}
+                                p {{ margin: 10px 0; }}
+                                ul {{ margin: 10px 0; padding-left: 20px; }}
+                                li {{ margin: 5px 0; }}
+                                strong {{ font-weight: 600; }}
+                            </style>
+                        </head>
+                        <body>
+                            {email_body.replace(chr(10), '<br>').replace('  ', ' ')}
+                        </body>
+                        </html>
+                        """
+                    self.BODY_HTML = email_body
+                    print(f"📄 Email Body: Updated to role-specific template with proper formatting")
                 
                 if 'search_terms' in job_config:
                     self.search_terms = job_config['search_terms']
-                    print(f"🔍 Search Terms: {self.search_terms}")
+                    print(f"[SEARCH] Search Terms: {self.search_terms}")
+                
+                # Load email preferences from dashboard
+                if 'emailsPerHour' in job_config:
+                    self.emails_per_hour = int(job_config['emailsPerHour'])
+                    # Calculate delay between emails based on emails per hour
+                    self.delay_between_emails = max(1, int(3600 / self.emails_per_hour))
+                    print(f"[RATE] Emails per hour: {self.emails_per_hour} (delay: {self.delay_between_emails}s)")
+                
+                if 'dailyLimit' in job_config:
+                    self.daily_limit = int(job_config['dailyLimit']) if job_config['dailyLimit'] != 'unlimited' else 999999
+                    print(f"[LIMIT] Daily limit: {self.daily_limit} emails")
+                
+                if 'skipWeekends' in job_config:
+                    self.skip_weekends = job_config['skipWeekends']
+                    print(f"[DATE] Skip weekends: {self.skip_weekends}")
+                
+                # Check if user wants to start a fresh campaign (clear sent emails)
+                if 'freshCampaign' in job_config and job_config['freshCampaign']:
+                    self.clear_sent_emails_log()
+                    print(f"🔄 Fresh campaign mode: Cleared sent emails log")
+                
+                # Load date filter preference from dashboard
+                if 'date_filter' in job_config:
+                    # Map dashboard values to LinkedIn filter text
+                    date_filter_mapping = {
+                        'past-24h': 'Past 24 hours',
+                        'past-week': 'Past week', 
+                        'past-month': 'Past month'
+                    }
+                    dashboard_filter = job_config['date_filter']
+                    self.date_posted = date_filter_mapping.get(dashboard_filter, 'Past week')
+                    print(f"[DATE] Date Filter: {self.date_posted} (from: {dashboard_filter})")
+                else:
+                    self.date_posted = "Past week"  # Default
+                    print(f"[DATE] Date Filter: {self.date_posted} (default)")
                 
                 if 'resume_file' in job_config:
-                    # Check for uploaded resume first
-                    uploaded_resume = 'uploads/uploaded_resume.pdf'
-                    if os.path.exists(uploaded_resume):
-                        self.ATTACHMENT_PATH = uploaded_resume
-                        print(f"📎 Using uploaded resume: {uploaded_resume}")
-                    else:
-                        self.ATTACHMENT_PATH = job_config['resume_file']
-                        print(f"📎 Resume File: {self.ATTACHMENT_PATH}")
+                    # Check for uploaded resume first (priority order)
+                    resume_paths = [
+                        'uploads/uploaded_resume.pdf',  # From dashboard upload
+                        os.path.join('uploads', 'uploaded_resume.pdf'),  # Alternative path
+                        job_config.get('resume_file', ''),  # From config
+                        'Thamim_Ansari_Resume.pdf'  # Default fallback
+                    ]
+                    
+                    resume_found = False
+                    for resume_path in resume_paths:
+                        if resume_path and os.path.exists(resume_path):
+                            self.ATTACHMENT_PATH = resume_path
+                            print(f"[ATTACH] Using resume: {resume_path}")
+                            resume_found = True
+                            break
+                    
+                    if not resume_found:
+                        print(f"[WARNING] No resume file found! Checked paths:")
+                        for path in resume_paths:
+                            if path:
+                                print(f"   - {path} (exists: {os.path.exists(path)})")
+                        # Set to default anyway to avoid crashes
+                        self.ATTACHMENT_PATH = 'Thamim_Ansari_Resume.pdf'
                 
                 # Load user information for personalization
                 if 'user_info' in job_config:
@@ -207,9 +291,9 @@ class LinkedInEmailExtractor:
                             linkedin_creds = json.load(f)
                             self.linkedin_email = linkedin_creds.get('email', '')
                             self.linkedin_password = linkedin_creds.get('password', '')
-                            print(f"🔐 LinkedIn credentials loaded for: {self.linkedin_email}")
+                            print(f"[AUTH] LinkedIn credentials loaded for: {self.linkedin_email}")
                 except Exception as e:
-                    print(f"⚠️ Could not load LinkedIn credentials: {e}")
+                    print(f"[WARNING] Could not load LinkedIn credentials: {e}")
                 
                 # Also update global variables for compatibility
                 global EMAIL_SUBJECT, EMAIL_BODY, SEARCH_TERMS, RESUME_FILE
@@ -218,15 +302,15 @@ class LinkedInEmailExtractor:
                 SEARCH_TERMS = self.search_terms
                 RESUME_FILE = self.ATTACHMENT_PATH
                 
-                print(f"✅ Professional configuration loaded successfully!")
+                print(f"[SUCCESS] Professional configuration loaded successfully!")
                 
                 # Save a copy for reference but don't delete (for debugging)
                 with open('last_job_config.json', 'w') as f:
                     json.dump(job_config, f, indent=2)
                 
         except Exception as e:
-            print(f"⚠️ Could not load job configuration: {e}")
-            print("📋 Using default configuration...")
+            print(f"[WARNING] Could not load job configuration: {e}")
+            print("[INFO] Using default configuration...")
             # Initialize user info with defaults
             self.user_name = "User"
             self.user_email = "user@example.com"
@@ -245,9 +329,27 @@ class LinkedInEmailExtractor:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
                         sent_emails.add(row['email'].lower())
+                logging.info(f"[EMAIL] Loaded {len(sent_emails)} previously sent emails")
+            else:
+                logging.info("[EMAIL] No previous sent emails log found")
         except Exception as e:
             logging.error(f"Error loading sent emails: {e}")
         return sent_emails
+
+    def clear_sent_emails_log(self):
+        """Clear the sent emails log to start fresh campaign"""
+        try:
+            if os.path.exists('sent_emails_log.csv'):
+                # Backup existing log before clearing
+                backup_name = f"sent_emails_log_backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+                os.rename('sent_emails_log.csv', backup_name)
+                logging.info(f"[EMAIL] Backed up existing log to {backup_name}")
+            
+            # Clear in-memory set
+            self.sent_emails.clear()
+            logging.info(f"[RESET] Cleared sent emails log for fresh campaign")
+        except Exception as e:
+            logging.error(f"Failed to clear sent emails log: {e}")
 
     def setup_driver(self):
         """Setup Chrome WebDriver with same options as runAiBot"""
@@ -264,12 +366,12 @@ class LinkedInEmailExtractor:
             for path in chromedriver_paths:
                 if os.path.exists(path):
                     service = Service(path)
-                    print_lg(f"✅ Found ChromeDriver at: {path}")
+                    print_lg(f"[DRIVER] Found ChromeDriver at: {path}")
                     break
             
             if not service:
                 # Try using system PATH
-                print_lg("⚠️ ChromeDriver not found in local paths, trying system PATH...")
+                print_lg("[DRIVER] ChromeDriver not found in local paths, trying system PATH...")
                 service = Service()
             
             options = Options()
@@ -391,9 +493,22 @@ class LinkedInEmailExtractor:
     def search_posts(self, search_term: str):
         """Search for posts with given search term and filter by Posts"""
         try:
-            # Use LinkedIn search for posts with hiring keyword
-            search_url = f"https://www.linkedin.com/search/results/content/?keywords={search_term}%20hiring&origin=SWITCH_SEARCH_VERTICAL"
+            # Map our date options to LinkedIn's URL parameter values
+            date_filter_mapping = {
+                "Past 24 hours": "past-24h",
+                "Past week": "past-week", 
+                "Past month": "past-month"
+            }
+            
+            # Get the configured date option and map it to URL parameter
+            date_option_text = getattr(self, 'date_posted', 'Past week')
+            date_param = date_filter_mapping.get(date_option_text, 'past-week')
+            
+            # Build search URL with date filter included
+            search_url = f"https://www.linkedin.com/search/results/content/?datePosted=%22{date_param}%22&keywords={search_term}%20hiring&origin=FACETED_SEARCH"
+            
             logging.info(f"🔍 Searching for posts with: '{search_term}'")
+            logging.info(f"📅 Date filter: {date_option_text} (URL param: {date_param})")
             logging.info(f"🌐 Search URL: {search_url}")
             
             self.driver.get(search_url)
@@ -420,49 +535,8 @@ class LinkedInEmailExtractor:
                 except:
                     logging.warning("Could not apply Posts filter with alternative method")
             
-            # Apply date filter if available
-            try:
-                # Look for date filter
-                date_filter_button = self.driver.find_element(By.XPATH, "//button[contains(@aria-label, 'Date posted filter')]")
-                date_filter_button.click()
-                buffer(2)
-                
-                # Select the configured date option
-                date_option_text = getattr(self, 'date_posted', DATE_POSTED)
-                logging.info(f"Trying to apply date filter: {date_option_text}")
-                
-                # Map date options to possible LinkedIn text variations
-                date_mappings = {
-                    "Past 24 hours": ["Past 24 hours", "24 hours", "Past day"],
-                    "Past week": ["Past week", "Week", "7 days"],
-                    "Past month": ["Past month", "Month", "30 days"],
-                    "Any time": ["Any time", "All time"]
-                }
-                
-                filter_applied = False
-                if date_option_text in date_mappings:
-                    for option_text in date_mappings[date_option_text]:
-                        try:
-                            date_option = self.driver.find_element(By.XPATH, f"//label[contains(text(), '{option_text}')]")
-                            date_option.click()
-                            buffer(1)
-                            
-                            # Apply filter
-                            apply_button = self.driver.find_element(By.XPATH, "//button[contains(text(), 'Apply')]")
-                            apply_button.click()
-                            buffer(3)
-                            
-                            logging.info(f"Applied '{option_text}' date filter")
-                            filter_applied = True
-                            break
-                        except:
-                            continue
-                
-                if not filter_applied:
-                    logging.warning(f"Could not find date filter option for: {date_option_text}")
-                
-            except Exception as e:
-                logging.warning(f"Could not apply date filter: {e}")
+            # Note: Date filter is now applied via URL parameter, so we don't need the manual filter click
+            logging.info(f"✅ Date filter '{date_option_text}' applied via URL parameter")
             
             return True
             
@@ -784,38 +858,106 @@ class LinkedInEmailExtractor:
             logging.error(f"Error scrolling to load posts: {e}")
 
     def create_email_message(self, to_email: str) -> MIMEMultipart:
-        """Create email message with attachment"""
+        """Create email message with attachment and proper HTML formatting"""
         msg = MIMEMultipart()
         msg['From'] = self.SENDER_EMAIL
         msg['To'] = to_email
         msg['Subject'] = self.SUBJECT
         
+        # Ensure email body has proper HTML formatting with Poppins font
+        email_body = self.BODY_HTML
+        if not email_body.strip().startswith('<html>'):
+            # Convert to proper HTML if not already formatted
+            email_body = f"""
+            <html>
+            <head>
+                <style>
+                    body {{ 
+                        font-family: 'Poppins', Arial, sans-serif; 
+                        line-height: 1.6; 
+                        color: #333;
+                        margin: 0;
+                        padding: 20px;
+                    }}
+                    p {{ margin: 12px 0; }}
+                    ul {{ margin: 12px 0; padding-left: 25px; }}
+                    li {{ margin: 6px 0; }}
+                    strong {{ font-weight: 600; }}
+                    a {{ color: #0066CC; text-decoration: none; }}
+                    a:hover {{ text-decoration: underline; }}
+                </style>
+            </head>
+            <body>
+                {email_body.replace(chr(10), '<br>').replace('  ', ' ')}
+            </body>
+            </html>
+            """
+        
         # Add body to email
-        msg.attach(MIMEText(self.BODY_HTML, 'html'))
+        msg.attach(MIMEText(email_body, 'html'))
         
         # Add attachment if exists
         if os.path.isfile(self.ATTACHMENT_PATH):
-            with open(self.ATTACHMENT_PATH, "rb") as attachment:
-                part = MIMEBase('application', 'octet-stream')
-                part.set_payload(attachment.read())
-            
-            encoders.encode_base64(part)
-            part.add_header(
-                'Content-Disposition',
-                f'attachment; filename= {os.path.basename(self.ATTACHMENT_PATH)}'
-            )
-            msg.attach(part)
+            try:
+                with open(self.ATTACHMENT_PATH, "rb") as attachment:
+                    part = MIMEBase('application', 'octet-stream')
+                    part.set_payload(attachment.read())
+                
+                encoders.encode_base64(part)
+                part.add_header(
+                    'Content-Disposition',
+                    f'attachment; filename= {os.path.basename(self.ATTACHMENT_PATH)}'
+                )
+                msg.attach(part)
+                logging.info(f"[ATTACH] Resume attached: {self.ATTACHMENT_PATH}")
+            except Exception as e:
+                logging.error(f"[ERROR] Failed to attach resume {self.ATTACHMENT_PATH}: {e}")
         else:
-            logging.warning(f"Resume file {self.ATTACHMENT_PATH} not found!")
+            logging.warning(f"[WARNING] Resume file not found: {self.ATTACHMENT_PATH}")
+            logging.info(f"[INFO] Current working directory: {os.getcwd()}")
+            logging.info(f"[INFO] Files in current directory: {os.listdir('.')}")
+            if os.path.exists('uploads'):
+                logging.info(f"[INFO] Files in uploads directory: {os.listdir('uploads')}")
+            else:
+                logging.warning(f"[WARNING] Uploads directory does not exist!")
         
         return msg
 
     def send_email(self, to_email: str) -> bool:
-        """Send email to a specific address"""
+        """Send email to a specific address with preference controls"""
         try:
+            # Check if we need to reset daily counter (new day)
+            today = date.today()
+            if today != self.current_date:
+                self.emails_sent_today = 0
+                self.current_date = today
+                logging.info(f"[DATE] New day detected - daily email counter reset")
+            
+            # Check if email already sent
             if to_email.lower() in self.sent_emails:
-                logging.info(f"Email already sent to {to_email}, skipping...")
+                logging.info(f"[EMAIL] Email already sent to {to_email}, skipping...")
                 return False
+            
+            # Check weekend preference
+            if self.skip_weekends:
+                today_datetime = datetime.now()
+                if today_datetime.weekday() >= 5:  # Saturday = 5, Sunday = 6
+                    logging.info(f"[DATE] Skipping email to {to_email} - Weekend preference enabled")
+                    return False
+            
+            # Check daily limit
+            if self.emails_sent_today >= self.daily_limit:
+                logging.info(f"[LIMIT] Daily limit reached ({self.daily_limit}), skipping email to {to_email}")
+                return False
+            
+            # Check hourly rate limiting
+            if self.last_email_time:
+                time_since_last = (datetime.now() - self.last_email_time).total_seconds()
+                min_delay = 3600 / self.emails_per_hour  # seconds between emails
+                if time_since_last < min_delay:
+                    wait_time = min_delay - time_since_last
+                    logging.info(f"[RATE] Rate limiting: waiting {wait_time:.1f}s before sending to {to_email}")
+                    time.sleep(wait_time)
                 
             msg = self.create_email_message(to_email)
             
@@ -829,9 +971,13 @@ class LinkedInEmailExtractor:
             server.sendmail(self.SENDER_EMAIL, to_email, text)
             server.quit()
             
+            # Update tracking
             self.emails_sent += 1
+            self.emails_sent_today += 1
             self.sent_emails.add(to_email.lower())
-            logging.info(f"✓ Email sent successfully to {to_email}")
+            self.last_email_time = datetime.now()
+            
+            logging.info(f"[SUCCESS] Email sent successfully to {to_email} ({self.emails_sent_today}/{self.daily_limit} today)")
             
             # Save sent email to file
             self.save_sent_email(to_email)
@@ -840,7 +986,7 @@ class LinkedInEmailExtractor:
             
         except Exception as e:
             self.emails_failed += 1
-            logging.error(f"✗ Failed to send email to {to_email}: {str(e)}")
+            logging.error(f"[ERROR] Failed to send email to {to_email}: {str(e)}")
             return False
 
     def save_sent_email(self, email: str):

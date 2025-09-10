@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn AutoBot - Professional Job Application Assistant</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Rich Text Editor -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -15,12 +23,22 @@
                         secondary: '#1F2937',
                         accent: '#F59E0B',
                         linkedin: '#0A66C2'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'nata': ['Nata Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nata-font {
+            font-family: 'Nata Sans', sans-serif;
+        }
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
@@ -71,11 +89,153 @@
             top: 20px;
             right: 20px;
             z-index: 1000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transform: translateX(400px) scale(0.8);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 420px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         .notification.show {
-            transform: translateX(0);
+            transform: translateX(0) scale(1);
+            opacity: 1;
+        }
+        .notification.hide {
+            transform: translateX(400px) scale(0.8);
+            opacity: 0;
+        }
+        
+        /* Toast Animation Effects */
+        @keyframes slideInBounce {
+            0% {
+                transform: translateX(400px) scale(0.8);
+                opacity: 0;
+            }
+            70% {
+                transform: translateX(-10px) scale(1.02);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes progressBar {
+            0% { width: 100%; }
+            100% { width: 0%; }
+        }
+        
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 0 0 16px 16px;
+            animation: progressBar 5s linear forwards;
+        }
+        
+        .toast-glow {
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent 30%, rgba(102, 126, 234, 0.3) 50%, transparent 70%);
+            border-radius: 18px;
+            z-index: -1;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        .toast-icon-bounce {
+            animation: iconBounce 0.6s ease-out;
+        }
+        
+        @keyframes iconBounce {
+            0% { transform: scale(0) rotate(180deg); }
+            50% { transform: scale(1.2) rotate(90deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        
+        .toast-content-slide {
+            animation: contentSlide 0.5s ease-out 0.2s both;
+        }
+        
+        @keyframes contentSlide {
+            0% { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Toast Type Specific Styles */
+        .toast-success {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.95) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        }
+        
+        .toast-error {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.95) 0%, rgba(220, 38, 38, 0.95) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        }
+        
+        .toast-info {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        }
+        
+        .toast-warning {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.95) 0%, rgba(217, 119, 6, 0.95) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        }
+        /* Rich Text Editor Styles */
+        .email-editor {
+            min-height: 200px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .email-editor:focus {
+            outline: none;
+            border-color: #0066CC;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+        .editor-toolbar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 8px 8px 0 0;
+        }
+        .editor-btn {
+            padding: 6px 12px;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .editor-btn:hover {
+            background: #f3f4f6;
+        }
+        .editor-btn.active {
+            background: #0066CC;
+            color: white;
+            border-color: #0066CC;
         }
     </style>
 </head>
@@ -362,7 +522,59 @@
                                     <span class="bg-gray-100 px-2 py-1 rounded">[WEBSITE]</span>
                                 </div>
                             </div>
-                            <textarea id="emailTemplate" rows="12" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus" placeholder="Dear Hiring Manager,&#10;&#10;I hope you're doing well.&#10;&#10;I am writing to express my interest in the [Job Title] position..."></textarea>
+                            
+                            <!-- Rich Text Editor Container -->
+                            <div class="border border-gray-300 rounded-lg">
+                                <!-- Simple toolbar -->
+                                <div class="bg-gray-50 px-3 py-2 border-b border-gray-300 flex items-center space-x-2">
+                                    <button type="button" onclick="formatText('bold')" class="px-2 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100" title="Bold">
+                                        <i class="fas fa-bold"></i>
+                                    </button>
+                                    <button type="button" onclick="formatText('italic')" class="px-2 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100" title="Italic">
+                                        <i class="fas fa-italic"></i>
+                                    </button>
+                                    <button type="button" onclick="insertLineBreak()" class="px-2 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100" title="Line Break">
+                                        <i class="fas fa-level-down-alt"></i>
+                                    </button>
+                                    <button type="button" onclick="insertBulletPoint()" class="px-2 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100" title="Bullet Point">
+                                        <i class="fas fa-list-ul"></i>
+                                    </button>
+                                    <button type="button" onclick="previewEmail()" class="px-3 py-1 text-sm bg-primary text-white rounded hover:bg-blue-700" title="Preview">
+                                        <i class="fas fa-eye mr-1"></i>Preview
+                                    </button>
+                                </div>
+                                
+                                <!-- Text editor -->
+                                <div contenteditable="true" id="emailTemplate" class="w-full px-4 py-3 min-h-[300px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-20" 
+                                     style="white-space: pre-wrap;" 
+                                     onpaste="handlePaste(event)"
+                                     onkeydown="handleKeyDown(event)"
+                                     data-placeholder="Dear Hiring Manager,
+
+I hope you're doing well.
+
+I am writing to express my interest in the [Job Title] position...">
+                                </div>
+                            </div>
+                            
+                            <!-- Email Preview Modal -->
+                            <div id="emailPreviewModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+                                <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+                                    <div class="p-6">
+                                        <div class="flex justify-between items-center mb-4">
+                                            <h3 class="text-lg font-medium">Email Preview</h3>
+                                            <button onclick="closeEmailPreview()" class="text-gray-500 hover:text-gray-700">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <div class="border rounded-lg p-4 bg-gray-50">
+                                            <div class="mb-2"><strong>Subject:</strong> <span id="previewSubject"></span></div>
+                                            <div class="mb-4"><strong>To:</strong> hiring.manager@company.com</div>
+                                            <div id="previewContent" class="prose prose-sm max-w-none"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Bot Type Selection -->
@@ -385,6 +597,85 @@
                                         <div class="text-sm text-gray-600">Automatically apply to jobs using AI form filling</div>
                                     </label>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Date Posted Filter Preference -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-calendar-alt mr-2 text-primary"></i>Job Post Date Preference
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors" onclick="selectDateFilter('past-24h')">
+                                    <input type="radio" name="dateFilter" value="past-24h" id="date24h" class="mr-3">
+                                    <label for="date24h" class="cursor-pointer">
+                                        <div class="font-medium">Past 24 hours</div>
+                                        <div class="text-sm text-gray-600">Target very fresh job postings</div>
+                                    </label>
+                                </div>
+                                <div class="border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors" onclick="selectDateFilter('past-week')">
+                                    <input type="radio" name="dateFilter" value="past-week" id="dateWeek" class="mr-3" checked>
+                                    <label for="dateWeek" class="cursor-pointer">
+                                        <div class="font-medium">Past week</div>
+                                        <div class="text-sm text-gray-600">Target recent job postings (recommended)</div>
+                                    </label>
+                                </div>
+                                <div class="border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors" onclick="selectDateFilter('past-month')">
+                                    <input type="radio" name="dateFilter" value="past-month" id="dateMonth" class="mr-3">
+                                    <label for="dateMonth" class="cursor-pointer">
+                                        <div class="font-medium">Past month</div>
+                                        <div class="text-sm text-gray-600">Include older job postings</div>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                This preference helps target job postings within your specified timeframe for better response rates.
+                            </p>
+                        </div>
+
+                        <!-- Email Sending Preferences -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-envelope-open mr-2 text-primary"></i>Email Preferences
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-600 mb-1">Emails per hour</label>
+                                    <select id="emailsPerHour" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                                        <option value="10">10 emails/hour (Conservative)</option>
+                                        <option value="20" selected>20 emails/hour (Recommended)</option>
+                                        <option value="30">30 emails/hour (Aggressive)</option>
+                                        <option value="50">50 emails/hour (Maximum)</option>
+                                        <option value="100">100 emails/hour (Maximum)</option>
+                                        <option value="200">200 emails/hour (Maximum)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-600 mb-1">Daily limit</label>
+                                    <select id="dailyLimit" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                                        <option value="50">50 emails/day</option>
+                                        <option value="100" selected>100 emails/day (Recommended)</option>
+                                        <option value="200">200 emails/day</option>
+                                        <option value="unlimited">Unlimited</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="skipWeekends" class="mr-2" checked>
+                                    <span class="text-sm text-gray-700">Skip sending emails on weekends</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="freshCampaign" class="mr-2">
+                                    <span class="text-sm text-gray-700">Start fresh campaign (clear sent emails log)</span>
+                                </label>
+                                <p class="text-xs text-gray-500 mt-1 ml-6">
+                                    <i class="fas fa-info-circle mr-1"></i>
+                                    This will backup and clear your previous sent emails history, allowing you to send emails to all extracted addresses again.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -679,21 +970,200 @@
         </div>
     </div>
 
-    <!-- Notification Toast -->
-    <div id="notification" class="notification bg-white rounded-lg shadow-lg border border-gray-200 p-4 min-w-80">
-        <div class="flex items-center">
-            <div id="notificationIcon" class="mr-3"></div>
-            <div>
-                <p id="notificationTitle" class="font-medium text-gray-900"></p>
-                <p id="notificationMessage" class="text-sm text-gray-600"></p>
+    <!-- Enhanced Toast Notification -->
+    <div id="toastContainer" class="fixed top-5 right-5 z-50 space-y-3"></div>
+    
+    <!-- Toast Template (Hidden) -->
+    <template id="toastTemplate">
+        <div class="notification relative overflow-hidden rounded-2xl p-5 min-w-80 font-poppins">
+            <!-- Glow Effect -->
+            <div class="toast-glow"></div>
+            
+            <!-- Progress Bar -->
+            <div class="toast-progress"></div>
+            
+            <!-- Content Container -->
+            <div class="relative flex items-start space-x-4">
+                <!-- Icon Container -->
+                <div class="toast-icon-container flex-shrink-0">
+                    <div class="toast-icon-bounce w-10 h-10 rounded-full flex items-center justify-center">
+                        <i class="toast-icon text-xl text-white"></i>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="toast-content-slide flex-1 min-w-0">
+                    <div class="toast-title text-white font-semibold text-base mb-1 leading-tight"></div>
+                    <div class="toast-message text-white/90 text-sm leading-relaxed"></div>
+                </div>
+                
+                <!-- Close Button -->
+                <button class="toast-close flex-shrink-0 text-white/80 hover:text-white transition-colors duration-200 p-1 rounded-full hover:bg-white/10" onclick="hideToast(this)">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
             </div>
-            <button onclick="hideNotification()" class="ml-auto text-gray-400 hover:text-gray-600">
-                <i class="fas fa-times"></i>
-            </button>
+            
+            <!-- Decorative Elements -->
+            <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                <div class="w-full h-full rounded-full border border-white/20 transform rotate-45 translate-x-16 -translate-y-16"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 opacity-5">
+                <div class="w-full h-full rounded-full bg-white transform -translate-x-12 translate-y-12"></div>
+            </div>
         </div>
-    </div>
+    </template>
 
     <script>
+        // Rich Text Editor Functions
+        function formatText(command) {
+            document.execCommand(command, false, null);
+            document.getElementById('emailTemplate').focus();
+        }
+        
+        function insertLineBreak() {
+            const editor = document.getElementById('emailTemplate');
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            
+            const br = document.createElement('br');
+            range.insertNode(br);
+            range.setStartAfter(br);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            
+            editor.focus();
+        }
+        
+        function insertBulletPoint() {
+            const editor = document.getElementById('emailTemplate');
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            
+            const bullet = document.createTextNode('• ');
+            range.insertNode(bullet);
+            range.setStartAfter(bullet);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            
+            editor.focus();
+        }
+        
+        function handlePaste(event) {
+            event.preventDefault();
+            const text = event.clipboardData.getData('text/plain');
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            
+            // Preserve line breaks
+            const textNode = document.createTextNode(text);
+            range.insertNode(textNode);
+            range.setStartAfter(textNode);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+        
+        function handleKeyDown(event) {
+            const editor = document.getElementById('emailTemplate');
+            
+            // Handle Enter key to create proper line breaks
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                insertLineBreak();
+                insertLineBreak(); // Double line break for paragraph spacing
+            }
+        }
+        
+        function previewEmail() {
+            const subject = document.getElementById('emailSubject').value || 'No subject';
+            const content = document.getElementById('emailTemplate').innerHTML;
+            
+            // Replace placeholders with sample data for preview
+            let previewContent = content
+                .replace(/\[FULL_NAME\]/g, document.getElementById('fullName').value || 'Your Name')
+                .replace(/\[EMAIL\]/g, document.getElementById('email').value || 'your.email@example.com')
+                .replace(/\[PHONE\]/g, document.getElementById('phone').value || 'Your Phone')
+                .replace(/\[WEBSITE\]/g, document.getElementById('website').value || 'Your Website');
+            
+            document.getElementById('previewSubject').textContent = subject;
+            document.getElementById('previewContent').innerHTML = previewContent;
+            document.getElementById('emailPreviewModal').classList.remove('hidden');
+        }
+        
+        function closeEmailPreview() {
+            document.getElementById('emailPreviewModal').classList.add('hidden');
+        }
+        
+        function getFormattedEmailContent() {
+            const editor = document.getElementById('emailTemplate');
+            let content = editor.innerHTML;
+            
+            // Clean up the HTML and ensure proper formatting
+            content = content
+                .replace(/<div>/gi, '<p>')
+                .replace(/<\/div>/gi, '</p>')
+                .replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '</p><p>') // Convert double BR to paragraphs
+                .replace(/&nbsp;/g, ' ')
+                .trim();
+            
+            // Ensure content is wrapped in HTML structure with Poppins font
+            if (!content.includes('<html>')) {
+                content = `<html>
+                <head>
+                    <style>
+                        body { 
+                            font-family: 'Poppins', Arial, sans-serif; 
+                            line-height: 1.6; 
+                            color: #333;
+                            margin: 0;
+                            padding: 20px;
+                        }
+                        p { margin: 12px 0; }
+                        ul { margin: 12px 0; padding-left: 25px; }
+                        li { margin: 6px 0; }
+                        strong { font-weight: 600; }
+                        a { color: #0066CC; text-decoration: none; }
+                        a:hover { text-decoration: underline; }
+                    </style>
+                </head>
+                <body>${content}</body>
+                </html>`;
+            }
+            
+            return content;
+        }
+        
+        function getPlainTextEmailContent() {
+            const editor = document.getElementById('emailTemplate');
+            let content = editor.innerHTML;
+            
+            // Convert HTML to plain text with proper formatting
+            content = content
+                .replace(/<br\s*\/?>/gi, '\n')
+                .replace(/<\/p>/gi, '\n\n')
+                .replace(/<p>/gi, '')
+                .replace(/<strong>(.*?)<\/strong>/gi, '$1')
+                .replace(/<b>(.*?)<\/b>/gi, '$1')
+                .replace(/<em>(.*?)<\/em>/gi, '$1')
+                .replace(/<i>(.*?)<\/i>/gi, '$1')
+                .replace(/<[^>]*>/g, '') // Remove any remaining HTML tags
+                .replace(/&nbsp;/g, ' ')
+                .replace(/\n\s*\n\s*\n/g, '\n\n') // Clean up multiple line breaks
+                .trim();
+            
+            return content;
+        }
+        
+        // Initialize email template with placeholder content
+        function initializeEmailTemplate() {
+            const editor = document.getElementById('emailTemplate');
+            if (editor.innerHTML.trim() === '') {
+                editor.innerHTML = `Dear Hiring Manager,<br><br>I hope you're doing well.<br><br>I am writing to express my interest in the UI Developer . With 3+ years of experience in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.<br><br><strong>Key Skills & Experience:</strong><br><br>• Expert in HTML5, CSS3, JavaScript (ES6+), SASS/SCSS, and Tailwind CSS<br>• Proficient in React.js, Vue.js, and modern UI framework development<br>• Strong experience in responsive design, cross-browser compatibility, and mobile-first development<br>• Skilled in Figma, Adobe XD, Sketch, and converting designs to pixel-perfect code<br>• Expertise in CSS animations, UI transitions, accessibility standards (WCAG), and performance optimization<br><br>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an immediate joiner, detail-oriented, and passionate about creating exceptional user experiences.<br><br>Thank you for your time and consideration. I look forward to hearing from you.<br><br>Best regards,<br>Thamim ansari<br>thamimansari358@gmail.com<br>+91 8072098022<br>https://thamim2023.web.app<br>https://www.linkedin.com/in/thamim358/`;
+            }
+        }
+        
         // Global state
         let currentTab = 1;
         let botStatus = 'idle';
@@ -709,7 +1179,7 @@
             ui: {
                 subject: "Application for UI Developer / Frontend UI Developer – 3+ Years Experience",
                 search_terms: ["UI Developer", "UI/UX Developer", "User Interface Developer", "Frontend UI Developer", "Web UI Developer", "UI Engineer"],
-                email_body: `<html><body><p>Dear Hiring Manager,</p><p>I hope you're doing well.</p><p>I am writing to express my interest in the <strong>UI Developer</strong> or <strong>Frontend UI Developer</strong> position. With <strong>3+ years of experience</strong> in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.</p><p><strong>Key Skills & Experience:</strong></p><ul><li>Expert in <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript (ES6+)</strong>, <strong>SASS/SCSS</strong>, and <strong>Tailwind CSS</strong></li><li>Proficient in <strong>React.js</strong>, <strong>Vue.js</strong>, and modern <strong>UI framework development</strong></li><li>Strong experience in <strong>responsive design</strong>, <strong>cross-browser compatibility</strong>, and <strong>mobile-first development</strong></li><li>Skilled in <strong>Figma</strong>, <strong>Adobe XD</strong>, <strong>Sketch</strong>, and converting designs to pixel-perfect code</li><li>Expertise in <strong>CSS animations</strong>, <strong>UI transitions</strong>, <strong>accessibility standards (WCAG)</strong>, and <strong>performance optimization</strong></li></ul><p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an <strong>immediate joiner</strong>, detail-oriented, and passionate about creating exceptional user experiences.</p><p>Thank you for your time and consideration. I look forward to hearing from you.</p><p>Best regards,<br><strong>[FULL_NAME]</strong><br>[EMAIL]<br>[PHONE]<br><a href="[WEBSITE]">[WEBSITE]</a><br><a href="https://www.linkedin.com/in/yourprofile/">LinkedIn Profile</a></p></body></html>`
+                email_body: `Dear Hiring Manager,<br><br>I hope you're doing well.<br><br>I am writing to express my interest in the <strong>UI Developer</strong> or <strong>Frontend UI Developer</strong> position. With <strong>3+ years of experience</strong> in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.<br><br><strong>Key Skills & Experience:</strong><br><br>• Expert in <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript (ES6+)</strong>, <strong>SASS/SCSS</strong>, and <strong>Tailwind CSS</strong><br>• Proficient in <strong>React.js</strong>, <strong>Vue.js</strong>, and modern <strong>UI framework development</strong><br>• Strong experience in <strong>responsive design</strong>, <strong>cross-browser compatibility</strong>, and <strong>mobile-first development</strong><br>• Skilled in <strong>Figma</strong>, <strong>Adobe XD</strong>, <strong>Sketch</strong>, and converting designs to pixel-perfect code<br>• Expertise in <strong>CSS animations</strong>, <strong>UI transitions</strong>, <strong>accessibility standards (WCAG)</strong>, and <strong>performance optimization</strong><br><br>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an <strong>immediate joiner</strong>, detail-oriented, and passionate about creating exceptional user experiences.<br><br>Thank you for your time and consideration. I look forward to hearing from you.<br><br>Best regards,<br><strong>[FULL_NAME]</strong><br>[EMAIL]<br>[PHONE]<br><a href="[WEBSITE]">[WEBSITE]</a><br><a href="https://www.linkedin.com/in/yourprofile/">LinkedIn Profile</a>`
             },
             frontend: {
                 subject: "Application for Frontend Developer Position – 3+ Years Experience",
@@ -881,7 +1351,7 @@ GitHub: [GITHUB]`
             const jobRole = document.getElementById('jobRole').value;
             const emailSubject = document.getElementById('emailSubject').value.trim();
             const searchTerms = document.getElementById('searchTerms').value.trim();
-            const emailTemplate = document.getElementById('emailTemplate').value.trim();
+            const emailTemplate = getFormattedEmailContent();
             const botType = document.querySelector('input[name="botType"]:checked');
             
             if (!jobRole || (jobRole === 'custom' && !document.getElementById('customJobTitle').value.trim())) {
@@ -914,9 +1384,11 @@ GitHub: [GITHUB]`
                 document.getElementById('emailSubject').value = config.subject;
                 document.getElementById('searchTerms').value = config.search_terms.join('\n');
                 
-                // Fill email body with proper formatting and placeholders
-                const emailBody = replacePlaceholders(config.email_body);
-                document.getElementById('emailBody').value = emailBody;
+                // Fill email template with proper formatting
+                const emailBodyHtml = replacePlaceholders(config.email_body);
+                // Convert HTML to formatted text for the rich text editor
+                const emailTemplate = document.getElementById('emailTemplate');
+                emailTemplate.innerHTML = emailBodyHtml.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
                 
                 // Update preview
                 document.getElementById('previewSubject').textContent = config.subject;
@@ -971,6 +1443,27 @@ GitHub: [GITHUB]`
             updateConfigSummary();
         }
 
+        function selectDateFilter(dateRange) {
+            // Update radio button selection
+            document.querySelectorAll('input[name="dateFilter"]').forEach(radio => {
+                radio.checked = radio.value === dateRange;
+            });
+            
+            // Update visual selection
+            document.querySelectorAll('input[name="dateFilter"]').forEach(radio => {
+                const container = radio.closest('.border');
+                if (radio.checked) {
+                    container.classList.add('border-primary', 'bg-blue-50');
+                    container.classList.remove('border-gray-300');
+                } else {
+                    container.classList.remove('border-primary', 'bg-blue-50');
+                    container.classList.add('border-gray-300');
+                }
+            });
+            
+            updateConfigSummary();
+        }
+
         function updateConfigSummary() {
             const jobRole = document.getElementById('jobRole').value;
             const botType = document.querySelector('input[name="botType"]:checked');
@@ -998,12 +1491,45 @@ GitHub: [GITHUB]`
                     return;
                 }
                 
+                // Show uploading status
                 document.getElementById('resumeUploadArea').classList.add('hidden');
                 document.getElementById('resumeUploadStatus').classList.remove('hidden');
-                document.getElementById('resumeFileName').textContent = file.name;
+                document.getElementById('resumeFileName').innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>Uploading ${file.name}...`;
                 
-                showNotification('success', 'Resume Uploaded', `Successfully uploaded ${file.name}`);
-                updateConfigSummary();
+                // Upload file to server
+                uploadResumeToServer(file);
+            }
+        }
+        
+        async function uploadResumeToServer(file) {
+            try {
+                const formData = new FormData();
+                formData.append('resume', file);
+                
+                const response = await fetch('/api/upload-resume', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('resumeFileName').innerHTML = `<i class="fas fa-check-circle mr-2"></i>${file.name}`;
+                    showNotification('success', 'Resume Uploaded', `Successfully uploaded and saved ${file.name}`);
+                    updateConfigSummary();
+                } else {
+                    throw new Error(result.error || 'Upload failed');
+                }
+                
+            } catch (error) {
+                console.error('Resume upload error:', error);
+                document.getElementById('resumeFileName').innerHTML = `<i class="fas fa-exclamation-triangle mr-2"></i>Upload failed`;
+                showNotification('error', 'Upload Failed', `Failed to upload resume: ${error.message}`);
+                
+                // Reset file input
+                document.getElementById('resumeFile').value = '';
+                document.getElementById('resumeUploadArea').classList.remove('hidden');
+                document.getElementById('resumeUploadStatus').classList.add('hidden');
             }
         }
 
@@ -1021,38 +1547,151 @@ GitHub: [GITHUB]`
             }
         }
 
-        // Notifications
-        function showNotification(type, title, message) {
-            const notification = document.getElementById('notification');
-            const icon = document.getElementById('notificationIcon');
-            const titleEl = document.getElementById('notificationTitle');
-            const messageEl = document.getElementById('notificationMessage');
+        // Enhanced Toast Notification System
+        let toastIdCounter = 0;
+        
+        function showNotification(type, title, message, duration = 5000) {
+            const toastId = `toast-${++toastIdCounter}`;
+            const container = document.getElementById('toastContainer');
+            const template = document.getElementById('toastTemplate');
+            const toast = template.content.cloneNode(true);
             
-            // Set icon and colors based on type
-            if (type === 'success') {
-                icon.innerHTML = '<i class="fas fa-check-circle text-green-500"></i>';
-                notification.className = 'notification bg-green-50 border-green-200';
-            } else if (type === 'error') {
-                icon.innerHTML = '<i class="fas fa-exclamation-circle text-red-500"></i>';
-                notification.className = 'notification bg-red-50 border-red-200';
-            } else if (type === 'info') {
-                icon.innerHTML = '<i class="fas fa-info-circle text-blue-500"></i>';
-                notification.className = 'notification bg-blue-50 border-blue-200';
+            // Configure toast element
+            const toastElement = toast.querySelector('.notification');
+            toastElement.id = toastId;
+            
+            // Set toast type and styling
+            const typeConfig = {
+                success: {
+                    class: 'toast-success',
+                    icon: 'fas fa-check-circle',
+                    sound: true
+                },
+                error: {
+                    class: 'toast-error',
+                    icon: 'fas fa-exclamation-triangle',
+                    sound: true
+                },
+                info: {
+                    class: 'toast-info',
+                    icon: 'fas fa-info-circle',
+                    sound: false
+                },
+                warning: {
+                    class: 'toast-warning',
+                    icon: 'fas fa-exclamation-circle',
+                    sound: true
+                }
+            };
+            
+            const config = typeConfig[type] || typeConfig.info;
+            
+            // Apply styling and content
+            toastElement.classList.add(config.class);
+            toast.querySelector('.toast-icon').className = `toast-icon ${config.icon} text-xl text-white`;
+            toast.querySelector('.toast-title').textContent = title;
+            toast.querySelector('.toast-message').textContent = message;
+            
+            // Set progress bar duration
+            const progressBar = toast.querySelector('.toast-progress');
+            progressBar.style.animationDuration = `${duration}ms`;
+            
+            // Add to container
+            container.appendChild(toast);
+            
+            // Trigger show animation
+            setTimeout(() => {
+                toastElement.classList.add('show');
+            }, 10);
+            
+            // Play sound effect (optional)
+            if (config.sound && typeof Audio !== 'undefined') {
+                try {
+                    // You can add sound files here
+                    // const audio = new Audio(`/sounds/${type}.mp3`);
+                    // audio.volume = 0.3;
+                    // audio.play().catch(() => {}); // Ignore errors
+                } catch (e) {
+                    // Ignore sound errors
+                }
             }
             
-            titleEl.textContent = title;
-            messageEl.textContent = message;
+            // Auto-hide functionality
+            const autoHideTimer = setTimeout(() => {
+                hideToast(toastElement);
+            }, duration);
             
-            notification.classList.add('show');
+            // Store timer for manual dismissal
+            toastElement._autoHideTimer = autoHideTimer;
             
-            // Auto hide after 5 seconds
-            setTimeout(() => {
-                hideNotification();
-            }, 5000);
+            // Add hover pause functionality
+            toastElement.addEventListener('mouseenter', () => {
+                clearTimeout(autoHideTimer);
+                progressBar.style.animationPlayState = 'paused';
+            });
+            
+            toastElement.addEventListener('mouseleave', () => {
+                const remainingTime = duration * 0.3; // Resume with 30% of original time
+                progressBar.style.animationPlayState = 'running';
+                
+                const newTimer = setTimeout(() => {
+                    hideToast(toastElement);
+                }, remainingTime);
+                
+                toastElement._autoHideTimer = newTimer;
+            });
+            
+            return toastId;
         }
-
+        
+        function hideToast(toastElement) {
+            if (typeof toastElement === 'string') {
+                toastElement = document.getElementById(toastElement);
+            } else if (!toastElement) {
+                toastElement = toastElement.closest('.notification');
+            }
+            
+            if (!toastElement) return;
+            
+            // Clear auto-hide timer
+            if (toastElement._autoHideTimer) {
+                clearTimeout(toastElement._autoHideTimer);
+            }
+            
+            // Add hide animation
+            toastElement.classList.add('hide');
+            toastElement.classList.remove('show');
+            
+            // Remove from DOM after animation
+            setTimeout(() => {
+                if (toastElement.parentNode) {
+                    toastElement.parentNode.removeChild(toastElement);
+                }
+            }, 400);
+        }
+        
         function hideNotification() {
-            document.getElementById('notification').classList.remove('show');
+            // Compatibility function for old calls
+            const container = document.getElementById('toastContainer');
+            const toasts = container.querySelectorAll('.notification');
+            toasts.forEach(toast => hideToast(toast));
+        }
+        
+        // Utility functions for different toast types
+        function showSuccess(title, message, duration) {
+            return showNotification('success', title, message, duration);
+        }
+        
+        function showError(title, message, duration) {
+            return showNotification('error', title, message, duration);
+        }
+        
+        function showInfo(title, message, duration) {
+            return showNotification('info', title, message, duration);
+        }
+        
+        function showWarning(title, message, duration) {
+            return showNotification('warning', title, message, duration);
         }
 
         // Bot control functions
@@ -1075,8 +1714,13 @@ GitHub: [GITHUB]`
                     customTitle: document.getElementById('customJobTitle').value.trim(),
                     subject: document.getElementById('emailSubject').value.trim(),
                     searchTerms: document.getElementById('searchTerms').value.trim().split('\n').filter(term => term.trim()),
-                    emailTemplate: document.getElementById('emailTemplate').value.trim(),
-                    botType: document.querySelector('input[name="botType"]:checked')?.value
+                    emailTemplate: getFormattedEmailContent(),
+                    botType: document.querySelector('input[name="botType"]:checked')?.value,
+                    dateFilter: document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week',
+                    emailsPerHour: document.getElementById('emailsPerHour')?.value || '20',
+                    dailyLimit: document.getElementById('dailyLimit')?.value || '100',
+                    skipWeekends: document.getElementById('skipWeekends')?.checked || false,
+                    freshCampaign: document.getElementById('freshCampaign')?.checked || false
                 },
                 resume: document.getElementById('resumeFile').files[0]
             };
@@ -1294,6 +1938,7 @@ GitHub: [GITHUB]`
         document.addEventListener('DOMContentLoaded', function() {
             updateProgress();
             updateStats();
+            initializeEmailTemplate(); // Initialize the rich text editor
             
             // Poll for stats every 5 seconds
             setInterval(updateStats, 5000);
@@ -1349,6 +1994,10 @@ GitHub: [GITHUB]`
                 data.emailBody = document.getElementById('emailBody')?.value || '';
                 data.searchTerms = document.getElementById('searchTerms')?.value || '';
                 data.botType = document.querySelector('input[name="botType"]:checked')?.value || '';
+                data.dateFilter = document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week';
+                data.emailsPerHour = document.getElementById('emailsPerHour')?.value || '20';
+                data.dailyLimit = document.getElementById('dailyLimit')?.value || '100';
+                data.skipWeekends = document.getElementById('skipWeekends')?.checked || false;
                 
                 // Save timestamp to track when data was saved
                 data.savedAt = new Date().toISOString();
@@ -1425,6 +2074,22 @@ GitHub: [GITHUB]`
                         botRadio.checked = true;
                         selectBotType(data.botType);
                     }
+                }
+                
+                // Load date filter preference
+                if (data.dateFilter) {
+                    selectDateFilter(data.dateFilter);
+                }
+                
+                // Load email preferences
+                if (data.emailsPerHour) {
+                    document.getElementById('emailsPerHour').value = data.emailsPerHour;
+                }
+                if (data.dailyLimit) {
+                    document.getElementById('dailyLimit').value = data.dailyLimit;
+                }
+                if (data.skipWeekends !== undefined) {
+                    document.getElementById('skipWeekends').checked = data.skipWeekends;
                 }
             }
         }
@@ -1786,6 +2451,12 @@ GitHub: [GITHUB]`
                 loadApplicationHistory();
             }
         };
+
+        // Initialize date filter selection on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set default date filter to past week
+            selectDateFilter('past-week');
+        });
     </script>
 </body>
 </html>

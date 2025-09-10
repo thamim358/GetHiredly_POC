@@ -42,6 +42,23 @@ EMAIL_SUBJECT = "Application for React.js Developer / Frontend Developer – 3+ 
 
 EMAIL_BODY = """
 <html>
+<head>
+    <style>
+        body { 
+            font-family: 'Poppins', Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        p { margin: 12px 0; }
+        ul { margin: 12px 0; padding-left: 25px; }
+        li { margin: 6px 0; }
+        strong { font-weight: 600; }
+        a { color: #0066CC; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
 <body>
     <p>Dear Hiring Manager,</p>
     

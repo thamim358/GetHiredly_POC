@@ -181,6 +181,10 @@ class ProfessionalBotController:
             'bot_type': job.get('botType', 'email'),
             'job_role': job.get('role', 'custom'),
             'custom_title': job.get('customTitle', ''),
+            'date_filter': job.get('dateFilter', 'past-week'),  # Add date filter preference
+            'emails_per_hour': job.get('emailsPerHour', '20'),
+            'daily_limit': job.get('dailyLimit', '100'),
+            'skip_weekends': job.get('skipWeekends', False),
             'user_info': {
                 'name': personal.get('fullName', ''),
                 'email': personal.get('email', ''),
@@ -623,7 +627,7 @@ def upload_resume():
                 return jsonify({'success': False, 'error': 'File too large (max 10MB)'}), 400
             
             # Save file with secure name
-            filename = 'uploaded_resume.pdf'  # Standard name
+            filename = 'thamim_resume.pdf'  # Standard name
             filepath = os.path.join(UPLOAD_FOLDER, filename)
             file.save(filepath)
             

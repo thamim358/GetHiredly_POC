@@ -1,18 +1,27 @@
 {
-  "subject": "Application for Web Developer \u2013 3+ Years Experience",
+  "subject": "Application for Web Developer Position \u2013 3+ Years Experience",
   "search_terms": [
-    "Web Developer"
+    "Web Developer",
+    "Website Developer",
+    "Frontend Developer",
+    "JavaScript Developer",
+    "HTML CSS Developer",
+    "Web Engineer"
   ],
-  "email_body": "Dear Hiring Manager,\n\nI am writing to express my interest in the Web Developer position at your organization. With over 3 years of hands-on experience in building responsive, user-friendly, and high-performance web applications, I am confident in my ability to contribute effectively to your development team.\n\nKey Highlights of My Expertise:\n\nProficient in HTML5, CSS3, JavaScript (ES6+), React.js, and Vue.js\n\nSkilled in Node.js, RESTful APIs, and backend integration\n\nStrong experience in responsive design, cross-browser compatibility, and mobile-first development\n\nHands-on expertise in UI/UX tools (Figma, Adobe XD, Sketch) and converting designs into pixel-perfect code\n\nKnowledge of performance optimization, SEO best practices, and accessibility standards (WCAG)\n\nI am an immediate joiner, detail-oriented, and passionate about delivering modern web solutions that improve user experience and business performance.\n\nI have attached my updated resume for your review. I would welcome the opportunity to discuss how my technical skills and creativity can add value to your team.\n\nThank you for your time and consideration. I look forward to your response.\n\nBest regards,\n[Full Name]\n[ Email] | [Phone] | [Website]",
+  "email_body": "<html>\n                <head>\n                    <style>\n                        body { \n                            font-family: 'Poppins', Arial, sans-serif; \n                            line-height: 1.6; \n                            color: #333;\n                            margin: 0;\n                            padding: 20px;\n                        }\n                        p { margin: 12px 0; }\n                        ul { margin: 12px 0; padding-left: 25px; }\n                        li { margin: 6px 0; }\n                        strong { font-weight: 600; }\n                        a { color: #0066CC; text-decoration: none; }\n                        a:hover { text-decoration: underline; }\n                    </style>\n                </head>\n                <body>Dear Hiring Manager,\r\n\r\nI hope you're doing well.\r\n\r\nI am writing to express my interest in the Web  Developer . With 3+ years of experience in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.\r\n\r\nKey Skills &amp; Experience:\r\n\r\n\u2022 Expert in HTML5, CSS3, JavaScript (ES6+), SASS/SCSS, and Tailwind CSS\r\n\u2022 Proficient in React.js, Vue.js, and modern UI framework development\r\n\u2022 Strong experience in responsive design, cross-browser compatibility, and mobile-first development\r\n\u2022 Skilled in Figma, Adobe XD, Sketch, and converting designs to pixel-perfect code\r\n\u2022 Expertise in CSS animations, UI transitions, accessibility standards (WCAG), and performance optimization\r\n\r\nI have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an immediate joiner, detail-oriented, and passionate about creating exceptional user experiences.\r\n\r\nThank you for your time and consideration. I look forward to hearing from you.\r\n\r\nBest regards,\r\nThamim ansari\r\nthamimansari358@gmail.com\r\n+91 8072098022\r\nhttps://thamim2023.web.app\r\nhttps://www.linkedin.com/in/thamim358/<br></body>\n                </html>",
   "resume_file": "uploaded_resume.pdf",
   "bot_type": "email",
-  "job_role": "custom",
-  "custom_title": "Web developer",
+  "job_role": "webdeveloper",
+  "custom_title": "",
+  "date_filter": "past-24h",
+  "emails_per_hour": "100",
+  "daily_limit": "unlimited",
+  "skip_weekends": false,
   "user_info": {
     "name": "Thamim Ansari",
     "email": "thamimansari358@gmail.com",
     "phone": "+918072098022",
-    "location": "Dubai",
+    "location": "Chennai",
     "website": "https://thamim2023.web.app"
   }
 }
