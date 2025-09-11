@@ -634,6 +634,307 @@ I am writing to express my interest in the [Job Title] position...">
                             </p>
                         </div>
 
+                        <!-- Top IT Companies Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-building mr-2 text-primary"></i>Target Top IT Companies (Optional)
+                            </label>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                                <div class="flex items-center mb-3">
+                                    <input type="checkbox" id="enableCompanyFilter" class="mr-3" onchange="toggleCompanyFilter()">
+                                    <label for="enableCompanyFilter" class="font-medium text-blue-800">
+                                        Focus on Top IT Companies
+                                    </label>
+                                </div>
+                                <p class="text-sm text-blue-700 mb-3">
+                                    <i class="fas fa-star mr-1"></i>
+                                    Target major tech companies for higher visibility and better opportunities
+                                </p>
+                                
+                                <div id="companyFilterOptions" class="hidden">
+                                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
+                                        <!-- FAANG Companies -->
+                                        <div class="company-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">FAANG</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Google" data-linkedin="Google">
+                                                    <span>Google</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Meta" data-linkedin="Meta">
+                                                    <span>Meta</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Amazon" data-linkedin="Amazon">
+                                                    <span>Amazon</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Apple" data-linkedin="Apple">
+                                                    <span>Apple</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Netflix" data-linkedin="Netflix">
+                                                    <span>Netflix</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Major Tech -->
+                                        <div class="company-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">Major Tech</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Microsoft" data-linkedin="Microsoft">
+                                                    <span>Microsoft</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Tesla" data-linkedin="Tesla">
+                                                    <span>Tesla</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Uber" data-linkedin="Uber">
+                                                    <span>Uber</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Airbnb" data-linkedin="Airbnb">
+                                                    <span>Airbnb</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Spotify" data-linkedin="Spotify">
+                                                    <span>Spotify</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Enterprise -->
+                                        <div class="company-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">Enterprise</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="IBM" data-linkedin="IBM">
+                                                    <span>IBM</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Oracle" data-linkedin="Oracle">
+                                                    <span>Oracle</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Salesforce" data-linkedin="Salesforce">
+                                                    <span>Salesforce</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Adobe" data-linkedin="Adobe">
+                                                    <span>Adobe</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Intel" data-linkedin="Intel">
+                                                    <span>Intel</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Indian IT -->
+                                        <div class="company-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">Indian IT</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="TCS" data-linkedin="Tata Consultancy Services">
+                                                    <span>TCS</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Infosys" data-linkedin="Infosys">
+                                                    <span>Infosys</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Wipro" data-linkedin="Wipro">
+                                                    <span>Wipro</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="HCL" data-linkedin="HCL Technologies">
+                                                    <span>HCL</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="company-checkbox mr-2" value="Tech Mahindra" data-linkedin="Tech Mahindra">
+                                                    <span>Tech Mahindra</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        <button type="button" onclick="selectAllCompanies()" class="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200">
+                                            Select All
+                                        </button>
+                                        <button type="button" onclick="selectCompanyCategory('FAANG')" class="px-3 py-1 text-xs bg-green-100 text-green-700 rounded hover:bg-green-200">
+                                            Select FAANG
+                                        </button>
+                                        <button type="button" onclick="selectCompanyCategory('Major Tech')" class="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded hover:bg-purple-200">
+                                            Select Major Tech
+                                        </button>
+                                        <button type="button" onclick="clearAllCompanies()" class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200">
+                                            Clear All
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="text-sm text-gray-600">
+                                        <span id="selectedCompaniesCount">0</span> companies selected
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-500 mt-2">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                When enabled, job search will focus on selected companies for targeted applications.
+                            </p>
+                        </div>
+
+                        <!-- Country/Location Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-globe mr-2 text-primary"></i>Target Countries/Locations
+                            </label>
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                                <div class="flex items-center mb-3">
+                                    <input type="checkbox" id="enableCountryFilter" class="mr-3" onchange="toggleCountryFilter()">
+                                    <label for="enableCountryFilter" class="font-medium text-green-800">
+                                        Filter by Specific Countries/Locations
+                                    </label>
+                                </div>
+                                <p class="text-sm text-green-700 mb-3">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>
+                                    Target specific countries or regions for better job matching and location preferences
+                                </p>
+                                
+                                <div id="countryFilterOptions" class="hidden">
+                                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
+                                        <!-- North America -->
+                                        <div class="country-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">North America</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="United States" data-search="USA OR \"United States\" OR America">
+                                                    <span>🇺🇸 United States</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Canada" data-search="Canada OR Canadian">
+                                                    <span>🇨🇦 Canada</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Mexico" data-search="Mexico OR Mexican">
+                                                    <span>🇲🇽 Mexico</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Europe -->
+                                        <div class="country-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">Europe</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="United Kingdom" data-search="UK OR \"United Kingdom\" OR Britain">
+                                                    <span>🇬🇧 United Kingdom</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Germany" data-search="Germany OR German">
+                                                    <span>🇩🇪 Germany</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Netherlands" data-search="Netherlands OR Dutch OR Holland">
+                                                    <span>🇳🇱 Netherlands</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="France" data-search="France OR French">
+                                                    <span>🇫🇷 France</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Switzerland" data-search="Switzerland OR Swiss">
+                                                    <span>🇨🇭 Switzerland</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Asia Pacific -->
+                                        <div class="country-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">Asia Pacific</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="India" data-search="India OR Indian">
+                                                    <span>🇮🇳 India</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Singapore" data-search="Singapore OR Singaporean">
+                                                    <span>🇸🇬 Singapore</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Australia" data-search="Australia OR Australian">
+                                                    <span>🇦🇺 Australia</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Japan" data-search="Japan OR Japanese">
+                                                    <span>🇯🇵 Japan</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="South Korea" data-search="\"South Korea\" OR Korean">
+                                                    <span>🇰🇷 South Korea</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Middle East & Others -->
+                                        <div class="country-category">
+                                            <h4 class="font-medium text-gray-800 mb-2 text-sm">Middle East & Others</h4>
+                                            <div class="space-y-1">
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="UAE" data-search="UAE OR \"United Arab Emirates\" OR Dubai OR Emirates">
+                                                    <span>🇦🇪 UAE</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Israel" data-search="Israel OR Israeli">
+                                                    <span>🇮🇱 Israel</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Brazil" data-search="Brazil OR Brazilian">
+                                                    <span>🇧🇷 Brazil</span>
+                                                </label>
+                                                <label class="flex items-center text-sm">
+                                                    <input type="checkbox" class="country-checkbox mr-2" value="Remote Global" data-search="remote OR \"work from home\" OR WFH OR global">
+                                                    <span>🌍 Remote/Global</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        <button type="button" onclick="selectAllCountries()" class="px-3 py-1 text-xs bg-green-100 text-green-700 rounded hover:bg-green-200">
+                                            Select All
+                                        </button>
+                                        <button type="button" onclick="selectCountryCategory('North America')" class="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200">
+                                            North America
+                                        </button>
+                                        <button type="button" onclick="selectCountryCategory('Europe')" class="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded hover:bg-purple-200">
+                                            Europe
+                                        </button>
+                                        <button type="button" onclick="selectCountryCategory('Asia Pacific')" class="px-3 py-1 text-xs bg-orange-100 text-orange-700 rounded hover:bg-orange-200">
+                                            Asia Pacific
+                                        </button>
+                                        <button type="button" onclick="clearAllCountries()" class="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200">
+                                            Clear All
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="text-sm text-gray-600">
+                                        <span id="selectedCountriesCount">0</span> countries/locations selected
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-500 mt-2">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Filter jobs by specific countries or enable remote/global opportunities.
+                            </p>
+                        </div>
+
 
                     </div>
                     
@@ -765,6 +1066,18 @@ I am writing to express my interest in the [Job Title] position...">
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Resume:</span>
                                     <span id="summaryResume" class="text-gray-900">Not uploaded</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Date Filter:</span>
+                                    <span id="summaryDateFilter" class="text-gray-900">Past Week</span>
+                                </div>
+                                <div id="companyFilterSummary" class="flex justify-between hidden">
+                                    <span class="text-gray-600">Target Companies:</span>
+                                    <span id="summaryCompanyFilter" class="text-gray-900 text-right max-w-xs truncate"></span>
+                                </div>
+                                <div id="countryFilterSummary" class="flex justify-between hidden">
+                                    <span class="text-gray-600">Target Countries:</span>
+                                    <span id="summaryCountryFilter" class="text-gray-900 text-right max-w-xs truncate"></span>
                                 </div>
                             </div>
                         </div>
@@ -1423,14 +1736,185 @@ GitHub: [GITHUB]`
             updateConfigSummary();
         }
 
+        // Company filter functions
+        function toggleCompanyFilter() {
+            const checkbox = document.getElementById('enableCompanyFilter');
+            const options = document.getElementById('companyFilterOptions');
+            
+            if (checkbox.checked) {
+                options.classList.remove('hidden');
+            } else {
+                options.classList.add('hidden');
+                // Clear all selections when disabled
+                clearAllCompanies();
+            }
+            updateConfigSummary();
+        }
+
+        function selectAllCompanies() {
+            document.querySelectorAll('.company-checkbox').forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateSelectedCompaniesCount();
+            updateConfigSummary();
+        }
+
+        function clearAllCompanies() {
+            document.querySelectorAll('.company-checkbox').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateSelectedCompaniesCount();
+            updateConfigSummary();
+        }
+
+        function selectCompanyCategory(category) {
+            // Find all company categories and select checkboxes in the specified category
+            const categories = document.querySelectorAll('.company-category');
+            categories.forEach(categoryDiv => {
+                const title = categoryDiv.querySelector('h4').textContent.trim();
+                if (title === category) {
+                    categoryDiv.querySelectorAll('.company-checkbox').forEach(checkbox => {
+                        checkbox.checked = true;
+                    });
+                }
+            });
+            updateSelectedCompaniesCount();
+            updateConfigSummary();
+        }
+
+        function updateSelectedCompaniesCount() {
+            const selectedCount = document.querySelectorAll('.company-checkbox:checked').length;
+            document.getElementById('selectedCompaniesCount').textContent = selectedCount;
+        }
+
+        function getSelectedCompanies() {
+            const enableFilter = document.getElementById('enableCompanyFilter').checked;
+            if (!enableFilter) return [];
+            
+            const selectedCompanies = [];
+            document.querySelectorAll('.company-checkbox:checked').forEach(checkbox => {
+                selectedCompanies.push({
+                    name: checkbox.value,
+                    linkedinName: checkbox.dataset.linkedin || checkbox.value
+                });
+            });
+            return selectedCompanies;
+        }
+
+        // Add event listeners to company checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.company-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', updateSelectedCompaniesCount);
+            });
+            document.querySelectorAll('.country-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', updateSelectedCountriesCount);
+            });
+        });
+
+        // Country filter functions
+        function toggleCountryFilter() {
+            const checkbox = document.getElementById('enableCountryFilter');
+            const options = document.getElementById('countryFilterOptions');
+            
+            if (checkbox.checked) {
+                options.classList.remove('hidden');
+            } else {
+                options.classList.add('hidden');
+                // Clear all selections when disabled
+                clearAllCountries();
+            }
+            updateConfigSummary();
+        }
+
+        function selectAllCountries() {
+            document.querySelectorAll('.country-checkbox').forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateSelectedCountriesCount();
+            updateConfigSummary();
+        }
+
+        function clearAllCountries() {
+            document.querySelectorAll('.country-checkbox').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateSelectedCountriesCount();
+            updateConfigSummary();
+        }
+
+        function selectCountryCategory(category) {
+            // Find all country categories and select checkboxes in the specified category
+            const categories = document.querySelectorAll('.country-category');
+            categories.forEach(categoryDiv => {
+                const title = categoryDiv.querySelector('h4').textContent.trim();
+                if (title === category) {
+                    categoryDiv.querySelectorAll('.country-checkbox').forEach(checkbox => {
+                        checkbox.checked = true;
+                    });
+                }
+            });
+            updateSelectedCountriesCount();
+            updateConfigSummary();
+        }
+
+        function updateSelectedCountriesCount() {
+            const selectedCount = document.querySelectorAll('.country-checkbox:checked').length;
+            document.getElementById('selectedCountriesCount').textContent = selectedCount;
+        }
+
+        function getSelectedCountries() {
+            const enableFilter = document.getElementById('enableCountryFilter').checked;
+            if (!enableFilter) return [];
+            
+            const selectedCountries = [];
+            document.querySelectorAll('.country-checkbox:checked').forEach(checkbox => {
+                selectedCountries.push({
+                    name: checkbox.value,
+                    searchTerms: checkbox.value  // Use simple country name for search
+                });
+            });
+            return selectedCountries;
+        }
+
         function updateConfigSummary() {
             const jobRole = document.getElementById('jobRole').value;
             const botType = document.querySelector('input[name="botType"]:checked');
             const resumeFile = document.getElementById('resumeFile').files[0];
+            const dateFilter = document.querySelector('input[name="dateFilter"]:checked');
+            const companyFilterEnabled = document.getElementById('enableCompanyFilter').checked;
+            const selectedCompanies = getSelectedCompanies();
+            const countryFilterEnabled = document.getElementById('enableCountryFilter').checked;
+            const selectedCountries = getSelectedCountries();
             
             document.getElementById('summaryJobRole').textContent = jobRole ? (jobRole === 'custom' ? document.getElementById('customJobTitle').value || 'Custom' : jobRole.charAt(0).toUpperCase() + jobRole.slice(1)) : 'Not set';
             document.getElementById('summaryBotType').textContent = botType ? (botType.value === 'email' ? 'Email Extractor' : 'AI Job Applier') : 'Not selected';
             document.getElementById('summaryResume').textContent = resumeFile ? resumeFile.name : 'Not uploaded';
+            
+            // Update date filter summary
+            const dateFilterText = dateFilter ? dateFilter.value.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Past Week';
+            document.getElementById('summaryDateFilter').textContent = dateFilterText;
+            
+            // Update company filter summary
+            if (companyFilterEnabled && selectedCompanies.length > 0) {
+                const companyText = selectedCompanies.length <= 3 ? 
+                    selectedCompanies.map(c => c.name).join(', ') : 
+                    `${selectedCompanies.slice(0, 3).map(c => c.name).join(', ')} +${selectedCompanies.length - 3} more`;
+                document.getElementById('summaryCompanyFilter').textContent = companyText;
+                document.getElementById('companyFilterSummary').classList.remove('hidden');
+            } else {
+                document.getElementById('companyFilterSummary').classList.add('hidden');
+            }
+            
+            // Update country filter summary
+            if (countryFilterEnabled && selectedCountries.length > 0) {
+                const countryText = selectedCountries.length <= 3 ? 
+                    selectedCountries.map(c => c.name).join(', ') : 
+                    `${selectedCountries.slice(0, 3).map(c => c.name).join(', ')} +${selectedCountries.length - 3} more`;
+                document.getElementById('summaryCountryFilter').textContent = countryText;
+                document.getElementById('countryFilterSummary').classList.remove('hidden');
+            } else {
+                document.getElementById('countryFilterSummary').classList.add('hidden');
+            }
         }
 
         // File handling
@@ -1675,7 +2159,15 @@ GitHub: [GITHUB]`
                     searchTerms: document.getElementById('searchTerms').value.trim().split('\n').filter(term => term.trim()),
                     emailTemplate: getFormattedEmailContent(),
                     botType: document.querySelector('input[name="botType"]:checked')?.value,
-                    dateFilter: document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week'
+                    dateFilter: document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week',
+                    companyFilter: {
+                        enabled: document.getElementById('enableCompanyFilter').checked,
+                        companies: getSelectedCompanies()
+                    },
+                    countryFilter: {
+                        enabled: document.getElementById('enableCountryFilter').checked,
+                        countries: getSelectedCountries()
+                    }
                 },
                 resume: document.getElementById('resumeFile').files[0]
             };
@@ -1961,6 +2453,22 @@ GitHub: [GITHUB]`
                 data.botType = document.querySelector('input[name="botType"]:checked')?.value || '';
                 data.dateFilter = document.querySelector('input[name="dateFilter"]:checked')?.value || 'past-week';
                 
+                // Save company filter preferences
+                data.companyFilterEnabled = document.getElementById('enableCompanyFilter')?.checked || false;
+                const selectedCompanies = [];
+                document.querySelectorAll('.company-checkbox:checked').forEach(checkbox => {
+                    selectedCompanies.push(checkbox.value);
+                });
+                data.selectedCompanies = selectedCompanies;
+                
+                // Save country filter preferences
+                data.countryFilterEnabled = document.getElementById('enableCountryFilter')?.checked || false;
+                const selectedCountries = [];
+                document.querySelectorAll('.country-checkbox:checked').forEach(checkbox => {
+                    selectedCountries.push(checkbox.value);
+                });
+                data.selectedCountries = selectedCountries;
+                
                 // Save timestamp to track when data was saved
                 data.savedAt = new Date().toISOString();
             }
@@ -2041,6 +2549,44 @@ GitHub: [GITHUB]`
                 // Load date filter preference
                 if (data.dateFilter) {
                     selectDateFilter(data.dateFilter);
+                }
+                
+                // Load company filter preference
+                if (data.companyFilterEnabled !== undefined) {
+                    document.getElementById('enableCompanyFilter').checked = data.companyFilterEnabled;
+                    toggleCompanyFilter();
+                }
+                
+                if (data.selectedCompanies && Array.isArray(data.selectedCompanies)) {
+                    // Clear all existing selections
+                    clearAllCompanies();
+                    // Select saved companies
+                    data.selectedCompanies.forEach(companyName => {
+                        const checkbox = document.querySelector(`.company-checkbox[value="${companyName}"]`);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                        }
+                    });
+                    updateSelectedCompaniesCount();
+                }
+                
+                // Load country filter preference
+                if (data.countryFilterEnabled !== undefined) {
+                    document.getElementById('enableCountryFilter').checked = data.countryFilterEnabled;
+                    toggleCountryFilter();
+                }
+                
+                if (data.selectedCountries && Array.isArray(data.selectedCountries)) {
+                    // Clear all existing selections
+                    clearAllCountries();
+                    // Select saved countries
+                    data.selectedCountries.forEach(countryName => {
+                        const checkbox = document.querySelector(`.country-checkbox[value="${countryName}"]`);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                        }
+                    });
+                    updateSelectedCountriesCount();
                 }
                 
                 // Load email preferences

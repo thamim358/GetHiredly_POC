@@ -23,6 +23,7 @@ import time
 import json
 import smtplib
 import logging
+import urllib.parse
 from datetime import datetime, date
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -122,6 +123,10 @@ class LinkedInEmailExtractor:
         self.search_terms = SEARCH_TERMS if 'SEARCH_TERMS' in globals() else ["React js Developer", "Frontend Developer"]
         self.location = SEARCH_LOCATION if 'SEARCH_LOCATION' in globals() else "India"
         
+        # Target companies and countries configuration
+        self.target_companies = []  # List of target companies like ["Google", "Microsoft", "Amazon"]
+        self.target_countries = []  # List of target countries/locations like ["UAE", "USA", "Canada"]
+        
         # Email preferences - unlimited sending enabled
         self.emails_sent_today = 0
         self.last_email_time = None
@@ -209,6 +214,26 @@ class LinkedInEmailExtractor:
                 if 'search_terms' in job_config:
                     self.search_terms = job_config['search_terms']
                     print(f"[SEARCH] Search Terms: {self.search_terms}")
+                
+                # Load target companies configuration
+                if 'target_companies' in job_config:
+                    self.target_companies = job_config['target_companies']
+                    print(f"[COMPANIES] Target Companies: {self.target_companies}")
+                elif 'companyFilter' in job_config and job_config['companyFilter'].get('enabled', False):
+                    # Extract company names from the new structure
+                    self.target_companies = [company.get('name', company) if isinstance(company, dict) else company 
+                                           for company in job_config['companyFilter'].get('companies', [])]
+                    print(f"[COMPANIES] Target Companies (from filter): {self.target_companies}")
+                
+                # Load target countries/locations configuration  
+                if 'target_countries' in job_config:
+                    self.target_countries = job_config['target_countries']
+                    print(f"[COUNTRIES] Target Countries/Locations: {self.target_countries}")
+                elif 'countryFilter' in job_config and job_config['countryFilter'].get('enabled', False):
+                    # Extract country search terms from the new structure
+                    self.target_countries = [country.get('searchTerms', country.get('name', country)) if isinstance(country, dict) else country 
+                                           for country in job_config['countryFilter'].get('countries', [])]
+                    print(f"[COUNTRIES] Target Countries/Locations (from filter): {self.target_countries}")
                 
                 # Check if user wants to start a fresh campaign (clear sent emails) - removed other email limits
                 if 'freshCampaign' in job_config and job_config['freshCampaign']:
@@ -312,6 +337,10 @@ class LinkedInEmailExtractor:
             self.user_website = ""
             self.linkedin_email = username if linkedin_credentials_available else ""
             self.linkedin_password = password if linkedin_credentials_available else ""
+            
+            # Initialize target companies and countries with defaults
+            self.target_companies = []
+            self.target_countries = []
 
     def load_sent_emails(self) -> Set[str]:
         """Load previously sent emails from CSV file"""
@@ -505,10 +534,33 @@ class LinkedInEmailExtractor:
             date_option_text = getattr(self, 'date_posted', 'Past week')
             date_param = date_filter_mapping.get(date_option_text, 'past-week')
             
-            # Build search URL with date filter included
-            search_url = f"https://www.linkedin.com/search/results/content/?datePosted=%22{date_param}%22&keywords={search_term}%20hiring&origin=FACETED_SEARCH"
+            # Build comprehensive search query
+            search_keywords = [search_term, "hiring"]
             
-            logging.info(f"🔍 Searching for posts with: '{search_term}'")
+            # Add target companies to search if specified
+            if hasattr(self, 'target_companies') and self.target_companies:
+                # Add OR logic for companies - any of these companies
+                company_query = " OR ".join(self.target_companies)
+                search_keywords.append(f"({company_query})")
+                logging.info(f"🏢 Including target companies in search: {self.target_companies}")
+            
+            # Add target countries/locations to search if specified  
+            if hasattr(self, 'target_countries') and self.target_countries:
+                # Add OR logic for countries - any of these locations
+                country_query = " OR ".join(self.target_countries)
+                search_keywords.append(f"({country_query})")
+                logging.info(f"🌍 Including target countries/locations in search: {self.target_countries}")
+            
+            # Combine all search keywords with AND logic
+            full_search_query = " AND ".join(search_keywords)
+            
+            # URL encode the search query
+            encoded_query = urllib.parse.quote_plus(full_search_query)
+            
+            # Build search URL with date filter included
+            search_url = f"https://www.linkedin.com/search/results/content/?datePosted=%22{date_param}%22&keywords={encoded_query}&origin=FACETED_SEARCH"
+            
+            logging.info(f"🔍 Searching for posts with: '{full_search_query}'")
             logging.info(f"📅 Date filter: {date_option_text} (URL param: {date_param})")
             logging.info(f"🌐 Search URL: {search_url}")
             
@@ -1069,6 +1121,15 @@ class LinkedInEmailExtractor:
             logging.info(f"🔍 Search Terms: {self.search_terms}")
             logging.info(f"📎 Resume File: {self.ATTACHMENT_PATH}")
             logging.info(f"📍 Location: {self.location}")
+            
+            # Display target companies if configured
+            if hasattr(self, 'target_companies') and self.target_companies:
+                logging.info(f"🏢 Target Companies: {self.target_companies}")
+            
+            # Display target countries if configured  
+            if hasattr(self, 'target_countries') and self.target_countries:
+                logging.info(f"🌍 Target Countries/Locations: {self.target_countries}")
+                
             logging.info(f"{'='*60}")
             
             # Use the first search term for initial search
@@ -1123,10 +1184,27 @@ def main():
     print("3. Extract email addresses from hiring posts")
     print("4. Send personalized job applications via email")
     print("5. Track sent emails to avoid duplicates")
+    print("6. Support target companies (e.g., Google, Microsoft)")
+    print("7. Support target countries/locations (e.g., UAE, USA, Canada)")
+    print("\nSearch Examples:")
+    print("- React js + Hiring + UAE")
+    print("- Frontend Developer + Hiring + Google + Microsoft + USA")
+    print("- React.js Developer + Hiring + Amazon + UAE + Canada")
     print("\nMake sure you have:")
     print("- Chrome browser installed")
     print("- Your resume file 'Thamim_Ansari_Resume.pdf' in the current directory")
     print("- Valid LinkedIn credentials")
+    print("- Configure target companies/countries in temp_job_config.json")
+    print("\nExample configuration:")
+    print("""
+{
+  "subject": "Application for React.js Developer Position",
+  "search_terms": ["React js Developer", "Frontend Developer"],
+  "target_companies": ["Google", "Microsoft", "Amazon", "Meta"],
+  "target_countries": ["UAE", "USA", "Canada", "Germany"],
+  "date_filter": "past-week"
+}
+    """)
     print("\nStarting in 5 seconds...")
     
     time.sleep(5)

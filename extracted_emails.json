@@ -1,15 +1,14 @@
 {
   "emails": [
-    "hello@gennexastaffingsolutions.com",
-    "sravya@mpowerelyte.com",
-    "neha@dmsvisions.com",
-    "pallavi.sharma@appventurez.com"
+    "crystal@huntersgroup.co.kr",
+    "sonhoangquocnguyen@gmail.com",
+    "imranshakils69@gmail.com"
   ],
-  "total_count": 4,
-  "emails_sent": 0,
+  "total_count": 3,
+  "emails_sent": 3,
   "emails_failed": 0,
-  "posts_processed": 81,
-  "success_rate": 0.0,
-  "last_updated": "2025-09-10 15:29:53",
-  "timestamp": "2025-09-10T15:29:53.173409"
+  "posts_processed": 205,
+  "success_rate": 100.0,
+  "last_updated": "2025-09-11 16:32:03",
+  "timestamp": "2025-09-11T16:32:03.732213"
 }

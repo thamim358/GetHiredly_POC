@@ -185,6 +185,8 @@ class ProfessionalBotController:
             'emails_per_hour': job.get('emailsPerHour', '20'),
             'daily_limit': job.get('dailyLimit', '100'),
             'skip_weekends': job.get('skipWeekends', False),
+            'companyFilter': job.get('companyFilter', {'enabled': False, 'companies': []}),  # Add company filter
+            'countryFilter': job.get('countryFilter', {'enabled': False, 'countries': []}),  # Add country filter
             'user_info': {
                 'name': personal.get('fullName', ''),
                 'email': personal.get('email', ''),
@@ -208,6 +210,24 @@ class ProfessionalBotController:
             email_body = email_body.replace(placeholder, value)
         
         job_config['email_body'] = email_body
+        
+        # Log filter configuration for debugging
+        company_filter = job_config.get('companyFilter', {})
+        country_filter = job_config.get('countryFilter', {})
+        
+        logging.info(f"📋 Job config prepared:")
+        logging.info(f"  🏢 Company Filter: {'Enabled' if company_filter.get('enabled') else 'Disabled'}")
+        if company_filter.get('enabled') and company_filter.get('companies'):
+            company_names = [comp.get('name', 'Unknown') for comp in company_filter.get('companies', [])]
+            logging.info(f"  🏢 Target Companies: {', '.join(company_names[:3])}" + (f" (+{len(company_names)-3} more)" if len(company_names) > 3 else ""))
+        
+        logging.info(f"  🌍 Country Filter: {'Enabled' if country_filter.get('enabled') else 'Disabled'}")
+        if country_filter.get('enabled') and country_filter.get('countries'):
+            country_names = [country.get('name', 'Unknown') for country in country_filter.get('countries', [])]
+            logging.info(f"  🌍 Target Countries: {', '.join(country_names[:3])}" + (f" (+{len(country_names)-3} more)" if len(country_names) > 3 else ""))
+            # Show search terms for debugging
+            for country in country_filter.get('countries', []):
+                logging.info(f"  🌍 {country.get('name', 'Unknown')} -> Search terms: '{country.get('searchTerms', 'No search terms')}'")
         
         return job_config
     
