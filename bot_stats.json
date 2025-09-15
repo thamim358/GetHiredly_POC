@@ -1,14 +1,14 @@
 {
   "email_extractor": {
     "status": "stopped",
-    "emails_sent": 365,
-    "emails_extracted": 3,
-    "posts_processed": 205,
+    "emails_sent": 425,
+    "emails_extracted": 42,
+    "posts_processed": 1211,
     "start_time": null,
-    "runtime": "0:13:58",
-    "last_activity": "2025-09-11 16:32:10.046322",
-    "detailed_status": "Process completed successfully",
-    "progress": 100
+    "runtime": "0:08:44",
+    "last_activity": "2025-09-15 12:58:31.295336",
+    "detailed_status": "Extracting emails from job posts...",
+    "progress": 70
   },
   "aibot": {
     "status": "stopped",
@@ -24,7 +24,7 @@
   "recent_emails": [],
   "recent_applications": [],
   "system": {
-    "uptime": "0:00:56",
+    "uptime": "0:00:41",
     "version": "2.0",
     "mode": "Professional"
   }

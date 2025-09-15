@@ -122,6 +122,29 @@ class ProfessionalBotController:
                 logging.error(error_msg)
                 raise ValueError(error_msg)
             
+            # Validate Gmail credentials (optional but recommended)
+            gmail = linkedin.get('gmail', {})
+            if gmail:  # Only validate if Gmail section is provided
+                if not gmail.get('senderEmail', '').strip():
+                    error_msg = "Gmail sender email is required when Gmail configuration is provided"
+                    logging.error(error_msg)
+                    raise ValueError(error_msg)
+                if not gmail.get('senderPassword', '').strip():
+                    error_msg = "Gmail sender password (app password) is required when Gmail configuration is provided"
+                    logging.error(error_msg)
+                    raise ValueError(error_msg)
+                
+                # Validate email format
+                sender_email = gmail.get('senderEmail', '').strip()
+                if '@' not in sender_email or '.' not in sender_email.split('@')[1]:
+                    error_msg = "Invalid Gmail email format"
+                    logging.error(error_msg)
+                    raise ValueError(error_msg)
+                
+                logging.info(f"Gmail configuration validated for: {sender_email}")
+            else:
+                logging.warning("No Gmail configuration provided - email sending may use default credentials")
+            
             # Validate job configuration
             job = config_data.get('job', {})
             required_job = ['subject', 'searchTerms', 'emailTemplate', 'botType']
@@ -303,6 +326,10 @@ class ProfessionalBotController:
             self.stats['aibot']['start_time'] = datetime.now()
             self.stats['aibot']['last_activity'] = datetime.now()
             
+            # Reset stats for new session (keep historical data until new applications are made)
+            # Don't reset the counters immediately - they'll be updated from actual data files
+            logging.info("AI bot started - stats will update from application files")
+            
             # Wait to check if process started successfully
             time.sleep(3)
             if self.aibot_process.poll() is not None:
@@ -448,30 +475,63 @@ class ProfessionalBotController:
             applied_count = 0
             failed_count = 0
             
-            # Check applied applications
-            if os.path.exists('all excels/all_applied_applications_history.csv'):
-                with open('all excels/all_applied_applications_history.csv', 'r', encoding='utf-8', errors='ignore') as f:
-                    lines = f.readlines()
-                    if len(lines) > 1:
-                        applied_count = len(lines) - 1
+            # Check applied applications - try multiple possible paths
+            applied_files = [
+                'all excels/all_applied_applications_history.csv',
+                'all_applied_applications_history.csv',
+                'logs/applied_applications.csv'
+            ]
             
-            # Check failed applications
-            if os.path.exists('all excels/all_failed_applications_history.csv'):
-                with open('all excels/all_failed_applications_history.csv', 'r', encoding='utf-8', errors='ignore') as f:
-                    lines = f.readlines()
-                    if len(lines) > 1:
-                        failed_count = len(lines) - 1
+            for file_path in applied_files:
+                if os.path.exists(file_path):
+                    try:
+                        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                            lines = f.readlines()
+                            if len(lines) > 1:  # Exclude header
+                                applied_count = len(lines) - 1
+                        logging.info(f"Found applied applications file: {file_path} with {applied_count} applications")
+                        break
+                    except Exception as e:
+                        logging.warning(f"Error reading {file_path}: {e}")
             
-            self.stats['aibot']['jobs_applied'] = applied_count
-            self.stats['aibot']['jobs_failed'] = failed_count
-            self.stats['aibot']['applications_submitted'] = applied_count
+            # Check failed applications - try multiple possible paths
+            failed_files = [
+                'all excels/all_failed_applications_history.csv',
+                'all_failed_applications_history.csv',
+                'logs/failed_applications.csv'
+            ]
             
-            # Calculate success rate
-            total_attempts = applied_count + failed_count
-            if total_attempts > 0:
-                self.stats['aibot']['success_rate'] = round((applied_count / total_attempts) * 100, 1)
+            for file_path in failed_files:
+                if os.path.exists(file_path):
+                    try:
+                        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                            lines = f.readlines()
+                            if len(lines) > 1:  # Exclude header
+                                failed_count = len(lines) - 1
+                        logging.info(f"Found failed applications file: {file_path} with {failed_count} applications")
+                        break
+                    except Exception as e:
+                        logging.warning(f"Error reading {file_path}: {e}")
             
-            self.stats['aibot']['last_activity'] = datetime.now()
+            # Only update stats if the bot is actually running or has data
+            if self.stats['aibot']['status'] == 'running' or applied_count > 0 or failed_count > 0:
+                self.stats['aibot']['jobs_applied'] = applied_count
+                self.stats['aibot']['jobs_failed'] = failed_count
+                self.stats['aibot']['applications_submitted'] = applied_count
+                
+                # Calculate success rate
+                total_attempts = applied_count + failed_count
+                if total_attempts > 0:
+                    self.stats['aibot']['success_rate'] = round((applied_count / total_attempts) * 100, 1)
+                else:
+                    self.stats['aibot']['success_rate'] = 0
+                
+                self.stats['aibot']['last_activity'] = datetime.now()
+                logging.debug(f"Updated AI bot stats: {applied_count} applied, {failed_count} failed")
+            else:
+                # Bot is stopped and no data files found - reset dynamic stats but keep historical count
+                if applied_count == 0 and failed_count == 0:
+                    logging.debug("AI bot stopped and no application files found - keeping last known stats")
             
         except Exception as e:
             logging.error(f"Error updating AI bot stats: {e}")
@@ -635,6 +695,24 @@ def stop_bot():
         return jsonify(result)
     except Exception as e:
         logging.error(f"Error in stop_bot endpoint: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/reset-aibot-stats', methods=['POST'])
+def reset_aibot_stats():
+    """Reset AI bot statistics to start fresh"""
+    try:
+        bot_controller.stats['aibot']['applications_submitted'] = 0
+        bot_controller.stats['aibot']['jobs_applied'] = 0
+        bot_controller.stats['aibot']['jobs_failed'] = 0
+        bot_controller.stats['aibot']['success_rate'] = 0
+        bot_controller.stats['aibot']['start_time'] = None
+        bot_controller.stats['aibot']['runtime'] = "0:00:00"
+        bot_controller.stats['aibot']['last_activity'] = None
+        
+        logging.info("AI bot statistics reset")
+        return jsonify({'success': True, 'message': 'AI bot statistics reset successfully'})
+    except Exception as e:
+        logging.error(f"Error resetting AI bot stats: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/upload-resume', methods=['POST'])

@@ -7,29 +7,24 @@
     "website": "https://thamim2023.web.app"
   },
   "job": {
-    "role": "react",
+    "role": "ui",
     "customTitle": "",
-    "subject": "Application for React js Developer  \u2013 3+ Years Experience",
+    "subject": "Application for UI Developer  \u2013 3+ Years Experience",
     "searchTerms": [
-      "React js Developer"
+      "UI Developer"
     ],
-    "emailTemplate": "<html>\n                <head>\n                    <style>\n                        body { \n                            font-family: 'Poppins', Arial, sans-serif; \n                            line-height: 1.6; \n                            color: #333;\n                            margin: 0;\n                            padding: 20px;\n                        }\n                        p { margin: 12px 0; }\n                        ul { margin: 12px 0; padding-left: 25px; }\n                        li { margin: 6px 0; }\n                        strong { font-weight: 600; }\n                        a { color: #0066CC; text-decoration: none; }\n                        a:hover { text-decoration: underline; }\n                    </style>\n                </head>\n                <body>Dear Hiring Manager,</p><p>I hope you're doing well.</p><p>I am writing to express my interest in the React js Developer . With 3+ years of experience in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.</p><p><strong>Key Skills &amp; Experience:</strong></p><p>\u2022 Expert in HTML5, CSS3, JavaScript (ES6+), SASS/SCSS, and Tailwind CSS<br>\u2022 Proficient in React.js, Vue.js, and modern UI framework development<br>\u2022 Strong experience in responsive design, cross-browser compatibility, and mobile-first development<br>\u2022 Skilled in Figma, Adobe XD, Sketch, and converting designs to pixel-perfect code<br>\u2022 Expertise in CSS animations, UI transitions, accessibility standards (WCAG), and performance optimization</p><p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an immediate joiner, detail-oriented, and passionate about creating exceptional user experiences.</p><p>Thank you for your time and consideration. I look forward to hearing from you.</p><p>Best regards,<br>Thamim ansari<br>thamimansari358@gmail.com<br>+91 8072098022<br>https://thamim2023.web.app<br>https://www.linkedin.com/in/thamim358/</body>\n                </html>",
+    "emailTemplate": "<html>\n                <head>\n                    <style>\n                        body { \n                            font-family: 'Poppins', Arial, sans-serif; \n                            line-height: 1.6; \n                            color: #333;\n                            margin: 0;\n                            padding: 20px;\n                        }\n                        p { margin: 12px 0; }\n                        ul { margin: 12px 0; padding-left: 25px; }\n                        li { margin: 6px 0; }\n                        strong { font-weight: 600; }\n                        a { color: #0066CC; text-decoration: none; }\n                        a:hover { text-decoration: underline; }\n                    </style>\n                </head>\n                <body>Dear Hiring Manager,</p><p>I hope you're doing well.</p><p>I am writing to express my interest in the UI Developer . With 3+ years of experience in creating visually appealing and user-centric interfaces, I am excited about the opportunity to contribute to your design and development team.</p><p><strong>Key Skills &amp; Experience:</strong></p><p>\u2022 Expert in HTML5, CSS3, JavaScript (ES6+), SASS/SCSS, and Tailwind CSS<br>\u2022 Proficient in React.js, Vue.js, and modern UI framework development<br>\u2022 Strong experience in responsive design, cross-browser compatibility, and mobile-first development<br>\u2022 Skilled in Figma, Adobe XD, Sketch, and converting designs to pixel-perfect code<br>\u2022 Expertise in CSS animations, UI transitions, accessibility standards (WCAG), and performance optimization</p><p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my UI development skills and design sensibility can contribute to your team's success. I am an immediate joiner, detail-oriented, and passionate about creating exceptional user experiences.</p><p>Thank you for your time and consideration. I look forward to hearing from you.</p><p>Best regards,<br>Thamim ansari<br>thamimansari358@gmail.com<br>+91 8072098022<br>https://thamim2023.web.app<br>https://www.linkedin.com/in/thamim358/</body>\n                </html>",
     "botType": "email",
-    "dateFilter": "past-24h",
+    "dateFilter": "past-week",
     "companyFilter": {
       "enabled": false,
       "companies": []
     },
     "countryFilter": {
       "enabled": true,
-      "countries": [
-        {
-          "name": "France",
-          "searchTerms": "France"
-        }
-      ]
+      "countries": []
     }
   },
-  "timestamp": "2025-09-11T16:18:11.271883",
+  "timestamp": "2025-09-15T12:49:46.948437",
   "version": "2.0"
 }

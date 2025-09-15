@@ -70,8 +70,8 @@ if not config_loaded:
         SEARCH_LOCATION = "India"
         SEARCH_TERMS = ["React Developer", "Frontend Developer", "React.js Developer"]
         DATE_POSTED = "Past 24 hours"
-        SENDER_EMAIL = "thamimansari358@gmail.com"
-        SENDER_PASSWORD = "fjld gcow xequ fhgp"
+        # Note: Gmail credentials should be configured through the dashboard UI
+        # They will be loaded from linkedin_credentials.json in load_job_configuration()
         RESUME_FILE = "Thamim_Ansari_Resume.pdf"
         EMAIL_SUBJECT = "Application for React.js Developer / Frontend Developer – 3+ Years Experience"
         EMAIL_BODY = """<html><body><p>Dear Hiring Manager,</p><p>I am interested in the React.js Developer position...</p></body></html>"""
@@ -116,8 +116,11 @@ class LinkedInEmailExtractor:
         # Use configuration from email_config.py or fallback values
         self.SMTP_SERVER = SMTP_SERVER if 'SMTP_SERVER' in globals() else "smtp.gmail.com"
         self.SMTP_PORT = SMTP_PORT if 'SMTP_PORT' in globals() else 587
-        self.SENDER_EMAIL = SENDER_EMAIL if 'SENDER_EMAIL' in globals() else "thamimansari358@gmail.com"
-        self.SENDER_PASSWORD = SENDER_PASSWORD if 'SENDER_PASSWORD' in globals() else "fjld gcow xequ fhgp"
+        
+        # Gmail credentials will be loaded from user configuration only
+        # No hardcoded fallback values for security and user preference
+        self.SENDER_EMAIL = None  # Must be configured by user
+        self.SENDER_PASSWORD = None  # Must be configured by user
         
         # Job search configuration
         self.search_terms = SEARCH_TERMS if 'SEARCH_TERMS' in globals() else ["React js Developer", "Frontend Developer"]
@@ -310,6 +313,31 @@ class LinkedInEmailExtractor:
                             self.linkedin_email = linkedin_creds.get('email', '')
                             self.linkedin_password = linkedin_creds.get('password', '')
                             print(f"[AUTH] LinkedIn credentials loaded for: {self.linkedin_email}")
+                            
+                            # Load Gmail credentials from the same file
+                            if 'gmail' in linkedin_creds:
+                                gmail_config = linkedin_creds['gmail']
+                                
+                                # Handle both UI format (camelCase) and backend format (snake_case)
+                                self.SENDER_EMAIL = (gmail_config.get('senderEmail') or 
+                                                   gmail_config.get('sender_email'))
+                                self.SENDER_PASSWORD = (gmail_config.get('senderPassword') or 
+                                                       gmail_config.get('sender_password'))
+                                self.SMTP_SERVER = gmail_config.get('smtp_server', 'smtp.gmail.com')
+                                self.SMTP_PORT = gmail_config.get('smtp_port', 587)
+                                
+                                if self.SENDER_EMAIL and self.SENDER_PASSWORD:
+                                    print(f"[EMAIL] Gmail credentials loaded for: {self.SENDER_EMAIL}")
+                                    print(f"[EMAIL] SMTP Server: {self.SMTP_SERVER}:{self.SMTP_PORT}")
+                                else:
+                                    print(f"[WARNING] Incomplete Gmail credentials in configuration")
+                                    print(f"[WARNING] Available keys: {list(gmail_config.keys())}")
+                                    print(f"[WARNING] SENDER_EMAIL: {'✓ Set' if self.SENDER_EMAIL else '✗ Not set'}")
+                                    print(f"[WARNING] SENDER_PASSWORD: {'✓ Set' if self.SENDER_PASSWORD else '✗ Not set'}")
+                                    print(f"[WARNING] Please configure Gmail credentials in the dashboard")
+                            else:
+                                print(f"[WARNING] Gmail configuration not found in linkedin_credentials.json")
+                                print(f"[INFO] Please configure Gmail credentials through the dashboard UI")
                 except Exception as e:
                     print(f"[WARNING] Could not load LinkedIn credentials: {e}")
                 
@@ -337,6 +365,12 @@ class LinkedInEmailExtractor:
             self.user_website = ""
             self.linkedin_email = username if linkedin_credentials_available else ""
             self.linkedin_password = password if linkedin_credentials_available else ""
+            
+            # Initialize Gmail credentials as None - must be configured by user
+            self.SENDER_EMAIL = None
+            self.SENDER_PASSWORD = None
+            print(f"[WARNING] Gmail credentials not configured - email sending will be disabled")
+            print(f"[INFO] Please configure Gmail credentials through the dashboard UI")
             
             # Initialize target companies and countries with defaults
             self.target_companies = []
@@ -534,25 +568,25 @@ class LinkedInEmailExtractor:
             date_option_text = getattr(self, 'date_posted', 'Past week')
             date_param = date_filter_mapping.get(date_option_text, 'past-week')
             
-            # Build comprehensive search query
+            # Build comprehensive search query using + symbols
             search_keywords = [search_term, "hiring"]
             
             # Add target companies to search if specified
             if hasattr(self, 'target_companies') and self.target_companies:
-                # Add OR logic for companies - any of these companies
-                company_query = " OR ".join(self.target_companies)
-                search_keywords.append(f"({company_query})")
+                # Add companies with + symbols
+                for company in self.target_companies:
+                    search_keywords.append(company)
                 logging.info(f"🏢 Including target companies in search: {self.target_companies}")
             
             # Add target countries/locations to search if specified  
             if hasattr(self, 'target_countries') and self.target_countries:
-                # Add OR logic for countries - any of these locations
-                country_query = " OR ".join(self.target_countries)
-                search_keywords.append(f"({country_query})")
+                # Add countries/locations with + symbols
+                for country in self.target_countries:
+                    search_keywords.append(country)
                 logging.info(f"🌍 Including target countries/locations in search: {self.target_countries}")
             
-            # Combine all search keywords with AND logic
-            full_search_query = " AND ".join(search_keywords)
+            # Combine all search keywords with + symbols
+            full_search_query = " + ".join(search_keywords)
             
             # URL encode the search query
             encoded_query = urllib.parse.quote_plus(full_search_query)
@@ -566,7 +600,7 @@ class LinkedInEmailExtractor:
             
             self.driver.get(search_url)
             buffer(3)
-            
+                
             # Apply Posts filter
             try:
                 # Click on Posts filter button
@@ -979,6 +1013,14 @@ class LinkedInEmailExtractor:
     def send_email(self, to_email: str) -> bool:
         """Send email to a specific address with preference controls"""
         try:
+            # Validate Gmail credentials before attempting to send
+            if not self.SENDER_EMAIL or not self.SENDER_PASSWORD:
+                logging.error(f"[ERROR] Gmail credentials not configured. Please set up Gmail credentials in the dashboard.")
+                logging.error(f"[ERROR] SENDER_EMAIL: {'✓ Set' if self.SENDER_EMAIL else '✗ Not set'}")
+                logging.error(f"[ERROR] SENDER_PASSWORD: {'✓ Set' if self.SENDER_PASSWORD else '✗ Not set'}")
+                self.emails_failed += 1
+                return False
+            
             # Check if we need to reset daily counter (new day)
             today = date.today()
             if today != self.current_date:
@@ -1129,6 +1171,19 @@ class LinkedInEmailExtractor:
             # Display target countries if configured  
             if hasattr(self, 'target_countries') and self.target_countries:
                 logging.info(f"🌍 Target Countries/Locations: {self.target_countries}")
+            
+            # Validate Gmail credentials
+            logging.info(f"📧 Gmail Configuration:")
+            if self.SENDER_EMAIL and self.SENDER_PASSWORD:
+                logging.info(f"   Sender Email: {self.SENDER_EMAIL}")
+                logging.info(f"   SMTP Server: {self.SMTP_SERVER}:{self.SMTP_PORT}")
+                logging.info(f"   ✅ Gmail credentials are properly configured")
+            else:
+                logging.warning(f"   ⚠️ Gmail credentials not configured!")
+                logging.warning(f"   Sender Email: {'✓ Set' if self.SENDER_EMAIL else '✗ Not set'}")
+                logging.warning(f"   Sender Password: {'✓ Set' if self.SENDER_PASSWORD else '✗ Not set'}")
+                logging.warning(f"   📋 Please configure Gmail credentials through the dashboard UI")
+                logging.warning(f"   🔧 Email sending will be disabled until credentials are configured")
                 
             logging.info(f"{'='*60}")
             
