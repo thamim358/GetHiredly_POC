@@ -20,6 +20,11 @@ def create_production_chrome_driver():
     Returns configured WebDriver instance for headless operation
     """
     
+    # Set display for X server (handled by startup script)
+    if os.environ.get('ENVIRONMENT') == 'production':
+        display = os.environ.get('DISPLAY', ':99')
+        logger.info(f"Using X display: {display}")
+    
     chrome_options = Options()
     
     # Essential headless operation arguments

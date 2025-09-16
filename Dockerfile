@@ -53,4 +53,23 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:5000/health || exit 1
 
 # Start command with virtual display
-CMD ["sh", "-c", "Xvfb :99 -screen 0 1920x1080x24 -ac +extension GLX +render -noreset & python professional_dashboard_api.py"]
+# Create a startup script to handle Xvfb and app
+RUN echo '#!/bin/bash\n\
+# Clean up any existing X server locks\n\
+rm -f /tmp/.X*-lock\n\
+# Find available display number\n\
+DISPLAY_NUM=99\n\
+while [ -f "/tmp/.X${DISPLAY_NUM}-lock" ]; do\n\
+    DISPLAY_NUM=$((DISPLAY_NUM + 1))\n\
+done\n\
+export DISPLAY=:${DISPLAY_NUM}\n\
+echo "Starting Xvfb on display :${DISPLAY_NUM}"\n\
+# Start Xvfb in background\n\
+Xvfb :${DISPLAY_NUM} -screen 0 1920x1080x24 -ac +extension GLX +render -noreset &\n\
+sleep 2\n\
+# Start the Python application\n\
+exec python professional_dashboard_api.py\n\
+' > /app/start.sh && chmod +x /app/start.sh
+
+# Start the application with proper X server handling
+CMD ["/app/start.sh"]

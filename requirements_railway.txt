@@ -11,8 +11,9 @@ requests==2.32.3
 beautifulsoup4==4.12.2
 lxml==4.9.3
 
-# Data processing
-pandas==2.1.1
+# Data processing - Compatible versions for Python 3.9
+numpy==1.24.3
+pandas==2.0.3
 openpyxl==3.1.2
 
 # Environment and configuration
