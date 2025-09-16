@@ -1,0 +1,51 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Local development files
+.env
+.vscode/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Application runtime files
+uploads/
+logs/
+*.xlsx
+*.csv
+linkedin_credentials.json
+bot_stats.json
+temp_job_config.json
+last_job_config.json
+
+# Chrome drivers (we'll download fresh ones)
+setup/chromedriver/
+chromedriver.exe
+chromedriver
+
+# Documentation and scripts
+*.md
+deploy_to_railway.*
+nixpacks.toml
+requirements_railway.txt
+
+# Screenshots
+screenshots/
+*.png
+*.jpg
