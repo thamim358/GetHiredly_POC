@@ -39794,3 +39794,192 @@ Stacktrace:
 2025-09-15 13:01:45,394 - INFO - Scrolling to load more posts...
 2025-09-15 13:01:48,353 - INFO - New content loaded, continuing...
 2025-09-15 13:01:48,477 - INFO - Found 203 posts on current page
+2025-09-16 15:26:36,969 - INFO - [EMAIL] Loaded 428 previously sent emails
+2025-09-16 15:26:36,983 - INFO - Starting LinkedIn Email Extractor...
+2025-09-16 15:27:09,801 - INFO - 
+============================================================
+2025-09-16 15:27:09,803 - INFO - CURRENT CONFIGURATION
+2025-09-16 15:27:09,805 - INFO - ============================================================
+2025-09-16 15:27:09,806 - INFO - 📧 Email Subject: Application for React js Developer  – 3+ Years Experience
+2025-09-16 15:27:09,807 - INFO - 🔍 Search Terms: ['React js Developer']
+2025-09-16 15:27:09,808 - INFO - 📎 Resume File: uploads\thamim_resume.pdf
+2025-09-16 15:27:09,808 - INFO - 📍 Location: India
+2025-09-16 15:27:09,809 - INFO - 🌍 Target Countries/Locations: ['India']
+2025-09-16 15:27:09,810 - INFO - ============================================================
+2025-09-16 15:27:09,810 - INFO - 
+============================================================
+2025-09-16 15:27:09,815 - INFO - 🎯 Processing search term: React js Developer
+2025-09-16 15:27:09,818 - INFO - 📋 Available terms: React js Developer
+2025-09-16 15:27:09,830 - INFO - ============================================================
+2025-09-16 15:27:09,832 - INFO - 🌍 Including target countries/locations in search: ['India']
+2025-09-16 15:27:09,835 - INFO - 🔍 Searching for posts with: 'React js Developer AND hiring AND (India)'
+2025-09-16 15:27:09,844 - INFO - 📅 Date filter: Past 24 hours (URL param: past-24h)
+2025-09-16 15:27:09,845 - INFO - 🌐 Search URL: https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=React+js+Developer+AND+hiring+AND+%28India%29&origin=FACETED_SEARCH
+2025-09-16 15:27:20,881 - INFO - ✅ Applied 'Posts' filter
+2025-09-16 15:27:20,881 - INFO - ✅ Date filter 'Past 24 hours' applied via URL parameter
+2025-09-16 15:27:20,883 - INFO - Starting continuous email extraction from posts...
+2025-09-16 15:27:20,883 - INFO - Scrolling to load more posts...
+2025-09-16 15:27:23,212 - INFO - Scrolled 1/3 times, loaded more posts
+2025-09-16 15:27:26,135 - INFO - Scrolled 2/3 times, loaded more posts
+2025-09-16 15:27:28,257 - INFO - Scrolled 3/3 times, loaded more posts
+2025-09-16 15:27:29,715 - INFO - Found 66 posts on current page
+2025-09-16 15:27:29,824 - INFO - Processing post 1 (ID: post_0_50...)
+2025-09-16 15:27:33,411 - INFO - Expanded content using specific see-more button
+2025-09-16 15:27:33,506 - INFO - Successfully expanded post 1 content
+2025-09-16 15:27:33,508 - INFO - Found emails in post 1: ['r.vidya@vhspro.net']
+2025-09-16 15:27:33,546 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:27:39,149 - INFO - [SUCCESS] Email sent successfully to r.vidya@vhspro.net (1 sent today)
+2025-09-16 15:27:43,365 - INFO - Processing post 2 (ID: post_1_50...)
+2025-09-16 15:27:44,384 - INFO - Found emails in post 2: ['r.vidya@vhspro.net']
+2025-09-16 15:27:45,710 - INFO - Processing post 3 (ID: post_2_0...)
+2025-09-16 15:27:47,796 - INFO - Processing post 4 (ID: post_3_50...)
+2025-09-16 15:27:48,847 - INFO - Found emails in post 4: ['r.vidya@vhspro.net']
+2025-09-16 15:27:50,670 - INFO - Processing post 5 (ID: post_4_0...)
+2025-09-16 15:27:53,472 - INFO - Processing post 6 (ID: post_5_50...)
+2025-09-16 15:27:56,934 - INFO - Expanded content using specific see-more button
+2025-09-16 15:27:57,021 - INFO - Successfully expanded post 6 content
+2025-09-16 15:27:57,022 - INFO - Found emails in post 6: ['roopa.r@zentekinfosoft.com']
+2025-09-16 15:27:57,027 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:28:01,077 - INFO - [SUCCESS] Email sent successfully to roopa.r@zentekinfosoft.com (2 sent today)
+2025-09-16 15:28:05,392 - INFO - Processing post 7 (ID: post_6_50...)
+2025-09-16 15:28:06,258 - INFO - Found emails in post 7: ['roopa.r@zentekinfosoft.com']
+2025-09-16 15:28:07,584 - INFO - Processing post 8 (ID: post_7_0...)
+2025-09-16 15:28:09,850 - INFO - Processing post 9 (ID: post_8_50...)
+2025-09-16 15:28:11,232 - INFO - Found emails in post 9: ['roopa.r@zentekinfosoft.com']
+2025-09-16 15:28:12,753 - INFO - Processing post 10 (ID: post_9_0...)
+2025-09-16 15:28:15,467 - INFO - Processing post 11 (ID: post_10_50...)
+2025-09-16 15:28:18,929 - INFO - Expanded content using specific see-more button
+2025-09-16 15:28:19,032 - INFO - Successfully expanded post 11 content
+2025-09-16 15:28:19,033 - INFO - Found emails in post 11: ['abhijeet@omegahires.com']
+2025-09-16 15:28:19,038 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:28:22,976 - INFO - [SUCCESS] Email sent successfully to abhijeet@omegahires.com (3 sent today)
+2025-09-16 15:28:27,275 - INFO - Processing post 12 (ID: post_11_50...)
+2025-09-16 15:28:28,464 - INFO - Found emails in post 12: ['abhijeet@omegahires.com']
+2025-09-16 15:28:29,989 - INFO - Processing post 13 (ID: post_12_0...)
+2025-09-16 15:28:32,373 - INFO - Processing post 14 (ID: post_13_50...)
+2025-09-16 15:28:33,239 - INFO - Found emails in post 14: ['abhijeet@omegahires.com']
+2025-09-16 15:28:34,961 - INFO - Processing post 15 (ID: post_14_0...)
+2025-09-16 15:28:37,088 - INFO - Processing post 16 (ID: post_15_50...)
+2025-09-16 15:28:40,461 - INFO - Expanded content using specific see-more button
+2025-09-16 15:28:40,585 - INFO - Successfully expanded post 16 content
+2025-09-16 15:28:40,586 - INFO - Found emails in post 16: ['shikha.dhiman@rarrtech.com']
+2025-09-16 15:28:40,590 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:28:44,485 - INFO - [SUCCESS] Email sent successfully to shikha.dhiman@rarrtech.com (4 sent today)
+2025-09-16 15:28:48,915 - INFO - Processing post 17 (ID: post_16_50...)
+2025-09-16 15:28:50,117 - INFO - Found emails in post 17: ['shikha.dhiman@rarrtech.com']
+2025-09-16 15:28:51,166 - INFO - Processing post 18 (ID: post_17_0...)
+2025-09-16 15:28:53,657 - INFO - Processing post 19 (ID: post_18_50...)
+2025-09-16 15:28:54,679 - INFO - Found emails in post 19: ['shikha.dhiman@rarrtech.com']
+2025-09-16 15:28:56,301 - INFO - Processing post 20 (ID: post_19_0...)
+2025-09-16 15:28:59,015 - INFO - Processing post 21 (ID: post_20_50...)
+2025-09-16 15:29:02,272 - INFO - Expanded content using specific see-more button
+2025-09-16 15:29:02,387 - INFO - Successfully expanded post 21 content
+2025-09-16 15:29:03,807 - INFO - Processing post 22 (ID: post_21_50...)
+2025-09-16 15:29:06,220 - INFO - Processing post 23 (ID: post_22_0...)
+2025-09-16 15:29:08,401 - INFO - Processing post 24 (ID: post_23_50...)
+2025-09-16 15:29:11,260 - INFO - Processing post 25 (ID: post_24_0...)
+2025-09-16 15:29:13,300 - INFO - Processing post 26 (ID: post_25_50...)
+2025-09-16 15:29:16,827 - INFO - Expanded content using specific see-more button
+2025-09-16 15:29:16,930 - INFO - Successfully expanded post 26 content
+2025-09-16 15:29:18,348 - INFO - Processing post 27 (ID: post_26_50...)
+2025-09-16 15:29:21,151 - INFO - Processing post 28 (ID: post_27_0...)
+2025-09-16 15:29:23,721 - INFO - Processing post 29 (ID: post_28_50...)
+2025-09-16 15:29:26,260 - INFO - Processing post 30 (ID: post_29_50...)
+2025-09-16 15:29:28,517 - INFO - Processing post 31 (ID: post_30_0...)
+2025-09-16 15:29:31,158 - INFO - Processing post 32 (ID: post_31_50...)
+2025-09-16 15:29:34,686 - INFO - Expanded content using specific see-more button
+2025-09-16 15:29:34,813 - INFO - Successfully expanded post 32 content
+2025-09-16 15:29:34,814 - INFO - Found emails in post 32: ['info@vncservices.in']
+2025-09-16 15:29:34,819 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:29:38,722 - INFO - [SUCCESS] Email sent successfully to info@vncservices.in (5 sent today)
+2025-09-16 15:29:42,538 - INFO - Processing post 33 (ID: post_32_50...)
+2025-09-16 15:29:43,854 - INFO - Found emails in post 33: ['info@vncservices.in']
+2025-09-16 15:29:45,377 - INFO - Processing post 34 (ID: post_33_0...)
+2025-09-16 15:29:47,780 - INFO - Processing post 35 (ID: post_34_50...)
+2025-09-16 15:29:49,110 - INFO - Found emails in post 35: ['info@vncservices.in']
+2025-09-16 15:29:50,632 - INFO - Processing post 36 (ID: post_35_0...)
+2025-09-16 15:29:53,254 - INFO - Processing post 37 (ID: post_36_50...)
+2025-09-16 15:29:56,199 - INFO - Expanded content using specific see-more button
+2025-09-16 15:29:56,280 - INFO - Successfully expanded post 37 content
+2025-09-16 15:29:56,281 - INFO - Found emails in post 37: ['priyanshi.lohani@nexionpro.com']
+2025-09-16 15:29:56,285 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:30:00,274 - INFO - [SUCCESS] Email sent successfully to priyanshi.lohani@nexionpro.com (6 sent today)
+2025-09-16 15:30:04,857 - INFO - Processing post 38 (ID: post_37_50...)
+2025-09-16 15:30:07,705 - INFO - Expanded content by clicking on truncated text
+2025-09-16 15:30:07,790 - INFO - Successfully expanded post 38 content
+2025-09-16 15:30:07,791 - INFO - Found emails in post 38: ['priyanshi.lohani@nexionpro.com']
+2025-09-16 15:30:09,120 - INFO - Processing post 39 (ID: post_38_0...)
+2025-09-16 15:30:11,786 - INFO - Processing post 40 (ID: post_39_50...)
+2025-09-16 15:30:13,783 - INFO - Expanded content by clicking on truncated text
+2025-09-16 15:30:13,820 - INFO - Successfully expanded post 40 content
+2025-09-16 15:30:13,821 - INFO - Found emails in post 40: ['priyanshi.lohani@nexionpro.com']
+2025-09-16 15:30:15,544 - INFO - Processing post 41 (ID: post_40_0...)
+2025-09-16 15:30:17,711 - INFO - Processing post 42 (ID: post_41_50...)
+2025-09-16 15:30:21,895 - INFO - Expanded content using specific see-more button
+2025-09-16 15:30:22,217 - INFO - Successfully expanded post 42 content
+2025-09-16 15:30:24,233 - INFO - Processing post 43 (ID: post_42_50...)
+2025-09-16 15:30:26,979 - INFO - Processing post 44 (ID: post_43_0...)
+2025-09-16 15:30:29,971 - INFO - Processing post 45 (ID: post_44_50...)
+2025-09-16 15:30:32,725 - INFO - Processing post 46 (ID: post_45_0...)
+2025-09-16 15:30:34,749 - INFO - Processing post 47 (ID: post_46_50...)
+2025-09-16 15:30:37,800 - INFO - Expanded content using specific see-more button
+2025-09-16 15:30:37,897 - INFO - Successfully expanded post 47 content
+2025-09-16 15:30:37,898 - INFO - Found emails in post 47: ['kavitha@imrsoft.com']
+2025-09-16 15:30:37,903 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:30:42,247 - INFO - [SUCCESS] Email sent successfully to kavitha@imrsoft.com (7 sent today)
+2025-09-16 15:30:46,046 - INFO - Processing post 48 (ID: post_47_50...)
+2025-09-16 15:30:46,966 - INFO - Found emails in post 48: ['kavitha@imrsoft.com']
+2025-09-16 15:30:48,392 - INFO - Processing post 49 (ID: post_48_0...)
+2025-09-16 15:30:50,975 - INFO - Processing post 50 (ID: post_49_50...)
+2025-09-16 15:30:52,049 - INFO - Found emails in post 50: ['kavitha@imrsoft.com']
+2025-09-16 15:30:53,572 - INFO - Processing post 51 (ID: post_50_0...)
+2025-09-16 15:30:55,803 - INFO - Processing post 52 (ID: post_51_50...)
+2025-09-16 15:30:58,809 - INFO - Expanded content using specific see-more button
+2025-09-16 15:30:58,916 - INFO - Successfully expanded post 52 content
+2025-09-16 15:30:58,917 - INFO - Found emails in post 52: ['prathik.patel@collabera.com']
+2025-09-16 15:30:58,921 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:31:03,269 - INFO - [SUCCESS] Email sent successfully to prathik.patel@collabera.com (8 sent today)
+2025-09-16 15:31:08,219 - INFO - Processing post 53 (ID: post_52_50...)
+2025-09-16 15:31:09,486 - INFO - Found emails in post 53: ['prathik.patel@collabera.com']
+2025-09-16 15:31:10,520 - INFO - Processing post 54 (ID: post_53_0...)
+2025-09-16 15:31:13,582 - INFO - Processing post 55 (ID: post_54_50...)
+2025-09-16 15:31:15,199 - INFO - Found emails in post 55: ['prathik.patel@collabera.com']
+2025-09-16 15:31:16,321 - INFO - Processing post 56 (ID: post_55_0...)
+2025-09-16 15:31:19,063 - INFO - Processing post 57 (ID: post_56_50...)
+2025-09-16 15:31:22,282 - INFO - Expanded content using specific see-more button
+2025-09-16 15:31:22,669 - INFO - Successfully expanded post 57 content
+2025-09-16 15:31:22,689 - INFO - Found emails in post 57: ['rahulr@envertiz.com']
+2025-09-16 15:31:22,711 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 15:31:26,753 - INFO - [SUCCESS] Email sent successfully to rahulr@envertiz.com (9 sent today)
+2025-09-16 15:31:30,740 - INFO - Processing post 58 (ID: post_57_50...)
+2025-09-16 15:31:32,318 - INFO - Found emails in post 58: ['rahulr@envertiz.com']
+2025-09-16 15:31:33,648 - INFO - Processing post 59 (ID: post_58_0...)
+2025-09-16 15:31:36,837 - INFO - Processing post 60 (ID: post_59_50...)
+2025-09-16 15:31:38,496 - INFO - Found emails in post 60: ['rahulr@envertiz.com']
+2025-09-16 15:31:39,720 - INFO - Processing post 61 (ID: post_60_0...)
+2025-09-16 15:31:42,075 - INFO - Processing post 62 (ID: post_61_50...)
+2025-09-16 15:31:45,245 - INFO - Expanded content using specific see-more button
+2025-09-16 15:31:45,832 - INFO - Successfully expanded post 62 content
+2025-09-16 15:31:47,899 - INFO - Processing post 63 (ID: post_62_50...)
+2025-09-16 15:31:52,091 - INFO - Processing post 64 (ID: post_63_0...)
+2025-09-16 15:31:55,656 - INFO - Processing post 65 (ID: post_64_50...)
+2025-09-16 15:31:59,547 - INFO - Processing post 66 (ID: post_65_0...)
+2025-09-16 15:32:02,287 - INFO - Processed 66 new posts
+2025-09-16 15:32:02,288 - INFO - Scrolling to load more posts...
+2025-09-16 15:32:04,915 - INFO - No new content loaded after scrolling
+2025-09-16 15:32:04,967 - INFO - Found 66 posts on current page
+2025-09-16 15:32:17,332 - INFO - No new posts found. Attempt 2/3
+2025-09-16 15:32:17,332 - INFO - Scrolling to load more posts...
+2025-09-16 15:32:19,355 - INFO - No new content loaded after scrolling
+2025-09-16 15:32:19,356 - INFO - Finished continuous email extraction
+2025-09-16 15:32:19,360 - INFO - 
+============================================================
+2025-09-16 15:32:19,363 - INFO - FINAL STATISTICS
+2025-09-16 15:32:19,364 - INFO - ============================================================
+2025-09-16 15:32:19,365 - INFO - Posts processed: 66
+2025-09-16 15:32:19,366 - INFO - Unique emails extracted: 9
+2025-09-16 15:32:19,368 - INFO - Emails sent successfully: 9
+2025-09-16 15:32:19,369 - INFO - Emails failed: 0
+2025-09-16 15:32:19,370 - INFO - Success rate: 100.0%
+2025-09-16 15:32:19,370 - INFO - ============================================================
+2025-09-16 15:32:23,728 - INFO - Browser closed successfully

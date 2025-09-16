@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkedIn AutoBot - Professional Job Application Assistant</title>
     
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.tiny.cloud">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
     <!-- Rich Text Editor -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -54,9 +63,12 @@
         }
         .tab-content {
             display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         .tab-content.active {
             display: block;
+            opacity: 1;
         }
         .tab-button {
             transition: all 0.3s ease;
@@ -82,6 +94,15 @@
             opacity: 1;
         }
         .progress-bar {
+            transition: width 0.5s ease;
+            background: linear-gradient(90deg, #0066CC 0%, #F59E0B 100%) !important;
+        }
+        
+        /* Ensure progress bars work even if Tailwind hasn't loaded */
+        .progress-fallback {
+            background: linear-gradient(90deg, #0066CC 0%, #F59E0B 100%);
+            height: 8px;
+            border-radius: 9999px;
             transition: width 0.5s ease;
         }
         .notification {
@@ -237,9 +258,91 @@
             color: white;
             border-color: #0066CC;
         }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-container {
+            text-align: center;
+            color: white;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-left: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+        .loader-subtext {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            opacity: 0.8;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .loader-dots::after {
+            content: '';
+            animation: dots 1.4s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="spinner"></div>
+            <div class="loader-text">Loading LinkedIn AutoBot<span class="loader-dots"></span></div>
+            <div class="loader-subtext">Setting up your professional dashboard</div>
+        </div>
+    </div>
     <!-- Navigation Header -->
     <nav class="bg-white shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,10 +378,10 @@
         <div class="mb-8">
             <div class="flex items-center justify-between mb-2">
                 <h2 class="text-lg font-semibold text-gray-900">Setup Your Job Application Bot</h2>
-                <span class="text-sm text-gray-500" id="progressText">Step 1 of 4</span>
+                <span class="text-sm text-gray-500" id="progressText">Step 1 of 5</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
-                <div class="bg-gradient-to-r from-primary to-accent h-2 rounded-full progress-bar" style="width: 25%" id="progressBar"></div>
+                <div class="bg-gradient-to-r from-primary to-accent h-2 rounded-full progress-bar progress-fallback" style="width: 20%" id="progressBar"></div>
             </div>
         </div>
 
@@ -1043,7 +1146,7 @@ I am writing to express my interest in the [Job Title] position...">
                                 </div>
                                 <div id="botProgress" class="mt-3 hidden">
                                     <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div id="botProgressBar" class="bg-gradient-to-r from-primary to-accent h-2 rounded-full" style="width: 0%"></div>
+                                        <div id="botProgressBar" class="bg-gradient-to-r from-primary to-accent h-2 rounded-full progress-bar progress-fallback" style="width: 0%"></div>
                                     </div>
                                     <p id="botProgressText" class="text-sm text-gray-600 mt-1"></p>
                                 </div>
@@ -1560,23 +1663,38 @@ GitHub: [GITHUB]`
 
         // Tab management
         function switchTab(tabName, tabNumber) {
+            console.log('Switching to tab:', tabName, 'number:', tabNumber);
+            
             // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
             
             // Show selected tab
-            document.getElementById(tabName + '-tab').classList.add('active');
+            const targetTab = document.getElementById(tabName + '-tab');
+            if (targetTab) {
+                targetTab.classList.add('active');
+                console.log('Activated tab:', tabName + '-tab');
+            } else {
+                console.error('Tab not found:', tabName + '-tab');
+            }
             
             // Update tab buttons
             document.querySelectorAll('.tab-nav').forEach(btn => {
                 btn.classList.remove('active');
             });
-            document.getElementById(tabName + '-nav').classList.add('active');
+            
+            const targetNav = document.getElementById(tabName + '-nav');
+            if (targetNav) {
+                targetNav.classList.add('active');
+            } else {
+                console.error('Nav button not found:', tabName + '-nav');
+            }
             
             // Update progress
             currentTab = tabNumber;
             updateProgress();
+            console.log('Tab switch complete. Current tab:', currentTab);
         }
 
         function nextTab() {
@@ -1616,10 +1734,46 @@ GitHub: [GITHUB]`
             buttons[index].classList.add('active');
         }
 
+        // Initialize progress bars to ensure they work correctly
+        function initializeProgressBars() {
+            // Force update the main progress bar
+            updateProgress();
+            
+            // Ensure progress bar elements have proper styling
+            const progressBars = document.querySelectorAll('.progress-bar, .progress-fallback');
+            progressBars.forEach(bar => {
+                // Add inline styles as fallback
+                if (!bar.style.background) {
+                    bar.style.background = 'linear-gradient(90deg, #0066CC 0%, #F59E0B 100%)';
+                }
+                bar.style.transition = 'width 0.5s ease';
+            });
+            
+            // Test if progress bars are visible and functional
+            console.log('Progress bars initialized:', {
+                mainProgressBar: document.getElementById('progressBar'),
+                botProgressBar: document.getElementById('botProgressBar'),
+                currentTab: currentTab
+            });
+        }
+
         function updateProgress() {
             const progress = (currentTab / 5) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `Step ${currentTab} of 5`;
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            if (progressBar) {
+                progressBar.style.width = progress + '%';
+                console.log('Progress updated:', progress + '%', 'for tab', currentTab);
+            } else {
+                console.error('Progress bar element not found');
+            }
+            
+            if (progressText) {
+                progressText.textContent = `Step ${currentTab} of 5`;
+            } else {
+                console.error('Progress text element not found');
+            }
         }
 
         // Validation
@@ -1849,6 +2003,30 @@ GitHub: [GITHUB]`
 
         // Add event listeners to company checkboxes
         document.addEventListener('DOMContentLoaded', function() {
+            // Track when DOM is ready
+            const domLoadTime = Date.now();
+            
+            // Hide preloader once DOM is loaded (with minimum display time)
+            const hidePreloader = () => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            };
+
+            // Ensure preloader shows for at least 1 second for better UX
+            const minDisplayTime = 1000;
+            const elapsedTime = Date.now() - domLoadTime;
+            const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+            
+            setTimeout(hidePreloader, remainingTime);
+
+            // Initialize progress bars and ensure they work properly
+            initializeProgressBars();
+
             document.querySelectorAll('.company-checkbox').forEach(checkbox => {
                 checkbox.addEventListener('change', updateSelectedCompaniesCount);
             });
@@ -3120,6 +3298,19 @@ GitHub: [GITHUB]`
         document.addEventListener('DOMContentLoaded', () => {
             // Set default date filter to past week
             selectDateFilter('past-week');
+        });
+
+        // Hide preloader when all resources are fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader && !preloader.classList.contains('fade-out')) {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            }, 300); // Additional delay for smooth UX
         });
     </script>
 </body>

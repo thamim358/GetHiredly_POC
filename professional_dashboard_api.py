@@ -621,6 +621,12 @@ bot_controller = ProfessionalBotController()
 
 # Routes
 @app.route('/')
+def landing():
+    """Serve the landing page"""
+    return render_template('landing.html')
+
+@app.route('/dashboard')
+@app.route('/professional-dashboard')
 def dashboard():
     """Serve the professional dashboard"""
     return render_template('professional_index.html')
