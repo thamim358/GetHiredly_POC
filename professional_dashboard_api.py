@@ -15,10 +15,29 @@ import zipfile
 import tempfile
 import csv
 import io
+import secrets
 from datetime import datetime
 from flask import Flask, render_template, jsonify, request, send_file, Response
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+
+# Production configuration
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+IS_PRODUCTION = ENVIRONMENT == 'production'
+
+# Set up logging for production
+if IS_PRODUCTION:
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+else:
+    logging.basicConfig(level=logging.DEBUG)
+
+logger = logging.getLogger(__name__)
 
 # Try to import pandas and openpyxl for Excel export
 try:
@@ -26,16 +45,29 @@ try:
     EXCEL_AVAILABLE = True
 except ImportError:
     EXCEL_AVAILABLE = False
-    print("Warning: pandas not available. Excel export will be disabled.")
+    logger.warning("pandas not available. Excel export will be disabled.")
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+if not IS_PRODUCTION:
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
 
+# Initialize Flask app with production configuration
 app = Flask(__name__)
 CORS(app)
+
+# Production security configuration
+if IS_PRODUCTION:
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(16))
+    app.config['DEBUG'] = False
+    app.config['ENV'] = 'production'
+    logger.info("🚀 LinkedIn AutoBot starting in PRODUCTION mode")
+else:
+    app.config['SECRET_KEY'] = 'dev-secret-key'
+    app.config['DEBUG'] = True
+    logger.info("🛠️ LinkedIn AutoBot starting in DEVELOPMENT mode")
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
@@ -625,6 +657,16 @@ def landing():
     """Serve the landing page"""
     return render_template('landing.html')
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint for Railway.app"""
+    return jsonify({
+        'status': 'healthy',
+        'environment': ENVIRONMENT,
+        'timestamp': datetime.now().isoformat(),
+        'service': 'LinkedIn AutoBot Professional Dashboard'
+    })
+
 @app.route('/dashboard')
 @app.route('/professional-dashboard')
 def dashboard():
@@ -1041,9 +1083,20 @@ if __name__ == '__main__':
         print("✅ Data export capabilities")
         print("✅ Professional UI design")
         print()
-        print("Starting server...")
         
-        app.run(host='0.0.0.0', port=5000, debug=True)
+        # Production vs Development configuration
+        if IS_PRODUCTION:
+            port = int(os.environ.get('PORT', 5000))
+            host = '0.0.0.0'
+            debug = False
+            print(f"🚀 Starting PRODUCTION server on {host}:{port}")
+        else:
+            port = 5000
+            host = '0.0.0.0'
+            debug = True
+            print(f"🛠️ Starting DEVELOPMENT server on {host}:{port}")
+        
+        app.run(host=host, port=port, debug=debug)
         
     except KeyboardInterrupt:
         print("\n\nShutdown requested...")

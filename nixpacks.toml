@@ -1,0 +1,29 @@
+# Nixpacks configuration for Railway.app deployment
+# This ensures Chrome and ChromeDriver are properly installed
+
+[phases.setup]
+nixPkgs = [
+  "python39",
+  "google-chrome",
+  "chromedriver",
+  "xvfb-run",
+  "xorg.xvfb",
+  "fontconfig",
+  "freetype"
+]
+
+[phases.install]
+cmds = [
+  "pip install -r requirements_railway.txt"
+]
+
+[phases.build]
+cmds = [
+  "echo 'Build phase complete'",
+  "python -c 'import selenium; print(\"Selenium installed successfully\")'",
+  "google-chrome --version",
+  "chromedriver --version"
+]
+
+[start]
+cmd = "python professional_dashboard_api.py"

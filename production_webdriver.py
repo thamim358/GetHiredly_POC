@@ -1,0 +1,129 @@
+"""
+Production WebDriver Configuration for Railway.app Deployment
+Handles Chrome WebDriver initialization for headless operation
+"""
+
+import os
+import logging
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def create_production_chrome_driver():
+    """
+    Create a Chrome WebDriver instance optimized for Railway.app hosting
+    Returns configured WebDriver instance for headless operation
+    """
+    
+    chrome_options = Options()
+    
+    # Essential headless operation arguments
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-software-rasterizer')
+    
+    # Window and display settings
+    chrome_options.add_argument('--window-size=1920,1080')
+    chrome_options.add_argument('--start-maximized')
+    
+    # Memory and performance optimizations
+    chrome_options.add_argument('--disable-extensions')
+    chrome_options.add_argument('--disable-plugins')
+    chrome_options.add_argument('--disable-images')
+    chrome_options.add_argument('--disable-javascript')
+    chrome_options.add_argument('--disable-css')
+    chrome_options.add_argument('--disable-web-security')
+    chrome_options.add_argument('--disable-features=VizDisplayCompositor')
+    
+    # Additional stability options for Railway
+    chrome_options.add_argument('--remote-debugging-port=9222')
+    chrome_options.add_argument('--disable-background-timer-throttling')
+    chrome_options.add_argument('--disable-renderer-backgrounding')
+    chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+    chrome_options.add_argument('--disable-client-side-phishing-detection')
+    chrome_options.add_argument('--disable-crash-reporter')
+    chrome_options.add_argument('--disable-oopr-debug-crash-dump')
+    chrome_options.add_argument('--no-crash-upload')
+    chrome_options.add_argument('--disable-low-res-tiling')
+    
+    # Set user agent
+    chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36')
+    
+    # Production vs Development environment
+    if os.environ.get('ENVIRONMENT') == 'production':
+        logger.info("🚀 Initializing Chrome WebDriver for Railway.app production environment")
+        
+        # Railway-specific Chrome binary path
+        chrome_binary = os.environ.get('CHROME_BIN', '/usr/bin/google-chrome')
+        chromedriver_path = os.environ.get('CHROMEDRIVER_PATH', '/usr/bin/chromedriver')
+        
+        chrome_options.binary_location = chrome_binary
+        
+        # Additional production arguments
+        chrome_options.add_argument('--single-process')
+        chrome_options.add_argument('--disable-logging')
+        chrome_options.add_argument('--disable-log-file')
+        chrome_options.add_argument('--disable-permissions-api')
+        chrome_options.add_argument('--disable-presentation-api')
+        chrome_options.add_argument('--disable-print-preview')
+        
+        service = Service(chromedriver_path)
+        
+    else:
+        logger.info("🛠️ Initializing Chrome WebDriver for local development")
+        # Local development - use your existing chromedriver
+        chromedriver_path = './setup/chromedriver/chromedriver.exe'
+        service = Service(chromedriver_path)
+    
+    try:
+        # Create the WebDriver instance
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        
+        # Set timeouts
+        driver.implicitly_wait(10)
+        driver.set_page_load_timeout(30)
+        
+        logger.info("✅ Chrome WebDriver initialized successfully")
+        return driver
+        
+    except Exception as e:
+        logger.error(f"❌ Failed to initialize Chrome WebDriver: {str(e)}")
+        
+        # Fallback: Try with webdriver-manager
+        try:
+            from webdriver_manager.chrome import ChromeDriverManager
+            logger.info("🔄 Attempting fallback with webdriver-manager...")
+            
+            service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=chrome_options)
+            
+            logger.info("✅ Chrome WebDriver initialized with webdriver-manager fallback")
+            return driver
+            
+        except Exception as fallback_error:
+            logger.error(f"❌ Fallback also failed: {str(fallback_error)}")
+            raise Exception(f"Could not initialize Chrome WebDriver. Original error: {str(e)}, Fallback error: {str(fallback_error)}")
+
+def test_webdriver():
+    """Test the WebDriver configuration"""
+    try:
+        driver = create_production_chrome_driver()
+        driver.get("https://www.google.com")
+        title = driver.title
+        driver.quit()
+        logger.info(f"✅ WebDriver test successful. Page title: {title}")
+        return True
+    except Exception as e:
+        logger.error(f"❌ WebDriver test failed: {str(e)}")
+        return False
+
+if __name__ == "__main__":
+    # Test the WebDriver configuration
+    test_webdriver()
