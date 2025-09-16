@@ -62,8 +62,6 @@ def create_production_chrome_driver():
         
         # Railway-specific Chrome binary path
         chrome_binary = os.environ.get('CHROME_BIN', '/usr/bin/google-chrome')
-        chromedriver_path = os.environ.get('CHROMEDRIVER_PATH', '/usr/bin/chromedriver')
-        
         chrome_options.binary_location = chrome_binary
         
         # Additional production arguments
@@ -74,7 +72,16 @@ def create_production_chrome_driver():
         chrome_options.add_argument('--disable-presentation-api')
         chrome_options.add_argument('--disable-print-preview')
         
-        service = Service(chromedriver_path)
+        # Use webdriver-manager for automatic ChromeDriver management
+        try:
+            from webdriver_manager.chrome import ChromeDriverManager
+            service = Service(ChromeDriverManager().install())
+            logger.info("✅ Using webdriver-manager for ChromeDriver")
+        except Exception as e:
+            logger.warning(f"webdriver-manager failed: {e}, trying fallback")
+            # Fallback to manual ChromeDriver path
+            chromedriver_path = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
+            service = Service(chromedriver_path)
         
     else:
         logger.info("🛠️ Initializing Chrome WebDriver for local development")
@@ -95,21 +102,7 @@ def create_production_chrome_driver():
         
     except Exception as e:
         logger.error(f"❌ Failed to initialize Chrome WebDriver: {str(e)}")
-        
-        # Fallback: Try with webdriver-manager
-        try:
-            from webdriver_manager.chrome import ChromeDriverManager
-            logger.info("🔄 Attempting fallback with webdriver-manager...")
-            
-            service = Service(ChromeDriverManager().install())
-            driver = webdriver.Chrome(service=service, options=chrome_options)
-            
-            logger.info("✅ Chrome WebDriver initialized with webdriver-manager fallback")
-            return driver
-            
-        except Exception as fallback_error:
-            logger.error(f"❌ Fallback also failed: {str(fallback_error)}")
-            raise Exception(f"Could not initialize Chrome WebDriver. Original error: {str(e)}, Fallback error: {str(fallback_error)}")
+        raise Exception(f"Could not initialize Chrome WebDriver. Error: {str(e)}")
 
 def test_webdriver():
     """Test the WebDriver configuration"""
