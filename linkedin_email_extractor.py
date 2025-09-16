@@ -374,8 +374,23 @@ class LinkedInEmailExtractor:
             logging.error(f"Failed to clear sent emails log: {e}")
 
     def setup_driver(self):
-        """Setup Chrome WebDriver with same options as runAiBot"""
+        """Setup Chrome WebDriver with production-ready configuration"""
         try:
+            # Check if we're in production environment
+            if os.environ.get('ENVIRONMENT') == 'production':
+                print_lg("🚀 [PRODUCTION] Using production WebDriver configuration for Railway.app")
+                # Import and use production WebDriver
+                try:
+                    from production_webdriver import create_production_chrome_driver
+                    self.driver = create_production_chrome_driver()
+                    print_lg("✅ Production WebDriver initialized successfully!")
+                    return
+                except Exception as e:
+                    print_lg(f"❌ Failed to use production WebDriver: {e}")
+                    print_lg("🔄 Falling back to local WebDriver setup...")
+            
+            # Local development setup
+            print_lg("🛠️ [LOCAL] Using local WebDriver configuration")
             # Try different ChromeDriver paths
             chromedriver_paths = [
                 "setup/chromedriver/chromedriver.exe",

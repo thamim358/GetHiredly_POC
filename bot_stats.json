@@ -4,7 +4,7 @@
     "emails_sent": 437,
     "emails_extracted": 9,
     "posts_processed": 66,
-    "start_time": "2025-09-16 15:26:30.017146",
+    "start_time": null,
     "runtime": "0:05:53",
     "last_activity": "2025-09-16 15:32:23.470324",
     "detailed_status": "Process completed successfully",
@@ -21,41 +21,10 @@
     "runtime": "0:25:31",
     "last_activity": "2025-09-11 13:30:34.741675"
   },
-  "recent_emails": [
-    {
-      "email": "shikha.dhiman@rarrtech.com",
-      "status": "sent",
-      "time": "2025-09-16 15:28:44"
-    },
-    {
-      "email": "info@vncservices.in",
-      "status": "sent",
-      "time": "2025-09-16 15:29:38"
-    },
-    {
-      "email": "priyanshi.lohani@nexionpro.com",
-      "status": "sent",
-      "time": "2025-09-16 15:30:00"
-    },
-    {
-      "email": "kavitha@imrsoft.com",
-      "status": "sent",
-      "time": "2025-09-16 15:30:42"
-    },
-    {
-      "email": "prathik.patel@collabera.com",
-      "status": "sent",
-      "time": "2025-09-16 15:31:03"
-    },
-    {
-      "email": "rahulr@envertiz.com",
-      "status": "sent",
-      "time": "2025-09-16 15:31:26"
-    }
-  ],
+  "recent_emails": [],
   "recent_applications": [],
   "system": {
-    "uptime": "0:08:30",
+    "uptime": "0:00:21",
     "version": "2.0",
     "mode": "Professional"
   }

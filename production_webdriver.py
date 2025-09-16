@@ -34,32 +34,37 @@ def create_production_chrome_driver():
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--disable-software-rasterizer')
     
-    # Window and display settings
+    # Window and display settings for LinkedIn compatibility
     chrome_options.add_argument('--window-size=1920,1080')
     chrome_options.add_argument('--start-maximized')
     
-    # Memory and performance optimizations
+    # LinkedIn-specific optimizations (enable some features for better compatibility)
     chrome_options.add_argument('--disable-extensions')
     chrome_options.add_argument('--disable-plugins')
-    chrome_options.add_argument('--disable-images')
-    chrome_options.add_argument('--disable-javascript')
-    chrome_options.add_argument('--disable-css')
+    # Note: Don't disable JavaScript or CSS for LinkedIn - it needs them!
     chrome_options.add_argument('--disable-web-security')
     chrome_options.add_argument('--disable-features=VizDisplayCompositor')
     
-    # Additional stability options for Railway
-    chrome_options.add_argument('--remote-debugging-port=9222')
+    # Anti-detection for LinkedIn
+    chrome_options.add_argument('--disable-blink-features=AutomationControlled')
     chrome_options.add_argument('--disable-background-timer-throttling')
     chrome_options.add_argument('--disable-renderer-backgrounding')
     chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+    
+    # Additional stability options for Railway
+    chrome_options.add_argument('--remote-debugging-port=9222')
     chrome_options.add_argument('--disable-client-side-phishing-detection')
     chrome_options.add_argument('--disable-crash-reporter')
     chrome_options.add_argument('--disable-oopr-debug-crash-dump')
     chrome_options.add_argument('--no-crash-upload')
     chrome_options.add_argument('--disable-low-res-tiling')
     
-    # Set user agent
-    chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36')
+    # Experimental options for LinkedIn compatibility
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    chrome_options.add_experimental_option('useAutomationExtension', False)
+    
+    # Set realistic user agent for LinkedIn
+    chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36')
     
     # Production vs Development environment
     if os.environ.get('ENVIRONMENT') == 'production':
@@ -102,7 +107,13 @@ def create_production_chrome_driver():
         driver.implicitly_wait(10)
         driver.set_page_load_timeout(30)
         
+        # Execute JavaScript to remove webdriver detection
+        driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+        
         logger.info("✅ Chrome WebDriver initialized successfully")
+        logger.info(f"🌐 User Agent: {driver.execute_script('return navigator.userAgent')}")
+        logger.info(f"📱 Window Size: {driver.get_window_size()}")
+        
         return driver
         
     except Exception as e:

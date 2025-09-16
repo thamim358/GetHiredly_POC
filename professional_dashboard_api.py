@@ -21,9 +21,31 @@ from flask import Flask, render_template, jsonify, request, send_file, Response
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
-# Production configuration
-ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+# Production configuration and environment detection
+# Check multiple ways Railway.app might indicate production
+railway_indicators = [
+    os.environ.get('RAILWAY_ENVIRONMENT'),
+    os.environ.get('RAILWAY_PROJECT_ID'), 
+    os.environ.get('PORT'),
+    os.environ.get('PRODUCTION')
+]
+
+# Set ENVIRONMENT based on Railway indicators
+if any(railway_indicators):
+    os.environ['ENVIRONMENT'] = 'production'
+    ENVIRONMENT = 'production'
+else:
+    ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+
 IS_PRODUCTION = ENVIRONMENT == 'production'
+
+# Log environment detection
+print(f"🔍 Environment detection: {ENVIRONMENT}")
+print(f"🚀 Railway indicators: {[i for i in railway_indicators if i]}")
+if IS_PRODUCTION:
+    print("✅ Running in PRODUCTION mode")
+else:
+    print("🛠️ Running in DEVELOPMENT mode")
 
 # Set up logging for production
 if IS_PRODUCTION:
@@ -666,6 +688,42 @@ def health_check():
         'timestamp': datetime.now().isoformat(),
         'service': 'LinkedIn AutoBot Professional Dashboard'
     })
+
+@app.route('/test-webdriver')
+def test_webdriver():
+    """Test WebDriver functionality for debugging"""
+    try:
+        if IS_PRODUCTION:
+            from production_webdriver import create_production_chrome_driver
+            driver = create_production_chrome_driver()
+            
+            # Test basic functionality
+            driver.get("https://www.google.com")
+            title = driver.title
+            user_agent = driver.execute_script("return navigator.userAgent")
+            driver.quit()
+            
+            return jsonify({
+                'status': 'success',
+                'environment': 'production',
+                'title': title,
+                'user_agent': user_agent,
+                'message': 'Production WebDriver working correctly'
+            })
+        else:
+            return jsonify({
+                'status': 'skipped',
+                'environment': 'development',
+                'message': 'WebDriver test only runs in production'
+            })
+    except Exception as e:
+        logger.error(f"WebDriver test failed: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'environment': ENVIRONMENT,
+            'error': str(e),
+            'message': 'WebDriver test failed'
+        }), 500
 
 @app.route('/dashboard')
 @app.route('/professional-dashboard')
