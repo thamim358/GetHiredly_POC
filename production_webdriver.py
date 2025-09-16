@@ -27,8 +27,8 @@ def create_production_chrome_driver():
     
     chrome_options = Options()
     
-    # Essential headless operation arguments
-    chrome_options.add_argument('--headless')
+    # Essential arguments for Railway.app (NO HEADLESS for LinkedIn compatibility)
+    # chrome_options.add_argument('--headless')  # DISABLED - LinkedIn blocks headless
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--disable-gpu')
@@ -38,22 +38,27 @@ def create_production_chrome_driver():
     chrome_options.add_argument('--window-size=1920,1080')
     chrome_options.add_argument('--start-maximized')
     
-    # LinkedIn-specific optimizations (enable some features for better compatibility)
+    # LinkedIn-specific optimizations (enable features for better compatibility)
     chrome_options.add_argument('--disable-extensions')
     chrome_options.add_argument('--disable-plugins')
-    # Note: Don't disable JavaScript or CSS for LinkedIn - it needs them!
+    # Enable JavaScript and CSS for LinkedIn functionality
+    chrome_options.add_argument('--enable-javascript')
     chrome_options.add_argument('--disable-web-security')
     chrome_options.add_argument('--disable-features=VizDisplayCompositor')
     
-    # Anti-detection for LinkedIn
+    # LinkedIn anti-detection (make browser appear human-like)
     chrome_options.add_argument('--disable-blink-features=AutomationControlled')
     chrome_options.add_argument('--disable-background-timer-throttling')
     chrome_options.add_argument('--disable-renderer-backgrounding')
     chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+    chrome_options.add_argument('--disable-client-side-phishing-detection')
+    
+    # Enable features that LinkedIn expects
+    chrome_options.add_argument('--disable-infobars')
+    chrome_options.add_argument('--disable-notifications')
     
     # Additional stability options for Railway
     chrome_options.add_argument('--remote-debugging-port=9222')
-    chrome_options.add_argument('--disable-client-side-phishing-detection')
     chrome_options.add_argument('--disable-crash-reporter')
     chrome_options.add_argument('--disable-oopr-debug-crash-dump')
     chrome_options.add_argument('--no-crash-upload')

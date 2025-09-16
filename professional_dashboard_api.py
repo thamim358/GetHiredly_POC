@@ -701,6 +701,7 @@ def test_webdriver():
             driver.get("https://www.google.com")
             title = driver.title
             user_agent = driver.execute_script("return navigator.userAgent")
+            webdriver_property = driver.execute_script("return navigator.webdriver")
             driver.quit()
             
             return jsonify({
@@ -708,7 +709,9 @@ def test_webdriver():
                 'environment': 'production',
                 'title': title,
                 'user_agent': user_agent,
-                'message': 'Production WebDriver working correctly'
+                'webdriver_detected': webdriver_property,
+                'headless_mode': False,  # We're using virtual display, not headless
+                'message': 'Production WebDriver working with virtual display (non-headless)'
             })
         else:
             return jsonify({

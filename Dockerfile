@@ -63,10 +63,11 @@ while [ -f "/tmp/.X${DISPLAY_NUM}-lock" ]; do\n\
     DISPLAY_NUM=$((DISPLAY_NUM + 1))\n\
 done\n\
 export DISPLAY=:${DISPLAY_NUM}\n\
-echo "Starting Xvfb on display :${DISPLAY_NUM}"\n\
-# Start Xvfb in background\n\
-Xvfb :${DISPLAY_NUM} -screen 0 1920x1080x24 -ac +extension GLX +render -noreset &\n\
-sleep 2\n\
+echo "🖥️ Starting Xvfb on display :${DISPLAY_NUM} for non-headless Chrome"\n\
+# Start Xvfb with larger screen for LinkedIn\n\
+Xvfb :${DISPLAY_NUM} -screen 0 1920x1080x24 -ac +extension GLX +render -noreset -dpi 96 &\n\
+sleep 3\n\
+echo "✅ Virtual display ready for LinkedIn automation"\n\
 # Start the Python application\n\
 exec python professional_dashboard_api.py\n\
 ' > /app/start.sh && chmod +x /app/start.sh
