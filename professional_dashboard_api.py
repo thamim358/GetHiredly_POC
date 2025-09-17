@@ -48,12 +48,12 @@ else:
 IS_PRODUCTION = ENVIRONMENT == 'production'
 
 # Log environment detection
-print(f"🔍 Environment detection: {ENVIRONMENT}")
-print(f"🚀 Railway indicators: {[i for i in railway_indicators if i]}")
+print(f"Environment detection: {ENVIRONMENT}")
+print(f"Railway indicators: {[i for i in railway_indicators if i]}")
 if IS_PRODUCTION:
-    print("✅ Running in PRODUCTION mode")
+    print("Running in PRODUCTION mode")
 else:
-    print("🛠️ Running in DEVELOPMENT mode")
+    print("Running in DEVELOPMENT mode")
 
 # Set up logging for production
 if IS_PRODUCTION:
@@ -93,11 +93,11 @@ if IS_PRODUCTION:
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', secrets.token_hex(16))
     app.config['DEBUG'] = False
     app.config['ENV'] = 'production'
-    logger.info("🚀 LinkedIn AutoBot starting in PRODUCTION mode")
+    logger.info("LinkedIn AutoBot starting in PRODUCTION mode")
 else:
     app.config['SECRET_KEY'] = 'dev-secret-key'
     app.config['DEBUG'] = True
-    logger.info("🛠️ LinkedIn AutoBot starting in DEVELOPMENT mode")
+    logger.info("LinkedIn AutoBot starting in DEVELOPMENT mode")
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
@@ -300,19 +300,19 @@ class ProfessionalBotController:
         company_filter = job_config.get('companyFilter', {})
         country_filter = job_config.get('countryFilter', {})
         
-        logging.info(f"📋 Job config prepared:")
-        logging.info(f"  🏢 Company Filter: {'Enabled' if company_filter.get('enabled') else 'Disabled'}")
+        logging.info(f"Job config prepared:")
+        logging.info(f"  Company Filter: {'Enabled' if company_filter.get('enabled') else 'Disabled'}")
         if company_filter.get('enabled') and company_filter.get('companies'):
             company_names = [comp.get('name', 'Unknown') for comp in company_filter.get('companies', [])]
-            logging.info(f"  🏢 Target Companies: {', '.join(company_names[:3])}" + (f" (+{len(company_names)-3} more)" if len(company_names) > 3 else ""))
+            logging.info(f"  Target Companies: {', '.join(company_names[:3])}" + (f" (+{len(company_names)-3} more)" if len(company_names) > 3 else ""))
         
-        logging.info(f"  🌍 Country Filter: {'Enabled' if country_filter.get('enabled') else 'Disabled'}")
+        logging.info(f"  Country Filter: {'Enabled' if country_filter.get('enabled') else 'Disabled'}")
         if country_filter.get('enabled') and country_filter.get('countries'):
             country_names = [country.get('name', 'Unknown') for country in country_filter.get('countries', [])]
-            logging.info(f"  🌍 Target Countries: {', '.join(country_names[:3])}" + (f" (+{len(country_names)-3} more)" if len(country_names) > 3 else ""))
+            logging.info(f"  Target Countries: {', '.join(country_names[:3])}" + (f" (+{len(country_names)-3} more)" if len(country_names) > 3 else ""))
             # Show search terms for debugging
             for country in country_filter.get('countries', []):
-                logging.info(f"  🌍 {country.get('name', 'Unknown')} -> Search terms: '{country.get('searchTerms', 'No search terms')}'")
+                logging.info(f"  {country.get('name', 'Unknown')} -> Search terms: '{country.get('searchTerms', 'No search terms')}'")
         
         return job_config
     
@@ -333,19 +333,35 @@ class ProfessionalBotController:
             if not os.path.exists('temp_job_config.json'):
                 return {'success': False, 'error': 'No job configuration found. Please complete setup first.'}
             
+            # Set up environment for portable mode
+            env = os.environ.copy()
+            if os.environ.get('LINKEDIN_AUTOBOT_PORTABLE') == '1':
+                env['LINKEDIN_AUTOBOT_PORTABLE'] = '1'
+                logging.info("Starting email extractor in portable mode")
+            
             # Start the email extractor process
             self.email_extractor_process = subprocess.Popen([
                 sys.executable, 'linkedin_email_extractor.py'
-            ], cwd=os.getcwd())
+            ], cwd=os.getcwd(), env=env, 
+               stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             
             self.stats['email_extractor']['status'] = 'running'
             self.stats['email_extractor']['start_time'] = datetime.now()
             self.stats['email_extractor']['last_activity'] = datetime.now()
             
             # Wait to check if process started successfully
-            time.sleep(3)
-            if self.email_extractor_process.poll() is not None:
-                error_msg = f"Email extractor failed to start (return code: {self.email_extractor_process.returncode})"
+            time.sleep(5)  # Give more time for startup
+            poll_result = self.email_extractor_process.poll()
+            
+            if poll_result is not None:
+                # Process ended, get error output
+                stdout, stderr = self.email_extractor_process.communicate(timeout=5)
+                error_msg = f"Email extractor failed to start (return code: {poll_result})"
+                if stderr:
+                    error_msg += f" - Error: {stderr.strip()}"
+                if stdout:
+                    error_msg += f" - Output: {stdout.strip()}"
+                    
                 logging.error(error_msg)
                 self.stats['email_extractor']['status'] = 'error'
                 return {'success': False, 'error': error_msg}
@@ -379,10 +395,17 @@ class ProfessionalBotController:
             if not os.path.exists('user_config.json'):
                 return {'success': False, 'error': 'No user configuration found. Please complete setup first.'}
             
+            # Set up environment for portable mode
+            env = os.environ.copy()
+            if os.environ.get('LINKEDIN_AUTOBOT_PORTABLE') == '1':
+                env['LINKEDIN_AUTOBOT_PORTABLE'] = '1'
+                logging.info("Starting AI bot in portable mode")
+            
             # Start the AI bot process
             self.aibot_process = subprocess.Popen([
                 sys.executable, 'runAiBot.py'
-            ], cwd=os.getcwd())
+            ], cwd=os.getcwd(), env=env,
+               stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             
             self.stats['aibot']['status'] = 'running'
             self.stats['aibot']['start_time'] = datetime.now()
@@ -393,9 +416,18 @@ class ProfessionalBotController:
             logging.info("AI bot started - stats will update from application files")
             
             # Wait to check if process started successfully
-            time.sleep(3)
-            if self.aibot_process.poll() is not None:
-                error_msg = f"AI bot failed to start (return code: {self.aibot_process.returncode})"
+            time.sleep(5)  # Give more time for startup
+            poll_result = self.aibot_process.poll()
+            
+            if poll_result is not None:
+                # Process ended, get error output
+                stdout, stderr = self.aibot_process.communicate(timeout=5)
+                error_msg = f"AI bot failed to start (return code: {poll_result})"
+                if stderr:
+                    error_msg += f" - Error: {stderr.strip()}"
+                if stdout:
+                    error_msg += f" - Output: {stdout.strip()}"
+                    
                 logging.error(error_msg)
                 self.stats['aibot']['status'] = 'error'
                 return {'success': False, 'error': error_msg}
@@ -1137,35 +1169,64 @@ def cleanup(error):
 if __name__ == '__main__':
     try:
         print("=" * 60)
-        print("🚀 LinkedIn AutoBot Professional Dashboard")
+        print("LinkedIn AutoBot Professional Dashboard")
         print("=" * 60)
         print(f"Dashboard URL: http://localhost:5000")
         print(f"API Base URL: http://localhost:5000/api")
         print("=" * 60)
         print()
         print("Features:")
-        print("✅ Complete user configuration")
-        print("✅ Resume upload & management")
-        print("✅ Job role templates")
-        print("✅ Email & AI bot automation")
-        print("✅ Real-time statistics")
-        print("✅ Data export capabilities")
-        print("✅ Professional UI design")
+        print("Complete user configuration")
+        print("Resume upload & management")
+        print("Job role templates")
+        print("Email & AI bot automation")
+        print("Real-time statistics")
+        print("Data export capabilities")
+        print("Professional UI design")
         print()
+        
+        # Check if running in portable mode
+        is_portable = os.environ.get('LINKEDIN_AUTOBOT_PORTABLE') == '1'
+        if is_portable:
+            print("PORTABLE MODE DETECTED")
+            print("Chrome browser embedded")
+            print("ChromeDriver embedded")
+            print("No installation required")
+            print()
         
         # Production vs Development configuration
         if IS_PRODUCTION:
             port = int(os.environ.get('PORT', 5000))
             host = '0.0.0.0'
             debug = False
-            print(f"🚀 Starting PRODUCTION server on {host}:{port}")
+            print(f"Starting PRODUCTION server on {host}:{port}")
         else:
-            port = 5000
-            host = '0.0.0.0'
+            # Try different ports if 5000 is in use
+            ports_to_try = [5000, 5001, 5002, 5003, 8000, 8080]
+            port = None
+            host = '127.0.0.1'  # Use localhost instead of 0.0.0.0 for dev
             debug = True
-            print(f"🛠️ Starting DEVELOPMENT server on {host}:{port}")
+            
+            for try_port in ports_to_try:
+                try:
+                    # Test if port is available
+                    import socket
+                    test_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    test_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                    test_socket.bind((host, try_port))
+                    test_socket.close()
+                    port = try_port
+                    break
+                except socket.error:
+                    continue
+            
+            if port is None:
+                print("No available ports found. Trying default 5000...")
+                port = 5000
+            
+            print(f"Starting DEVELOPMENT server on {host}:{port}")
         
-        app.run(host=host, port=port, debug=debug)
+        app.run(host=host, port=port, debug=debug, use_reloader=False)
         
     except KeyboardInterrupt:
         print("\n\nShutdown requested...")
@@ -1174,3 +1235,8 @@ if __name__ == '__main__':
     except Exception as e:
         logging.error(f"Error starting server: {e}")
         print(f"Failed to start server: {e}")
+        print("\nTroubleshooting:")
+        print("1. Close any other instances of LinkedInAutoBot")
+        print("2. Check if port 5000 is already in use")
+        print("3. Try running as administrator")
+        input("\nPress Enter to exit...")
