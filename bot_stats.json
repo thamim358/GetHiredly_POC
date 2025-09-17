@@ -1,12 +1,12 @@
 {
   "email_extractor": {
     "status": "stopped",
-    "emails_sent": 437,
-    "emails_extracted": 9,
-    "posts_processed": 66,
-    "start_time": "2025-09-16 15:26:30.017146",
-    "runtime": "0:05:53",
-    "last_activity": "2025-09-16 15:32:23.470324",
+    "emails_sent": 468,
+    "emails_extracted": 39,
+    "posts_processed": 433,
+    "start_time": "2025-09-16 17:47:42.909382",
+    "runtime": "0:31:20",
+    "last_activity": "2025-09-16 18:19:03.029158",
     "detailed_status": "Process completed successfully",
     "progress": 100
   },
@@ -23,39 +23,39 @@
   },
   "recent_emails": [
     {
-      "email": "shikha.dhiman@rarrtech.com",
+      "email": "juhi@ledelsea.com",
       "status": "sent",
-      "time": "2025-09-16 15:28:44"
+      "time": "2025-09-16 18:06:19"
     },
     {
-      "email": "info@vncservices.in",
+      "email": "ravalika.m@tageletconsulting.com",
       "status": "sent",
-      "time": "2025-09-16 15:29:38"
+      "time": "2025-09-16 18:07:34"
     },
     {
-      "email": "priyanshi.lohani@nexionpro.com",
+      "email": "sivan.aditya@net2source.co.in",
       "status": "sent",
-      "time": "2025-09-16 15:30:00"
+      "time": "2025-09-16 18:08:12"
     },
     {
-      "email": "kavitha@imrsoft.com",
+      "email": "shristia@linkzie.in",
       "status": "sent",
-      "time": "2025-09-16 15:30:42"
+      "time": "2025-09-16 18:10:58"
     },
     {
-      "email": "prathik.patel@collabera.com",
+      "email": "info@backendcodersindia.com",
       "status": "sent",
-      "time": "2025-09-16 15:31:03"
+      "time": "2025-09-16 18:15:40"
     },
     {
-      "email": "rahulr@envertiz.com",
+      "email": "pawan.patnaik@jteksoftware.in",
       "status": "sent",
-      "time": "2025-09-16 15:31:26"
+      "time": "2025-09-16 18:17:41"
     }
   ],
   "recent_applications": [],
   "system": {
-    "uptime": "0:08:30",
+    "uptime": "16:42:25",
     "version": "2.0",
     "mode": "Professional"
   }

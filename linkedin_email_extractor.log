@@ -39983,3 +39983,986 @@ Stacktrace:
 2025-09-16 15:32:19,370 - INFO - Success rate: 100.0%
 2025-09-16 15:32:19,370 - INFO - ============================================================
 2025-09-16 15:32:23,728 - INFO - Browser closed successfully
+2025-09-16 17:43:25,067 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-16 17:43:25,075 - INFO - Starting LinkedIn Email Extractor...
+2025-09-16 17:43:50,029 - INFO - 
+============================================================
+2025-09-16 17:43:50,030 - INFO - CURRENT CONFIGURATION
+2025-09-16 17:43:50,030 - INFO - ============================================================
+2025-09-16 17:43:50,031 - INFO - 📧 Email Subject: Application for UI Developer  – 3+ Years Experience
+2025-09-16 17:43:50,032 - INFO - 🔍 Search Terms: ['r UI Developer']
+2025-09-16 17:43:50,033 - INFO - 📎 Resume File: uploads\thamim_resume.pdf
+2025-09-16 17:43:50,036 - INFO - 📍 Location: India
+2025-09-16 17:43:50,037 - INFO - 🌍 Target Countries/Locations: ['India']
+2025-09-16 17:43:50,038 - INFO - ============================================================
+2025-09-16 17:43:50,039 - INFO - 
+============================================================
+2025-09-16 17:43:50,051 - INFO - 🎯 Processing search term: r UI Developer
+2025-09-16 17:43:50,051 - INFO - 📋 Available terms: r UI Developer
+2025-09-16 17:43:50,052 - INFO - ============================================================
+2025-09-16 17:43:50,054 - INFO - 🌍 Including target countries/locations in search: ['India']
+2025-09-16 17:43:50,054 - INFO - 🔍 Searching for posts with: 'r UI Developer AND hiring AND (India)'
+2025-09-16 17:43:50,055 - INFO - 📅 Date filter: Past week (URL param: past-week)
+2025-09-16 17:43:50,055 - INFO - 🌐 Search URL: https://www.linkedin.com/search/results/content/?datePosted=%22past-week%22&keywords=r+UI+Developer+AND+hiring+AND+%28India%29&origin=FACETED_SEARCH
+2025-09-16 17:44:03,011 - INFO - ✅ Applied 'Posts' filter
+2025-09-16 17:44:03,011 - INFO - ✅ Date filter 'Past week' applied via URL parameter
+2025-09-16 17:44:03,013 - INFO - Starting continuous email extraction from posts...
+2025-09-16 17:44:03,013 - INFO - Scrolling to load more posts...
+2025-09-16 17:44:05,047 - INFO - Scrolled 1/3 times, loaded more posts
+2025-09-16 17:44:06,992 - INFO - Scrolled 2/3 times, loaded more posts
+2025-09-16 17:44:08,955 - INFO - Scrolled 3/3 times, loaded more posts
+2025-09-16 17:44:10,878 - INFO - Found 82 posts on current page
+2025-09-16 17:44:11,002 - INFO - Processing post 1 (ID: post_0_50...)
+2025-09-16 17:44:13,915 - INFO - Expanded content using specific see-more button
+2025-09-16 17:44:14,026 - INFO - Successfully expanded post 1 content
+2025-09-16 17:44:15,340 - INFO - Processing post 2 (ID: post_1_50...)
+2025-09-16 17:44:17,977 - INFO - Processing post 3 (ID: post_2_0...)
+2025-09-16 17:44:20,665 - INFO - Processing post 4 (ID: post_3_50...)
+2025-09-16 17:44:23,232 - INFO - Processing post 5 (ID: post_4_50...)
+2025-09-16 17:44:25,386 - INFO - Processing post 6 (ID: post_5_0...)
+2025-09-16 17:44:28,492 - INFO - Processing post 7 (ID: post_6_50...)
+2025-09-16 17:44:32,287 - INFO - Expanded content using specific see-more button
+2025-09-16 17:44:32,989 - INFO - Successfully expanded post 7 content
+2025-09-16 17:44:34,561 - INFO - Processing post 8 (ID: post_7_50...)
+2025-09-16 17:44:37,226 - INFO - Processing post 9 (ID: post_8_0...)
+2025-09-16 17:44:39,930 - INFO - Processing post 10 (ID: post_9_50...)
+2025-09-16 17:44:42,953 - INFO - Processing post 11 (ID: post_10_50...)
+2025-09-16 17:44:45,204 - INFO - Processing post 12 (ID: post_11_0...)
+2025-09-16 17:44:48,069 - INFO - Processing post 13 (ID: post_12_50...)
+2025-09-16 17:44:51,172 - INFO - Expanded content using specific see-more button
+2025-09-16 17:44:51,311 - INFO - Successfully expanded post 13 content
+2025-09-16 17:44:52,608 - INFO - Processing post 14 (ID: post_13_50...)
+2025-09-16 17:44:55,183 - INFO - Processing post 15 (ID: post_14_0...)
+2025-09-16 17:44:57,315 - INFO - Processing post 16 (ID: post_15_50...)
+2025-09-16 17:45:00,122 - INFO - Processing post 17 (ID: post_16_50...)
+2025-09-16 17:45:02,994 - INFO - Processing post 18 (ID: post_17_0...)
+2025-09-16 17:45:06,237 - INFO - Processing post 19 (ID: post_18_50...)
+2025-09-16 17:45:09,666 - INFO - Expanded content using specific see-more button
+2025-09-16 17:45:09,750 - INFO - Successfully expanded post 19 content
+2025-09-16 17:45:10,974 - INFO - Processing post 20 (ID: post_19_50...)
+2025-09-16 17:45:14,666 - INFO - Processing post 21 (ID: post_20_0...)
+2025-09-16 17:45:18,181 - INFO - Processing post 22 (ID: post_21_50...)
+2025-09-16 17:45:23,128 - INFO - Processing post 23 (ID: post_22_50...)
+2025-09-16 17:45:25,498 - INFO - Processing post 24 (ID: post_23_0...)
+2025-09-16 17:45:28,744 - INFO - Processing post 25 (ID: post_24_50...)
+2025-09-16 17:45:32,265 - INFO - Expanded content using specific see-more button
+2025-09-16 17:45:32,371 - INFO - Successfully expanded post 25 content
+2025-09-16 17:45:32,375 - INFO - Found emails in post 25: ['mew.th@toyardigital.com']
+2025-09-16 17:45:32,409 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:45:37,174 - INFO - [SUCCESS] Email sent successfully to mew.th@toyardigital.com (1 sent today)
+2025-09-16 17:45:40,869 - INFO - Processing post 26 (ID: post_25_50...)
+2025-09-16 17:45:42,095 - INFO - Found emails in post 26: ['mew.th@toyardigital.com']
+2025-09-16 17:45:43,619 - INFO - Processing post 27 (ID: post_26_0...)
+2025-09-16 17:45:45,975 - INFO - Processing post 28 (ID: post_27_50...)
+2025-09-16 17:45:46,899 - INFO - Found emails in post 28: ['mew.th@toyardigital.com']
+2025-09-16 17:45:48,224 - INFO - Processing post 29 (ID: post_28_0...)
+2025-09-16 17:45:51,298 - INFO - Processing post 30 (ID: post_29_50...)
+2025-09-16 17:45:54,659 - INFO - Expanded content using specific see-more button
+2025-09-16 17:45:54,740 - INFO - Successfully expanded post 30 content
+2025-09-16 17:45:56,220 - INFO - Processing post 31 (ID: post_30_50...)
+2025-09-16 17:45:58,678 - INFO - Processing post 32 (ID: post_31_0...)
+2025-09-16 17:46:01,224 - INFO - Processing post 33 (ID: post_32_50...)
+2025-09-16 17:46:03,704 - INFO - Processing post 34 (ID: post_33_0...)
+2025-09-16 17:46:05,895 - INFO - Processing post 35 (ID: post_34_50...)
+2025-09-16 17:46:09,189 - INFO - Expanded content using specific see-more button
+2025-09-16 17:46:09,339 - INFO - Successfully expanded post 35 content
+2025-09-16 17:46:11,269 - INFO - Processing post 36 (ID: post_35_50...)
+2025-09-16 17:46:13,759 - INFO - Processing post 37 (ID: post_36_0...)
+2025-09-16 17:46:15,943 - INFO - Processing post 38 (ID: post_37_50...)
+2025-09-16 17:46:18,236 - INFO - Processing post 39 (ID: post_38_50...)
+2025-09-16 17:46:20,546 - INFO - Processing post 40 (ID: post_39_0...)
+2025-09-16 17:46:23,963 - INFO - Processing post 41 (ID: post_40_50...)
+2025-09-16 17:46:28,526 - INFO - Expanded content using specific see-more button
+2025-09-16 17:46:29,067 - INFO - Successfully expanded post 41 content
+2025-09-16 17:46:30,372 - INFO - Processing post 42 (ID: post_41_50...)
+2025-09-16 17:46:33,273 - INFO - Processing post 43 (ID: post_42_0...)
+2025-09-16 17:46:36,123 - INFO - Processing post 44 (ID: post_43_50...)
+2025-09-16 17:46:38,996 - INFO - Processing post 45 (ID: post_44_0...)
+2025-09-16 17:46:45,007 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024ED7368170>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d8eefb4326824a6bc7cc852752779c4a
+2025-09-16 17:46:49,076 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024ED73681A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d8eefb4326824a6bc7cc852752779c4a
+2025-09-16 17:47:49,862 - INFO - [EMAIL] Loaded 438 previously sent emails
+2025-09-16 17:47:49,872 - INFO - Starting LinkedIn Email Extractor...
+2025-09-16 17:48:13,102 - INFO - 
+============================================================
+2025-09-16 17:48:13,104 - INFO - CURRENT CONFIGURATION
+2025-09-16 17:48:13,105 - INFO - ============================================================
+2025-09-16 17:48:13,105 - INFO - 📧 Email Subject: Application for UI Developer  – 3+ Years Experience
+2025-09-16 17:48:13,106 - INFO - 🔍 Search Terms: ['UI Developer']
+2025-09-16 17:48:13,106 - INFO - 📎 Resume File: uploads\thamim_resume.pdf
+2025-09-16 17:48:13,107 - INFO - 📍 Location: India
+2025-09-16 17:48:13,107 - INFO - 🌍 Target Countries/Locations: ['India']
+2025-09-16 17:48:13,108 - INFO - ============================================================
+2025-09-16 17:48:13,112 - INFO - 
+============================================================
+2025-09-16 17:48:13,115 - INFO - 🎯 Processing search term: UI Developer
+2025-09-16 17:48:13,116 - INFO - 📋 Available terms: UI Developer
+2025-09-16 17:48:13,117 - INFO - ============================================================
+2025-09-16 17:48:13,118 - INFO - 🌍 Including target countries/locations in search: ['India']
+2025-09-16 17:48:13,120 - INFO - 🔍 Searching for posts with: 'UI Developer + hiring + India'
+2025-09-16 17:48:13,121 - INFO - 📅 Date filter: Past week (URL param: past-week)
+2025-09-16 17:48:13,121 - INFO - 🌐 Search URL: https://www.linkedin.com/search/results/content/?datePosted=%22past-week%22&keywords=UI+Developer+%2B+hiring+%2B+India&origin=FACETED_SEARCH
+2025-09-16 17:48:23,430 - INFO - ✅ Applied 'Posts' filter
+2025-09-16 17:48:23,430 - INFO - ✅ Date filter 'Past week' applied via URL parameter
+2025-09-16 17:48:23,431 - INFO - Starting continuous email extraction from posts...
+2025-09-16 17:48:23,432 - INFO - Scrolling to load more posts...
+2025-09-16 17:48:25,568 - INFO - Scrolled 1/3 times, loaded more posts
+2025-09-16 17:48:27,593 - INFO - Scrolled 2/3 times, loaded more posts
+2025-09-16 17:48:30,019 - INFO - Scrolled 3/3 times, loaded more posts
+2025-09-16 17:48:31,276 - INFO - Found 86 posts on current page
+2025-09-16 17:48:31,419 - INFO - Processing post 1 (ID: post_0_50...)
+2025-09-16 17:48:35,026 - INFO - Expanded content using specific see-more button
+2025-09-16 17:48:35,320 - INFO - Successfully expanded post 1 content
+2025-09-16 17:48:35,325 - INFO - Found emails in post 1: ['sapna@rareprob.com']
+2025-09-16 17:48:35,381 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:48:39,653 - INFO - [SUCCESS] Email sent successfully to sapna@rareprob.com (1 sent today)
+2025-09-16 17:48:43,656 - INFO - Processing post 2 (ID: post_1_50...)
+2025-09-16 17:48:44,861 - INFO - Found emails in post 2: ['sapna@rareprob.com']
+2025-09-16 17:48:46,385 - INFO - Processing post 3 (ID: post_2_0...)
+2025-09-16 17:48:48,478 - INFO - Processing post 4 (ID: post_3_50...)
+2025-09-16 17:48:49,778 - INFO - Found emails in post 4: ['sapna@rareprob.com']
+2025-09-16 17:48:51,002 - INFO - Processing post 5 (ID: post_4_0...)
+2025-09-16 17:48:53,226 - INFO - Processing post 6 (ID: post_5_50...)
+2025-09-16 17:48:56,905 - INFO - Expanded content using specific see-more button
+2025-09-16 17:48:57,012 - INFO - Successfully expanded post 6 content
+2025-09-16 17:48:58,904 - INFO - Processing post 7 (ID: post_6_50...)
+2025-09-16 17:49:02,004 - INFO - Expanded content by clicking on truncated text
+2025-09-16 17:49:02,103 - INFO - Successfully expanded post 7 content
+2025-09-16 17:49:03,834 - INFO - Processing post 8 (ID: post_7_0...)
+2025-09-16 17:49:05,603 - INFO - Processing post 9 (ID: post_8_50...)
+2025-09-16 17:49:08,062 - INFO - Expanded content by clicking on truncated text
+2025-09-16 17:49:08,104 - INFO - Successfully expanded post 9 content
+2025-09-16 17:49:09,428 - INFO - Processing post 10 (ID: post_9_0...)
+2025-09-16 17:49:12,131 - INFO - Processing post 11 (ID: post_10_50...)
+2025-09-16 17:49:15,103 - INFO - Expanded content using specific see-more button
+2025-09-16 17:49:15,243 - INFO - Successfully expanded post 11 content
+2025-09-16 17:49:15,244 - INFO - Found emails in post 11: ['kalyani@coretek.io']
+2025-09-16 17:49:15,248 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:49:19,159 - INFO - [SUCCESS] Email sent successfully to kalyani@coretek.io (2 sent today)
+2025-09-16 17:49:22,875 - INFO - Processing post 12 (ID: post_11_50...)
+2025-09-16 17:49:24,215 - INFO - Found emails in post 12: ['kalyani@coretek.io']
+2025-09-16 17:49:25,340 - INFO - Processing post 13 (ID: post_12_0...)
+2025-09-16 17:49:27,381 - INFO - Processing post 14 (ID: post_13_50...)
+2025-09-16 17:49:28,232 - INFO - Found emails in post 14: ['kalyani@coretek.io']
+2025-09-16 17:49:29,655 - INFO - Processing post 15 (ID: post_14_0...)
+2025-09-16 17:49:32,183 - INFO - Processing post 16 (ID: post_15_50...)
+2025-09-16 17:49:35,532 - INFO - Expanded content using specific see-more button
+2025-09-16 17:49:35,662 - INFO - Successfully expanded post 16 content
+2025-09-16 17:49:35,663 - INFO - Found emails in post 16: ['shrikant.bhandare@aitglobalinc.com']
+2025-09-16 17:49:35,667 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:49:39,534 - INFO - [SUCCESS] Email sent successfully to shrikant.bhandare@aitglobalinc.com (3 sent today)
+2025-09-16 17:49:44,441 - INFO - Processing post 17 (ID: post_16_50...)
+2025-09-16 17:49:45,760 - INFO - Found emails in post 17: ['shrikant.bhandare@aitglobalinc.com']
+2025-09-16 17:49:47,584 - INFO - Processing post 18 (ID: post_17_0...)
+2025-09-16 17:49:49,378 - INFO - Processing post 19 (ID: post_18_50...)
+2025-09-16 17:49:50,462 - INFO - Found emails in post 19: ['shrikant.bhandare@aitglobalinc.com']
+2025-09-16 17:49:51,785 - INFO - Processing post 20 (ID: post_19_0...)
+2025-09-16 17:49:54,249 - INFO - Processing post 21 (ID: post_20_50...)
+2025-09-16 17:49:57,626 - INFO - Expanded content using specific see-more button
+2025-09-16 17:49:57,724 - INFO - Successfully expanded post 21 content
+2025-09-16 17:49:57,725 - INFO - Found emails in post 21: ['sandhyarani.p@nybinfotech.com']
+2025-09-16 17:49:57,729 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:50:02,264 - INFO - [SUCCESS] Email sent successfully to sandhyarani.p@nybinfotech.com (4 sent today)
+2025-09-16 17:50:06,789 - INFO - Processing post 22 (ID: post_21_50...)
+2025-09-16 17:50:07,886 - INFO - Found emails in post 22: ['sandhyarani.p@nybinfotech.com']
+2025-09-16 17:50:09,711 - INFO - Processing post 23 (ID: post_22_0...)
+2025-09-16 17:50:12,684 - INFO - Processing post 24 (ID: post_23_50...)
+2025-09-16 17:50:13,879 - INFO - Found emails in post 24: ['sandhyarani.p@nybinfotech.com']
+2025-09-16 17:50:15,002 - INFO - Processing post 25 (ID: post_24_0...)
+2025-09-16 17:50:17,215 - INFO - Processing post 26 (ID: post_25_50...)
+2025-09-16 17:50:19,974 - INFO - Expanded content using specific see-more button
+2025-09-16 17:50:20,074 - INFO - Successfully expanded post 26 content
+2025-09-16 17:50:20,075 - INFO - Found emails in post 26: ['surya@lifedesigner.io']
+2025-09-16 17:50:20,080 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:50:24,451 - INFO - [SUCCESS] Email sent successfully to surya@lifedesigner.io (5 sent today)
+2025-09-16 17:50:27,345 - INFO - Processing post 27 (ID: post_26_50...)
+2025-09-16 17:50:28,429 - INFO - Found emails in post 27: ['surya@lifedesigner.io']
+2025-09-16 17:50:29,555 - INFO - Processing post 28 (ID: post_27_0...)
+2025-09-16 17:50:32,242 - INFO - Processing post 29 (ID: post_28_50...)
+2025-09-16 17:50:33,549 - INFO - Found emails in post 29: ['surya@lifedesigner.io']
+2025-09-16 17:50:34,872 - INFO - Processing post 30 (ID: post_29_0...)
+2025-09-16 17:50:37,699 - INFO - Processing post 31 (ID: post_30_50...)
+2025-09-16 17:50:41,160 - INFO - Expanded content using specific see-more button
+2025-09-16 17:50:41,270 - INFO - Successfully expanded post 31 content
+2025-09-16 17:50:42,367 - INFO - Processing post 32 (ID: post_31_50...)
+2025-09-16 17:50:44,587 - INFO - Processing post 33 (ID: post_32_0...)
+2025-09-16 17:50:47,155 - INFO - Processing post 34 (ID: post_33_50...)
+2025-09-16 17:50:49,282 - INFO - Processing post 35 (ID: post_34_50...)
+2025-09-16 17:50:51,640 - INFO - Processing post 36 (ID: post_35_0...)
+2025-09-16 17:50:53,992 - INFO - Processing post 37 (ID: post_36_50...)
+2025-09-16 17:50:56,871 - INFO - Expanded content using specific see-more button
+2025-09-16 17:50:57,028 - INFO - Successfully expanded post 37 content
+2025-09-16 17:50:57,034 - INFO - Found emails in post 37: ['chinmay.daoo@covetus.com']
+2025-09-16 17:50:57,042 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:51:01,043 - INFO - [SUCCESS] Email sent successfully to chinmay.daoo@covetus.com (6 sent today)
+2025-09-16 17:51:05,458 - INFO - Processing post 38 (ID: post_37_50...)
+2025-09-16 17:51:06,608 - INFO - Found emails in post 38: ['chinmay.daoo@covetus.com']
+2025-09-16 17:51:08,233 - INFO - Processing post 39 (ID: post_38_0...)
+2025-09-16 17:51:10,826 - INFO - Processing post 40 (ID: post_39_50...)
+2025-09-16 17:51:11,871 - INFO - Found emails in post 40: ['chinmay.daoo@covetus.com']
+2025-09-16 17:51:13,391 - INFO - Processing post 41 (ID: post_40_0...)
+2025-09-16 17:51:15,724 - INFO - Processing post 42 (ID: post_41_50...)
+2025-09-16 17:51:19,227 - INFO - Expanded content using specific see-more button
+2025-09-16 17:51:19,328 - INFO - Successfully expanded post 42 content
+2025-09-16 17:51:20,530 - INFO - Processing post 43 (ID: post_42_50...)
+2025-09-16 17:51:23,382 - INFO - Processing post 44 (ID: post_43_0...)
+2025-09-16 17:51:25,167 - INFO - Processing post 45 (ID: post_44_50...)
+2025-09-16 17:51:28,116 - INFO - Processing post 46 (ID: post_45_0...)
+2025-09-16 17:51:30,251 - INFO - Processing post 47 (ID: post_46_50...)
+2025-09-16 17:51:33,742 - INFO - Expanded content using specific see-more button
+2025-09-16 17:51:33,888 - INFO - Successfully expanded post 47 content
+2025-09-16 17:51:33,890 - INFO - Found emails in post 47: ['akarmarkar@quinstreet.com']
+2025-09-16 17:51:35,528 - INFO - Processing post 48 (ID: post_47_50...)
+2025-09-16 17:51:36,484 - INFO - Found emails in post 48: ['akarmarkar@quinstreet.com']
+2025-09-16 17:51:38,212 - INFO - Processing post 49 (ID: post_48_0...)
+2025-09-16 17:51:41,016 - INFO - Processing post 50 (ID: post_49_50...)
+2025-09-16 17:51:42,413 - INFO - Found emails in post 50: ['akarmarkar@quinstreet.com']
+2025-09-16 17:51:43,536 - INFO - Processing post 51 (ID: post_50_0...)
+2025-09-16 17:51:46,052 - INFO - Processing post 52 (ID: post_51_50...)
+2025-09-16 17:51:49,513 - INFO - Expanded content using specific see-more button
+2025-09-16 17:51:49,605 - INFO - Successfully expanded post 52 content
+2025-09-16 17:51:51,485 - INFO - Processing post 53 (ID: post_52_50...)
+2025-09-16 17:51:54,170 - INFO - Processing post 54 (ID: post_53_0...)
+2025-09-16 17:51:56,376 - INFO - Processing post 55 (ID: post_54_50...)
+2025-09-16 17:51:59,282 - INFO - Processing post 56 (ID: post_55_0...)
+2025-09-16 17:52:01,110 - INFO - Processing post 57 (ID: post_56_50...)
+2025-09-16 17:52:04,070 - INFO - Expanded content using specific see-more button
+2025-09-16 17:52:04,179 - INFO - Successfully expanded post 57 content
+2025-09-16 17:52:04,180 - INFO - Found emails in post 57: ['sandhiya.v@nybinfotech.com']
+2025-09-16 17:52:04,185 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:52:08,068 - INFO - [SUCCESS] Email sent successfully to sandhiya.v@nybinfotech.com (7 sent today)
+2025-09-16 17:52:11,787 - INFO - Processing post 58 (ID: post_57_50...)
+2025-09-16 17:52:13,183 - INFO - Found emails in post 58: ['sandhiya.v@nybinfotech.com']
+2025-09-16 17:52:14,712 - INFO - Processing post 59 (ID: post_58_0...)
+2025-09-16 17:52:17,401 - INFO - Processing post 60 (ID: post_59_50...)
+2025-09-16 17:52:18,588 - INFO - Found emails in post 60: ['sandhiya.v@nybinfotech.com']
+2025-09-16 17:52:20,113 - INFO - Processing post 61 (ID: post_60_0...)
+2025-09-16 17:52:22,272 - INFO - Processing post 62 (ID: post_61_50...)
+2025-09-16 17:52:25,584 - INFO - Expanded content using specific see-more button
+2025-09-16 17:52:25,716 - INFO - Successfully expanded post 62 content
+2025-09-16 17:52:25,717 - INFO - Found emails in post 62: ['divyani.agrawal@maantic.com']
+2025-09-16 17:52:25,722 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:52:29,709 - INFO - [SUCCESS] Email sent successfully to divyani.agrawal@maantic.com (8 sent today)
+2025-09-16 17:52:33,924 - INFO - Processing post 63 (ID: post_62_50...)
+2025-09-16 17:52:35,223 - INFO - Found emails in post 63: ['divyani.agrawal@maantic.com']
+2025-09-16 17:52:36,747 - INFO - Processing post 64 (ID: post_63_0...)
+2025-09-16 17:52:39,454 - INFO - Processing post 65 (ID: post_64_50...)
+2025-09-16 17:52:40,651 - INFO - Found emails in post 65: ['divyani.agrawal@maantic.com']
+2025-09-16 17:52:42,373 - INFO - Processing post 66 (ID: post_65_0...)
+2025-09-16 17:52:45,307 - INFO - Processing post 67 (ID: post_66_50...)
+2025-09-16 17:52:49,061 - INFO - Expanded content using specific see-more button
+2025-09-16 17:52:49,188 - INFO - Successfully expanded post 67 content
+2025-09-16 17:52:49,189 - INFO - Found emails in post 67: ['ayesha@coretek.io']
+2025-09-16 17:52:49,193 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:52:53,487 - INFO - [SUCCESS] Email sent successfully to ayesha@coretek.io (9 sent today)
+2025-09-16 17:52:56,846 - INFO - Processing post 68 (ID: post_67_50...)
+2025-09-16 17:52:58,309 - INFO - Found emails in post 68: ['ayesha@coretek.io']
+2025-09-16 17:53:00,037 - INFO - Processing post 69 (ID: post_68_0...)
+2025-09-16 17:53:02,451 - INFO - Processing post 70 (ID: post_69_50...)
+2025-09-16 17:53:03,590 - INFO - Found emails in post 70: ['ayesha@coretek.io']
+2025-09-16 17:53:04,812 - INFO - Processing post 71 (ID: post_70_0...)
+2025-09-16 17:53:07,623 - INFO - Processing post 72 (ID: post_71_50...)
+2025-09-16 17:53:11,297 - INFO - Expanded content using specific see-more button
+2025-09-16 17:53:11,384 - INFO - Successfully expanded post 72 content
+2025-09-16 17:53:12,592 - INFO - Processing post 73 (ID: post_72_50...)
+2025-09-16 17:53:15,042 - INFO - Processing post 74 (ID: post_73_0...)
+2025-09-16 17:53:17,209 - INFO - Processing post 75 (ID: post_74_50...)
+2025-09-16 17:53:19,704 - INFO - Processing post 76 (ID: post_75_0...)
+2025-09-16 17:53:22,334 - INFO - Processing post 77 (ID: post_76_50...)
+2025-09-16 17:53:25,793 - INFO - Expanded content using specific see-more button
+2025-09-16 17:53:25,900 - INFO - Successfully expanded post 77 content
+2025-09-16 17:53:25,901 - INFO - Found emails in post 77: ['anjali@kanakelite.com']
+2025-09-16 17:53:25,906 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:53:29,737 - INFO - [SUCCESS] Email sent successfully to anjali@kanakelite.com (10 sent today)
+2025-09-16 17:53:33,444 - INFO - Processing post 78 (ID: post_77_50...)
+2025-09-16 17:53:34,816 - INFO - Found emails in post 78: ['anjali@kanakelite.com']
+2025-09-16 17:53:36,179 - INFO - Processing post 79 (ID: post_78_0...)
+2025-09-16 17:53:38,683 - INFO - Processing post 80 (ID: post_79_50...)
+2025-09-16 17:53:39,903 - INFO - Found emails in post 80: ['anjali@kanakelite.com']
+2025-09-16 17:53:40,926 - INFO - Processing post 81 (ID: post_80_0...)
+2025-09-16 17:53:43,150 - INFO - Processing post 82 (ID: post_81_50...)
+2025-09-16 17:53:46,612 - INFO - Expanded content using specific see-more button
+2025-09-16 17:53:46,846 - INFO - Successfully expanded post 82 content
+2025-09-16 17:53:48,293 - INFO - Processing post 83 (ID: post_82_50...)
+2025-09-16 17:53:50,650 - INFO - Processing post 84 (ID: post_83_0...)
+2025-09-16 17:53:52,944 - INFO - Processing post 85 (ID: post_84_50...)
+2025-09-16 17:53:55,728 - INFO - Processing post 86 (ID: post_85_0...)
+2025-09-16 17:53:58,465 - INFO - Processed 86 new posts
+2025-09-16 17:53:58,466 - INFO - Scrolling to load more posts...
+2025-09-16 17:54:01,301 - INFO - New content loaded, continuing...
+2025-09-16 17:54:01,357 - INFO - Found 116 posts on current page
+2025-09-16 17:54:07,453 - INFO - Processing post 87 (ID: post_86_50...)
+2025-09-16 17:54:10,635 - INFO - Expanded content using specific see-more button
+2025-09-16 17:54:10,741 - INFO - Successfully expanded post 87 content
+2025-09-16 17:54:12,437 - INFO - Processing post 88 (ID: post_87_50...)
+2025-09-16 17:54:15,381 - INFO - Processing post 89 (ID: post_88_0...)
+2025-09-16 17:54:17,584 - INFO - Processing post 90 (ID: post_89_50...)
+2025-09-16 17:54:20,282 - INFO - Processing post 91 (ID: post_90_0...)
+2025-09-16 17:54:22,511 - INFO - Processing post 92 (ID: post_91_50...)
+2025-09-16 17:54:25,793 - INFO - Expanded content using specific see-more button
+2025-09-16 17:54:25,903 - INFO - Successfully expanded post 92 content
+2025-09-16 17:54:25,904 - INFO - Found emails in post 92: ['vammigarireddy@vsoftconsulting.com']
+2025-09-16 17:54:25,909 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:54:30,169 - INFO - [SUCCESS] Email sent successfully to vammigarireddy@vsoftconsulting.com (11 sent today)
+2025-09-16 17:54:33,998 - INFO - Processing post 93 (ID: post_92_50...)
+2025-09-16 17:54:35,136 - INFO - Found emails in post 93: ['vammigarireddy@vsoftconsulting.com']
+2025-09-16 17:54:37,023 - INFO - Processing post 94 (ID: post_93_0...)
+2025-09-16 17:54:39,573 - INFO - Processing post 95 (ID: post_94_50...)
+2025-09-16 17:54:40,668 - INFO - Found emails in post 95: ['vammigarireddy@vsoftconsulting.com']
+2025-09-16 17:54:42,078 - INFO - Processing post 96 (ID: post_95_0...)
+2025-09-16 17:54:45,144 - INFO - Processing post 97 (ID: post_96_50...)
+2025-09-16 17:54:48,514 - INFO - Expanded content using specific see-more button
+2025-09-16 17:54:48,630 - INFO - Successfully expanded post 97 content
+2025-09-16 17:54:48,631 - INFO - Found emails in post 97: ['sandhiya.v@nybinfotech.com']
+2025-09-16 17:54:49,918 - INFO - Processing post 98 (ID: post_97_50...)
+2025-09-16 17:54:50,770 - INFO - Found emails in post 98: ['sandhiya.v@nybinfotech.com']
+2025-09-16 17:54:52,596 - INFO - Processing post 99 (ID: post_98_0...)
+2025-09-16 17:54:55,165 - INFO - Processing post 100 (ID: post_99_50...)
+2025-09-16 17:54:56,063 - INFO - Found emails in post 100: ['sandhiya.v@nybinfotech.com']
+2025-09-16 17:54:57,886 - INFO - Processing post 101 (ID: post_100_0...)
+2025-09-16 17:55:00,436 - INFO - Processing post 102 (ID: post_101_50...)
+2025-09-16 17:55:03,830 - INFO - Expanded content using specific see-more button
+2025-09-16 17:55:03,977 - INFO - Successfully expanded post 102 content
+2025-09-16 17:55:03,978 - INFO - Found emails in post 102: ['payal@aliqan.com']
+2025-09-16 17:55:03,983 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:55:08,118 - INFO - [SUCCESS] Email sent successfully to payal@aliqan.com (12 sent today)
+2025-09-16 17:55:12,771 - INFO - Processing post 103 (ID: post_102_50...)
+2025-09-16 17:55:14,448 - INFO - Found emails in post 103: ['payal@aliqan.com']
+2025-09-16 17:55:16,074 - INFO - Processing post 104 (ID: post_103_0...)
+2025-09-16 17:55:18,529 - INFO - Processing post 105 (ID: post_104_50...)
+2025-09-16 17:55:19,538 - INFO - Found emails in post 105: ['payal@aliqan.com']
+2025-09-16 17:55:21,159 - INFO - Processing post 106 (ID: post_105_0...)
+2025-09-16 17:55:23,512 - INFO - Processing post 107 (ID: post_106_50...)
+2025-09-16 17:55:26,574 - INFO - Expanded content using specific see-more button
+2025-09-16 17:55:26,673 - INFO - Successfully expanded post 107 content
+2025-09-16 17:55:26,675 - INFO - Found emails in post 107: ['sneha.sharma@bigr.io']
+2025-09-16 17:55:28,277 - INFO - Processing post 108 (ID: post_107_50...)
+2025-09-16 17:55:29,480 - INFO - Found emails in post 108: ['sneha.sharma@bigr.io']
+2025-09-16 17:55:31,107 - INFO - Processing post 109 (ID: post_108_0...)
+2025-09-16 17:55:33,794 - INFO - Processing post 110 (ID: post_109_50...)
+2025-09-16 17:55:35,160 - INFO - Found emails in post 110: ['sneha.sharma@bigr.io']
+2025-09-16 17:55:36,788 - INFO - Processing post 111 (ID: post_110_0...)
+2025-09-16 17:55:39,298 - INFO - Processing post 112 (ID: post_111_50...)
+2025-09-16 17:55:42,894 - INFO - Expanded content using specific see-more button
+2025-09-16 17:55:43,030 - INFO - Successfully expanded post 112 content
+2025-09-16 17:55:43,031 - INFO - Found emails in post 112: ['udyamsetuhrsolutions@gmail.com', 'hr@udyamsetu.co.in']
+2025-09-16 17:55:43,039 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:55:47,364 - INFO - [SUCCESS] Email sent successfully to udyamsetuhrsolutions@gmail.com (13 sent today)
+2025-09-16 17:55:49,672 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:55:53,560 - INFO - [SUCCESS] Email sent successfully to hr@udyamsetu.co.in (14 sent today)
+2025-09-16 17:55:56,798 - INFO - Processing post 113 (ID: post_112_50...)
+2025-09-16 17:55:57,699 - INFO - Found emails in post 113: ['udyamsetuhrsolutions@gmail.com', 'hr@udyamsetu.co.in']
+2025-09-16 17:55:59,036 - INFO - Processing post 114 (ID: post_113_0...)
+2025-09-16 17:56:01,642 - INFO - Processing post 115 (ID: post_114_50...)
+2025-09-16 17:56:02,617 - INFO - Found emails in post 115: ['udyamsetuhrsolutions@gmail.com', 'hr@udyamsetu.co.in']
+2025-09-16 17:56:04,041 - INFO - Processing post 116 (ID: post_115_0...)
+2025-09-16 17:56:06,888 - INFO - Processed 30 new posts
+2025-09-16 17:56:06,889 - INFO - Scrolling to load more posts...
+2025-09-16 17:56:09,631 - INFO - New content loaded, continuing...
+2025-09-16 17:56:09,841 - INFO - Found 148 posts on current page
+2025-09-16 17:56:19,394 - INFO - Processing post 117 (ID: post_116_50...)
+2025-09-16 17:56:22,863 - INFO - Expanded content using specific see-more button
+2025-09-16 17:56:23,016 - INFO - Successfully expanded post 117 content
+2025-09-16 17:56:23,017 - INFO - Found emails in post 117: ['kavitha@imrsoft.com']
+2025-09-16 17:56:24,437 - INFO - Processing post 118 (ID: post_117_50...)
+2025-09-16 17:56:25,413 - INFO - Found emails in post 118: ['kavitha@imrsoft.com']
+2025-09-16 17:56:27,042 - INFO - Processing post 119 (ID: post_118_0...)
+2025-09-16 17:56:29,236 - INFO - Processing post 120 (ID: post_119_50...)
+2025-09-16 17:56:30,709 - INFO - Found emails in post 120: ['kavitha@imrsoft.com']
+2025-09-16 17:56:31,736 - INFO - Processing post 121 (ID: post_120_0...)
+2025-09-16 17:56:33,872 - INFO - Processing post 122 (ID: post_121_50...)
+2025-09-16 17:56:37,741 - INFO - Expanded content using specific see-more button
+2025-09-16 17:56:37,836 - INFO - Successfully expanded post 122 content
+2025-09-16 17:56:37,837 - INFO - Found emails in post 122: ['adnan.shaikh@cdpindia.com']
+2025-09-16 17:56:37,842 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:56:41,686 - INFO - [SUCCESS] Email sent successfully to adnan.shaikh@cdpindia.com (15 sent today)
+2025-09-16 17:56:45,781 - INFO - Processing post 123 (ID: post_122_50...)
+2025-09-16 17:56:46,766 - INFO - Found emails in post 123: ['adnan.shaikh@cdpindia.com']
+2025-09-16 17:56:48,404 - INFO - Processing post 124 (ID: post_123_0...)
+2025-09-16 17:56:50,634 - INFO - Processing post 125 (ID: post_124_50...)
+2025-09-16 17:56:51,546 - INFO - Found emails in post 125: ['adnan.shaikh@cdpindia.com']
+2025-09-16 17:56:53,376 - INFO - Processing post 126 (ID: post_125_50...)
+2025-09-16 17:56:56,052 - INFO - Processing post 127 (ID: post_126_0...)
+2025-09-16 17:56:58,207 - INFO - Processing post 128 (ID: post_127_50...)
+2025-09-16 17:57:01,325 - INFO - Expanded content using specific see-more button
+2025-09-16 17:57:01,460 - INFO - Successfully expanded post 128 content
+2025-09-16 17:57:01,461 - INFO - Found emails in post 128: ['vb@vvnxt.com']
+2025-09-16 17:57:01,468 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:57:05,741 - INFO - [SUCCESS] Email sent successfully to vb@vvnxt.com (16 sent today)
+2025-09-16 17:57:10,038 - INFO - Processing post 129 (ID: post_128_50...)
+2025-09-16 17:57:11,475 - INFO - Found emails in post 129: ['vb@vvnxt.com']
+2025-09-16 17:57:12,507 - INFO - Processing post 130 (ID: post_129_0...)
+2025-09-16 17:57:15,082 - INFO - Processing post 131 (ID: post_130_50...)
+2025-09-16 17:57:16,386 - INFO - Found emails in post 131: ['vb@vvnxt.com']
+2025-09-16 17:57:17,417 - INFO - Processing post 132 (ID: post_131_50...)
+2025-09-16 17:57:19,390 - INFO - Processing post 133 (ID: post_132_0...)
+2025-09-16 17:57:22,652 - INFO - Processing post 134 (ID: post_133_50...)
+2025-09-16 17:57:25,981 - INFO - Expanded content using specific see-more button
+2025-09-16 17:57:26,139 - INFO - Successfully expanded post 134 content
+2025-09-16 17:57:26,140 - INFO - Found emails in post 134: ['karthik.n@idexcel.com']
+2025-09-16 17:57:26,145 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:57:30,005 - INFO - [SUCCESS] Email sent successfully to karthik.n@idexcel.com (17 sent today)
+2025-09-16 17:57:33,359 - INFO - Processing post 135 (ID: post_134_50...)
+2025-09-16 17:57:34,626 - INFO - Found emails in post 135: ['karthik.n@idexcel.com']
+2025-09-16 17:57:36,356 - INFO - Processing post 136 (ID: post_135_0...)
+2025-09-16 17:57:38,612 - INFO - Processing post 137 (ID: post_136_50...)
+2025-09-16 17:57:40,501 - INFO - Found emails in post 137: ['karthik.n@idexcel.com']
+2025-09-16 17:57:41,731 - INFO - Processing post 138 (ID: post_137_0...)
+2025-09-16 17:57:44,129 - INFO - Processing post 139 (ID: post_138_50...)
+2025-09-16 17:57:47,315 - INFO - Expanded content using specific see-more button
+2025-09-16 17:57:47,561 - INFO - Successfully expanded post 139 content
+2025-09-16 17:57:47,566 - INFO - Found emails in post 139: ['sonhoangquocnguyen@gmail.com']
+2025-09-16 17:57:49,320 - INFO - Processing post 140 (ID: post_139_50...)
+2025-09-16 17:57:51,250 - INFO - Found emails in post 140: ['sonhoangquocnguyen@gmail.com']
+2025-09-16 17:57:52,881 - INFO - Processing post 141 (ID: post_140_0...)
+2025-09-16 17:57:55,607 - INFO - Processing post 142 (ID: post_141_50...)
+2025-09-16 17:57:56,990 - INFO - Found emails in post 142: ['sonhoangquocnguyen@gmail.com']
+2025-09-16 17:57:58,512 - INFO - Processing post 143 (ID: post_142_0...)
+2025-09-16 17:58:00,984 - INFO - Processing post 144 (ID: post_143_50...)
+2025-09-16 17:58:04,431 - INFO - Expanded content using specific see-more button
+2025-09-16 17:58:05,161 - INFO - Successfully expanded post 144 content
+2025-09-16 17:58:06,951 - INFO - Processing post 145 (ID: post_144_50...)
+2025-09-16 17:58:10,064 - INFO - Processing post 146 (ID: post_145_0...)
+2025-09-16 17:58:12,314 - INFO - Processing post 147 (ID: post_146_50...)
+2025-09-16 17:58:14,824 - INFO - Processing post 148 (ID: post_147_0...)
+2025-09-16 17:58:16,665 - INFO - Processed 32 new posts
+2025-09-16 17:58:16,666 - INFO - Scrolling to load more posts...
+2025-09-16 17:58:18,699 - INFO - New content loaded, continuing...
+2025-09-16 17:58:18,761 - INFO - Found 175 posts on current page
+2025-09-16 17:58:28,971 - INFO - Processing post 149 (ID: post_148_50...)
+2025-09-16 17:58:32,832 - INFO - Expanded content using specific see-more button
+2025-09-16 17:58:32,954 - INFO - Successfully expanded post 149 content
+2025-09-16 17:58:32,955 - INFO - Found emails in post 149: ['mew.th@toyardigital.com']
+2025-09-16 17:58:34,850 - INFO - Processing post 150 (ID: post_149_50...)
+2025-09-16 17:58:35,927 - INFO - Found emails in post 150: ['mew.th@toyardigital.com']
+2025-09-16 17:58:37,554 - INFO - Processing post 151 (ID: post_150_0...)
+2025-09-16 17:58:40,046 - INFO - Processing post 152 (ID: post_151_50...)
+2025-09-16 17:58:40,969 - INFO - Found emails in post 152: ['mew.th@toyardigital.com']
+2025-09-16 17:58:42,594 - INFO - Processing post 153 (ID: post_152_0...)
+2025-09-16 17:58:45,293 - INFO - Processing post 154 (ID: post_153_50...)
+2025-09-16 17:58:48,235 - INFO - Expanded content using specific see-more button
+2025-09-16 17:58:48,464 - INFO - Successfully expanded post 154 content
+2025-09-16 17:58:50,012 - INFO - Processing post 155 (ID: post_154_50...)
+2025-09-16 17:58:52,565 - INFO - Processing post 156 (ID: post_155_0...)
+2025-09-16 17:58:54,749 - INFO - Processing post 157 (ID: post_156_50...)
+2025-09-16 17:58:57,421 - INFO - Processing post 158 (ID: post_157_50...)
+2025-09-16 17:58:59,990 - INFO - Processing post 159 (ID: post_158_50...)
+2025-09-16 17:59:02,854 - INFO - Processing post 160 (ID: post_159_0...)
+2025-09-16 17:59:04,979 - INFO - Processing post 161 (ID: post_160_50...)
+2025-09-16 17:59:08,527 - INFO - Expanded content using specific see-more button
+2025-09-16 17:59:08,691 - INFO - Successfully expanded post 161 content
+2025-09-16 17:59:10,497 - INFO - Processing post 162 (ID: post_161_50...)
+2025-09-16 17:59:13,195 - INFO - Expanded content by clicking on truncated text
+2025-09-16 17:59:13,325 - INFO - Successfully expanded post 162 content
+2025-09-16 17:59:14,653 - INFO - Processing post 163 (ID: post_162_0...)
+2025-09-16 17:59:16,975 - INFO - Processing post 164 (ID: post_163_50...)
+2025-09-16 17:59:19,839 - INFO - Expanded content by clicking on truncated text
+2025-09-16 17:59:19,887 - INFO - Successfully expanded post 164 content
+2025-09-16 17:59:21,710 - INFO - Processing post 165 (ID: post_164_0...)
+2025-09-16 17:59:23,878 - INFO - Processing post 166 (ID: post_165_50...)
+2025-09-16 17:59:27,491 - INFO - Expanded content using specific see-more button
+2025-09-16 17:59:27,626 - INFO - Successfully expanded post 166 content
+2025-09-16 17:59:27,627 - INFO - Found emails in post 166: ['midhun.raj@linnk.com']
+2025-09-16 17:59:27,632 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 17:59:31,685 - INFO - [SUCCESS] Email sent successfully to midhun.raj@linnk.com (18 sent today)
+2025-09-16 17:59:35,715 - INFO - Processing post 167 (ID: post_166_50...)
+2025-09-16 17:59:36,899 - INFO - Found emails in post 167: ['midhun.raj@linnk.com']
+2025-09-16 17:59:38,637 - INFO - Processing post 168 (ID: post_167_0...)
+2025-09-16 17:59:40,965 - INFO - Processing post 169 (ID: post_168_50...)
+2025-09-16 17:59:42,048 - INFO - Found emails in post 169: ['midhun.raj@linnk.com']
+2025-09-16 17:59:43,477 - INFO - Processing post 170 (ID: post_169_0...)
+2025-09-16 17:59:46,688 - INFO - Processing post 171 (ID: post_170_50...)
+2025-09-16 17:59:50,707 - INFO - Expanded content using specific see-more button
+2025-09-16 17:59:50,884 - INFO - Successfully expanded post 171 content
+2025-09-16 17:59:53,636 - INFO - Processing post 172 (ID: post_171_50...)
+2025-09-16 17:59:56,874 - INFO - Processing post 173 (ID: post_172_0...)
+2025-09-16 17:59:59,303 - INFO - Processing post 174 (ID: post_173_50...)
+2025-09-16 18:00:01,328 - INFO - Processing post 175 (ID: post_174_0...)
+2025-09-16 18:00:03,288 - INFO - Processed 27 new posts
+2025-09-16 18:00:03,290 - INFO - Scrolling to load more posts...
+2025-09-16 18:00:08,069 - INFO - New content loaded, continuing...
+2025-09-16 18:00:08,158 - INFO - Found 206 posts on current page
+2025-09-16 18:00:21,830 - INFO - Processing post 176 (ID: post_175_50...)
+2025-09-16 18:00:25,423 - INFO - Expanded content using specific see-more button
+2025-09-16 18:00:25,512 - INFO - Successfully expanded post 176 content
+2025-09-16 18:00:27,199 - INFO - Processing post 177 (ID: post_176_50...)
+2025-09-16 18:00:30,305 - INFO - Processing post 178 (ID: post_177_0...)
+2025-09-16 18:00:33,218 - INFO - Processing post 179 (ID: post_178_50...)
+2025-09-16 18:00:35,668 - INFO - Processing post 180 (ID: post_179_0...)
+2025-09-16 18:00:38,003 - INFO - Processing post 181 (ID: post_180_50...)
+2025-09-16 18:00:41,713 - INFO - Expanded content using specific see-more button
+2025-09-16 18:00:41,854 - INFO - Successfully expanded post 181 content
+2025-09-16 18:00:41,855 - INFO - Found emails in post 181: ['preeti.sharma@prithvitek.com']
+2025-09-16 18:00:41,859 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:00:45,958 - INFO - [SUCCESS] Email sent successfully to preeti.sharma@prithvitek.com (19 sent today)
+2025-09-16 18:00:49,963 - INFO - Processing post 182 (ID: post_181_50...)
+2025-09-16 18:00:51,239 - INFO - Found emails in post 182: ['preeti.sharma@prithvitek.com']
+2025-09-16 18:00:52,687 - INFO - Processing post 183 (ID: post_182_0...)
+2025-09-16 18:00:54,949 - INFO - Processing post 184 (ID: post_183_50...)
+2025-09-16 18:00:55,812 - INFO - Found emails in post 184: ['preeti.sharma@prithvitek.com']
+2025-09-16 18:00:57,636 - INFO - Processing post 185 (ID: post_184_0...)
+2025-09-16 18:01:00,794 - INFO - Processing post 186 (ID: post_185_50...)
+2025-09-16 18:01:04,597 - INFO - Expanded content using specific see-more button
+2025-09-16 18:01:04,913 - INFO - Successfully expanded post 186 content
+2025-09-16 18:01:06,316 - INFO - Processing post 187 (ID: post_186_50...)
+2025-09-16 18:01:09,394 - INFO - Processing post 188 (ID: post_187_0...)
+2025-09-16 18:01:11,555 - INFO - Processing post 189 (ID: post_188_50...)
+2025-09-16 18:01:14,742 - INFO - Processing post 190 (ID: post_189_50...)
+2025-09-16 18:01:17,623 - INFO - Processing post 191 (ID: post_190_0...)
+2025-09-16 18:01:20,108 - INFO - Processing post 192 (ID: post_191_50...)
+2025-09-16 18:01:23,976 - INFO - Expanded content using specific see-more button
+2025-09-16 18:01:24,063 - INFO - Successfully expanded post 192 content
+2025-09-16 18:01:24,063 - INFO - Found emails in post 192: ['singh.soumya@net2source.co.in']
+2025-09-16 18:01:24,069 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:01:28,121 - INFO - [SUCCESS] Email sent successfully to singh.soumya@net2source.co.in (20 sent today)
+2025-09-16 18:01:31,113 - INFO - Processing post 193 (ID: post_192_50...)
+2025-09-16 18:01:32,285 - INFO - Found emails in post 193: ['singh.soumya@net2source.co.in']
+2025-09-16 18:01:33,412 - INFO - Processing post 194 (ID: post_193_0...)
+2025-09-16 18:01:36,294 - INFO - Processing post 195 (ID: post_194_50...)
+2025-09-16 18:01:37,396 - INFO - Found emails in post 195: ['singh.soumya@net2source.co.in']
+2025-09-16 18:01:38,821 - INFO - Processing post 196 (ID: post_195_0...)
+2025-09-16 18:01:41,002 - INFO - Processing post 197 (ID: post_196_50...)
+2025-09-16 18:01:44,067 - INFO - Expanded content using specific see-more button
+2025-09-16 18:01:44,234 - INFO - Successfully expanded post 197 content
+2025-09-16 18:01:44,264 - INFO - Found emails in post 197: ['priya.m@techygeeksit.com']
+2025-09-16 18:01:44,272 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:01:48,414 - INFO - [SUCCESS] Email sent successfully to priya.m@techygeeksit.com (21 sent today)
+2025-09-16 18:01:52,087 - INFO - Processing post 198 (ID: post_197_50...)
+2025-09-16 18:01:53,378 - INFO - Found emails in post 198: ['priya.m@techygeeksit.com']
+2025-09-16 18:01:54,903 - INFO - Processing post 199 (ID: post_198_0...)
+2025-09-16 18:01:57,237 - INFO - Processing post 200 (ID: post_199_50...)
+2025-09-16 18:01:59,037 - INFO - Found emails in post 200: ['priya.m@techygeeksit.com']
+2025-09-16 18:02:00,343 - INFO - Processing post 201 (ID: post_200_0...)
+2025-09-16 18:02:03,217 - INFO - Processing post 202 (ID: post_201_50...)
+2025-09-16 18:02:06,615 - INFO - Expanded content using specific see-more button
+2025-09-16 18:02:06,716 - INFO - Successfully expanded post 202 content
+2025-09-16 18:02:06,717 - INFO - Found emails in post 202: ['shiva@sanaari.net']
+2025-09-16 18:02:06,724 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:02:10,597 - INFO - [SUCCESS] Email sent successfully to shiva@sanaari.net (22 sent today)
+2025-09-16 18:02:13,895 - INFO - Processing post 203 (ID: post_202_50...)
+2025-09-16 18:02:14,965 - INFO - Found emails in post 203: ['shiva@sanaari.net']
+2025-09-16 18:02:16,592 - INFO - Processing post 204 (ID: post_203_0...)
+2025-09-16 18:02:19,483 - INFO - Processing post 205 (ID: post_204_50...)
+2025-09-16 18:02:20,606 - INFO - Found emails in post 205: ['shiva@sanaari.net']
+2025-09-16 18:02:22,051 - INFO - Processing post 206 (ID: post_205_0...)
+2025-09-16 18:02:26,211 - INFO - Processed 31 new posts
+2025-09-16 18:02:26,212 - INFO - Scrolling to load more posts...
+2025-09-16 18:02:29,152 - INFO - New content loaded, continuing...
+2025-09-16 18:02:29,228 - INFO - Found 238 posts on current page
+2025-09-16 18:02:50,822 - INFO - Processing post 207 (ID: post_206_50...)
+2025-09-16 18:02:54,299 - INFO - Expanded content using specific see-more button
+2025-09-16 18:02:54,732 - INFO - Successfully expanded post 207 content
+2025-09-16 18:02:56,238 - INFO - Processing post 208 (ID: post_207_50...)
+2025-09-16 18:02:59,760 - INFO - Processing post 209 (ID: post_208_0...)
+2025-09-16 18:03:02,828 - INFO - Processing post 210 (ID: post_209_50...)
+2025-09-16 18:03:05,120 - INFO - Processing post 211 (ID: post_210_50...)
+2025-09-16 18:03:07,855 - INFO - Processing post 212 (ID: post_211_0...)
+2025-09-16 18:03:10,810 - INFO - Processing post 213 (ID: post_212_50...)
+2025-09-16 18:03:14,660 - INFO - Expanded content using specific see-more button
+2025-09-16 18:03:14,961 - INFO - Successfully expanded post 213 content
+2025-09-16 18:03:14,963 - INFO - Found emails in post 213: ['priyanshi.lohani@nexionpro.com']
+2025-09-16 18:03:16,427 - INFO - Processing post 214 (ID: post_213_50...)
+2025-09-16 18:03:19,253 - INFO - Expanded content by clicking on truncated text
+2025-09-16 18:03:19,385 - INFO - Successfully expanded post 214 content
+2025-09-16 18:03:19,386 - INFO - Found emails in post 214: ['priyanshi.lohani@nexionpro.com']
+2025-09-16 18:03:20,720 - INFO - Processing post 215 (ID: post_214_0...)
+2025-09-16 18:03:23,172 - INFO - Processing post 216 (ID: post_215_50...)
+2025-09-16 18:03:25,730 - INFO - Expanded content by clicking on truncated text
+2025-09-16 18:03:25,922 - INFO - Successfully expanded post 216 content
+2025-09-16 18:03:25,924 - INFO - Found emails in post 216: ['priyanshi.lohani@nexionpro.com']
+2025-09-16 18:03:27,746 - INFO - Processing post 217 (ID: post_216_0...)
+2025-09-16 18:03:30,409 - INFO - Processing post 218 (ID: post_217_50...)
+2025-09-16 18:03:34,489 - INFO - Expanded content using specific see-more button
+2025-09-16 18:03:34,706 - INFO - Successfully expanded post 218 content
+2025-09-16 18:03:34,707 - INFO - Found emails in post 218: ['sanvishinde97455@gmail.com']
+2025-09-16 18:03:34,714 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:03:38,969 - INFO - [SUCCESS] Email sent successfully to sanvishinde97455@gmail.com (23 sent today)
+2025-09-16 18:03:42,852 - INFO - Processing post 219 (ID: post_218_50...)
+2025-09-16 18:03:44,147 - INFO - Found emails in post 219: ['sanvishinde97455@gmail.com']
+2025-09-16 18:03:45,679 - INFO - Processing post 220 (ID: post_219_0...)
+2025-09-16 18:03:48,123 - INFO - Processing post 221 (ID: post_220_50...)
+2025-09-16 18:03:49,313 - INFO - Found emails in post 221: ['sanvishinde97455@gmail.com']
+2025-09-16 18:03:50,939 - INFO - Processing post 222 (ID: post_221_0...)
+2025-09-16 18:03:53,578 - INFO - Processing post 223 (ID: post_222_50...)
+2025-09-16 18:03:56,871 - INFO - Expanded content using specific see-more button
+2025-09-16 18:03:57,023 - INFO - Successfully expanded post 223 content
+2025-09-16 18:03:58,392 - INFO - Processing post 224 (ID: post_223_50...)
+2025-09-16 18:04:01,374 - INFO - Processing post 225 (ID: post_224_0...)
+2025-09-16 18:04:04,069 - INFO - Processing post 226 (ID: post_225_50...)
+2025-09-16 18:04:07,113 - INFO - Processing post 227 (ID: post_226_50...)
+2025-09-16 18:04:09,841 - INFO - Processing post 228 (ID: post_227_0...)
+2025-09-16 18:04:12,451 - INFO - Processing post 229 (ID: post_228_50...)
+2025-09-16 18:04:15,737 - INFO - Expanded content using specific see-more button
+2025-09-16 18:04:15,911 - INFO - Successfully expanded post 229 content
+2025-09-16 18:04:15,918 - INFO - Found emails in post 229: ['shiva@sanaari.net']
+2025-09-16 18:04:17,308 - INFO - Processing post 230 (ID: post_229_50...)
+2025-09-16 18:04:18,468 - INFO - Found emails in post 230: ['shiva@sanaari.net']
+2025-09-16 18:04:20,194 - INFO - Processing post 231 (ID: post_230_0...)
+2025-09-16 18:04:22,675 - INFO - Processing post 232 (ID: post_231_50...)
+2025-09-16 18:04:23,885 - INFO - Found emails in post 232: ['shiva@sanaari.net']
+2025-09-16 18:04:24,908 - INFO - Processing post 233 (ID: post_232_0...)
+2025-09-16 18:04:27,574 - INFO - Processing post 234 (ID: post_233_50...)
+2025-09-16 18:04:31,296 - INFO - Expanded content using specific see-more button
+2025-09-16 18:04:31,431 - INFO - Successfully expanded post 234 content
+2025-09-16 18:04:33,168 - INFO - Processing post 235 (ID: post_234_50...)
+2025-09-16 18:04:35,710 - INFO - Processing post 236 (ID: post_235_0...)
+2025-09-16 18:04:37,643 - INFO - Processing post 237 (ID: post_236_50...)
+2025-09-16 18:04:39,996 - INFO - Processing post 238 (ID: post_237_0...)
+2025-09-16 18:04:42,648 - INFO - Processed 32 new posts
+2025-09-16 18:04:42,664 - INFO - Scrolling to load more posts...
+2025-09-16 18:04:46,114 - INFO - New content loaded, continuing...
+2025-09-16 18:04:46,251 - INFO - Found 269 posts on current page
+2025-09-16 18:05:02,103 - INFO - Processing post 239 (ID: post_238_50...)
+2025-09-16 18:05:05,718 - INFO - Expanded content using specific see-more button
+2025-09-16 18:05:05,831 - INFO - Successfully expanded post 239 content
+2025-09-16 18:05:07,138 - INFO - Processing post 240 (ID: post_239_50...)
+2025-09-16 18:05:09,965 - INFO - Processing post 241 (ID: post_240_0...)
+2025-09-16 18:05:12,754 - INFO - Processing post 242 (ID: post_241_50...)
+2025-09-16 18:05:15,501 - INFO - Processing post 243 (ID: post_242_50...)
+2025-09-16 18:05:17,475 - INFO - Processing post 244 (ID: post_243_0...)
+2025-09-16 18:05:20,039 - INFO - Processing post 245 (ID: post_244_50...)
+2025-09-16 18:05:23,266 - INFO - Expanded content using specific see-more button
+2025-09-16 18:05:23,408 - INFO - Successfully expanded post 245 content
+2025-09-16 18:05:25,230 - INFO - Processing post 246 (ID: post_245_50...)
+2025-09-16 18:05:27,781 - INFO - Processing post 247 (ID: post_246_0...)
+2025-09-16 18:05:30,518 - INFO - Processing post 248 (ID: post_247_50...)
+2025-09-16 18:05:32,771 - INFO - Processing post 249 (ID: post_248_0...)
+2025-09-16 18:05:35,809 - INFO - Processing post 250 (ID: post_249_50...)
+2025-09-16 18:05:39,068 - INFO - Expanded content using specific see-more button
+2025-09-16 18:05:39,363 - INFO - Successfully expanded post 250 content
+2025-09-16 18:05:39,365 - INFO - Found emails in post 250: ['shiva@sanaari.net']
+2025-09-16 18:05:41,255 - INFO - Processing post 251 (ID: post_250_50...)
+2025-09-16 18:05:42,627 - INFO - Found emails in post 251: ['shiva@sanaari.net']
+2025-09-16 18:05:44,251 - INFO - Processing post 252 (ID: post_251_0...)
+2025-09-16 18:05:46,549 - INFO - Processing post 253 (ID: post_252_50...)
+2025-09-16 18:05:47,660 - INFO - Found emails in post 253: ['shiva@sanaari.net']
+2025-09-16 18:05:48,984 - INFO - Processing post 254 (ID: post_253_0...)
+2025-09-16 18:05:51,026 - INFO - Processing post 255 (ID: post_254_50...)
+2025-09-16 18:05:54,284 - INFO - Expanded content using specific see-more button
+2025-09-16 18:05:54,453 - INFO - Successfully expanded post 255 content
+2025-09-16 18:05:54,454 - INFO - Found emails in post 255: ['sinha.soumya@net2source.co.in']
+2025-09-16 18:05:54,462 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:05:58,703 - INFO - [SUCCESS] Email sent successfully to sinha.soumya@net2source.co.in (24 sent today)
+2025-09-16 18:06:01,902 - INFO - Processing post 256 (ID: post_255_50...)
+2025-09-16 18:06:02,764 - INFO - Found emails in post 256: ['sinha.soumya@net2source.co.in']
+2025-09-16 18:06:04,090 - INFO - Processing post 257 (ID: post_256_0...)
+2025-09-16 18:06:06,481 - INFO - Processing post 258 (ID: post_257_50...)
+2025-09-16 18:06:07,709 - INFO - Found emails in post 258: ['sinha.soumya@net2source.co.in']
+2025-09-16 18:06:08,935 - INFO - Processing post 259 (ID: post_258_0...)
+2025-09-16 18:06:11,483 - INFO - Processing post 260 (ID: post_259_50...)
+2025-09-16 18:06:14,604 - INFO - Expanded content using specific see-more button
+2025-09-16 18:06:14,719 - INFO - Successfully expanded post 260 content
+2025-09-16 18:06:14,720 - INFO - Found emails in post 260: ['juhi@ledelsea.com']
+2025-09-16 18:06:14,724 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:06:19,659 - INFO - [SUCCESS] Email sent successfully to juhi@ledelsea.com (25 sent today)
+2025-09-16 18:06:24,169 - INFO - Processing post 261 (ID: post_260_50...)
+2025-09-16 18:06:25,415 - INFO - Found emails in post 261: ['juhi@ledelsea.com']
+2025-09-16 18:06:26,475 - INFO - Processing post 262 (ID: post_261_0...)
+2025-09-16 18:06:28,721 - INFO - Processing post 263 (ID: post_262_50...)
+2025-09-16 18:06:29,812 - INFO - Found emails in post 263: ['juhi@ledelsea.com']
+2025-09-16 18:06:31,133 - INFO - Processing post 264 (ID: post_263_0...)
+2025-09-16 18:06:33,985 - INFO - Processing post 265 (ID: post_264_50...)
+2025-09-16 18:06:37,306 - INFO - Expanded content using specific see-more button
+2025-09-16 18:06:37,404 - INFO - Successfully expanded post 265 content
+2025-09-16 18:06:38,998 - INFO - Processing post 266 (ID: post_265_50...)
+2025-09-16 18:06:41,302 - INFO - Processing post 267 (ID: post_266_0...)
+2025-09-16 18:06:43,405 - INFO - Processing post 268 (ID: post_267_50...)
+2025-09-16 18:06:45,854 - INFO - Processing post 269 (ID: post_268_0...)
+2025-09-16 18:06:48,314 - INFO - Processed 31 new posts
+2025-09-16 18:06:48,315 - INFO - Scrolling to load more posts...
+2025-09-16 18:06:50,654 - INFO - New content loaded, continuing...
+2025-09-16 18:06:50,742 - INFO - Found 302 posts on current page
+2025-09-16 18:07:09,719 - INFO - Processing post 270 (ID: post_269_50...)
+2025-09-16 18:07:13,040 - INFO - Expanded content using specific see-more button
+2025-09-16 18:07:13,149 - INFO - Successfully expanded post 270 content
+2025-09-16 18:07:14,549 - INFO - Processing post 271 (ID: post_270_50...)
+2025-09-16 18:07:17,184 - INFO - Processing post 272 (ID: post_271_0...)
+2025-09-16 18:07:19,490 - INFO - Processing post 273 (ID: post_272_50...)
+2025-09-16 18:07:21,867 - INFO - Processing post 274 (ID: post_273_50...)
+2025-09-16 18:07:24,170 - INFO - Processing post 275 (ID: post_274_0...)
+2025-09-16 18:07:26,971 - INFO - Processing post 276 (ID: post_275_50...)
+2025-09-16 18:07:30,515 - INFO - Expanded content using specific see-more button
+2025-09-16 18:07:30,615 - INFO - Successfully expanded post 276 content
+2025-09-16 18:07:30,616 - INFO - Found emails in post 276: ['ravalika.m@tageletconsulting.com']
+2025-09-16 18:07:30,620 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:07:34,414 - INFO - [SUCCESS] Email sent successfully to ravalika.m@tageletconsulting.com (26 sent today)
+2025-09-16 18:07:39,109 - INFO - Processing post 277 (ID: post_276_50...)
+2025-09-16 18:07:40,036 - INFO - Found emails in post 277: ['ravalika.m@tageletconsulting.com']
+2025-09-16 18:07:41,366 - INFO - Processing post 278 (ID: post_277_0...)
+2025-09-16 18:07:43,395 - INFO - Processing post 279 (ID: post_278_50...)
+2025-09-16 18:07:44,585 - INFO - Found emails in post 279: ['ravalika.m@tageletconsulting.com']
+2025-09-16 18:07:46,008 - INFO - Processing post 280 (ID: post_279_0...)
+2025-09-16 18:07:48,871 - INFO - Processing post 281 (ID: post_280_50...)
+2025-09-16 18:07:52,134 - INFO - Expanded content using specific see-more button
+2025-09-16 18:07:52,269 - INFO - Successfully expanded post 281 content
+2025-09-16 18:07:53,796 - INFO - Processing post 282 (ID: post_281_50...)
+2025-09-16 18:07:56,627 - INFO - Processing post 283 (ID: post_282_0...)
+2025-09-16 18:07:59,055 - INFO - Processing post 284 (ID: post_283_50...)
+2025-09-16 18:08:01,632 - INFO - Processing post 285 (ID: post_284_0...)
+2025-09-16 18:08:04,369 - INFO - Processing post 286 (ID: post_285_50...)
+2025-09-16 18:08:07,666 - INFO - Expanded content using specific see-more button
+2025-09-16 18:08:08,041 - INFO - Successfully expanded post 286 content
+2025-09-16 18:08:08,042 - INFO - Found emails in post 286: ['sivan.aditya@net2source.co.in']
+2025-09-16 18:08:08,048 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:08:12,072 - INFO - [SUCCESS] Email sent successfully to sivan.aditya@net2source.co.in (27 sent today)
+2025-09-16 18:08:15,192 - INFO - Processing post 287 (ID: post_286_50...)
+2025-09-16 18:08:16,126 - INFO - Found emails in post 287: ['sivan.aditya@net2source.co.in']
+2025-09-16 18:08:17,956 - INFO - Processing post 288 (ID: post_287_0...)
+2025-09-16 18:08:20,147 - INFO - Processing post 289 (ID: post_288_50...)
+2025-09-16 18:08:21,040 - INFO - Found emails in post 289: ['sivan.aditya@net2source.co.in']
+2025-09-16 18:08:22,666 - INFO - Processing post 290 (ID: post_289_0...)
+2025-09-16 18:08:25,645 - INFO - Processing post 291 (ID: post_290_50...)
+2025-09-16 18:08:28,504 - INFO - Expanded content using specific see-more button
+2025-09-16 18:08:28,659 - INFO - Successfully expanded post 291 content
+2025-09-16 18:08:30,649 - INFO - Processing post 292 (ID: post_291_50...)
+2025-09-16 18:08:33,040 - INFO - Processing post 293 (ID: post_292_0...)
+2025-09-16 18:08:35,863 - INFO - Processing post 294 (ID: post_293_50...)
+2025-09-16 18:08:38,066 - INFO - Processing post 295 (ID: post_294_50...)
+2025-09-16 18:08:40,394 - INFO - Processing post 296 (ID: post_295_0...)
+2025-09-16 18:08:43,334 - INFO - Processing post 297 (ID: post_296_50...)
+2025-09-16 18:08:46,925 - INFO - Expanded content using specific see-more button
+2025-09-16 18:08:47,022 - INFO - Successfully expanded post 297 content
+2025-09-16 18:08:48,439 - INFO - Processing post 298 (ID: post_297_50...)
+2025-09-16 18:08:50,791 - INFO - Processing post 299 (ID: post_298_0...)
+2025-09-16 18:08:53,033 - INFO - Processing post 300 (ID: post_299_50...)
+2025-09-16 18:08:55,531 - INFO - Processing post 301 (ID: post_300_50...)
+2025-09-16 18:08:57,932 - INFO - Processing post 302 (ID: post_301_0...)
+2025-09-16 18:09:00,304 - INFO - Processed 33 new posts
+2025-09-16 18:09:00,308 - INFO - Scrolling to load more posts...
+2025-09-16 18:09:03,324 - INFO - New content loaded, continuing...
+2025-09-16 18:09:03,424 - INFO - Found 335 posts on current page
+2025-09-16 18:09:24,275 - INFO - Processing post 303 (ID: post_302_50...)
+2025-09-16 18:09:27,382 - INFO - Expanded content using specific see-more button
+2025-09-16 18:09:27,539 - INFO - Successfully expanded post 303 content
+2025-09-16 18:09:29,415 - INFO - Processing post 304 (ID: post_303_50...)
+2025-09-16 18:09:31,845 - INFO - Processing post 305 (ID: post_304_0...)
+2025-09-16 18:09:34,525 - INFO - Processing post 306 (ID: post_305_50...)
+2025-09-16 18:09:37,381 - INFO - Processing post 307 (ID: post_306_0...)
+2025-09-16 18:09:39,740 - INFO - Processing post 308 (ID: post_307_50...)
+2025-09-16 18:09:42,777 - INFO - Expanded content using specific see-more button
+2025-09-16 18:09:42,898 - INFO - Successfully expanded post 308 content
+2025-09-16 18:09:44,692 - INFO - Processing post 309 (ID: post_308_50...)
+2025-09-16 18:09:47,699 - INFO - Processing post 310 (ID: post_309_0...)
+2025-09-16 18:09:50,305 - INFO - Processing post 311 (ID: post_310_50...)
+2025-09-16 18:09:52,673 - INFO - Processing post 312 (ID: post_311_50...)
+2025-09-16 18:09:55,182 - INFO - Processing post 313 (ID: post_312_0...)
+2025-09-16 18:09:57,534 - INFO - Processing post 314 (ID: post_313_50...)
+2025-09-16 18:10:00,670 - INFO - Expanded content using specific see-more button
+2025-09-16 18:10:00,786 - INFO - Successfully expanded post 314 content
+2025-09-16 18:10:02,608 - INFO - Processing post 315 (ID: post_314_50...)
+2025-09-16 18:10:05,600 - INFO - Processing post 316 (ID: post_315_0...)
+2025-09-16 18:10:07,527 - INFO - Processing post 317 (ID: post_316_50...)
+2025-09-16 18:10:10,150 - INFO - Processing post 318 (ID: post_317_0...)
+2025-09-16 18:10:12,617 - INFO - Processing post 319 (ID: post_318_50...)
+2025-09-16 18:10:15,445 - INFO - Expanded content using specific see-more button
+2025-09-16 18:10:15,567 - INFO - Successfully expanded post 319 content
+2025-09-16 18:10:16,988 - INFO - Processing post 320 (ID: post_319_50...)
+2025-09-16 18:10:19,687 - INFO - Processing post 321 (ID: post_320_0...)
+2025-09-16 18:10:22,329 - INFO - Processing post 322 (ID: post_321_50...)
+2025-09-16 18:10:24,989 - INFO - Processing post 323 (ID: post_322_50...)
+2025-09-16 18:10:27,082 - INFO - Processing post 324 (ID: post_323_0...)
+2025-09-16 18:10:29,940 - INFO - Processing post 325 (ID: post_324_50...)
+2025-09-16 18:10:33,259 - INFO - Expanded content using specific see-more button
+2025-09-16 18:10:33,358 - INFO - Successfully expanded post 325 content
+2025-09-16 18:10:34,849 - INFO - Processing post 326 (ID: post_325_50...)
+2025-09-16 18:10:37,766 - INFO - Processing post 327 (ID: post_326_0...)
+2025-09-16 18:10:40,267 - INFO - Processing post 328 (ID: post_327_50...)
+2025-09-16 18:10:42,925 - INFO - Processing post 329 (ID: post_328_50...)
+2025-09-16 18:10:45,310 - INFO - Processing post 330 (ID: post_329_0...)
+2025-09-16 18:10:48,085 - INFO - Processing post 331 (ID: post_330_50...)
+2025-09-16 18:10:53,221 - INFO - Expanded content using specific see-more button
+2025-09-16 18:10:53,349 - INFO - Successfully expanded post 331 content
+2025-09-16 18:10:53,350 - INFO - Found emails in post 331: ['shristia@linkzie.in']
+2025-09-16 18:10:53,355 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:10:58,101 - INFO - [SUCCESS] Email sent successfully to shristia@linkzie.in (28 sent today)
+2025-09-16 18:11:01,880 - INFO - Processing post 332 (ID: post_331_50...)
+2025-09-16 18:11:02,968 - INFO - Found emails in post 332: ['shristia@linkzie.in']
+2025-09-16 18:11:04,408 - INFO - Processing post 333 (ID: post_332_0...)
+2025-09-16 18:11:06,925 - INFO - Processing post 334 (ID: post_333_50...)
+2025-09-16 18:11:08,351 - INFO - Found emails in post 334: ['shristia@linkzie.in']
+2025-09-16 18:11:09,976 - INFO - Processing post 335 (ID: post_334_0...)
+2025-09-16 18:11:12,550 - INFO - Processed 33 new posts
+2025-09-16 18:11:12,551 - INFO - Scrolling to load more posts...
+2025-09-16 18:11:15,123 - INFO - New content loaded, continuing...
+2025-09-16 18:11:15,232 - INFO - Found 367 posts on current page
+2025-09-16 18:11:38,955 - INFO - Processing post 336 (ID: post_335_50...)
+2025-09-16 18:11:42,619 - INFO - Expanded content using specific see-more button
+2025-09-16 18:11:43,070 - INFO - Successfully expanded post 336 content
+2025-09-16 18:11:44,617 - INFO - Processing post 337 (ID: post_336_50...)
+2025-09-16 18:11:47,173 - INFO - Processing post 338 (ID: post_337_0...)
+2025-09-16 18:11:49,888 - INFO - Processing post 339 (ID: post_338_50...)
+2025-09-16 18:11:52,803 - INFO - Processing post 340 (ID: post_339_0...)
+2025-09-16 18:11:56,294 - INFO - Processing post 341 (ID: post_340_50...)
+2025-09-16 18:12:01,308 - INFO - Expanded content using specific see-more button
+2025-09-16 18:12:02,733 - INFO - Successfully expanded post 341 content
+2025-09-16 18:12:04,006 - INFO - Processing post 342 (ID: post_341_50...)
+2025-09-16 18:12:06,506 - INFO - Processing post 343 (ID: post_342_0...)
+2025-09-16 18:12:08,691 - INFO - Processing post 344 (ID: post_343_50...)
+2025-09-16 18:12:11,631 - INFO - Processing post 345 (ID: post_344_0...)
+2025-09-16 18:12:13,764 - INFO - Processing post 346 (ID: post_345_50...)
+2025-09-16 18:12:17,220 - INFO - Expanded content using specific see-more button
+2025-09-16 18:12:17,666 - INFO - Successfully expanded post 346 content
+2025-09-16 18:12:19,309 - INFO - Processing post 347 (ID: post_346_50...)
+2025-09-16 18:12:22,113 - INFO - Expanded content by clicking on truncated text
+2025-09-16 18:12:22,322 - INFO - Successfully expanded post 347 content
+2025-09-16 18:12:23,686 - INFO - Processing post 348 (ID: post_347_0...)
+2025-09-16 18:12:26,449 - INFO - Processing post 349 (ID: post_348_50...)
+2025-09-16 18:12:28,747 - INFO - Expanded content by clicking on truncated text
+2025-09-16 18:12:28,900 - INFO - Successfully expanded post 349 content
+2025-09-16 18:12:30,025 - INFO - Processing post 350 (ID: post_349_0...)
+2025-09-16 18:12:32,620 - INFO - Processing post 351 (ID: post_350_50...)
+2025-09-16 18:12:36,802 - INFO - Expanded content using specific see-more button
+2025-09-16 18:12:36,913 - INFO - Successfully expanded post 351 content
+2025-09-16 18:12:38,623 - INFO - Processing post 352 (ID: post_351_50...)
+2025-09-16 18:12:40,828 - INFO - Processing post 353 (ID: post_352_0...)
+2025-09-16 18:12:43,264 - INFO - Processing post 354 (ID: post_353_50...)
+2025-09-16 18:12:45,416 - INFO - Processing post 355 (ID: post_354_50...)
+2025-09-16 18:12:48,016 - INFO - Processing post 356 (ID: post_355_0...)
+2025-09-16 18:12:50,308 - INFO - Processing post 357 (ID: post_356_50...)
+2025-09-16 18:12:54,173 - INFO - Expanded content using specific see-more button
+2025-09-16 18:12:54,301 - INFO - Successfully expanded post 357 content
+2025-09-16 18:12:56,130 - INFO - Processing post 358 (ID: post_357_50...)
+2025-09-16 18:12:58,581 - INFO - Processing post 359 (ID: post_358_0...)
+2025-09-16 18:13:01,575 - INFO - Processing post 360 (ID: post_359_50...)
+2025-09-16 18:13:04,340 - INFO - Processing post 361 (ID: post_360_0...)
+2025-09-16 18:13:07,067 - INFO - Processing post 362 (ID: post_361_50...)
+2025-09-16 18:13:10,904 - INFO - Expanded content using specific see-more button
+2025-09-16 18:13:11,014 - INFO - Successfully expanded post 362 content
+2025-09-16 18:13:12,724 - INFO - Processing post 363 (ID: post_362_50...)
+2025-09-16 18:13:15,378 - INFO - Processing post 364 (ID: post_363_0...)
+2025-09-16 18:13:18,235 - INFO - Processing post 365 (ID: post_364_50...)
+2025-09-16 18:13:20,927 - INFO - Processing post 366 (ID: post_365_50...)
+2025-09-16 18:13:23,514 - INFO - Processing post 367 (ID: post_366_0...)
+2025-09-16 18:13:25,834 - INFO - Processed 32 new posts
+2025-09-16 18:13:25,835 - INFO - Scrolling to load more posts...
+2025-09-16 18:13:30,089 - INFO - New content loaded, continuing...
+2025-09-16 18:13:30,259 - INFO - Found 401 posts on current page
+2025-09-16 18:14:01,380 - INFO - Processing post 368 (ID: post_367_50...)
+2025-09-16 18:14:04,985 - INFO - Expanded content using specific see-more button
+2025-09-16 18:14:05,351 - INFO - Successfully expanded post 368 content
+2025-09-16 18:14:06,692 - INFO - Processing post 369 (ID: post_368_50...)
+2025-09-16 18:14:09,554 - INFO - Processing post 370 (ID: post_369_0...)
+2025-09-16 18:14:11,994 - INFO - Processing post 371 (ID: post_370_50...)
+2025-09-16 18:14:14,739 - INFO - Processing post 372 (ID: post_371_50...)
+2025-09-16 18:14:16,644 - INFO - Processing post 373 (ID: post_372_0...)
+2025-09-16 18:14:19,172 - INFO - Processing post 374 (ID: post_373_50...)
+2025-09-16 18:14:22,331 - INFO - Expanded content using specific see-more button
+2025-09-16 18:14:22,502 - INFO - Successfully expanded post 374 content
+2025-09-16 18:14:24,144 - INFO - Processing post 375 (ID: post_374_50...)
+2025-09-16 18:14:27,021 - INFO - Processing post 376 (ID: post_375_0...)
+2025-09-16 18:14:29,760 - INFO - Processing post 377 (ID: post_376_50...)
+2025-09-16 18:14:32,172 - INFO - Processing post 378 (ID: post_377_0...)
+2025-09-16 18:14:35,054 - INFO - Processing post 379 (ID: post_378_50...)
+2025-09-16 18:14:38,755 - INFO - Expanded content using specific see-more button
+2025-09-16 18:14:39,026 - INFO - Successfully expanded post 379 content
+2025-09-16 18:14:40,928 - INFO - Processing post 380 (ID: post_379_50...)
+2025-09-16 18:14:43,176 - INFO - Processing post 381 (ID: post_380_0...)
+2025-09-16 18:14:45,304 - INFO - Processing post 382 (ID: post_381_50...)
+2025-09-16 18:14:47,401 - INFO - Processing post 383 (ID: post_382_50...)
+2025-09-16 18:14:49,807 - INFO - Processing post 384 (ID: post_383_0...)
+2025-09-16 18:14:52,116 - INFO - Processing post 385 (ID: post_384_50...)
+2025-09-16 18:14:54,813 - INFO - Expanded content using specific see-more button
+2025-09-16 18:14:54,945 - INFO - Successfully expanded post 385 content
+2025-09-16 18:14:54,946 - INFO - Found emails in post 385: ['xxxx@goindigo.in', 'eco@goindigo.in']
+2025-09-16 18:14:56,782 - INFO - Processing post 386 (ID: post_385_50...)
+2025-09-16 18:14:58,079 - INFO - Found emails in post 386: ['xxxx@goindigo.in', 'eco@goindigo.in']
+2025-09-16 18:14:59,604 - INFO - Processing post 387 (ID: post_386_0...)
+2025-09-16 18:15:01,798 - INFO - Processing post 388 (ID: post_387_50...)
+2025-09-16 18:15:04,380 - INFO - Processing post 389 (ID: post_388_50...)
+2025-09-16 18:15:06,214 - INFO - Found emails in post 389: ['xxxx@goindigo.in', 'eco@goindigo.in']
+2025-09-16 18:15:07,654 - INFO - Processing post 390 (ID: post_389_50...)
+2025-09-16 18:15:08,944 - INFO - Found emails in post 390: ['xxxx@goindigo.in', 'eco@goindigo.in']
+2025-09-16 18:15:10,769 - INFO - Processing post 391 (ID: post_390_0...)
+2025-09-16 18:15:13,603 - INFO - Processing post 392 (ID: post_391_50...)
+2025-09-16 18:15:16,985 - INFO - Expanded content using specific see-more button
+2025-09-16 18:15:17,473 - INFO - Successfully expanded post 392 content
+2025-09-16 18:15:19,451 - INFO - Processing post 393 (ID: post_392_50...)
+2025-09-16 18:15:23,020 - INFO - Processing post 394 (ID: post_393_0...)
+2025-09-16 18:15:26,306 - INFO - Processing post 395 (ID: post_394_50...)
+2025-09-16 18:15:28,866 - INFO - Processing post 396 (ID: post_395_0...)
+2025-09-16 18:15:31,701 - INFO - Processing post 397 (ID: post_396_50...)
+2025-09-16 18:15:35,860 - INFO - Expanded content using specific see-more button
+2025-09-16 18:15:35,982 - INFO - Successfully expanded post 397 content
+2025-09-16 18:15:35,983 - INFO - Found emails in post 397: ['info@backendcodersindia.com']
+2025-09-16 18:15:35,990 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:15:40,280 - INFO - [SUCCESS] Email sent successfully to info@backendcodersindia.com (29 sent today)
+2025-09-16 18:15:44,394 - INFO - Processing post 398 (ID: post_397_50...)
+2025-09-16 18:15:45,689 - INFO - Found emails in post 398: ['info@backendcodersindia.com']
+2025-09-16 18:15:47,516 - INFO - Processing post 399 (ID: post_398_0...)
+2025-09-16 18:15:49,845 - INFO - Processing post 400 (ID: post_399_50...)
+2025-09-16 18:15:50,698 - INFO - Found emails in post 400: ['info@backendcodersindia.com']
+2025-09-16 18:15:51,723 - INFO - Processing post 401 (ID: post_400_0...)
+2025-09-16 18:15:54,398 - INFO - Processed 34 new posts
+2025-09-16 18:15:54,399 - INFO - Scrolling to load more posts...
+2025-09-16 18:15:56,627 - INFO - New content loaded, continuing...
+2025-09-16 18:15:57,072 - INFO - Found 433 posts on current page
+2025-09-16 18:16:45,321 - INFO - Processing post 402 (ID: post_401_50...)
+2025-09-16 18:16:49,549 - INFO - Expanded content using specific see-more button
+2025-09-16 18:16:49,802 - INFO - Successfully expanded post 402 content
+2025-09-16 18:16:49,803 - INFO - Found emails in post 402: ['pushpa@centocode.com']
+2025-09-16 18:16:51,715 - INFO - Processing post 403 (ID: post_402_50...)
+2025-09-16 18:16:53,301 - INFO - Found emails in post 403: ['pushpa@centocode.com']
+2025-09-16 18:16:54,793 - INFO - Processing post 404 (ID: post_403_0...)
+2025-09-16 18:16:57,620 - INFO - Processing post 405 (ID: post_404_50...)
+2025-09-16 18:16:58,557 - INFO - Found emails in post 405: ['pushpa@centocode.com']
+2025-09-16 18:16:59,981 - INFO - Processing post 406 (ID: post_405_0...)
+2025-09-16 18:17:03,280 - INFO - Processing post 407 (ID: post_406_50...)
+2025-09-16 18:17:06,819 - INFO - Expanded content using specific see-more button
+2025-09-16 18:17:06,903 - INFO - Successfully expanded post 407 content
+2025-09-16 18:17:08,292 - INFO - Processing post 408 (ID: post_407_50...)
+2025-09-16 18:17:11,293 - INFO - Processing post 409 (ID: post_408_0...)
+2025-09-16 18:17:13,488 - INFO - Processing post 410 (ID: post_409_50...)
+2025-09-16 18:17:16,257 - INFO - Processing post 411 (ID: post_410_0...)
+2025-09-16 18:17:18,400 - INFO - Processing post 412 (ID: post_411_50...)
+2025-09-16 18:17:22,097 - INFO - Expanded content using specific see-more button
+2025-09-16 18:17:22,197 - INFO - Successfully expanded post 412 content
+2025-09-16 18:17:23,480 - INFO - Processing post 413 (ID: post_412_50...)
+2025-09-16 18:17:26,090 - INFO - Processing post 414 (ID: post_413_0...)
+2025-09-16 18:17:28,275 - INFO - Processing post 415 (ID: post_414_50...)
+2025-09-16 18:17:30,705 - INFO - Processing post 416 (ID: post_415_0...)
+2025-09-16 18:17:32,790 - INFO - Processing post 417 (ID: post_416_50...)
+2025-09-16 18:17:36,513 - INFO - Expanded content using specific see-more button
+2025-09-16 18:17:36,621 - INFO - Successfully expanded post 417 content
+2025-09-16 18:17:36,622 - INFO - Found emails in post 417: ['pawan.patnaik@jteksoftware.in']
+2025-09-16 18:17:36,627 - INFO - [ATTACH] Resume attached: uploads\thamim_resume.pdf
+2025-09-16 18:17:41,994 - INFO - [SUCCESS] Email sent successfully to pawan.patnaik@jteksoftware.in (30 sent today)
+2025-09-16 18:17:45,904 - INFO - Processing post 418 (ID: post_417_50...)
+2025-09-16 18:17:47,076 - INFO - Found emails in post 418: ['pawan.patnaik@jteksoftware.in']
+2025-09-16 18:17:48,100 - INFO - Processing post 419 (ID: post_418_0...)
+2025-09-16 18:17:50,336 - INFO - Processing post 420 (ID: post_419_50...)
+2025-09-16 18:17:51,375 - INFO - Found emails in post 420: ['pawan.patnaik@jteksoftware.in']
+2025-09-16 18:17:52,895 - INFO - Processing post 421 (ID: post_420_0...)
+2025-09-16 18:17:55,747 - INFO - Processing post 422 (ID: post_421_50...)
+2025-09-16 18:17:58,660 - INFO - Expanded content using specific see-more button
+2025-09-16 18:17:58,749 - INFO - Successfully expanded post 422 content
+2025-09-16 18:17:59,839 - INFO - Processing post 423 (ID: post_422_50...)
+2025-09-16 18:18:02,979 - INFO - Processing post 424 (ID: post_423_0...)
+2025-09-16 18:18:05,372 - INFO - Processing post 425 (ID: post_424_50...)
+2025-09-16 18:18:07,948 - INFO - Processing post 426 (ID: post_425_50...)
+2025-09-16 18:18:10,634 - INFO - Processing post 427 (ID: post_426_0...)
+2025-09-16 18:18:12,983 - INFO - Processing post 428 (ID: post_427_50...)
+2025-09-16 18:18:15,883 - INFO - Expanded content using specific see-more button
+2025-09-16 18:18:15,962 - INFO - Successfully expanded post 428 content
+2025-09-16 18:18:17,058 - INFO - Processing post 429 (ID: post_428_50...)
+2025-09-16 18:18:19,355 - INFO - Processing post 430 (ID: post_429_0...)
+2025-09-16 18:18:21,251 - INFO - Processing post 431 (ID: post_430_50...)
+2025-09-16 18:18:24,004 - INFO - Processing post 432 (ID: post_431_50...)
+2025-09-16 18:18:26,519 - INFO - Processing post 433 (ID: post_432_0...)
+2025-09-16 18:18:28,296 - INFO - Processed 32 new posts
+2025-09-16 18:18:28,297 - INFO - Scrolling to load more posts...
+2025-09-16 18:18:31,121 - INFO - No new content loaded after scrolling
+2025-09-16 18:18:31,224 - INFO - Found 433 posts on current page
+2025-09-16 18:18:58,157 - INFO - No new posts found. Attempt 2/3
+2025-09-16 18:18:58,157 - INFO - Scrolling to load more posts...
+2025-09-16 18:19:01,077 - INFO - No new content loaded after scrolling
+2025-09-16 18:19:01,077 - INFO - Finished continuous email extraction
+2025-09-16 18:19:01,081 - INFO - 
+============================================================
+2025-09-16 18:19:01,081 - INFO - FINAL STATISTICS
+2025-09-16 18:19:01,082 - INFO - ============================================================
+2025-09-16 18:19:01,083 - INFO - Posts processed: 433
+2025-09-16 18:19:01,083 - INFO - Unique emails extracted: 39
+2025-09-16 18:19:01,083 - INFO - Emails sent successfully: 30
+2025-09-16 18:19:01,084 - INFO - Emails failed: 0
+2025-09-16 18:19:01,084 - INFO - Success rate: 76.9%
+2025-09-16 18:19:01,085 - INFO - ============================================================
+2025-09-16 18:19:04,937 - INFO - Browser closed successfully

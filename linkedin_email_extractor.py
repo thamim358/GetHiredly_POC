@@ -534,25 +534,25 @@ class LinkedInEmailExtractor:
             date_option_text = getattr(self, 'date_posted', 'Past week')
             date_param = date_filter_mapping.get(date_option_text, 'past-week')
             
-            # Build comprehensive search query
+            # Build comprehensive search query with + symbols (LinkedIn-friendly)
             search_keywords = [search_term, "hiring"]
             
             # Add target companies to search if specified
             if hasattr(self, 'target_companies') and self.target_companies:
-                # Add OR logic for companies - any of these companies
-                company_query = " OR ".join(self.target_companies)
-                search_keywords.append(f"({company_query})")
+                # Add companies with + logic - any of these companies
+                for company in self.target_companies:
+                    search_keywords.append(company)
                 logging.info(f"🏢 Including target companies in search: {self.target_companies}")
             
             # Add target countries/locations to search if specified  
             if hasattr(self, 'target_countries') and self.target_countries:
-                # Add OR logic for countries - any of these locations
-                country_query = " OR ".join(self.target_countries)
-                search_keywords.append(f"({country_query})")
+                # Add countries with + logic - any of these locations
+                for country in self.target_countries:
+                    search_keywords.append(country)
                 logging.info(f"🌍 Including target countries/locations in search: {self.target_countries}")
             
-            # Combine all search keywords with AND logic
-            full_search_query = " AND ".join(search_keywords)
+            # Combine all search keywords with + symbols (LinkedIn-friendly format)
+            full_search_query = " + ".join(search_keywords)
             
             # URL encode the search query
             encoded_query = urllib.parse.quote_plus(full_search_query)
