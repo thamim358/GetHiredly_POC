@@ -39983,3 +39983,1463 @@ Stacktrace:
 2025-09-16 15:32:19,370 - INFO - Success rate: 100.0%
 2025-09-16 15:32:19,370 - INFO - ============================================================
 2025-09-16 15:32:23,728 - INFO - Browser closed successfully
+2025-09-17 12:15:28,877 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 12:15:28,888 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 12:15:58,003 - ERROR - Login failed: Login verification failed
+2025-09-17 12:15:58,003 - ERROR - Critical error: Login verification failed
+2025-09-17 12:16:00,363 - INFO - Browser closed successfully
+2025-09-17 12:22:21,350 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 12:22:21,362 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 12:22:39,315 - ERROR - Login failed: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d488355]
+	(No symbol) [0x0x7ff60d4aceee]
+	(No symbol) [0x0x7ff60d5227c5]
+	(No symbol) [0x0x7ff60d542c72]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:22:39,333 - ERROR - Critical error: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d488355]
+	(No symbol) [0x0x7ff60d4aceee]
+	(No symbol) [0x0x7ff60d5227c5]
+	(No symbol) [0x0x7ff60d542c72]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:22:43,949 - INFO - Browser closed successfully
+2025-09-17 12:23:24,447 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 12:23:24,449 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 12:23:42,222 - ERROR - Login failed: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49bf2c]
+	(No symbol) [0x0x7ff60d4e32df]
+	(No symbol) [0x0x7ff60d51b062]
+	(No symbol) [0x0x7ff60d515b93]
+	(No symbol) [0x0x7ff60d514c59]
+	(No symbol) [0x0x7ff60d466fd5]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	(No symbol) [0x0x7ff60d465fd1]
+	GetHandleVerifier [0x0x7ff60dae1d08+4199912]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:23:42,222 - ERROR - Critical error: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49bf2c]
+	(No symbol) [0x0x7ff60d4e32df]
+	(No symbol) [0x0x7ff60d51b062]
+	(No symbol) [0x0x7ff60d515b93]
+	(No symbol) [0x0x7ff60d514c59]
+	(No symbol) [0x0x7ff60d466fd5]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	(No symbol) [0x0x7ff60d465fd1]
+	GetHandleVerifier [0x0x7ff60dae1d08+4199912]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:23:44,453 - INFO - Browser closed successfully
+2025-09-17 12:24:09,089 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 12:24:09,095 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 12:24:37,136 - ERROR - Login failed: Login verification failed
+2025-09-17 12:24:37,137 - ERROR - Critical error: Login verification failed
+2025-09-17 12:24:39,682 - INFO - Browser closed successfully
+2025-09-17 12:31:16,388 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 12:31:16,400 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 12:31:43,710 - INFO - 
+============================================================
+2025-09-17 12:31:43,710 - INFO - CURRENT CONFIGURATION
+2025-09-17 12:31:43,711 - INFO - ============================================================
+2025-09-17 12:31:43,711 - INFO - 📧 Email Subject: Application for React js Developer  – 3+ Years Experience
+2025-09-17 12:31:43,712 - INFO - 🔍 Search Terms: ['React js Developer']
+2025-09-17 12:31:43,713 - INFO - 📎 Resume File: uploads\thamim_resume.pdf
+2025-09-17 12:31:43,713 - INFO - 📍 Location: India
+2025-09-17 12:31:43,714 - INFO - 🌍 Target Countries/Locations: ['India']
+2025-09-17 12:31:43,714 - INFO - ============================================================
+2025-09-17 12:31:43,715 - INFO - 
+============================================================
+2025-09-17 12:31:43,716 - INFO - 🎯 Processing search term: React js Developer
+2025-09-17 12:31:43,717 - INFO - 📋 Available terms: React js Developer
+2025-09-17 12:31:43,718 - INFO - ============================================================
+2025-09-17 12:31:43,721 - INFO - 🌍 Including target countries/locations in search: ['India']
+2025-09-17 12:31:43,725 - INFO - 🔍 Searching for posts with: 'React js Developer AND hiring AND (India)'
+2025-09-17 12:31:43,729 - INFO - 📅 Date filter: Past week (URL param: past-week)
+2025-09-17 12:31:43,730 - INFO - 🌐 Search URL: https://www.linkedin.com/search/results/content/?datePosted=%22past-week%22&keywords=React+js+Developer+AND+hiring+AND+%28India%29&origin=FACETED_SEARCH
+2025-09-17 12:31:57,412 - INFO - ✅ Applied 'Posts' filter
+2025-09-17 12:31:57,412 - INFO - ✅ Date filter 'Past week' applied via URL parameter
+2025-09-17 12:31:57,413 - INFO - Starting continuous email extraction from posts...
+2025-09-17 12:31:57,413 - INFO - Scrolling to load more posts...
+2025-09-17 12:31:59,269 - INFO - Scrolled 1/3 times, loaded more posts
+2025-09-17 12:32:01,914 - INFO - Scrolled 2/3 times, loaded more posts
+2025-09-17 12:32:04,738 - INFO - Scrolled 3/3 times, loaded more posts
+2025-09-17 12:32:05,896 - INFO - Found 76 posts on current page
+2025-09-17 12:32:06,064 - INFO - Processing post 1 (ID: post_0_50...)
+2025-09-17 12:32:09,629 - INFO - Expanded content using specific see-more button
+2025-09-17 12:32:09,804 - INFO - Successfully expanded post 1 content
+2025-09-17 12:32:09,807 - INFO - Found emails in post 1: ['chandraiahi@softclouds.com']
+2025-09-17 12:32:11,359 - INFO - Processing post 2 (ID: post_1_50...)
+2025-09-17 12:32:12,463 - INFO - Found emails in post 2: ['chandraiahi@softclouds.com']
+2025-09-17 12:32:14,289 - INFO - Processing post 3 (ID: post_2_0...)
+2025-09-17 12:32:16,557 - INFO - Processing post 4 (ID: post_3_50...)
+2025-09-17 12:32:17,612 - INFO - Found emails in post 4: ['chandraiahi@softclouds.com']
+2025-09-17 12:32:18,638 - INFO - Processing post 5 (ID: post_4_0...)
+2025-09-17 12:32:20,659 - INFO - Processing post 6 (ID: post_5_50...)
+2025-09-17 12:32:24,242 - INFO - Expanded content using specific see-more button
+2025-09-17 12:32:24,351 - INFO - Successfully expanded post 6 content
+2025-09-17 12:32:24,352 - INFO - Found emails in post 6: ['r.vidya@vhspro.net']
+2025-09-17 12:32:26,146 - INFO - Processing post 7 (ID: post_6_50...)
+2025-09-17 12:32:27,233 - INFO - Found emails in post 7: ['r.vidya@vhspro.net']
+2025-09-17 12:32:28,758 - INFO - Processing post 8 (ID: post_7_0...)
+2025-09-17 12:32:31,346 - INFO - Processing post 9 (ID: post_8_50...)
+2025-09-17 12:32:32,490 - INFO - Found emails in post 9: ['r.vidya@vhspro.net']
+2025-09-17 12:32:33,914 - INFO - Processing post 10 (ID: post_9_0...)
+2025-09-17 12:32:36,332 - INFO - Processing post 11 (ID: post_10_50...)
+2025-09-17 12:32:40,107 - INFO - Expanded content using specific see-more button
+2025-09-17 12:32:40,197 - INFO - Successfully expanded post 11 content
+2025-09-17 12:32:40,198 - INFO - Found emails in post 11: ['ankit.s@msmptechnologies.com']
+2025-09-17 12:32:41,401 - INFO - Processing post 12 (ID: post_11_50...)
+2025-09-17 12:32:42,595 - INFO - Found emails in post 12: ['ankit.s@msmptechnologies.com']
+2025-09-17 12:32:43,622 - INFO - Processing post 13 (ID: post_12_0...)
+2025-09-17 12:32:46,203 - INFO - Processing post 14 (ID: post_13_50...)
+2025-09-17 12:32:47,144 - INFO - Found emails in post 14: ['ankit.s@msmptechnologies.com']
+2025-09-17 12:32:48,169 - INFO - Processing post 15 (ID: post_14_0...)
+2025-09-17 12:32:50,322 - INFO - Processing post 16 (ID: post_15_50...)
+2025-09-17 12:32:54,006 - INFO - Expanded content using specific see-more button
+2025-09-17 12:32:54,105 - INFO - Successfully expanded post 16 content
+2025-09-17 12:32:55,601 - INFO - Processing post 17 (ID: post_16_50...)
+2025-09-17 12:32:57,791 - INFO - Processing post 18 (ID: post_17_0...)
+2025-09-17 12:32:59,861 - INFO - Processing post 19 (ID: post_18_50...)
+2025-09-17 12:33:02,305 - INFO - Processing post 20 (ID: post_19_50...)
+2025-09-17 12:33:04,871 - INFO - Processing post 21 (ID: post_20_0...)
+2025-09-17 12:33:07,194 - INFO - Processing post 22 (ID: post_21_50...)
+2025-09-17 12:33:10,960 - INFO - Expanded content using specific see-more button
+2025-09-17 12:33:11,049 - INFO - Successfully expanded post 22 content
+2025-09-17 12:33:11,050 - INFO - Found emails in post 22: ['roopa.r@zentekinfosoft.com']
+2025-09-17 12:33:12,737 - INFO - Processing post 23 (ID: post_22_50...)
+2025-09-17 12:33:13,699 - INFO - Found emails in post 23: ['roopa.r@zentekinfosoft.com']
+2025-09-17 12:33:15,528 - INFO - Processing post 24 (ID: post_23_0...)
+2025-09-17 12:33:18,097 - INFO - Processing post 25 (ID: post_24_50...)
+2025-09-17 12:33:18,900 - INFO - Found emails in post 25: ['roopa.r@zentekinfosoft.com']
+2025-09-17 12:33:20,024 - INFO - Processing post 26 (ID: post_25_0...)
+2025-09-17 12:33:22,239 - INFO - Processing post 27 (ID: post_26_50...)
+2025-09-17 12:33:25,675 - INFO - Expanded content using specific see-more button
+2025-09-17 12:33:25,867 - INFO - Successfully expanded post 27 content
+2025-09-17 12:33:25,868 - INFO - Found emails in post 27: ['chandraiahi@softclouds.com']
+2025-09-17 12:33:27,629 - INFO - Processing post 28 (ID: post_27_50...)
+2025-09-17 12:33:28,658 - INFO - Found emails in post 28: ['chandraiahi@softclouds.com']
+2025-09-17 12:33:29,885 - INFO - Processing post 29 (ID: post_28_0...)
+2025-09-17 12:33:32,817 - INFO - Processing post 30 (ID: post_29_50...)
+2025-09-17 12:33:34,101 - INFO - Found emails in post 30: ['chandraiahi@softclouds.com']
+2025-09-17 12:33:35,524 - INFO - Processing post 31 (ID: post_30_0...)
+2025-09-17 12:33:38,250 - INFO - Processing post 32 (ID: post_31_50...)
+2025-09-17 12:33:41,529 - INFO - Expanded content using specific see-more button
+2025-09-17 12:33:41,650 - INFO - Successfully expanded post 32 content
+2025-09-17 12:33:41,651 - INFO - Found emails in post 32: ['poojitha@techhostservices.com']
+2025-09-17 12:33:43,467 - INFO - Processing post 33 (ID: post_32_50...)
+2025-09-17 12:33:44,709 - INFO - Found emails in post 33: ['poojitha@techhostservices.com']
+2025-09-17 12:33:46,138 - INFO - Processing post 34 (ID: post_33_0...)
+2025-09-17 12:33:48,649 - INFO - Processing post 35 (ID: post_34_50...)
+2025-09-17 12:33:52,507 - ERROR - Error processing post 36: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,523 - ERROR - Error processing post 37: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,549 - ERROR - Error processing post 38: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,565 - ERROR - Error processing post 39: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,585 - ERROR - Error processing post 40: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,597 - ERROR - Error processing post 41: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,617 - ERROR - Error processing post 42: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,628 - ERROR - Error processing post 43: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,637 - ERROR - Error processing post 44: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,649 - ERROR - Error processing post 45: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,686 - ERROR - Error processing post 46: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,834 - ERROR - Error processing post 47: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,918 - ERROR - Error processing post 48: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,930 - ERROR - Error processing post 49: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,941 - ERROR - Error processing post 50: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:52,999 - ERROR - Error processing post 51: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,015 - ERROR - Error processing post 52: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,026 - ERROR - Error processing post 53: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,041 - ERROR - Error processing post 54: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,058 - ERROR - Error processing post 55: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,066 - ERROR - Error processing post 56: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,079 - ERROR - Error processing post 57: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,094 - ERROR - Error processing post 58: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,110 - ERROR - Error processing post 59: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,124 - ERROR - Error processing post 60: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,138 - ERROR - Error processing post 61: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,153 - ERROR - Error processing post 62: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,169 - ERROR - Error processing post 63: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,183 - ERROR - Error processing post 64: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,198 - ERROR - Error processing post 65: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,211 - ERROR - Error processing post 66: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,227 - ERROR - Error processing post 67: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,244 - ERROR - Error processing post 68: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,253 - ERROR - Error processing post 69: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,268 - ERROR - Error processing post 70: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,284 - ERROR - Error processing post 71: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,301 - ERROR - Error processing post 72: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,316 - ERROR - Error processing post 73: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,330 - ERROR - Error processing post 74: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,343 - ERROR - Error processing post 75: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,353 - ERROR - Error processing post 76: Message: stale element reference: stale element not found
+  (Session info: chrome=140.0.7339.128); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff60d6f3d45+79397]
+	GetHandleVerifier [0x0x7ff60d6f3da0+79488]
+	(No symbol) [0x0x7ff60d49c0fa]
+	(No symbol) [0x0x7ff60d4b2524]
+	(No symbol) [0x0x7ff60d4b0ff3]
+	(No symbol) [0x0x7ff60d4a47f9]
+	(No symbol) [0x0x7ff60d4a4973]
+	(No symbol) [0x0x7ff60d4a26af]
+	(No symbol) [0x0x7ff60d4a6e81]
+	(No symbol) [0x0x7ff60d54467b]
+	(No symbol) [0x0x7ff60d51b19a]
+	(No symbol) [0x0x7ff60d543344]
+	(No symbol) [0x0x7ff60d51af73]
+	(No symbol) [0x0x7ff60d4e41b1]
+	(No symbol) [0x0x7ff60d4e4f43]
+	GetHandleVerifier [0x0x7ff60d9be1ad+3005069]
+	GetHandleVerifier [0x0x7ff60d9b82dd+2980797]
+	GetHandleVerifier [0x0x7ff60d9d7dcd+3110573]
+	GetHandleVerifier [0x0x7ff60d70d69e+184190]
+	GetHandleVerifier [0x0x7ff60d71512f+215567]
+	GetHandleVerifier [0x0x7ff60d6fc934+115220]
+	GetHandleVerifier [0x0x7ff60d6fcae9+115657]
+	GetHandleVerifier [0x0x7ff60d6e3228+11016]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 12:33:53,360 - INFO - Processed 35 new posts
+2025-09-17 12:33:53,361 - INFO - Scrolling to load more posts...
+2025-09-17 12:33:55,295 - INFO - No new content loaded after scrolling
+2025-09-17 12:34:15,402 - WARNING - No posts found, scrolling to load more...
+2025-09-17 12:34:27,502 - WARNING - No posts found, scrolling to load more...
+2025-09-17 12:34:27,567 - ERROR - Error in continuous email extraction: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-09-17 12:34:27,571 - INFO - 
+============================================================
+2025-09-17 12:34:27,571 - INFO - FINAL STATISTICS
+2025-09-17 12:34:27,572 - INFO - ============================================================
+2025-09-17 12:34:27,572 - INFO - Posts processed: 35
+2025-09-17 12:34:27,573 - INFO - Unique emails extracted: 5
+2025-09-17 12:34:27,573 - INFO - Emails sent successfully: 0
+2025-09-17 12:34:27,574 - INFO - Emails failed: 0
+2025-09-17 12:34:27,574 - INFO - Success rate: 0.0%
+2025-09-17 12:34:27,575 - INFO - ============================================================
+2025-09-17 15:33:38,560 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 15:33:38,575 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 15:35:15,668 - INFO - 
+============================================================
+2025-09-17 15:35:15,672 - INFO - CURRENT CONFIGURATION
+2025-09-17 15:35:15,673 - INFO - ============================================================
+2025-09-17 15:35:15,674 - INFO - 📧 Email Subject: Application for Web Developer – 3+ Years Experience
+2025-09-17 15:35:15,675 - INFO - 🔍 Search Terms: ['Application for Web Developer – 3+ Years Experience']
+2025-09-17 15:35:15,675 - INFO - 📎 Resume File: uploads\thamim_resume.pdf
+2025-09-17 15:35:15,676 - INFO - 📍 Location: India
+2025-09-17 15:35:15,677 - INFO - 🌍 Target Countries/Locations: ['Brazil']
+2025-09-17 15:35:15,677 - INFO - ============================================================
+2025-09-17 15:35:15,678 - INFO - 
+============================================================
+2025-09-17 15:35:15,678 - INFO - 🎯 Processing search term: Application for Web Developer – 3+ Years Experience
+2025-09-17 15:35:15,679 - INFO - 📋 Available terms: Application for Web Developer – 3+ Years Experience
+2025-09-17 15:35:15,679 - INFO - ============================================================
+2025-09-17 15:35:15,683 - INFO - 🌍 Including target countries/locations in search: ['Brazil']
+2025-09-17 15:35:15,685 - INFO - 🔍 Searching for posts with: 'Application for Web Developer – 3+ Years Experience AND hiring AND (Brazil)'
+2025-09-17 15:35:15,686 - INFO - 📅 Date filter: Past 24 hours (URL param: past-24h)
+2025-09-17 15:35:15,687 - INFO - 🌐 Search URL: https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=Application+for+Web+Developer+%E2%80%93+3%2B+Years+Experience+AND+hiring+AND+%28Brazil%29&origin=FACETED_SEARCH
+2025-09-17 15:35:15,693 - ERROR - Error searching for posts: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6c0ac3d45+79397]
+	GetHandleVerifier [0x0x7ff6c0ac3da0+79488]
+	(No symbol) [0x0x7ff6c086bf2c]
+	(No symbol) [0x0x7ff6c08b32df]
+	(No symbol) [0x0x7ff6c08eb062]
+	(No symbol) [0x0x7ff6c08e5b93]
+	(No symbol) [0x0x7ff6c08e4c59]
+	(No symbol) [0x0x7ff6c0836fd5]
+	GetHandleVerifier [0x0x7ff6c0d8e1ad+3005069]
+	GetHandleVerifier [0x0x7ff6c0d882dd+2980797]
+	GetHandleVerifier [0x0x7ff6c0da7dcd+3110573]
+	GetHandleVerifier [0x0x7ff6c0add69e+184190]
+	GetHandleVerifier [0x0x7ff6c0ae512f+215567]
+	(No symbol) [0x0x7ff6c0835fd1]
+	GetHandleVerifier [0x0x7ff6c0eb1d08+4199912]
+	BaseThreadInitThunk [0x0x7fff6c607374+20]
+	RtlUserThreadStart [0x0x7fff6e05cc91+33]
+
+2025-09-17 15:35:15,704 - INFO - 
+============================================================
+2025-09-17 15:35:15,709 - INFO - FINAL STATISTICS
+2025-09-17 15:35:15,710 - INFO - ============================================================
+2025-09-17 15:35:15,711 - INFO - Posts processed: 0
+2025-09-17 15:35:15,712 - INFO - Unique emails extracted: 0
+2025-09-17 15:35:15,712 - INFO - Emails sent successfully: 0
+2025-09-17 15:35:15,712 - INFO - Emails failed: 0
+2025-09-17 15:35:15,713 - INFO - ============================================================
+2025-09-17 15:35:19,277 - INFO - Browser closed successfully
+2025-09-17 16:19:15,656 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-17 16:19:15,663 - INFO - Starting LinkedIn Email Extractor...
+2025-09-17 16:19:35,195 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/30128514c9cdf957dc2d339cc13a00ea

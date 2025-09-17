@@ -21,6 +21,14 @@ from flask import Flask, render_template, jsonify, request, send_file, Response
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
+# Import license manager
+try:
+    from license_manager import LicenseManager, LicenseValidator
+    LICENSE_AVAILABLE = True
+except ImportError:
+    LICENSE_AVAILABLE = False
+    print("⚠️ License manager not available - running without licensing")
+
 # Production configuration and environment detection
 # Check multiple ways Railway.app might indicate production
 railway_indicators = [

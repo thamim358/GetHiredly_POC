@@ -1,14 +1,14 @@
 {
   "email_extractor": {
-    "status": "stopped",
+    "status": "running",
     "emails_sent": 437,
-    "emails_extracted": 9,
-    "posts_processed": 66,
-    "start_time": null,
-    "runtime": "0:05:53",
-    "last_activity": "2025-09-16 15:32:23.470324",
-    "detailed_status": "Process completed successfully",
-    "progress": 100
+    "emails_extracted": 0,
+    "posts_processed": 0,
+    "start_time": "2025-09-17 16:19:08.345904",
+    "runtime": "0:00:22",
+    "last_activity": "2025-09-17 16:19:30.821807",
+    "detailed_status": "Entering credentials...",
+    "progress": 40
   },
   "aibot": {
     "status": "stopped",
@@ -21,10 +21,41 @@
     "runtime": "0:25:31",
     "last_activity": "2025-09-11 13:30:34.741675"
   },
-  "recent_emails": [],
+  "recent_emails": [
+    {
+      "email": "shikha.dhiman@rarrtech.com",
+      "status": "sent",
+      "time": "2025-09-16 15:28:44"
+    },
+    {
+      "email": "info@vncservices.in",
+      "status": "sent",
+      "time": "2025-09-16 15:29:38"
+    },
+    {
+      "email": "priyanshi.lohani@nexionpro.com",
+      "status": "sent",
+      "time": "2025-09-16 15:30:00"
+    },
+    {
+      "email": "kavitha@imrsoft.com",
+      "status": "sent",
+      "time": "2025-09-16 15:30:42"
+    },
+    {
+      "email": "prathik.patel@collabera.com",
+      "status": "sent",
+      "time": "2025-09-16 15:31:03"
+    },
+    {
+      "email": "rahulr@envertiz.com",
+      "status": "sent",
+      "time": "2025-09-16 15:31:26"
+    }
+  ],
   "recent_applications": [],
   "system": {
-    "uptime": "0:00:00",
+    "uptime": "0:33:10",
     "version": "2.0",
     "mode": "Professional"
   }

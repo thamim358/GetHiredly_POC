@@ -1,0 +1,17 @@
+# Build Requirements for Desktop Distribution
+# Install these for building the executable
+
+pyinstaller>=5.13.0
+pyarmor>=8.4.7
+requests>=2.31.0
+# nsis>=3.0  # For Windows installer (install separately - not a pip package)
+
+# Core application requirements (already in requirements.txt)
+# These will be bundled into the executable
+flask>=2.3.0
+flask-cors>=4.0.0
+selenium>=4.15.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+Pillow>=10.0.0
+python-dotenv>=1.0.0
