@@ -41443,3 +41443,37 @@ Stacktrace:
 2025-09-17 16:19:15,656 - INFO - [EMAIL] Loaded 437 previously sent emails
 2025-09-17 16:19:15,663 - INFO - Starting LinkedIn Email Extractor...
 2025-09-17 16:19:35,195 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/30128514c9cdf957dc2d339cc13a00ea
+2025-09-18 11:31:08,485 - INFO - [EMAIL] Loaded 437 previously sent emails
+2025-09-18 11:31:08,487 - INFO - Starting LinkedIn Email Extractor...
+2025-09-18 11:31:55,848 - INFO - 
+============================================================
+2025-09-18 11:31:55,848 - INFO - CURRENT CONFIGURATION
+2025-09-18 11:31:55,848 - INFO - ============================================================
+2025-09-18 11:31:55,848 - INFO - 📧 Email Subject: Application for React.js Developer / Frontend Developer – 3+ Years Experience
+2025-09-18 11:31:55,849 - INFO - 🔍 Search Terms: ['React Developer', 'React.js Developer', 'Frontend Developer', 'Front End Developer', 'UI Developer', 'Web Developer', 'JavaScript Developer', 'UI/UX Developer', 'Frontend Engineer', 'React Engineer']
+2025-09-18 11:31:55,849 - INFO - 📎 Resume File: Thamim_Ansari_Resume.pdf
+2025-09-18 11:31:55,849 - INFO - 📍 Location: India
+2025-09-18 11:31:55,849 - INFO - ============================================================
+2025-09-18 11:31:55,849 - INFO - 
+============================================================
+2025-09-18 11:31:55,849 - INFO - 🎯 Processing search term: React Developer
+2025-09-18 11:31:55,850 - INFO - 📋 Available terms: React Developer, React.js Developer, Frontend Developer, Front End Developer, UI Developer, Web Developer, JavaScript Developer, UI/UX Developer, Frontend Engineer, React Engineer
+2025-09-18 11:31:55,850 - INFO - ============================================================
+2025-09-18 11:31:55,851 - INFO - 🔍 Searching for posts with: 'React Developer AND hiring'
+2025-09-18 11:31:55,851 - INFO - 📅 Date filter: Past 24 hours (URL param: past-24h)
+2025-09-18 11:31:55,851 - INFO - 🌐 Search URL: https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=React+Developer+AND+hiring&origin=FACETED_SEARCH
+2025-09-18 11:32:07,816 - INFO - ✅ Applied 'Posts' filter
+2025-09-18 11:32:07,817 - INFO - ✅ Date filter 'Past 24 hours' applied via URL parameter
+2025-09-18 11:32:07,819 - INFO - Starting continuous email extraction from posts...
+2025-09-18 11:32:07,819 - INFO - Scrolling to load more posts...
+2025-09-18 11:32:10,359 - INFO - Scrolled 1/3 times, loaded more posts
+2025-09-18 11:32:12,179 - INFO - Scrolled 2/3 times, loaded more posts
+2025-09-18 11:32:15,168 - INFO - Scrolled 3/3 times, loaded more posts
+2025-09-18 11:32:16,934 - INFO - Found 80 posts on current page
+2025-09-18 11:32:17,076 - INFO - Processing post 1 (ID: post_0_50...)
+2025-09-18 11:32:20,473 - INFO - Expanded content using specific see-more button
+2025-09-18 11:32:20,635 - INFO - Successfully expanded post 1 content
+2025-09-18 11:32:20,637 - INFO - Found emails in post 1: ['nthirunagari@smart-infrastructure.com']
+2025-09-18 11:32:20,637 - WARNING - [WARNING] Resume file not found: Thamim_Ansari_Resume.pdf
+2025-09-18 11:32:20,637 - INFO - [INFO] Current working directory: D:\Software\Auto_job_applier_linkedIn
+2025-09-18 11:32:20,638 - INFO - [INFO] Files in current directory: ['.dockerignore', '.git', '.gitignore', 'all excels', 'all resumes', 'app.py', 'bot_stats.json', 'build', 'build_desktop.bat', 'build_desktop.py', 'build_requirements.txt', 'chrome_profile', 'cleanup_chrome.ps1', 'config', 'create_installer.py', 'dashboard_api.py', 'dashboard_stats.json', 'desktop_webdriver_manager.py', 'DISTRIBUTION_GUIDE.md', 'Dockerfile', 'drivers', 'email_config.py', 'email_job_applier.py', 'extracted_emails.json', 'extractor_status.json', 'installer.nsi', 'job_role_templates.py', 'last_job_config.json', 'license_manager.py', 'LinkedInAutoBot.spec', 'linkedin_credentials.json', 'linkedin_email_extractor.log', 'linkedin_email_extractor.py', 'logs', 'modules', 'portable_build.py', 'production_webdriver.py', 'professional_dashboard_api.py', 'protect_code.py', 'QUICK_START_GUIDE.md', 'README.md', 'release', 'requirements.txt', 'runAiBot.py', 'sent_emails_log.csv', 'setup', 'start_dashboard.bat', 'templates', 'temp_job_config.json', 'test_chrome_detection.py', 'test_chrome_setup.py', 'test_chrome_visibility.py', 'uploads', 'user_config.json', 'validate_deployment.py', '__pycache__']
