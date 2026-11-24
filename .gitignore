@@ -1,13 +1,54 @@
-__pycache__
-.vscode
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+.vscode/
+.idea/
+.freebuff/
+.DS_Store
+.env
+.env.*
 
-all excels
-all resumes
-logs
+# Private inputs and generated output
+uploads/
+all excels/
+all resumes/
+logs/
+old/
+*.log
+*.log.*
+*.csv
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.db
+*.sqlite*
+*.exe
+*.zip
+linkedin_credentials.json
+user_config.json
+temp_job_config.json
+last_job_config.json
+bot_stats.json
+dashboard_stats.json
+extractor_status.json
+extracted_emails.json
+network_invites.json
+email_applier_stats.json
 
-old
+# Legacy Easy Apply code and local settings, excluded from this release
+config/
+modules/
+email_job_applier.py
+job_role_templates.py
+setup/
+cleanup_chrome.ps1
 
-secrets.py
-config/personals.py
-.venv
-apikeys.py
+# Local design and planning files
+dossier_reference.png
+knowledge.md

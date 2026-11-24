@@ -1,21 +1,23 @@
 @echo off
+cd /d "%~dp0"
 echo.
 echo ================================
-echo   LinkedIn AutoBot Dashboard
+echo   LinkedIn Career Assistant
 echo ================================
 echo.
 echo Starting dashboard server...
 echo.
 echo Dashboard will be available at:
-echo http://localhost:5000
+echo http://127.0.0.1:5000/dashboard
 echo.
 echo Press Ctrl+C to stop the server
 echo.
 
-REM Install required packages if not already installed
-REM python -m pip install flask flask-cors pandas openpyxl --quiet
-
-REM Start the dashboard API server
-python professional_dashboard_api.py
+REM Use the project's virtual environment when it is available.
+if exist ".venv\Scripts\python.exe" (
+    ".venv\Scripts\python.exe" professional_dashboard_api.py
+) else (
+    python professional_dashboard_api.py
+)
 
 pause
