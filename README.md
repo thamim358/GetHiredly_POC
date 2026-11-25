@@ -36,6 +36,8 @@ Open <http://127.0.0.1:5000/dashboard>. The server binds to your own computer on
 ## Email campaign
 
 1. Open **Email campaign** and enter your profile and LinkedIn sign-in details. Enter a Gmail sender address and app password to send emails.
+
+   To get an app password, turn on [2-Step Verification](https://support.google.com/accounts/answer/185839), then open [Google App Passwords](https://myaccount.google.com/apppasswords) and create one for this app. Enter that password in the dashboard instead of your regular Google password. [Google's help](https://support.google.com/accounts/answer/185833) explains why App Passwords may be unavailable on some accounts.
 2. Pick a role or write your own title, search terms, subject, and message. The template accepts `[FULL_NAME]`, `[EMAIL]`, `[PHONE]`, `[WEBSITE]`, and `[LOCATION]`; use **Preview formatted email** to review it.
 3. Upload a PDF, DOC, or DOCX résumé (up to 10 MB). Use **Add role to campaign** to add more roles; each role keeps its own résumé and template.
 4. Set the date filter and sending limits. Click **Save campaign**, then **Start email extractor**. This action can send real emails automatically. Check the recipients, message, and limits first. Previously emailed addresses are skipped using the local sent log.

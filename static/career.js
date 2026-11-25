@@ -15,9 +15,9 @@ const rolePresets = {
     terms: ['Playwright Automation Engineer', 'SDET', 'QA Automation Engineer'],
     body: `Dear Hiring Manager,
 
-I am writing to express my interest in the **Playwright Automation Engineer / SDET** position.
+I am writing to express my interest in the Playwright Automation Engineer / SDET position.
 
-I have experience with **Playwright, TypeScript, JavaScript, and API testing**. My work includes page object models, test case design, and CI integration. I would welcome the opportunity to discuss how these skills could help your team.
+I have experience with Playwright, TypeScript, JavaScript, and API testing. My work includes page object models, test case design, and CI integration. I would welcome the opportunity to discuss how these skills could help your team.
 
 I have attached my resume for your review.
 
@@ -32,7 +32,7 @@ Best regards,
     terms: ['Frontend Developer', 'React Developer', 'UI Developer'],
     body: `Dear Hiring Manager,
 
-I am interested in the **Frontend Developer** position. My work spans **React, TypeScript, JavaScript, responsive UI development, and API integration**. I enjoy building clear, reliable interfaces and collaborating closely with product and engineering teams.
+I am interested in the Frontend Developer position. My work spans React, TypeScript, JavaScript, responsive UI development, and API integration. I enjoy building clear, reliable interfaces and collaborating closely with product and engineering teams.
 
 I have attached my resume and would welcome a conversation about the role.
 
@@ -86,7 +86,7 @@ function currentRole() {
   const emailTemplate = value('emailTemplate');
   const resumeFile = window.resumeUploadedPath;
   if (!title || !subject || !searchTerms.length || !emailTemplate || !resumeFile) {
-    throw new Error('Enter a title, subject, search keywords, email template, and upload a resume.');
+    throw new Error('Enter a title, subject, search keywords, email message, and upload a resume.');
   }
   return {role: 'custom', customTitle: title, subject, searchTerms, emailTemplate, resumeFile};
 }
@@ -243,7 +243,7 @@ async function stopEmailExtractor() {
 async function previewEmail() {
   const template = value('emailTemplate');
   if (!template) {
-    showNotification('error', 'Nothing to preview', 'Write an email template first.');
+    showNotification('error', 'Nothing to preview', 'Write an email message first.');
     return;
   }
   try {

@@ -87,7 +87,16 @@
                                 <label class="field">LinkedIn password <input id="linkedinPassword" type="password" autocomplete="new-password" placeholder="Leave blank to keep saved password"></label>
                                 <label class="field field-wide">LinkedIn profile <input id="linkedinProfile" type="url" placeholder="https://www.linkedin.com/in/you/"></label>
                                 <label class="field">Sending email <input id="senderEmail" type="email" placeholder="Gmail address"></label>
-                                <label class="field">Gmail app password <input id="senderPassword" type="password" autocomplete="new-password" placeholder="Leave blank to keep saved password"></label>
+                                <label class="field">Gmail app password <input id="senderPassword" type="password" autocomplete="new-password" placeholder="Leave blank to keep saved password" aria-describedby="gmailAppPasswordHelp"></label>
+                                <div class="field-wide account-help" id="gmailAppPasswordHelp" role="note">
+                                    <strong>How to get a Gmail app password</strong>
+                                    <ol>
+                                        <li>Turn on <a href="https://support.google.com/accounts/answer/185839" target="_blank" rel="noopener noreferrer">2-Step Verification</a> for your Google Account.</li>
+                                        <li>Open <a href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener noreferrer">Google App Passwords</a> and create a password for this app.</li>
+                                        <li>Copy the password Google gives you into the field above. Use your Gmail address in <strong>Sending email</strong>.</li>
+                                    </ol>
+                                    <p>Use the app password here, not your regular Google password. If App Passwords is missing, your account may not be eligible. <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noopener noreferrer">Read Google's help</a>.</p>
+                                </div>
                             </div>
                             <p id="credentialHint" class="field-hint">Enter your account details, or use credentials already saved locally.</p>
                         </section>
@@ -105,7 +114,7 @@
                                 <label class="field">Target title <input id="customJobTitle" placeholder="e.g. Playwright Automation Engineer"></label>
                                 <label class="field field-wide">Email subject <input id="emailSubject" placeholder="Application for [Role]"></label>
                                 <label class="field field-wide">Search keywords <textarea id="searchTerms" rows="3" placeholder="One keyword per line"></textarea><span class="field-hint">These terms drive the LinkedIn post search.</span></label>
-                                <label class="field field-wide">Email template <textarea id="emailTemplate" rows="14" placeholder="Dear Hiring Manager,&#10;&#10;I am writing to express my interest..."></textarea><span class="field-hint">Paragraphs, **bold text**, lists, and links are formatted before sending. Use [FULL_NAME], [EMAIL], [PHONE], [WEBSITE], or [LOCATION].</span></label>
+                                <label class="field field-wide">Email message <textarea id="emailTemplate" rows="14" placeholder="Dear Hiring Manager,&#10;&#10;I am writing to express my interest in the role.&#10;&#10;Best regards,&#10;[FULL_NAME]" aria-describedby="emailTemplateHint"></textarea><span class="field-hint" id="emailTemplateHint">Write your email as normal text. Leave a blank line between paragraphs. [FULL_NAME], [EMAIL], [PHONE], [WEBSITE], and [LOCATION] fill in your profile details.</span></label>
                             </div>
                             <div class="inline-actions"><button type="button" class="button button-outline" id="previewEmailBtn">Preview formatted email</button></div>
                             <div class="resume-upload">

@@ -72,7 +72,7 @@ if not config_loaded:
         SENDER_PASSWORD = "your-16-character-app-password"
         RESUME_FILE = "uploads/uploaded_resume.pdf"
         EMAIL_SUBJECT = "Application for React.js Developer / Frontend Developer – 3+ Years Experience"
-        EMAIL_BODY = """<html><body><p>Dear Hiring Manager,</p><p>I am interested in the React.js Developer position...</p></body></html>"""
+        EMAIL_BODY = "Dear Hiring Manager,\n\nI am interested in the React.js Developer position.\n\nBest regards,\n[FULL_NAME]"
         MAX_JOBS_PER_SEARCH = 25
         DELAY_BETWEEN_EMAILS = 2
         DELAY_BETWEEN_JOBS = 1
@@ -144,16 +144,10 @@ class LinkedInEmailExtractor:
 
         # Email template
         self.SUBJECT = EMAIL_SUBJECT if 'EMAIL_SUBJECT' in globals() else "Application for React.js Developer / Frontend Developer – 3+ Years Experience"
-        self.BODY_HTML = EMAIL_BODY if 'EMAIL_BODY' in globals() else """
-        <html>
-        <body style="font-family: 'Poppins', Arial, sans-serif; line-height: 1.6; color: #333;">
-            <p>Dear Hiring Manager,</p>
-            <p>I hope you're doing well.</p>
-            <p>I am writing to express my interest in the <strong>React.js Developer</strong> position...</p>
-            <p>Best regards,<br>[FULL_NAME]</p>
-        </body>
-        </html>
-        """
+        self.BODY_HTML = EMAIL_BODY if 'EMAIL_BODY' in globals() else (
+            "Dear Hiring Manager,\n\nI am interested in the React.js Developer position.\n\n"
+            "Best regards,\n[FULL_NAME]"
+        )
 
         self.ATTACHMENT_PATH = RESUME_FILE if 'RESUME_FILE' in globals() else "uploads/uploaded_resume.pdf"
         self.campaign_roles = []

@@ -10,6 +10,7 @@ import markdown
 _BODY = re.compile(r"(<body\b[^>]*>)(.*?)(</body\s*>)", re.I | re.S)
 _BLOCK_TAG = re.compile(r"<(?:p|div|ul|ol|li|table|section|article|h[1-6])\b", re.I)
 _MARKDOWN = re.compile(r"\*\*[^*\n]+\*\*|\[[^\]]+\]\(https?://")
+_HTML_TEMPLATE = re.compile(r"</?(?:html|head|body|p|div|ul|ol|li|br|strong|b|em|i|a|span|h[1-6])\b", re.I)
 
 
 def personalize_email_template(template: str, personal: dict | None = None) -> str:
@@ -43,7 +44,7 @@ def _render_body(body: str) -> str:
         return body
     body = html.unescape(body).replace("\xa0", " ")
     body = _BULLET.sub(r"\1- ", body)
-    return markdown.markdown(body, extensions=["nl2br"], output_format="html")
+    return markdown.markdown(html.escape(body, quote=False), extensions=["nl2br"], output_format="html")
 
 
 def render_email_html(template: str) -> str:
@@ -78,7 +79,7 @@ class _PlainTextParser(HTMLParser):
         if tag == "br":
             self.parts.append("\n")
         elif tag == "li":
-            self.parts.append("\n• ")
+            self.parts.append("\n- ")
         elif tag == "a":
             self.links.append(dict(attrs).get("href", ""))
 
@@ -92,18 +93,21 @@ class _PlainTextParser(HTMLParser):
                 self.parts.append(f" <{link}>")
         elif tag in {"p", "div", "h1", "h2", "h3", "ul", "ol"}:
             self.parts.append("\n\n")
-        elif tag == "li":
-            self.parts.append("\n")
 
     def handle_data(self, data):
-        if not self.hidden_depth:
+        if not self.hidden_depth and (data.strip() or (data.isspace() and "\n" not in data)):
             self.parts.append(data)
 
 
 def plain_text_from_html(html_body: str) -> str:
     parser = _PlainTextParser()
     parser.feed(html_body)
-    content = "".join(parser.parts)
-    content = re.sub(r"[ \t]+\n", "\n", content)
-    content = re.sub(r"\n[ \t]*\n(?:[ \t]*\n)+", "\n\n", content)
+    content = "\n".join(line.strip() for line in "".join(parser.parts).splitlines())
+    content = re.sub(r"\n{3,}", "\n\n", content)
     return content.strip()
+
+
+def editable_email_template(template: str) -> str:
+    """Show legacy HTML templates as a normal message in the dashboard editor."""
+    template = str(template or "")
+    return plain_text_from_html(template) if _HTML_TEMPLATE.search(template) else template

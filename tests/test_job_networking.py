@@ -202,6 +202,21 @@ class JobNetworkingTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertNotIn('linkedin', response.get_json()['config'])
 
+    def test_loaded_html_templates_are_editable_text(self):
+        import json
+        from unittest.mock import mock_open
+        saved = {'job': {'emailTemplate': '<p>Hello</p>', 'roles': [
+            {'emailTemplate': '<p>Dear team,</p><p>[FULL_NAME]</p>'},
+            {'emailTemplate': 'Plain message'}]}}
+        with patch('professional_dashboard_api.os.path.exists', return_value=True), \
+             patch('builtins.open', mock_open(read_data=json.dumps(saved))):
+            response = app.test_client().get('/api/load-config')
+        self.assertEqual(response.status_code, 200)
+        job = response.get_json()['config']['job']
+        self.assertEqual(job['emailTemplate'], 'Hello')
+        self.assertEqual(job['roles'][0]['emailTemplate'], 'Dear team,\n\n[FULL_NAME]')
+        self.assertEqual(job['roles'][1]['emailTemplate'], 'Plain message')
+
     def test_only_linkedin_profile_urls_can_be_sent(self):
         self.assertEqual(profile_url('https://www.linkedin.com/in/aisha/?tracking=1'), 'https://www.linkedin.com/in/aisha/')
         self.assertEqual(profile_url('https://linkedin.com/IN/Aisha/?tracking=1'), 'https://www.linkedin.com/in/aisha/')

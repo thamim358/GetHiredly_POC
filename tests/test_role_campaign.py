@@ -78,6 +78,8 @@ class CampaignRolesTest(unittest.TestCase):
         response = app.test_client().get("/dashboard")
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Multi-role campaign", response.data)
+        self.assertIn(b"How to get a Gmail app password", response.data)
+        self.assertIn(b"https://myaccount.google.com/apppasswords", response.data)
 
     def test_old_entry_points_open_current_dashboard(self):
         response = app.test_client().get("/")

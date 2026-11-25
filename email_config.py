@@ -40,49 +40,24 @@ DELAY_BETWEEN_JOBS = 2      # Seconds to wait between processing jobs (increased
 # Email Template
 EMAIL_SUBJECT = "Application for React.js Developer / Frontend Developer – 3+ Years Experience"
 
-EMAIL_BODY = """
-<html>
-<head>
-    <style>
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        p { margin: 12px 0; }
-        ul { margin: 12px 0; padding-left: 25px; }
-        li { margin: 6px 0; }
-        strong { font-weight: 600; }
-        a { color: #0066CC; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
-    <p>Dear Hiring Manager,</p>
+EMAIL_BODY = """Dear Hiring Manager,
 
-    <p>I hope you're doing well.</p>
+I am writing to apply for the React.js Developer / Frontend Developer position. I have experience building responsive web applications with React, JavaScript, TypeScript, and CSS.
 
-    <p>I am writing to express my interest in the <strong>React.js Developer</strong> or <strong>Frontend Developer</strong> position. With <strong>3+ years of experience</strong> in building responsive and user-friendly web applications, I am excited about the opportunity to contribute to your development team.</p>
+My relevant skills include:
 
-    <p><strong>Key Skills & Experience:</strong></p>
-    <ul>
-        <li>Proficient in <strong>React.js</strong>, <strong>JavaScript (ES6+)</strong>, <strong>TypeScript</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, and <strong>Tailwind CSS</strong></li>
-        <li>Expertise in <strong>RESTful API integration</strong>, <strong>state management (Redux, Context API)</strong>, and <strong>responsive UI/UX</strong> development</li>
-        <li>Familiar with <strong>Git</strong>, <strong>Webpack</strong>, <strong>Vite</strong>, <strong>Postman</strong>, <strong>Figma</strong>, and <strong>Adobe XD</strong></li>
-        <li>Passionate about <strong>clean code</strong>, <strong>performance optimization</strong>, <strong>cross-browser compatibility</strong>, and creating intuitive user experiences</li>
-    </ul>
+- React and frontend development
+- REST API integration and state management
+- Responsive design and accessibility
+- Git and modern build tools
 
-    <p>I have attached my updated resume for your review. I would be grateful for the opportunity to discuss how my background aligns with your team's needs. I am an <strong>immediate joiner</strong>, highly adaptable, and eager to contribute to a fast-paced and growth-driven environment.</p>
+I have attached my resume for your review. I would welcome the opportunity to discuss how I can contribute to your team.
 
-    <p>Thank you for your time and consideration. I look forward to hearing from you.</p>
+Thank you for your time and consideration.
 
-    <p>Best regards,<br>
-    <strong>[FULL_NAME]</strong><br>
-    [EMAIL]<br>
-    [PHONE]<br>
-    <a href="[WEBSITE]">[WEBSITE]</a></p>
-</body>
-</html>
+Best regards,
+[FULL_NAME]
+[EMAIL]
+[PHONE]
+[WEBSITE]
 """

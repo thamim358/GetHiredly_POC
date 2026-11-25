@@ -21,7 +21,7 @@ from datetime import datetime
 from flask import Flask, render_template, jsonify, request, send_file, Response, redirect, url_for
 from werkzeug.utils import secure_filename
 from role_campaign import campaign_roles, resume_path
-from email_formatting import personalize_email_template, render_email_html
+from email_formatting import editable_email_template, personalize_email_template, render_email_html
 from linkedin_networking import NetworkingAssistant
 
 # Windows consoles often use cp1252 and crash on Unicode emojis in print statements.
@@ -735,6 +735,18 @@ def load_config():
         # The dashboard only needs addresses and the password-presence flags below.
         config = dict(config)
         config.pop('linkedin', None)
+        job = config.get('job')
+        if isinstance(job, dict):
+            job = dict(job)
+            if 'emailTemplate' in job:
+                job['emailTemplate'] = editable_email_template(job['emailTemplate'])
+            if isinstance(job.get('roles'), list):
+                job['roles'] = [
+                    {**role, 'emailTemplate': editable_email_template(role.get('emailTemplate'))}
+                    if isinstance(role, dict) and 'emailTemplate' in role else role
+                    for role in job['roles']
+                ]
+            config['job'] = job
         return jsonify({'success': True, 'config': config})
 
     except Exception as e:
